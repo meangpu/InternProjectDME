@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c50d277517751524c9bf545299dc296c, type: 3}
-  m_Name: level1
+  m_Name: tank1
   m_EditorClassIdentifier: 
-  tankName: 
+  tankName: test
   tankDes: 
-  artWork: {fileID: 0}
+  artWork: {fileID: 21300000, guid: ffa1a9f8f1639b541b7225e5522666e6, type: 3}
   hp: 0
   moveSpeed: 0
   damage: 24
