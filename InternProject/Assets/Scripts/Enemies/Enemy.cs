@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="NewTank", menuName="NewTank")]
-public class Tank : ScriptableObject
+
+[CreateAssetMenu(fileName="newEnemy", menuName="NewEnemy")]
+public class Enemy : ScriptableObject
 {
-    public string tankName;
-    public string tankDes;
+    public string enemyName;
+    public string des;
     public Sprite artWork;
     public int hp;
     public float moveSpeed;

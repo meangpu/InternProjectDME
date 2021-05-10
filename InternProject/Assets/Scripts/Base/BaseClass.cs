@@ -7,13 +7,21 @@ using TMPro;
 
 public class BaseClass : MonoBehaviour
 {
+    [System.Serializable]
+    public class BaseGun
+    {
+        public GameObject gunObj;
+        public Transform gunPos;
+    }
     [Header("BaseInfo")]
     public int maxHp;
     public int hp;
-    public GameObject[] gun;
+    public BaseGun[] guns;
     [Header("HP")]
     public Slider siderHealth;
     public TMP_Text textHp;
+
+
 
     public void SetHealth(int health)
     {
@@ -31,7 +39,30 @@ public class BaseClass : MonoBehaviour
     private void Awake() 
     {
         SetMaxHealth();
+        setGun();
     }
 
+    private void setGun()
+    {
+        foreach (var gun in guns)
+        {
+            Instantiate(gun.gunObj, gun.gunPos.position, Quaternion.identity);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "EnemyBullet")
+        {
+            takeDamage(col.gameObject.GetComponent<EnemyBullet>().damage);
+            Destroy(col.gameObject);
+        }
+    }
+
+    void takeDamage(int damage)
+    {
+        hp -= damage;
+        SetHealth(hp);
+    }
 
 }
