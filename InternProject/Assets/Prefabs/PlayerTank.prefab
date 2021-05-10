@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3493538209020959055}
   movementSpeed: 5
+  rotationSpeed: 3
   controllerDeadZone: 0.2
 --- !u!50 &3493538209020959055
 Rigidbody2D:
