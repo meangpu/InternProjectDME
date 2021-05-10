@@ -29,6 +29,7 @@ public class TextureAtlasSlicer : EditorWindow {
 
     public TextureImporter importer;
 
+    [Obsolete]
     public TextureAtlasSlicer()
     {
         title = "Texture Atlas Slicer";
