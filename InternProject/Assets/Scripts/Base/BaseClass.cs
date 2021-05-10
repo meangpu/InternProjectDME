@@ -1,13 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-[CreateAssetMenu(fileName="NewBase", menuName="NewBase")]
-public class BaseClass : ScriptableObject
+
+public class BaseClass : MonoBehaviour
 {
-    public string tankName;
-    public string tankDes;
-    public Sprite artWork;
+    [Header("BaseInfo")]
+    public int maxHp;
     public int hp;
-    public int damage;
+    public GameObject[] gun;
+    [Header("HP")]
+    public Slider siderHealth;
+    public TMP_Text textHp;
+
+    public void SetHealth(int health)
+    {
+        siderHealth.value = health;
+        textHp.text = $"{health}/{maxHp}";
+    }
+
+    public void SetMaxHealth()
+    {
+        siderHealth.maxValue = maxHp;
+        siderHealth.value = maxHp;
+        textHp.text = $"{maxHp}/{maxHp}";
+    }
+
+    private void Awake() 
+    {
+        SetMaxHealth();
+    }
+
+
 }
