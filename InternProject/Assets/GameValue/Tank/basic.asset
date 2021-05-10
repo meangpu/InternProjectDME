@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankName: basic
   tankDes: very basic tank cheap but work
-  artWork: {fileID: 8663791973419255845, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  artWork: {fileID: -574662044077708817, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
   hp: 50
   moveSpeed: 2
   damage: 1

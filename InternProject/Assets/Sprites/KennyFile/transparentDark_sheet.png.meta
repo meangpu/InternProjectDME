@@ -1,0 +1,1356 @@
+fileFormatVersion: 2
+guid: 478bcfb83b911a347a03a804bf1d905b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9063452812538703728
+    second: transparentDark00.png
+  - first:
+      213: 5711563870982847075
+    second: transparentDark01.png
+  - first:
+      213: 3719856789115131201
+    second: transparentDark02.png
+  - first:
+      213: 4952080319289354656
+    second: transparentDark03.png
+  - first:
+      213: 5932273961868791249
+    second: transparentDark04.png
+  - first:
+      213: 4486828459953606134
+    second: transparentDark05.png
+  - first:
+      213: 1870808586449331118
+    second: transparentDark06.png
+  - first:
+      213: -4062892470362205532
+    second: transparentDark07.png
+  - first:
+      213: -5708135019831045484
+    second: transparentDark08.png
+  - first:
+      213: 7330105444295960786
+    second: transparentDark09.png
+  - first:
+      213: 2704184215861344634
+    second: transparentDark10.png
+  - first:
+      213: 2709259794243495441
+    second: transparentDark11.png
+  - first:
+      213: -4077728370927225138
+    second: transparentDark12.png
+  - first:
+      213: -5575978892761663558
+    second: transparentDark13.png
+  - first:
+      213: 1452176543166973883
+    second: transparentDark14.png
+  - first:
+      213: -4526576179644235339
+    second: transparentDark15.png
+  - first:
+      213: 2122785897827536289
+    second: transparentDark16.png
+  - first:
+      213: 4969686210969069256
+    second: transparentDark17.png
+  - first:
+      213: 1418413723163095024
+    second: transparentDark18.png
+  - first:
+      213: -1045358283268004488
+    second: transparentDark19.png
+  - first:
+      213: 2000081721803359510
+    second: transparentDark20.png
+  - first:
+      213: 4788464941815845469
+    second: transparentDark21.png
+  - first:
+      213: -3740869161564196618
+    second: transparentDark22.png
+  - first:
+      213: -183324601726447492
+    second: transparentDark23.png
+  - first:
+      213: 8170141318493652615
+    second: transparentDark24.png
+  - first:
+      213: -44564394882409281
+    second: transparentDark25.png
+  - first:
+      213: 4260791048373087619
+    second: transparentDark26.png
+  - first:
+      213: 547028761656488247
+    second: transparentDark27.png
+  - first:
+      213: 4687035094698118156
+    second: transparentDark28.png
+  - first:
+      213: -1470055299349811552
+    second: transparentDark29.png
+  - first:
+      213: -5500479980902958280
+    second: transparentDark30.png
+  - first:
+      213: -1367825501742951866
+    second: transparentDark31.png
+  - first:
+      213: 8188739542636228436
+    second: transparentDark32.png
+  - first:
+      213: -782231882066931985
+    second: transparentDark33.png
+  - first:
+      213: -1051515673857417571
+    second: transparentDark34.png
+  - first:
+      213: -867038898331830571
+    second: transparentDark35.png
+  - first:
+      213: -1836531262953268028
+    second: transparentDark36.png
+  - first:
+      213: -7609944170975832911
+    second: transparentDark37.png
+  - first:
+      213: -1060806019472036436
+    second: transparentDark38.png
+  - first:
+      213: 4795002583423766963
+    second: transparentDark39.png
+  - first:
+      213: 492540638041766081
+    second: transparentDark40.png
+  - first:
+      213: 5104125537344516576
+    second: transparentDark41.png
+  - first:
+      213: 2588915131103725188
+    second: transparentDark42.png
+  - first:
+      213: 6830043047256600080
+    second: transparentDark43.png
+  - first:
+      213: -1466656483424067139
+    second: transparentDark44.png
+  - first:
+      213: -3804857534771547335
+    second: transparentDark45.png
+  - first:
+      213: 6503457888100791944
+    second: transparentDark46.png
+  - first:
+      213: 5613566225126077336
+    second: transparentDark47.png
+  - first:
+      213: 8068945495022668935
+    second: transparentDark48.png
+  - first:
+      213: 240798837824395466
+    second: transparentDark49.png
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: transparentDark00.png
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 204
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0909d1eefa5283280800000000000000
+      internalID: -9063452812538703728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark01.png
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 68
+        width: 61
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a33e9541d834f40800000000000000
+      internalID: 5711563870982847075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark02.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14558828a069f9330800000000000000
+      internalID: 3719856789115131201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark03.png
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 16
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9e17a20d259b440800000000000000
+      internalID: 4952080319289354656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark04.png
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 144
+        width: 75
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd0d7fdcbba35250800000000000000
+      internalID: 5932273961868791249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark05.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fdc5ab46ba644e30800000000000000
+      internalID: 4486828459953606134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark06.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea320165f7276f910800000000000000
+      internalID: 1870808586449331118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark07.png
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 445
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2937703d4bd97c0800000000000000
+      internalID: -4062892470362205532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark08.png
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 129
+        width: 61
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492d0054171a8c0b0800000000000000
+      internalID: -5708135019831045484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark09.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 445
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8ea65a014c9b560800000000000000
+      internalID: 7330105444295960786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark10.png
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 365
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7932a98731378520800000000000000
+      internalID: 2704184215861344634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark11.png
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 413
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116a128bd69399520800000000000000
+      internalID: 2709259794243495441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark12.png
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 157
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6b950c6aff867c0800000000000000
+      internalID: -4077728370927225138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark13.png
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 317
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab77dd56db42e92b0800000000000000
+      internalID: -5575978892761663558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark14.png
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 413
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb74f9e3fda272410800000000000000
+      internalID: 1452176543166973883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark15.png
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 20
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b18f8b82fe5e21c0800000000000000
+      internalID: -4526576179644235339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark16.png
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 397
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad083ee686a57d10800000000000000
+      internalID: 2122785897827536289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark17.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 237
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6e7f1474fd7f440800000000000000
+      internalID: 4969686210969069256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark18.png
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 509
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ffeca124c73fa310800000000000000
+      internalID: 1418413723163095024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark19.png
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 20
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8756cce0e242e71f0800000000000000
+      internalID: -1045358283268004488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark20.png
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 557
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61547d5aab7b1cb10800000000000000
+      internalID: 2000081721803359510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark21.png
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 461
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5258548e7b047240800000000000000
+      internalID: 4788464941815845469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark22.png
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 205
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0b0c94153c51cc0800000000000000
+      internalID: -3740869161564196618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark23.png
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 285
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70518bfe33b47df0800000000000000
+      internalID: -183324601726447492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark24.png
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 365
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7864e8ded3c226170800000000000000
+      internalID: 8170141318493652615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark25.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 445
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc57614beca16ff0800000000000000
+      internalID: -44564394882409281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark26.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 525
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d217442ee512b30800000000000000
+      internalID: 4260791048373087619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark27.png
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 45
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731f47ca2cf679700800000000000000
+      internalID: 547028761656488247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark28.png
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c454de591bb0140800000000000000
+      internalID: 4687035094698118156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark29.png
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 317
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aee2127e70599be0800000000000000
+      internalID: -1470055299349811552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark30.png
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 557
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83bb124a99e5aa3b0800000000000000
+      internalID: -5500479980902958280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark31.png
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 509
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64214e504f1840de0800000000000000
+      internalID: -1367825501742951866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark32.png
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 461
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45fe60d6a3f34a170800000000000000
+      internalID: 8188739542636228436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark33.png
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 365
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fee4a696f34f425f0800000000000000
+      internalID: -782231882066931985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark34.png
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 205
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e19f7d0144861f0800000000000000
+      internalID: -1051515673857417571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark35.png
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 157
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d63c7a37b8a7f3f0800000000000000
+      internalID: -867038898331830571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark36.png
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 237
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc55c4fb845386e0800000000000000
+      internalID: -1836531262953268028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark37.png
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 317
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b45e60881c046690800000000000000
+      internalID: -7609944170975832911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark38.png
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 44
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cade5c1bb824741f0800000000000000
+      internalID: -1060806019472036436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark39.png
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 125
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1dd02d1754b8240800000000000000
+      internalID: 4795002583423766963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark40.png
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 77
+        width: 108
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c87ce7c91bd5d600800000000000000
+      internalID: 492540638041766081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark41.png
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 29
+        width: 108
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e17b66222f75d640800000000000000
+      internalID: 5104125537344516576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark42.png
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 397
+        width: 108
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4864217589cade320800000000000000
+      internalID: 2588915131103725188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark43.png
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 77
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e2b50e6ff29ce50800000000000000
+      internalID: 6830043047256600080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark44.png
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 124
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db12cf1f2b365abe0800000000000000
+      internalID: -1466656483424067139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark45.png
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 525
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93339fa2b3e623bc0800000000000000
+      internalID: -3804857534771547335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark46.png
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 445
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886b5ff0e7ce04a50800000000000000
+      internalID: 6503457888100791944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark47.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 365
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89335c36db467ed40800000000000000
+      internalID: 5613566225126077336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark48.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 285
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c80d63d27aaff60800000000000000
+      internalID: 8068945495022668935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: transparentDark49.png
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 300
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac899d6644d775300800000000000000
+      internalID: 240798837824395466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
