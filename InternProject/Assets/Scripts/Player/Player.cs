@@ -23,13 +23,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-       /* // Tank Movements
-        playerControls.Tank.Move.performed += _ => Move();
-        playerControls.Tank.Move.canceled += _ => StopMovement();
 
-        // Tank rotation
-        playerControls.Tank.Rotate.performed += _ => Rotate();
-        // playerControls.Tank.Rotate.canceled += _ => StopRotating();*/
     }
 
     private void OnDisable()
@@ -78,9 +72,4 @@ public class Player : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
     }
-
-    /*private void StopRotating()
-    {
-
-    }*/
 }
