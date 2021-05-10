@@ -1,265 +1,304 @@
 fileFormatVersion: 2
-guid: b3b1a8ed31c8dc74e9ebd898770480ee
+guid: f378082bf0851b9419e9fce3e7fb7688
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3998710580892445282
-    second: barrelBeige.png
+      213: -8913884682871953817
+    second: hitman1_gun.png
   - first:
-      213: -7477798812926722097
-    second: barrelBeige_outline.png
+      213: -3921946966933749031
+    second: hitman1_hold.png
   - first:
-      213: 3674656268087028563
-    second: barrelBlack.png
+      213: 8477432503588701107
+    second: hitman1_machine.png
   - first:
-      213: -5487600144086905492
-    second: barrelBlack_outline.png
+      213: -5320904709834404593
+    second: hitman1_reload.png
   - first:
-      213: 3032405748175628304
-    second: barrelBlue.png
+      213: -8514851373406117482
+    second: hitman1_silencer.png
   - first:
-      213: -2010980955885669400
-    second: barrelBlue_outline.png
+      213: 3541397789357471234
+    second: hitman1_stand.png
   - first:
-      213: -4655039957060953392
-    second: barrelGreen.png
+      213: 1343655867546966106
+    second: hitman2_gun.png
   - first:
-      213: -4994951833088967198
-    second: barrelGreen_outline.png
+      213: -4077444781473451307
+    second: hitman2_hold.png
   - first:
-      213: 4982637768979216687
-    second: barrelGreen_side.png
+      213: -2334760322906200921
+    second: hitman2_machine.png
   - first:
-      213: -8368485449085435849
-    second: barrelGreen_side_damaged.png
+      213: 9008322129912346157
+    second: hitman2_reload.png
   - first:
-      213: -6531650029369869252
-    second: barrelGreen_up.png
+      213: 699240837882599984
+    second: hitman2_silencer.png
   - first:
-      213: -4849936017250208222
-    second: barrelGrey_sde_rust.png
+      213: -5665586725759984777
+    second: hitman2_stand.png
   - first:
-      213: 8603964539862204406
-    second: barrelGrey_side.png
+      213: -7387945925565900092
+    second: manBlue_gun.png
   - first:
-      213: 5735671340074591575
-    second: barrelGrey_up.png
+      213: 5712675597481794928
+    second: manBlue_hold.png
   - first:
-      213: -7738183107879934526
-    second: barrelRed.png
+      213: 1516127635739607740
+    second: manBlue_machine.png
   - first:
-      213: 6412504248339571876
-    second: barrelRed_outline.png
+      213: 7581334171925672165
+    second: manBlue_reload.png
   - first:
-      213: 7869340455462019338
-    second: barrelRed_side.png
+      213: 3583967359525239023
+    second: manBlue_silencer.png
   - first:
-      213: 5765717766275434201
-    second: barrelRed_up.png
+      213: 5955748402571542897
+    second: manBlue_stand.png
   - first:
-      213: -6807659485009291076
-    second: bulletBeige.png
+      213: -3970233270908707887
+    second: manBrown_gun.png
   - first:
-      213: 7046470701328351299
-    second: bulletBeigeSilver.png
+      213: -3223497896421046608
+    second: manBrown_hold.png
   - first:
-      213: -1859915352825295479
-    second: bulletBeigeSilver_outline.png
+      213: 3291944685911602590
+    second: manBrown_machine.png
   - first:
-      213: -5646696457320939449
-    second: bulletBeige_outline.png
+      213: -5951026544955105159
+    second: manBrown_reload.png
   - first:
-      213: -42233181778024767
-    second: bulletBlue.png
+      213: 6331626568566368442
+    second: manBrown_silencer.png
   - first:
-      213: 4807691601528572987
-    second: bulletBlueSilver.png
+      213: 4250466633346753518
+    second: manBrown_stand.png
   - first:
-      213: 6677223725121152227
-    second: bulletBlueSilver_outline.png
+      213: -1564959205756698604
+    second: manOld_gun.png
   - first:
-      213: -6270360741778355495
-    second: bulletBlue_outline.png
+      213: 4378461394771674335
+    second: manOld_hold.png
   - first:
-      213: -2188339265354130246
-    second: bulletGreen.png
+      213: -5499069830863120220
+    second: manOld_machine.png
   - first:
-      213: 5731514149852361757
-    second: bulletGreenSilver.png
+      213: -2914313826227786162
+    second: manOld_reload.png
   - first:
-      213: -461000747117155579
-    second: bulletGreenSilver_outline.png
+      213: -4300378790468757068
+    second: manOld_silencer.png
   - first:
-      213: 7052692420760656810
-    second: bulletGreen_outline.png
+      213: -1605054270125204143
+    second: manOld_stand.png
   - first:
-      213: 8726327230089540446
-    second: bulletRed.png
+      213: -7554597077748773941
+    second: manRed_gun.png
   - first:
-      213: 6874673282510725395
-    second: bulletRedSilver.png
+      213: 6027207550218654097
+    second: manRed_hold.png
   - first:
-      213: -5536605620269384643
-    second: bulletRedSilver_outline.png
+      213: -4906628090140347797
+    second: manRed_machine.png
   - first:
-      213: -3192677803129398182
-    second: bulletRed_outline.png
+      213: -8786184166396694546
+    second: manRed_reload.png
   - first:
-      213: -4027427408794736843
-    second: bulletSilver.png
+      213: -4390874797472648402
+    second: manRed_silencer.png
   - first:
-      213: -8437964177988552626
-    second: bulletSilverSilver.png
+      213: 3736488901424624328
+    second: manRed_stand.png
   - first:
-      213: -8975933132768679423
-    second: bulletSilverSilver_outline.png
+      213: -9084962280864733834
+    second: robot1_gun.png
   - first:
-      213: 5250483087203809961
-    second: bulletSilver_outline.png
+      213: 18954861482135434
+    second: robot1_hold.png
   - first:
-      213: -8817197911436625561
-    second: bulletYellow.png
+      213: -5911200298091393234
+    second: robot1_machine.png
   - first:
-      213: 8755784964962939074
-    second: bulletYellowSilver.png
+      213: -2302155530062698048
+    second: robot1_reload.png
   - first:
-      213: 2238165697687046559
-    second: bulletYellowSilver_outline.png
+      213: -4134385913370192876
+    second: robot1_silencer.png
   - first:
-      213: -1356147014019499767
-    second: bulletYellow_outline.png
+      213: -4183781256638339890
+    second: robot1_stand.png
   - first:
-      213: 5315189978236590363
-    second: dirt.png
+      213: 1746977588534103761
+    second: robot2_gun.png
   - first:
-      213: -1010530962649890918
-    second: grass.png
+      213: 2035844427445690020
+    second: robot2_hold.png
   - first:
-      213: -5361559629346268412
-    second: oil.png
+      213: -1135141803915586377
+    second: robot2_machine.png
   - first:
-      213: -482986622496041442
-    second: sand.png
+      213: 8004346804986041858
+    second: robot2_reload.png
   - first:
-      213: 4100598722548881869
-    second: sandbagBeige.png
+      213: -7238936790362392293
+    second: robot2_silencer.png
   - first:
-      213: -9126071476222813189
-    second: sandbagBrown.png
+      213: -5385896111926948003
+    second: robot2_stand.png
   - first:
-      213: -8452809755313565582
-    second: smokeGrey0.png
+      213: -6959120172507054036
+    second: soldier1_gun.png
   - first:
-      213: 3407880101171352395
-    second: smokeGrey1.png
+      213: 1247578814772407019
+    second: soldier1_hold.png
   - first:
-      213: 2491064037990326809
-    second: smokeGrey2.png
+      213: 2182869426217312190
+    second: soldier1_machine.png
   - first:
-      213: 6856759834157090986
-    second: smokeGrey3.png
+      213: 3599607062446079880
+    second: soldier1_reload.png
   - first:
-      213: 796289543035812177
-    second: smokeGrey4.png
+      213: -457280375121451063
+    second: soldier1_silencer.png
   - first:
-      213: -1566520801209727407
-    second: smokeGrey5.png
+      213: -7932432471748982282
+    second: soldier1_stand.png
   - first:
-      213: 6578705774759682233
-    second: smokeOrange0.png
+      213: -4863967691054536835
+    second: soldier2_gun.png
   - first:
-      213: 2286720313221427204
-    second: smokeOrange1.png
+      213: -7211184132313659685
+    second: soldier2_hold.png
   - first:
-      213: 7714303104857095815
-    second: smokeOrange2.png
+      213: 8603252886537475483
+    second: soldier2_machine.png
   - first:
-      213: -7122511164386938688
-    second: smokeOrange3.png
+      213: -267411018500414613
+    second: soldier2_reload.png
   - first:
-      213: 8903306226935018098
-    second: smokeOrange4.png
+      213: 3333615250273749554
+    second: soldier2_silencer.png
   - first:
-      213: 8068572311644381088
-    second: smokeOrange5.png
+      213: 3140040780877700772
+    second: soldier2_stand.png
   - first:
-      213: 6784805044913993942
-    second: smokeWhite0.png
+      213: 9076713376850032507
+    second: survivor1_gun.png
   - first:
-      213: -5292647830184107460
-    second: smokeWhite1.png
+      213: 8418632956981551836
+    second: survivor1_hold.png
   - first:
-      213: -2354984118396398359
-    second: smokeWhite2.png
+      213: -2168077511469286303
+    second: survivor1_machine.png
   - first:
-      213: -7904940104200158552
-    second: smokeWhite3.png
+      213: -6235864387415483097
+    second: survivor1_reload.png
   - first:
-      213: -5753633368755142815
-    second: smokeWhite4.png
+      213: 2398011977532407037
+    second: survivor1_silencer.png
   - first:
-      213: 3204114107294374315
-    second: smokeWhite5.png
+      213: -3787024681315375896
+    second: survivor1_stand.png
   - first:
-      213: -3232735750063831375
-    second: smokeYellow0.png
+      213: -7246236768093536831
+    second: survivor2_gun.png
   - first:
-      213: 2074095754505946083
-    second: smokeYellow1.png
+      213: -2839751961180681801
+    second: survivor2_hold.png
   - first:
-      213: 3169240539607706735
-    second: smokeYellow2.png
+      213: 1534118671374678651
+    second: survivor2_machine.png
   - first:
-      213: -5895996468200655789
-    second: smokeYellow3.png
+      213: 9174180589431734941
+    second: survivor2_reload.png
   - first:
-      213: 3225800792442041447
-    second: smokeYellow4.png
+      213: 7651300486584210388
+    second: survivor2_silencer.png
   - first:
-      213: 3893828534250366469
-    second: smokeYellow5.png
+      213: 6572684891577686857
+    second: survivor2_stand.png
   - first:
-      213: -8055944065117174999
-    second: tankBeige.png
+      213: 4895682659554426443
+    second: weapon_gun.png
   - first:
-      213: 1072077224259886335
-    second: tankBeige_outline.png
+      213: -3524458924318341243
+    second: weapon_machine.png
   - first:
-      213: 305200898916785479
-    second: tankBlack.png
+      213: -2831718213184673032
+    second: weapon_silencer.png
   - first:
-      213: 6429223304102030103
-    second: tankBlack_outline.png
+      213: 6611122074293355654
+    second: womanGreen_gun.png
   - first:
-      213: -574662044077708817
-    second: tankBlue.png
+      213: 4505560416714284487
+    second: womanGreen_hold.png
   - first:
-      213: -6115267694332673035
-    second: tankBlue_outline.png
+      213: -7842970618747099399
+    second: womanGreen_machine.png
   - first:
-      213: 6981943689483637337
-    second: tankGreen.png
+      213: 758981762766603111
+    second: womanGreen_reload.png
   - first:
-      213: 6444648289286387833
-    second: tankGreen_outline.png
+      213: 8445161139759408666
+    second: womanGreen_silencer.png
   - first:
-      213: 4319672837034334888
-    second: tankRed.png
+      213: 6506884560519211664
+    second: womanGreen_stand.png
   - first:
-      213: -1860899817641957812
-    second: tankRed_outline.png
+      213: 4919171281308210384
+    second: womanOld_gun.png
   - first:
-      213: -1679306383164140350
-    second: tracksLarge.png
+      213: 1577405047230306550
+    second: womanOld_hold.png
   - first:
-      213: 1851550789188087507
-    second: tracksSmall.png
+      213: 8203253947065036258
+    second: womanOld_machine.png
   - first:
-      213: -8262074229558958461
-    second: treeLarge.png
+      213: -7375512082271953441
+    second: womanOld_reload.png
   - first:
-      213: 8707436237485916330
-    second: treeSmall.png
+      213: 3546800793013705508
+    second: womanOld_silencer.png
+  - first:
+      213: -7626941452103007169
+    second: womanOld_stand.png
+  - first:
+      213: 5784912568369704967
+    second: zoimbie1_gun.png
+  - first:
+      213: -6142324308395457208
+    second: zoimbie1_hold.png
+  - first:
+      213: 6311268659881183706
+    second: zoimbie1_machine.png
+  - first:
+      213: -6049542154526815531
+    second: zoimbie1_reload.png
+  - first:
+      213: -5912131432443495482
+    second: zoimbie1_silencer.png
+  - first:
+      213: -682288305002969803
+    second: zoimbie1_stand.png
+  - first:
+      213: -6200139386638672203
+    second: zombie2_gun.png
+  - first:
+      213: -29939870544612685
+    second: zombie2_hold.png
+  - first:
+      213: 6335894914345198513
+    second: zombie2_machine.png
+  - first:
+      213: 3042903914829554427
+    second: zombie2_reload.png
+  - first:
+      213: -3596898967937102933
+    second: zombie2_silencer.png
+  - first:
+      213: 8005124438540925284
+    second: zombie2_stand.png
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -397,13 +436,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barrelBeige.png
+      name: hitman1_gun.png
       rect:
         serializedVersion: 2
-        x: 842
-        y: 354
-        width: 16
-        height: 50
+        x: 210
+        y: 29
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -411,20 +450,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e955f4aa9e9b188c0800000000000000
-      internalID: -3998710580892445282
+      spriteID: 7662f94db158b4480800000000000000
+      internalID: -8913884682871953817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelBeige_outline.png
+      name: hitman1_hold.png
       rect:
         serializedVersion: 2
-        x: 840
-        y: 86
-        width: 24
-        height: 58
+        x: 332
+        y: 161
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,20 +471,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcf3aa54995893890800000000000000
-      internalID: -7477798812926722097
+      spriteID: 9d24eff43027299c0800000000000000
+      internalID: -3921946966933749031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelBlack.png
+      name: hitman1_machine.png
       rect:
         serializedVersion: 2
-        x: 840
-        y: 36
-        width: 16
-        height: 50
+        x: 160
+        y: 29
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -453,20 +492,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35b6dfa18600ff230800000000000000
-      internalID: 3674656268087028563
+      spriteID: 3b341c752f3e5a570800000000000000
+      internalID: 8477432503588701107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelBlack_outline.png
+      name: hitman1_reload.png
       rect:
         serializedVersion: 2
-        x: 818
-        y: 286
-        width: 24
-        height: 58
+        x: 213
+        y: 249
+        width: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,20 +513,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6d41565eb028d3b0800000000000000
-      internalID: -5487600144086905492
+      spriteID: f0d0e969b595826b0800000000000000
+      internalID: -5320904709834404593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelBlue.png
+      name: hitman1_silencer.png
       rect:
         serializedVersion: 2
-        x: 850
-        y: 404
-        width: 16
-        height: 50
+        x: 55
+        y: 29
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -495,20 +534,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0186cda26f4451a20800000000000000
-      internalID: 3032405748175628304
+      spriteID: 691a1ec1acb25d980800000000000000
+      internalID: -8514851373406117482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelBlue_outline.png
+      name: hitman1_stand.png
       rect:
         serializedVersion: 2
-        x: 827
-        y: 228
-        width: 24
-        height: 58
+        x: 337
+        y: 469
+        width: 33
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -516,20 +555,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e3fb5aa97f8714e0800000000000000
-      internalID: -2010980955885669400
+      spriteID: 206710bb682952130800000000000000
+      internalID: 3541397789357471234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelGreen.png
+      name: hitman2_gun.png
       rect:
         serializedVersion: 2
-        x: 834
-        y: 404
-        width: 16
-        height: 50
+        x: 111
+        y: 381
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -537,20 +576,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dad12092d9f56fb0800000000000000
-      internalID: -4655039957060953392
+      spriteID: a58918d74ef95a210800000000000000
+      internalID: 1343655867546966106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelGreen_outline.png
+      name: hitman2_hold.png
       rect:
         serializedVersion: 2
-        x: 818
-        y: 344
-        width: 24
-        height: 58
+        x: 332
+        y: 117
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -558,20 +597,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2edbb8ea5cd5eaab0800000000000000
-      internalID: -4994951833088967198
+      spriteID: 5d2310113910a67c0800000000000000
+      internalID: -4077444781473451307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelGreen_side.png
+      name: hitman2_machine.png
       rect:
         serializedVersion: 2
-        x: 746
-        y: 402
-        width: 44
-        height: 62
+        x: 110
+        y: 29
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -579,20 +618,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f297378d6a2e52540800000000000000
-      internalID: 4982637768979216687
+      spriteID: 7a4ef7d3bd3499fd0800000000000000
+      internalID: -2334760322906200921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelGreen_side_damaged.png
+      name: hitman2_reload.png
       rect:
         serializedVersion: 2
-        x: 790
-        y: 402
-        width: 44
-        height: 62
+        x: 255
+        y: 161
+        width: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -600,272 +639,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 730cc3b72da2ddb80800000000000000
-      internalID: -8368485449085435849
+      spriteID: d2637bfbf3df30d70800000000000000
+      internalID: 9008322129912346157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrelGreen_up.png
-      rect:
-        serializedVersion: 2
-        x: 746
-        y: 464
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3c3d3a87eaea55a0800000000000000
-      internalID: -6531650029369869252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelGrey_sde_rust.png
-      rect:
-        serializedVersion: 2
-        x: 783
-        y: 206
-        width: 44
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 226bd6c63e091bcb0800000000000000
-      internalID: -4849936017250208222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelGrey_side.png
-      rect:
-        serializedVersion: 2
-        x: 796
-        y: 40
-        width: 44
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ff3b8ac92c676770800000000000000
-      internalID: 8603964539862204406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelGrey_up.png
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 212
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 755e885e1b2399f40800000000000000
-      internalID: 5735671340074591575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelRed.png
-      rect:
-        serializedVersion: 2
-        x: 842
-        y: 304
-        width: 16
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c563e746737c9490800000000000000
-      internalID: -7738183107879934526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelRed_outline.png
-      rect:
-        serializedVersion: 2
-        x: 834
-        y: 454
-        width: 24
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a4a6f293aacdf850800000000000000
-      internalID: 6412504248339571876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelRed_side.png
-      rect:
-        serializedVersion: 2
-        x: 805
-        y: 144
-        width: 44
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a01ac606373853d60800000000000000
-      internalID: 7869340455462019338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barrelRed_up.png
-      rect:
-        serializedVersion: 2
-        x: 730
-        y: 10
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9d68106a2c1f30050800000000000000
-      internalID: 5765717766275434201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletBeige.png
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 5
-        width: 12
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb8d33454c55681a0800000000000000
-      internalID: -6807659485009291076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletBeigeSilver.png
-      rect:
-        serializedVersion: 2
-        x: 188
-        y: 141
-        width: 12
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 340cfd0e4c71ac160800000000000000
-      internalID: 7046470701328351299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletBeigeSilver_outline.png
-      rect:
-        serializedVersion: 2
-        x: 671
-        y: 338
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98d8d8247d04036e0800000000000000
-      internalID: -1859915352825295479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletBeige_outline.png
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 133
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 740cde25d77e2a1b0800000000000000
-      internalID: -5646696457320939449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletBlue.png
+      name: hitman2_silencer.png
       rect:
         serializedVersion: 2
         x: 0
-        y: 5
-        width: 12
-        height: 26
+        y: 73
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -873,20 +660,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c6e26a1525f96ff0800000000000000
-      internalID: -42233181778024767
+      spriteID: 03a507a56d334b900800000000000000
+      internalID: 699240837882599984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletBlueSilver.png
+      name: hitman2_stand.png
       rect:
         serializedVersion: 2
-        x: 12
-        y: 5
-        width: 12
-        height: 26
+        x: 368
+        y: 117
+        width: 33
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -894,20 +681,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3c4db21a0a58b240800000000000000
-      internalID: 4807691601528572987
+      spriteID: 77b58e6f3eacf51b0800000000000000
+      internalID: -5665586725759984777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletBlueSilver_outline.png
+      name: manBlue_gun.png
       rect:
         serializedVersion: 2
-        x: 148
-        y: 133
-        width: 20
-        height: 34
+        x: 111
+        y: 469
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -915,20 +702,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e428adb9934aac50800000000000000
-      internalID: 6677223725121152227
+      spriteID: 4ca99ded25eb87990800000000000000
+      internalID: -7387945925565900092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletBlue_outline.png
+      name: manBlue_hold.png
       rect:
         serializedVersion: 2
-        x: 755
-        y: 178
-        width: 20
-        height: 34
+        x: 332
+        y: 293
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -936,20 +723,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9da0fbc80243bf8a0800000000000000
-      internalID: -6270360741778355495
+      spriteID: 07dd1f85030874f40800000000000000
+      internalID: 5712675597481794928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletGreen.png
+      name: manBlue_machine.png
       rect:
         serializedVersion: 2
-        x: 24
-        y: 5
-        width: 12
-        height: 26
+        x: 111
+        y: 425
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -957,20 +744,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abc1780580571a1e0800000000000000
-      internalID: -2188339265354130246
+      spriteID: cb2896a4d0e5a0510800000000000000
+      internalID: 1516127635739607740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletGreenSilver.png
+      name: manBlue_reload.png
       rect:
         serializedVersion: 2
-        x: 36
-        y: 5
-        width: 12
-        height: 26
+        x: 253
+        y: 249
+        width: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -978,20 +765,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d14331f90cd6a8f40800000000000000
-      internalID: 5731514149852361757
+      spriteID: 5e0f821034f463960800000000000000
+      internalID: 7581334171925672165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletGreenSilver_outline.png
+      name: manBlue_silencer.png
       rect:
         serializedVersion: 2
-        x: 691
-        y: 338
-        width: 20
-        height: 34
+        x: 55
+        y: 73
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -999,20 +786,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50b64e253423a99f0800000000000000
-      internalID: -461000747117155579
+      spriteID: fe8b817235fccb130800000000000000
+      internalID: 3583967359525239023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletGreen_outline.png
+      name: manBlue_stand.png
       rect:
         serializedVersion: 2
-        x: 168
-        y: 133
-        width: 20
-        height: 34
+        x: 369
+        y: 205
+        width: 33
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1020,20 +807,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aab5781d36230e160800000000000000
-      internalID: 7052692420760656810
+      spriteID: 17180e20e9117a250800000000000000
+      internalID: 5955748402571542897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletRed.png
+      name: manBrown_gun.png
       rect:
         serializedVersion: 2
-        x: 120
-        y: 5
-        width: 12
-        height: 26
+        x: 111
+        y: 337
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1041,20 +828,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e533e47b1642a1970800000000000000
-      internalID: 8726327230089540446
+      spriteID: 1db9c0410e5e6e8c0800000000000000
+      internalID: -3970233270908707887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletRedSilver.png
+      name: manBrown_hold.png
       rect:
         serializedVersion: 2
-        x: 60
-        y: 5
-        width: 12
-        height: 26
+        x: 336
+        y: 381
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1062,20 +849,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 311abe64deeb76f50800000000000000
-      internalID: 6874673282510725395
+      spriteID: 0b6ca95fdb5d343d0800000000000000
+      internalID: -3223497896421046608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletRedSilver_outline.png
+      name: manBrown_machine.png
       rect:
         serializedVersion: 2
-        x: 711
-        y: 338
-        width: 20
-        height: 34
+        x: 161
+        y: 337
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1083,20 +870,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3c7966c5860a23b0800000000000000
-      internalID: -5536605620269384643
+      spriteID: e95fef710465fad20800000000000000
+      internalID: 3291944685911602590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletRed_outline.png
+      name: manBrown_reload.png
       rect:
         serializedVersion: 2
-        x: 735
-        y: 178
-        width: 20
-        height: 34
+        x: 260
+        y: 29
+        width: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1104,20 +891,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5c923e147451b3d0800000000000000
-      internalID: -3192677803129398182
+      spriteID: 970e70323e4b96da0800000000000000
+      internalID: -5951026544955105159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletSilver.png
+      name: manBrown_silencer.png
       rect:
         serializedVersion: 2
-        x: 72
-        y: 5
-        width: 12
-        height: 26
+        x: 55
+        y: 117
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1125,20 +912,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5372e142c14bb18c0800000000000000
-      internalID: -4027427408794736843
+      spriteID: ab8e2d551d47ed750800000000000000
+      internalID: 6331626568566368442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletSilverSilver.png
+      name: manBrown_stand.png
       rect:
         serializedVersion: 2
-        x: 84
-        y: 5
-        width: 12
-        height: 26
+        x: 368
+        y: 337
+        width: 33
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1146,20 +933,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e48758f494456ea80800000000000000
-      internalID: -8437964177988552626
+      spriteID: ee3a84212e0bcfa30800000000000000
+      internalID: 4250466633346753518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletSilverSilver_outline.png
+      name: manOld_gun.png
       rect:
         serializedVersion: 2
-        x: 778
-        y: 6
-        width: 20
-        height: 34
+        x: 162
+        y: 117
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1167,20 +954,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10ae9ad4f541f6380800000000000000
-      internalID: -8975933132768679423
+      spriteID: 41005e4d4e5284ae0800000000000000
+      internalID: -1564959205756698604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletSilver_outline.png
+      name: manOld_hold.png
       rect:
         serializedVersion: 2
-        x: 775
-        y: 172
-        width: 20
-        height: 34
+        x: 333
+        y: 73
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1188,20 +975,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9aabaffac867dd840800000000000000
-      internalID: 5250483087203809961
+      spriteID: fd48022c07b63cc30800000000000000
+      internalID: 4378461394771674335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletYellow.png
+      name: manOld_machine.png
       rect:
         serializedVersion: 2
-        x: 96
-        y: 5
-        width: 12
-        height: 26
+        x: 161
+        y: 469
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1209,20 +996,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 769f08e073503a580800000000000000
-      internalID: -8817197911436625561
+      spriteID: 4a81658cf116fa3b0800000000000000
+      internalID: -5499069830863120220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletYellowSilver.png
+      name: manOld_reload.png
       rect:
         serializedVersion: 2
-        x: 108
-        y: 5
-        width: 12
-        height: 26
+        x: 255
+        y: 205
+        width: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1230,62 +1017,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c07256190cc28970800000000000000
-      internalID: 8755784964962939074
+      spriteID: e4eeea704074e87d0800000000000000
+      internalID: -2914313826227786162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletYellowSilver_outline.png
-      rect:
-        serializedVersion: 2
-        x: 794
-        y: 478
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f99c91ff7df8f0f10800000000000000
-      internalID: 2238165697687046559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletYellow_outline.png
-      rect:
-        serializedVersion: 2
-        x: 814
-        y: 478
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9093926d97ffd2de0800000000000000
-      internalID: -1356147014019499767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dirt.png
+      name: manOld_silencer.png
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
-        width: 128
-        height: 128
+        y: 161
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1293,20 +1038,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b191286cf1953c940800000000000000
-      internalID: 5315189978236590363
+      spriteID: 4b95c72464cf154c0800000000000000
+      internalID: -4300378790468757068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass.png
+      name: manOld_stand.png
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 161
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d96ff25a3b9b9e0800000000000000
+      internalID: -1605054270125204143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: manRed_gun.png
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 381
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb8497dbfda82790800000000000000
+      internalID: -7554597077748773941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: manRed_hold.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 425
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191d55a5551f4a350800000000000000
+      internalID: 6027207550218654097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: manRed_machine.png
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 293
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b623b3a9fb728ebb0800000000000000
+      internalID: -4906628090140347797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: manRed_reload.png
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 469
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef63c64d04311680800000000000000
+      internalID: -8786184166396694546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: manRed_silencer.png
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 128
-        height: 128
+        y: 205
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1314,20 +1164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9f38b8817fd9f1f0800000000000000
-      internalID: -1010530962649890918
+      spriteID: e237d63b2aa7013c0800000000000000
+      internalID: -4390874797472648402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oil.png
+      name: manRed_stand.png
       rect:
         serializedVersion: 2
-        x: 200
-        y: 8
-        width: 96
-        height: 96
+        x: 369
+        y: 73
+        width: 33
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1335,20 +1185,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40b9db28ce9e795b0800000000000000
-      internalID: -5361559629346268412
+      spriteID: 8c2ba9cebdcaad330800000000000000
+      internalID: 3736488901424624328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sand.png
+      name: robot1_gun.png
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 425
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6752c3390fabbe180800000000000000
+      internalID: -9084962280864733834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot1_hold.png
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 249
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8fc8699857534000800000000000000
+      internalID: 18954861482135434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot1_machine.png
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 249
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f4414d5a237fda0800000000000000
+      internalID: -5911200298091393234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot1_reload.png
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 117
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c969e42eb91d00e0800000000000000
+      internalID: -2302155530062698048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot1_silencer.png
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 29
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1356,20 +1290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e169bdec9361c49f0800000000000000
-      internalID: -482986622496041442
+      spriteID: 414d03daae5bf96c0800000000000000
+      internalID: -4134385913370192876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandbagBeige.png
+      name: robot1_stand.png
       rect:
         serializedVersion: 2
-        x: 128
-        y: 167
-        width: 66
-        height: 44
+        x: 368
+        y: 293
+        width: 33
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1377,20 +1311,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc952ffefc048e830800000000000000
-      internalID: 4100598722548881869
+      spriteID: ec4622c1d1930f5c0800000000000000
+      internalID: -4183781256638339890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandbagBrown.png
+      name: robot2_gun.png
       rect:
         serializedVersion: 2
-        x: 730
-        y: 58
-        width: 66
-        height: 44
+        x: 162
+        y: 205
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1398,20 +1332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfb1ae8285ea95180800000000000000
-      internalID: -9126071476222813189
+      spriteID: 1dec4236cd28e3810800000000000000
+      internalID: 1746977588534103761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeGrey0.png
+      name: robot2_hold.png
       rect:
         serializedVersion: 2
-        x: 416
-        y: 237
-        width: 87
-        height: 87
+        x: 333
+        y: 205
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1419,20 +1353,335 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 270149cff4691ba80800000000000000
-      internalID: -8452809755313565582
+      spriteID: 4aedbdb68b5c04c10800000000000000
+      internalID: 2035844427445690020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeGrey1.png
+      name: robot2_machine.png
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 425
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b45ae72b8a2f30f0800000000000000
+      internalID: -1135141803915586377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot2_reload.png
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 293
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 206d932a207251f60800000000000000
+      internalID: 8004346804986041858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot2_silencer.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 117
+        width: 54
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1971fab7512a8b90800000000000000
+      internalID: -7238936790362392293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot2_stand.png
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 29
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fcf6b95047145b0800000000000000
+      internalID: -5385896111926948003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier1_gun.png
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 249
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c204678f21d3c6f90800000000000000
+      internalID: -6959120172507054036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier1_hold.png
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 425
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beaefc3725a405110800000000000000
+      internalID: 1247578814772407019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier1_machine.png
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 337
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf5eb48d2c1b4e10800000000000000
+      internalID: 2182869426217312190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier1_reload.png
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 205
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ff5104d8f54f130800000000000000
+      internalID: 3599607062446079880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier1_silencer.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 381
+        width: 57
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7e02eebe967a9f0800000000000000
+      internalID: -457280375121451063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier1_stand.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 29
+        width: 36
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9c0acd1b65ae190800000000000000
+      internalID: -7932432471748982282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier2_gun.png
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 469
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77a7b7c727bf7cb0800000000000000
+      internalID: -4863967691054536835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier2_hold.png
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 293
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6c287fc3abceb90800000000000000
+      internalID: -7211184132313659685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier2_machine.png
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 249
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b959be61be4e46770800000000000000
+      internalID: 8603252886537475483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier2_reload.png
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 337
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63e1417817f94cf0800000000000000
+      internalID: -267411018500414613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier2_silencer.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 337
+        width: 57
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a446a6861634e20800000000000000
+      internalID: 3333615250273749554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier2_stand.png
       rect:
         serializedVersion: 2
         x: 296
-        y: 15
-        width: 92
-        height: 89
+        y: 73
+        width: 36
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1440,20 +1689,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b43d07375e83b4f20800000000000000
-      internalID: 3407880101171352395
+      spriteID: 4ae947c147aa39b20800000000000000
+      internalID: 3140040780877700772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeGrey2.png
+      name: survivor1_gun.png
       rect:
         serializedVersion: 2
-        x: 478
-        y: 29
-        width: 90
-        height: 99
+        x: 110
+        y: 117
+        width: 51
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1461,20 +1710,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 912e9295b89029220800000000000000
-      internalID: 2491064037990326809
+      spriteID: b77be2bc9b6f6fd70800000000000000
+      internalID: 9076713376850032507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeGrey3.png
+      name: survivor1_hold.png
       rect:
         serializedVersion: 2
-        x: 651
-        y: 80
-        width: 79
-        height: 79
+        x: 295
+        y: 205
+        width: 37
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1482,20 +1731,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa889119dba182f50800000000000000
-      internalID: 6856759834157090986
+      spriteID: cd2284f021ef4d470800000000000000
+      internalID: 8418632956981551836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeGrey4.png
+      name: survivor1_machine.png
       rect:
         serializedVersion: 2
-        x: 128
-        y: 318
-        width: 100
-        height: 97
+        x: 110
+        y: 73
+        width: 51
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1503,20 +1752,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 159f107de1dfc0b00800000000000000
-      internalID: 796289543035812177
+      spriteID: 16c3c538df079e1e0800000000000000
+      internalID: -2168077511469286303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeGrey5.png
+      name: survivor1_reload.png
       rect:
         serializedVersion: 2
-        x: 128
-        y: 211
-        width: 98
-        height: 107
+        x: 254
+        y: 73
+        width: 41
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1524,104 +1773,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15642ae81a9924ae0800000000000000
-      internalID: -1566520801209727407
+      spriteID: 72d5790f062c579a0800000000000000
+      internalID: -6235864387415483097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeOrange0.png
-      rect:
-        serializedVersion: 2
-        x: 486
-        y: 150
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b0ac52fb024c4b50800000000000000
-      internalID: 6578705774759682233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: smokeOrange1.png
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 227
-        width: 92
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 400bb3262001cbf10800000000000000
-      internalID: 2286720313221427204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: smokeOrange2.png
-      rect:
-        serializedVersion: 2
-        x: 388
-        y: 5
-        width: 90
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78e33be3dc5be0b60800000000000000
-      internalID: 7714303104857095815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: smokeOrange3.png
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 172
-        width: 79
-        height: 79
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0c076f925d1c72d90800000000000000
-      internalID: -7122511164386938688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: smokeOrange4.png
+      name: survivor1_silencer.png
       rect:
         serializedVersion: 2
         x: 0
-        y: 31
-        width: 100
-        height: 97
+        y: 249
+        width: 56
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1629,20 +1794,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2723cf677d5ee8b70800000000000000
-      internalID: 8903306226935018098
+      spriteID: dfc73f73033774120800000000000000
+      internalID: 2398011977532407037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeOrange5.png
+      name: survivor1_stand.png
       rect:
         serializedVersion: 2
-        x: 228
-        y: 405
-        width: 98
-        height: 107
+        x: 301
+        y: 469
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1650,20 +1815,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0af9d10b4c359ff60800000000000000
-      internalID: 8068572311644381088
+      spriteID: 8e46f8aed19c17bc0800000000000000
+      internalID: -3787024681315375896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeWhite0.png
+      name: survivor2_gun.png
       rect:
         serializedVersion: 2
-        x: 324
-        y: 316
-        width: 92
-        height: 89
+        x: 110
+        y: 161
+        width: 51
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1671,20 +1836,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d8706cad38782e50800000000000000
-      internalID: 6784805044913993942
+      spriteID: 1cdf8673d02307b90800000000000000
+      internalID: -7246236768093536831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeWhite1.png
+      name: survivor2_hold.png
       rect:
         serializedVersion: 2
-        x: 396
-        y: 128
-        width: 90
-        height: 99
+        x: 294
+        y: 337
+        width: 37
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1692,20 +1857,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3262a017dcbc86b0800000000000000
-      internalID: -5292647830184107460
+      spriteID: 7b94b9f03ac2798d0800000000000000
+      internalID: -2839751961180681801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeWhite2.png
+      name: survivor2_machine.png
       rect:
         serializedVersion: 2
-        x: 590
-        y: 251
-        width: 79
-        height: 79
+        x: 110
+        y: 205
+        width: 51
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1713,20 +1878,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e4db4beb6a615fd0800000000000000
-      internalID: -2354984118396398359
+      spriteID: b7af492bdc84a4510800000000000000
+      internalID: 1534118671374678651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeWhite3.png
+      name: survivor2_reload.png
       rect:
         serializedVersion: 2
-        x: 128
-        y: 415
-        width: 100
-        height: 97
+        x: 212
+        y: 73
+        width: 41
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1734,20 +1899,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a2096e7bd20c4290800000000000000
-      internalID: -7904940104200158552
+      spriteID: d92cc52a3ac315f70800000000000000
+      internalID: 9174180589431734941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeWhite4.png
+      name: survivor2_silencer.png
       rect:
         serializedVersion: 2
-        x: 226
-        y: 211
-        width: 98
-        height: 107
+        x: 0
+        y: 293
+        width: 56
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1755,20 +1920,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16ff3876fecf620b0800000000000000
-      internalID: -5753633368755142815
+      spriteID: 4d310a41141ee2a60800000000000000
+      internalID: 7651300486584210388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeWhite5.png
+      name: survivor2_stand.png
       rect:
         serializedVersion: 2
-        x: 418
+        x: 300
         y: 425
-        width: 87
-        height: 87
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1776,20 +1941,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba95911fdcc477c20800000000000000
-      internalID: 3204114107294374315
+      spriteID: 94b9017d51ed63b50800000000000000
+      internalID: 6572684891577686857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeYellow0.png
+      name: weapon_gun.png
       rect:
         serializedVersion: 2
-        x: 228
-        y: 318
-        width: 87
-        height: 87
+        x: 26
+        y: 7
+        width: 19
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1797,20 +1962,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b64dbc86f30323d0800000000000000
-      internalID: -3232735750063831375
+      spriteID: b4ef7cfb075f0f340800000000000000
+      internalID: 4895682659554426443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeYellow1.png
+      name: weapon_machine.png
       rect:
         serializedVersion: 2
-        x: 326
-        y: 423
-        width: 92
-        height: 89
+        x: 0
+        y: 18
+        width: 33
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1818,20 +1983,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e30975891ba8cc10800000000000000
-      internalID: 2074095754505946083
+      spriteID: 587cc8e184b961fc0800000000000000
+      internalID: -3524458924318341243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeYellow2.png
+      name: weapon_silencer.png
       rect:
         serializedVersion: 2
-        x: 416
-        y: 324
-        width: 90
-        height: 99
+        x: 0
+        y: 7
+        width: 25
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1839,20 +2004,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6ca51bba776bfb20800000000000000
-      internalID: 3169240539607706735
+      spriteID: 8faaf17c947b3b8d0800000000000000
+      internalID: -2831718213184673032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeYellow3.png
+      name: womanGreen_gun.png
       rect:
         serializedVersion: 2
-        x: 651
-        y: 1
-        width: 79
-        height: 79
+        x: 110
+        y: 293
+        width: 52
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1860,20 +2025,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35431f353763d2ea0800000000000000
-      internalID: -5895996468200655789
+      spriteID: 684cff4df7c6fbb50800000000000000
+      internalID: 6611122074293355654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeYellow4.png
+      name: womanGreen_hold.png
       rect:
         serializedVersion: 2
-        x: 100
-        y: 31
-        width: 100
-        height: 97
+        x: 261
+        y: 381
+        width: 38
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1881,20 +2046,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7647eadcab854cc20800000000000000
-      internalID: 3225800792442041447
+      spriteID: 7cdd058d357f68e30800000000000000
+      internalID: 4505560416714284487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: smokeYellow5.png
+      name: womanGreen_machine.png
       rect:
         serializedVersion: 2
-        x: 298
-        y: 104
-        width: 98
-        height: 107
+        x: 58
+        y: 381
+        width: 52
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1902,20 +2067,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 506e548eb68a90630800000000000000
-      internalID: 3893828534250366469
+      spriteID: 9f6e0cda6cb282390800000000000000
+      internalID: -7842970618747099399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankBeige.png
+      name: womanGreen_reload.png
       rect:
         serializedVersion: 2
-        x: 730
-        y: 102
-        width: 75
-        height: 70
+        x: 212
+        y: 117
+        width: 42
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1923,20 +2088,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92346441e89833090800000000000000
-      internalID: -8055944065117174999
+      spriteID: 76304b854e1788a00800000000000000
+      internalID: 758981762766603111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankBeige_outline.png
+      name: womanGreen_silencer.png
       rect:
         serializedVersion: 2
-        x: 505
-        y: 434
-        width: 83
-        height: 78
+        x: 0
+        y: 425
+        width: 57
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1944,20 +2109,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffc1ccb2e88c0ee00800000000000000
-      internalID: 1072077224259886335
+      spriteID: a16ea4eef4d333570800000000000000
+      internalID: 8445161139759408666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankBlack.png
+      name: womanGreen_stand.png
       rect:
         serializedVersion: 2
-        x: 671
-        y: 442
-        width: 75
-        height: 70
+        x: 295
+        y: 161
+        width: 36
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1965,20 +2130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 74d901db99a4c3400800000000000000
-      internalID: 305200898916785479
+      spriteID: 09aa83868091d4a50800000000000000
+      internalID: 6506884560519211664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankBlack_outline.png
+      name: womanOld_gun.png
       rect:
         serializedVersion: 2
-        x: 568
-        y: 72
-        width: 83
-        height: 78
+        x: 58
+        y: 425
+        width: 52
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1986,20 +2151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71b2aa61880393950800000000000000
-      internalID: 6429223304102030103
+      spriteID: 0d4ddaba738644440800000000000000
+      internalID: 4919171281308210384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankBlue.png
+      name: womanOld_hold.png
       rect:
         serializedVersion: 2
-        x: 671
-        y: 372
-        width: 75
-        height: 70
+        x: 293
+        y: 249
+        width: 38
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2007,20 +2172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe929d46ae36608f0800000000000000
-      internalID: -574662044077708817
+      spriteID: 6f81213788114e510800000000000000
+      internalID: 1577405047230306550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankBlue_outline.png
+      name: womanOld_machine.png
       rect:
         serializedVersion: 2
-        x: 506
-        y: 356
-        width: 83
-        height: 78
+        x: 57
+        y: 293
+        width: 52
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2028,20 +2193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f301ec9e64322ba0800000000000000
-      internalID: -6115267694332673035
+      spriteID: 2ede12d8000d7d170800000000000000
+      internalID: 8203253947065036258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankGreen.png
+      name: womanOld_reload.png
       rect:
         serializedVersion: 2
-        x: 669
-        y: 260
-        width: 75
-        height: 70
+        x: 212
+        y: 161
+        width: 42
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2049,20 +2214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 952d37d2bc8d4e060800000000000000
-      internalID: 6981943689483637337
+      spriteID: fdd149b96dae4a990800000000000000
+      internalID: -7375512082271953441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankGreen_outline.png
+      name: womanOld_silencer.png
       rect:
         serializedVersion: 2
-        x: 573
-        y: 159
-        width: 83
-        height: 78
+        x: 0
+        y: 469
+        width: 57
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2070,20 +2235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9787e31597dff6950800000000000000
-      internalID: 6444648289286387833
+      spriteID: 42bd7ac8784c83130800000000000000
+      internalID: 3546800793013705508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankRed.png
+      name: womanOld_stand.png
       rect:
         serializedVersion: 2
-        x: 568
-        y: 2
-        width: 75
-        height: 70
+        x: 295
+        y: 117
+        width: 36
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2091,20 +2256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8aad5550f8f82fb30800000000000000
-      internalID: 4319672837034334888
+      spriteID: f34c2b89829a72690800000000000000
+      internalID: -7626941452103007169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tankRed_outline.png
+      name: zoimbie1_gun.png
       rect:
         serializedVersion: 2
-        x: 588
-        y: 434
-        width: 83
-        height: 78
+        x: 211
+        y: 381
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2112,20 +2277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c46acdea971cc26e0800000000000000
-      internalID: -1860899817641957812
+      spriteID: 7007e56c453284050800000000000000
+      internalID: 5784912568369704967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tracksLarge.png
+      name: zoimbie1_hold.png
       rect:
         serializedVersion: 2
-        x: 589
-        y: 330
-        width: 82
-        height: 104
+        x: 300
+        y: 381
+        width: 35
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2133,20 +2298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c4947aedb7e1b8e0800000000000000
-      internalID: -1679306383164140350
+      spriteID: 84587deb59412caa0800000000000000
+      internalID: -6142324308395457208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tracksSmall.png
+      name: zoimbie1_machine.png
       rect:
         serializedVersion: 2
-        x: 744
-        y: 268
-        width: 74
-        height: 104
+        x: 211
+        y: 469
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2154,20 +2319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3de662102a702b910800000000000000
-      internalID: 1851550789188087507
+      spriteID: ad9064a5861269750800000000000000
+      internalID: 6311268659881183706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: treeLarge.png
+      name: zoimbie1_reload.png
       rect:
         serializedVersion: 2
-        x: 200
-        y: 104
-        width: 98
-        height: 107
+        x: 254
+        y: 337
+        width: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2175,20 +2340,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 386aa373347375d80800000000000000
-      internalID: -8262074229558958461
+      spriteID: 5da8da95675bb0ca0800000000000000
+      internalID: -6049542154526815531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: treeSmall.png
+      name: zoimbie1_silencer.png
       rect:
         serializedVersion: 2
-        x: 503
-        y: 237
-        width: 87
-        height: 87
+        x: 55
+        y: 205
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2196,8 +2361,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa046bfbf1707d870800000000000000
-      internalID: 8707436237485916330
+      spriteID: 6cbb8c739c3e3fda0800000000000000
+      internalID: -5912131432443495482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zoimbie1_stand.png
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 249
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53505e9c6660886f0800000000000000
+      internalID: -682288305002969803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie2_gun.png
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 73
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be5e7dd31ea4f9a0800000000000000
+      internalID: -6200139386638672203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie2_hold.png
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 337
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2319ba8d1a59ff0800000000000000
+      internalID: -29939870544612685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie2_machine.png
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 161
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3efb70bde9de750800000000000000
+      internalID: 6335894914345198513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie2_reload.png
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 293
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2af011df09a3a20800000000000000
+      internalID: 3042903914829554427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie2_silencer.png
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 161
+        width: 54
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: babc323227f351ec0800000000000000
+      internalID: -3596898967937102933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie2_stand.png
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 469
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469b70e834ae71f60800000000000000
+      internalID: 8005124438540925284
       vertices: []
       indices: 
       edges: []
