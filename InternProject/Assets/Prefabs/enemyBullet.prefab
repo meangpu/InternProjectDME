@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8338263324132100304}
   bulletSpeed: 6
-  damage: 60
+  damage: 5
   lifeTime: 1
 --- !u!61 &8338263324132100316
 BoxCollider2D:
