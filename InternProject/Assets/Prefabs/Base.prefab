@@ -330,9 +330,9 @@ MonoBehaviour:
   maxHp: 200
   hp: 200
   guns:
-  - gun: {fileID: 0}
+  - gunObj: {fileID: 4311762890589491710}
     gunPos: {fileID: 3268912942028125867}
-  - gun: {fileID: 0}
+  - gunObj: {fileID: 4311762890589491710}
     gunPos: {fileID: 7081636284452048433}
   siderHealth: {fileID: 3101926655581444469}
   textHp: {fileID: 6608464115503124760}
