@@ -59,10 +59,31 @@ public class BaseClass : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "EnemyBullet")
+        {
+            takeDamage(col.gameObject.GetComponent<EnemyBullet>().damage);
+            Destroy(col.gameObject);
+        }
+    }
+
+
     void takeDamage(int damage)
     {
         hp -= damage;
+        if (hp <= 0)
+        {
+            hp = 0;
+            gotDestroy();
+        }
         SetHealth(hp);
+        
+    }
+
+    void gotDestroy()
+    {
+        Debug.Log("Base got Destroy!!");
     }
 
 }
