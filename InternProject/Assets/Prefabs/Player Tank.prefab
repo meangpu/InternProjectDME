@@ -59,8 +59,8 @@ Transform:
   m_LocalPosition: {x: -1.892, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1928173807450371760}
   - {fileID: 1928173808666340034}
-  - {fileID: 778371738920621588}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 778371737652365321}
+  player: {fileID: 1928173808666340033}
+  modelRb: {fileID: 7786167090952349985}
   movementSpeed: 5
   rotationSpeed: 3
   controllerDeadZone: 0.2
@@ -156,12 +158,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778371738920621589}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 778371737652365322}
-  m_RootOrder: 1
+  m_Father: {fileID: 1928173808666340034}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &778371738920621579
 BoxCollider2D:
@@ -218,7 +220,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928173808666340034}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1928173807431412310
 MonoBehaviour:
@@ -290,8 +292,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -0.143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1928173808666340034}
-  m_RootOrder: 1
+  m_Father: {fileID: 778371737652365322}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -526,6 +528,7 @@ GameObject:
   - component: {fileID: 1928173808666340035}
   - component: {fileID: 1928173808666340032}
   - component: {fileID: 1928173808666340039}
+  - component: {fileID: 7786167090952349985}
   m_Layer: 0
   m_Name: Tank Model
   m_TagString: Player
@@ -544,11 +547,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 778371738920621588}
   - {fileID: 1928173807431412311}
-  - {fileID: 1928173807450371760}
   - {fileID: 778371738265390854}
   m_Father: {fileID: 778371737652365322}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1928173808666340035
 SpriteRenderer:
@@ -633,3 +636,24 @@ CircleCollider2D:
   m_Offset: {x: -0.016171575, y: 0}
   serializedVersion: 2
   m_Radius: 0.51650107
+--- !u!50 &7786167090952349985
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928173808666340033}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

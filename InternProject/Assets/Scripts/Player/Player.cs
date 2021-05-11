@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private Rigidbody2D rb = null;
+    [SerializeField] private GameObject player = null;
+    [SerializeField] private Rigidbody2D modelRb = null;
     [SerializeField] private float movementSpeed = 5f; // Read from ScriptableObjects later
     [SerializeField] private float rotationSpeed = 3f;
 
@@ -71,7 +73,8 @@ public class Player : MonoBehaviour
 
     private void Rotate()
     {
-        rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
+        //modelRb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
+        player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, player.transform.eulerAngles.y, player.transform.eulerAngles.z);
     }
 
     private void StopMovement()
@@ -81,7 +84,7 @@ public class Player : MonoBehaviour
 
     private void StopRotation()
     {
-        rb.MoveRotation(transform.rotation * Quaternion.Euler(Vector3.zero));
+        //modelRb.MoveRotation(transform.rotation * Quaternion.Euler(Vector3.zero));
     }
 }
 
