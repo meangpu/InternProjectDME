@@ -49,7 +49,13 @@ public class Player : MonoBehaviour
             StopMovement();
         }
 
-        if (Mathf.Abs(rotateDirection) >= controllerDeadZone) Rotate();
+        if (Mathf.Abs(rotateDirection) >= controllerDeadZone)
+        {
+            Rotate();
+        } else
+        {
+            StopRotation();
+        }
     }
 
     private void ReadInputValues()
@@ -72,4 +78,10 @@ public class Player : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
     }
+
+    private void StopRotation()
+    {
+        rb.MoveRotation(transform.rotation * Quaternion.Euler(Vector3.zero));
+    }
 }
+
