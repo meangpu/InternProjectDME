@@ -6,10 +6,14 @@ public class Player : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private GameObject player = null;
-    [SerializeField] private Rigidbody2D modelRb = null;
+    [SerializeField] private Transform gun = null;
+    [SerializeField] private Transform barrel = null;
     [SerializeField] private float movementSpeed = 5f; // Read from ScriptableObjects later
     [SerializeField] private float rotationSpeed = 3f;
+    [SerializeField] private Tank tank = null;
+
+    [Header("Temp Fields")]
+    [SerializeField] private GameObject bulletPrefab = null;
 
     [Header("Input Settings")]
     [SerializeField] private float controllerDeadZone = 0.1f;
@@ -25,7 +29,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
+        playerControls.Tank.Shoot.performed += _ => Shoot();
     }
 
     private void OnDisable()
@@ -46,7 +50,8 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(moveDirection) >= controllerDeadZone)
         {
             Move();
-        } else
+        }
+        else
         {
             StopMovement();
         }
@@ -54,7 +59,8 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(rotateDirection) >= controllerDeadZone)
         {
             Rotate();
-        } else
+        }
+        else
         {
             StopRotation();
         }
@@ -68,13 +74,13 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = (Vector2)transform.up * -moveDirection * movementSpeed;
+        rb.velocity = (Vector2)transform.up * -moveDirection * tank.moveSpeed;
     }
 
     private void Rotate()
     {
-        //modelRb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
-        player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, player.transform.eulerAngles.y, player.transform.eulerAngles.z);
+        rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
+        // playerTank.Rotate(Vector3.forward * -rotateDirection * rotationSpeed);
     }
 
     private void StopMovement()
@@ -84,7 +90,13 @@ public class Player : MonoBehaviour
 
     private void StopRotation()
     {
-        //modelRb.MoveRotation(transform.rotation * Quaternion.Euler(Vector3.zero));
+        rb.MoveRotation(transform.rotation * Quaternion.Euler(Vector3.zero));
+        // playerTank.Rotate(Vector3.zero);
+    }
+
+    private void Shoot() 
+    {
+        Instantiate(bulletPrefab, barrel.position, barrel.rotation);
     }
 }
 
