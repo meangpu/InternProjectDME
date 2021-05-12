@@ -9,6 +9,10 @@ public class Tank : ScriptableObject
     public string tankDes;
     public Sprite artWork;
     public int hp;
-    public float moveSpeed;
     public int damage;
+    public int ammoCount;
+    public float rateOfFire;
+    public float reloadTime;
+    public float moveSpeed;
+    public float rotationSpeed;
 }

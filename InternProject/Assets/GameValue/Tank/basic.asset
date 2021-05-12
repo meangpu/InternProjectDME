@@ -16,5 +16,9 @@ MonoBehaviour:
   tankDes: very basic tank cheap but work
   artWork: {fileID: -574662044077708817, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
   hp: 50
-  moveSpeed: 2
   damage: 1
+  ammoCount: 10
+  rateOfFire: 1.3
+  reloadTime: 3
+  moveSpeed: 2
+  rotationSpeed: 2.5

@@ -9,15 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private Transform gun = null; // Gun Pivoting point
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
-    [SerializeField] private float movementSpeed = 5f; // Read from ScriptableObjects later
-    [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] private Tank tank = null;
 
     [Header("Temp Fields")]
     [SerializeField] private GameObject bulletPrefab = null;
-
-    [Header("Input Settings")]
-    [SerializeField] private float controllerDeadZone = 0.1f;
 
     private Camera mainCamera;
 
@@ -27,6 +22,18 @@ public class Player : MonoBehaviour
     private float rotateDirection;
     private Vector2 mousePos;
 
+    // Player Tank States
+    private bool canShoot = true;
+
+    // Tank stats
+    private float cooldownBetweenShots;
+    private float fireRate;
+    private float movementSpeed;
+    private float rotationSpeed;
+    private int maxAmmoCount;
+    private int currentAmmoCount;
+    private float reloadTime;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -35,10 +42,22 @@ public class Player : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+
         playerControls.Tank.Shoot.performed += _ => Shoot();
         playerControls.Tank.SpecialShoot.performed += _ => SpecialShoot();
-        playerControls.Tank.Reload.performed += _ => Reload();
+        playerControls.Tank.Reload.performed += _ => StartCoroutine(Reload());
         playerControls.Tank.Skill1.performed += _ => Skill1Activate();
+
+        fireRate = tank.rateOfFire;
+        cooldownBetweenShots = 1 / fireRate;
+
+        movementSpeed = tank.moveSpeed;
+        rotationSpeed = tank.rotationSpeed;
+
+        maxAmmoCount = tank.ammoCount;
+        currentAmmoCount = maxAmmoCount;
+
+        reloadTime = tank.reloadTime;
     }
 
     private void OnDisable()
@@ -55,28 +74,11 @@ public class Player : MonoBehaviour
     {
         ReadInputValues();
         RotateBarrel();
-
-        // If the inputs are less than the dead zone, ignore them.
-        if (Mathf.Abs(moveDirection) >= controllerDeadZone)
-        {
-            Move();
-        }
-        else
-        {
-            StopMovement();
-        }
-
-        if (Mathf.Abs(rotateDirection) >= controllerDeadZone)
-        {
-            RotateTank();
-        }
-        else
-        {
-            StopTankRotation();
-        }
+        Move();
+        RotateTank();
     }
 
-    private void ReadInputValues()
+    private void ReadInputValues() // Read all input values from the Input System
     {
         moveDirection = playerControls.Tank.Move.ReadValue<float>();
         rotateDirection = playerControls.Tank.Rotate.ReadValue<float>();
@@ -85,29 +87,36 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = (Vector2)transform.up * -moveDirection * tank.moveSpeed;
+        rb.velocity = new Vector2(transform.up.x, transform.up.y) * -moveDirection * movementSpeed;
     }
 
     private void RotateTank()
     {
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
-        // playerTank.Rotate(Vector3.forward * -rotateDirection * rotationSpeed);
-    }
-
-    private void StopMovement()
-    {
-        rb.velocity = Vector2.zero;
-    }
-
-    private void StopTankRotation()
-    {
-        rb.MoveRotation(transform.rotation * Quaternion.Euler(Vector3.zero));
-        // playerTank.Rotate(Vector3.zero);
     }
 
     private void Shoot() 
     {
-        Instantiate(bulletPrefab, barrel.position, barrel.rotation);
+        if (!canShoot) { return; }
+
+        if (currentAmmoCount < 1) // If ammo is depleted and the player attempts to shoot, do an auto reload.
+        {
+            StartCoroutine(Reload());
+        }
+        else // Shoot normally
+        {     
+            Instantiate(bulletPrefab, barrel.position, barrel.rotation);
+            StartCoroutine(StartShootCooldown(cooldownBetweenShots));
+        }  
+    }
+
+    private IEnumerator StartShootCooldown(float cooldownTime)
+    {
+        currentAmmoCount--;
+        Debug.Log(currentAmmoCount);
+        canShoot = false;
+        yield return new WaitForSeconds(cooldownTime);
+        canShoot = true;
     }
 
     private void RotateBarrel()
@@ -126,13 +135,20 @@ public class Player : MonoBehaviour
         Debug.Log("Performed an alternate attack");
     }
 
-    private void Reload()
+    private IEnumerator Reload()
     {
-        Debug.Log("Reload");
+        currentAmmoCount = 0;
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmoCount = maxAmmoCount;
     }
 
     private void Skill1Activate()
     {
         Debug.Log("First ability slot activated");
+    }
+
+    private void OnStatsUpdate()
+    {
+        // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
     }
 }
