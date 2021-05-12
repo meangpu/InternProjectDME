@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     [Header("Info")]
-    [SerializeField] int EC_Point;
+    [SerializeField] WaveManager waveManager;
     [SerializeField] private float waitTime;
     [SerializeField] List<EnemyList> enemys = new List<EnemyList>();
 
@@ -33,11 +33,11 @@ public class EnemySpawner : MonoBehaviour
     {
         EnemyList nowEne = enemys[Random.Range (0, enemys.Count)];
         Debug.Log(nowEne);
-        if (EC_Point - nowEne.EC >= 0)
+        if (waveManager.EC_Point - nowEne.EC >= 0)
         {
             Instantiate(nowEne.enemy, transform.position,  Quaternion.Euler(new Vector3(0, 0, 90)));
-            EC_Point -= nowEne.EC;
-            SetEC(EC_Point, EC_Point + nowEne.EC);
+            waveManager.EC_Point -= nowEne.EC;
+            SetECSlider(waveManager.EC_Point);
         }
         else
         {
@@ -48,15 +48,15 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy());
     }
 
-    public void SetEC(int point, int oldPoint)
+    public void SetECSlider(int point)
     {
         siderEneSpawner.value = point;
     }
 
     public void SetMaxEC()
     {
-        siderEneSpawner.maxValue = EC_Point;
-        siderEneSpawner.value = EC_Point;
+        siderEneSpawner.maxValue = waveManager.EC_Point;
+        siderEneSpawner.value = waveManager.EC_Point;
     }
 
 

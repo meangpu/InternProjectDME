@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName="newEnemy", menuName="NewEnemy")]
-public class Enemy : ScriptableObject
+public class EnemyObj : ScriptableObject
 {
     public string enemyName;
     public string des;

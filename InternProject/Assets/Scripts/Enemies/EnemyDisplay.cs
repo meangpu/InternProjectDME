@@ -5,7 +5,7 @@ using TMPro;
 
 public class EnemyDisplay : MonoBehaviour
 {
-    public Enemy enemy;
+    public EnemyObj enemy;
     public SpriteRenderer eneImage;
     private float eneSpeed;
 
