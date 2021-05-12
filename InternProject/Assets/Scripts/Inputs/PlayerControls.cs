@@ -49,6 +49,30 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""ecdb7786-d57d-466f-8129-cf0f7b7f2a03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SpecialShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c2dc192-30b0-46aa-a8cc-978a0f8f7de3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Skill1"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba3d42a3-e269-4bfc-94d3-51d5d719291b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +163,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""LookAt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08ea1fbb-e242-407a-a38f-c83ca6941a27"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02dd0554-e422-49e8-a855-28d0d70eaa82"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53923257-1ec4-4e60-9226-bb6b8178ffb5"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -157,6 +214,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tank_Rotate = m_Tank.FindAction("Rotate", throwIfNotFound: true);
         m_Tank_Shoot = m_Tank.FindAction("Shoot", throwIfNotFound: true);
         m_Tank_LookAt = m_Tank.FindAction("LookAt", throwIfNotFound: true);
+        m_Tank_Reload = m_Tank.FindAction("Reload", throwIfNotFound: true);
+        m_Tank_SpecialShoot = m_Tank.FindAction("SpecialShoot", throwIfNotFound: true);
+        m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -210,6 +270,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Tank_Rotate;
     private readonly InputAction m_Tank_Shoot;
     private readonly InputAction m_Tank_LookAt;
+    private readonly InputAction m_Tank_Reload;
+    private readonly InputAction m_Tank_SpecialShoot;
+    private readonly InputAction m_Tank_Skill1;
     public struct TankActions
     {
         private @PlayerControls m_Wrapper;
@@ -218,6 +281,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Rotate => m_Wrapper.m_Tank_Rotate;
         public InputAction @Shoot => m_Wrapper.m_Tank_Shoot;
         public InputAction @LookAt => m_Wrapper.m_Tank_LookAt;
+        public InputAction @Reload => m_Wrapper.m_Tank_Reload;
+        public InputAction @SpecialShoot => m_Wrapper.m_Tank_SpecialShoot;
+        public InputAction @Skill1 => m_Wrapper.m_Tank_Skill1;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -239,6 +305,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LookAt.started -= m_Wrapper.m_TankActionsCallbackInterface.OnLookAt;
                 @LookAt.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnLookAt;
                 @LookAt.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnLookAt;
+                @Reload.started -= m_Wrapper.m_TankActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnReload;
+                @SpecialShoot.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSpecialShoot;
+                @SpecialShoot.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSpecialShoot;
+                @SpecialShoot.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSpecialShoot;
+                @Skill1.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
+                @Skill1.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
+                @Skill1.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
@@ -255,6 +330,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LookAt.started += instance.OnLookAt;
                 @LookAt.performed += instance.OnLookAt;
                 @LookAt.canceled += instance.OnLookAt;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
+                @SpecialShoot.started += instance.OnSpecialShoot;
+                @SpecialShoot.performed += instance.OnSpecialShoot;
+                @SpecialShoot.canceled += instance.OnSpecialShoot;
+                @Skill1.started += instance.OnSkill1;
+                @Skill1.performed += instance.OnSkill1;
+                @Skill1.canceled += instance.OnSkill1;
             }
         }
     }
@@ -274,5 +358,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRotate(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnLookAt(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
+        void OnSpecialShoot(InputAction.CallbackContext context);
+        void OnSkill1(InputAction.CallbackContext context);
     }
 }

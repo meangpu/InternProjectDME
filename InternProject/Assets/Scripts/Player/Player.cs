@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,9 @@ public class Player : MonoBehaviour
     {
         mainCamera = Camera.main;
         playerControls.Tank.Shoot.performed += _ => Shoot();
+        playerControls.Tank.SpecialShoot.performed += _ => SpecialShoot();
+        playerControls.Tank.Reload.performed += _ => Reload();
+        playerControls.Tank.Skill1.performed += _ => Skill1Activate();
     }
 
     private void OnDisable()
@@ -115,5 +119,20 @@ public class Player : MonoBehaviour
         float aimAtAngle = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
 
         gun.rotation = Quaternion.RotateTowards(gun.rotation, Quaternion.Euler(0, 0, aimAtAngle+90), Mathf.Infinity);
+    }
+
+    private void SpecialShoot()
+    {
+        Debug.Log("Performed an alternate attack");
+    }
+
+    private void Reload()
+    {
+        Debug.Log("Reload");
+    }
+
+    private void Skill1Activate()
+    {
+        Debug.Log("First ability slot activated");
     }
 }
