@@ -11,4 +11,9 @@ public class WaveManager : MonoBehaviour
         EC_Point -= reduce;
     }
 
+    public void addPoint(int addValue)
+    {
+        EC_Point += addValue;
+    }
+
 }
