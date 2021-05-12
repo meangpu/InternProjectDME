@@ -10,14 +10,14 @@ public class EnemyShoot : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(fireBullet());
+        StartCoroutine(FireBullet());
     }
 
-    private IEnumerator fireBullet()
+    private IEnumerator FireBullet()
     {
-        Instantiate(bullet, spawnPoint.position, Quaternion.identity);
+        Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         yield return new WaitForSeconds(waitTime);
-        StartCoroutine(fireBullet());
+        StartCoroutine(FireBullet());
     }
 
 

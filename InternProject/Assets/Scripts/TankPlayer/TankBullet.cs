@@ -9,7 +9,7 @@ public class TankBullet : MonoBehaviour
     // Temporary variables
     [SerializeField] private float bulletSpeed = 10f;
     public int damage = 10;
-    public float lifeTime = 10f;
+    public float lifeTime = 4f;
 
     private void Start()
     {

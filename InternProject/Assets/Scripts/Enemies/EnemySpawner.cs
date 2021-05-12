@@ -20,16 +20,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<EnemyList> enemys = new List<EnemyList>();
 
     [Header("HP")]
-    public Slider siderEneSpawner;
+    public Slider sliderEneSpawner;
 
 
     void Start()
     {
         SetMaxEC();
-        StartCoroutine(spawnEnemy());
+        StartCoroutine(SpawnEnemy());
     }
 
-    private IEnumerator spawnEnemy()
+    private IEnumerator SpawnEnemy()
     {
         EnemyList nowEne = enemys[Random.Range (0, enemys.Count)];
         Debug.Log(nowEne);
@@ -45,20 +45,17 @@ public class EnemySpawner : MonoBehaviour
         }
 
         yield return new WaitForSeconds(waitTime);
-        StartCoroutine(spawnEnemy());
+        StartCoroutine(SpawnEnemy());
     }
 
     public void SetECSlider(int point)
     {
-        siderEneSpawner.value = point;
+        sliderEneSpawner.value = point;
     }
 
     public void SetMaxEC()
     {
-        siderEneSpawner.maxValue = waveManager.EC_Point;
-        siderEneSpawner.value = waveManager.EC_Point;
+        sliderEneSpawner.maxValue = waveManager.EC_Point;
+        sliderEneSpawner.value = waveManager.EC_Point;
     }
-
-
-
 }

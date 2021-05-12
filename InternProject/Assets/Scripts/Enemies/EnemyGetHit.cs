@@ -7,14 +7,14 @@ public class EnemyGetHit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "PlayerBullet")
+        if(col.gameObject.CompareTag("PlayerBullet"))
         {
-            takeDamage(col.gameObject.GetComponent<TankBullet>().damage);
+            TakeDamage(col.gameObject.GetComponent<TankBullet>().damage);
             Destroy(col.gameObject);
         }
     }
 
-    void takeDamage(int damage)
+    void TakeDamage(int damage)
     {
         Debug.Log(damage);
         Destroy(gameObject);

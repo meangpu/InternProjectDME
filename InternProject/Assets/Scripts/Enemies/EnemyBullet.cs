@@ -7,7 +7,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private float bulletSpeed = 10f;
     public int damage = 10;
-    public float lifeTime = 10f;
+    public float lifeTime = 5f;
 
     private void Start() {
         Destroy(gameObject, lifeTime);
