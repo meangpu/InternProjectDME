@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveManager: {fileID: 1972452176}
-  waitTime: 1
+  waitTime: 4
   enemyPrefab: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
   enemys:
   - {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
@@ -833,7 +833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1142245619
 PrefabInstance:
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveManager: {fileID: 1972452176}
-  waitTime: 1
+  waitTime: 3
   enemyPrefab: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
   enemys:
   - {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveManager: {fileID: 1972452176}
-  waitTime: 1
+  waitTime: 2
   enemyPrefab: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
   enemys:
   - {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
@@ -1237,7 +1237,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1365082455
 GameObject:
@@ -1423,7 +1423,7 @@ RectTransform:
   - {fileID: 487242172}
   - {fileID: 1346917}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

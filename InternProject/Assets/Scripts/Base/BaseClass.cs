@@ -83,7 +83,7 @@ public class BaseClass : MonoBehaviour
 
     void gotDestroy()
     {
-        Debug.Log("Base got Destroy!!");
+        // Debug.Log("Base got Destroy!!");
     }
 
 }

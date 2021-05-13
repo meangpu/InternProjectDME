@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("No EC point left");
+            // Debug.Log("No EC point left");
         }
 
         yield return new WaitForSeconds(waitTime);

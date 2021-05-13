@@ -22,9 +22,9 @@ public class EnemyGetHit : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        Debug.Log(damage);
+        // Debug.Log(damage);
         // Destroy(gameObject);
-        
+
         // add check if hp <= 0
         pool.ReturnObject(gameObject);
 
