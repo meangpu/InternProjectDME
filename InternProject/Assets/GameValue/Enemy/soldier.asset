@@ -18,3 +18,4 @@ MonoBehaviour:
   hp: 0
   moveSpeed: 0
   damage: 0
+  EC: 2

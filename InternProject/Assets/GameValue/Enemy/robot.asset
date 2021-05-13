@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
-  m_Name: test
+  m_Name: robot
   m_EditorClassIdentifier: 
   enemyName: robot
   des: for test
@@ -18,3 +18,4 @@ MonoBehaviour:
   hp: 5
   moveSpeed: 2
   damage: 3
+  EC: 5

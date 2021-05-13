@@ -5,11 +5,10 @@ using TMPro;
 
 public class EnemyDisplay : MonoBehaviour
 {
-    public EnemyObj enemy;
     public SpriteRenderer eneImage;
     private float eneSpeed;
 
-    void Start()
+    public void StartDisplay(EnemyObj enemy)
     {
         eneImage.sprite = enemy.artWork;
         eneSpeed = enemy.moveSpeed;

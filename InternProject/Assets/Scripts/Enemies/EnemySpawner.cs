@@ -6,21 +6,18 @@ using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
-
-    [System.Serializable]
-    public class EnemyList
-    {
-        public GameObject enemy;
-        public int EC;
-    }
-
     [Header("Info")]
     [SerializeField] WaveManager waveManager;
     [SerializeField] private float waitTime;
-    [SerializeField] List<EnemyList> enemys = new List<EnemyList>();
+    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] List<EnemyObj> enemys = new List<EnemyObj>();
 
-    [Header("HP")]
+
+    [Header("EcLeft")]
     public Slider sliderEneSpawner;
+
+    [Header("Pool")]
+    [SerializeField] private pooler enemyPool;
 
 
     void Start()
@@ -31,11 +28,17 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        EnemyList nowEne = enemys[Random.Range (0, enemys.Count)];
+        EnemyObj nowEne = enemys[Random.Range (0, enemys.Count)];
         Debug.Log(nowEne);
         if (waveManager.EC_Point - nowEne.EC >= 0)
         {
-            Instantiate(nowEne.enemy, transform.position,  Quaternion.Euler(new Vector3(0, 0, 90)));
+            // Instantiate(nowEne.enemy, transform.position,  Quaternion.Euler(new Vector3(0, 0, 90)));
+            GameObject g = enemyPool.GetObject();
+            g.transform.position = transform.position;
+            g.transform.rotation = transform.rotation;
+            g.GetComponent<EnemyDisplay>().StartDisplay(nowEne);
+            g.SetActive(true);
+
             waveManager.EC_Point -= nowEne.EC;
             SetECSlider(waveManager.EC_Point);
         }
