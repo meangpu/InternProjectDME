@@ -12,35 +12,32 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] List<EnemyObj> enemys = new List<EnemyObj>();
 
-
-    [Header("EcLeft")]
-    public Slider sliderEneSpawner;
-
     [Header("Pool")]
     [SerializeField] private pooler enemyPool;
 
 
     void Start()
     {
-        SetMaxEC();
+        waveManager.SetMaxEC();
         StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
     {
         EnemyObj nowEne = enemys[Random.Range (0, enemys.Count)];
-        Debug.Log(nowEne);
+        // Debug.Log(nowEne);
         if (waveManager.EC_Point - nowEne.EC >= 0)
         {
             // Instantiate(nowEne.enemy, transform.position,  Quaternion.Euler(new Vector3(0, 0, 90)));
             GameObject g = enemyPool.GetObject();
+            g.GetComponent<EnemyDisplay>().StartDisplay(nowEne);  // set enemy to scriptable obj
             g.transform.position = transform.position;
             g.transform.rotation = transform.rotation;
-            g.GetComponent<EnemyDisplay>().StartDisplay(nowEne);
             g.SetActive(true);
+            g.GetComponent<EnemyFollow>().setupTrack();
 
             waveManager.EC_Point -= nowEne.EC;
-            SetECSlider(waveManager.EC_Point);
+            waveManager.SetECSlider();
         }
         else
         {
@@ -51,14 +48,4 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    public void SetECSlider(int point)
-    {
-        sliderEneSpawner.value = point;
-    }
-
-    public void SetMaxEC()
-    {
-        sliderEneSpawner.maxValue = waveManager.EC_Point;
-        sliderEneSpawner.value = waveManager.EC_Point;
-    }
 }

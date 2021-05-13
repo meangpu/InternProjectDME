@@ -13,4 +13,5 @@ public class EnemyObj : ScriptableObject
     public float moveSpeed;
     public int damage;
     public int EC;
+    public GameObject target;
 }

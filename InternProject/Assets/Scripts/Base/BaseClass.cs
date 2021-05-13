@@ -54,7 +54,7 @@ public class BaseClass : MonoBehaviour
     {
         if(col.gameObject.tag == "EnemyBullet")
         {
-            takeDamage(col.gameObject.GetComponent<EnemyBullet>().damage);
+            takeDamage(col.gameObject.GetComponent<BulletEnemy>().damage);
             Destroy(col.gameObject);
         }
     }
@@ -63,7 +63,7 @@ public class BaseClass : MonoBehaviour
     {
         if(col.gameObject.tag == "EnemyBullet")
         {
-            takeDamage(col.gameObject.GetComponent<EnemyBullet>().damage);
+            takeDamage(col.gameObject.GetComponent<BulletEnemy>().damage);
             Destroy(col.gameObject);
         }
     }

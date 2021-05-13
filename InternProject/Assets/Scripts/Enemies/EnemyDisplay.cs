@@ -6,12 +6,14 @@ using TMPro;
 public class EnemyDisplay : MonoBehaviour
 {
     public SpriteRenderer eneImage;
-    private float eneSpeed;
+    public float eneSpeed;
+    public GameObject target;
 
     public void StartDisplay(EnemyObj enemy)
     {
         eneImage.sprite = enemy.artWork;
         eneSpeed = enemy.moveSpeed;
+        target = enemy.target;
     }
 
 }
