@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     private Vector2 mousePos;
 
     // Player Tank States
-    private bool canShoot = true;
+    private bool canShoot = true; // Check if the player can shoot between shots
+    private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
 
     // Tank stats
     private float cooldownBetweenShots;
@@ -43,7 +44,8 @@ public class Player : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        playerControls.Tank.Shoot.performed += _ => Shoot();
+        playerControls.Tank.Shoot.performed += _ => OnHoldShootButton();
+        playerControls.Tank.Shoot.canceled += _ => OnReleaseShootButton();
         playerControls.Tank.SpecialShoot.performed += _ => SpecialShoot();
         playerControls.Tank.Reload.performed += _ => StartCoroutine(Reload());
         playerControls.Tank.Skill1.performed += _ => Skill1Activate();
@@ -76,6 +78,8 @@ public class Player : MonoBehaviour
         RotateBarrel();
         Move();
         RotateTank();
+
+        if (holdOnShoot) { Shoot(); } // Shoot continuously while shoot button is held down.
     }
 
     private void ReadInputValues() // Read all input values from the Input System
@@ -93,6 +97,16 @@ public class Player : MonoBehaviour
     private void RotateTank()
     {
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
+    }
+
+    private void OnHoldShootButton() // If shoot button is held down.
+    {
+        holdOnShoot = true;
+    }
+
+    private void OnReleaseShootButton() // If shoot button is released.
+    {
+        holdOnShoot = false;
     }
 
     private void Shoot() 
@@ -113,7 +127,6 @@ public class Player : MonoBehaviour
     private IEnumerator StartShootCooldown(float cooldownTime)
     {
         currentAmmoCount--;
-        Debug.Log(currentAmmoCount);
         canShoot = false;
         yield return new WaitForSeconds(cooldownTime);
         canShoot = true;

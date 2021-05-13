@@ -7,11 +7,11 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float waitTime;
-    [SerializeField] private pooler bulletPool;
+    [SerializeField] private Pooler bulletPool;
 
     void Start()
     {
-        bulletPool = GameObject.Find("EnemyBulletPooler").GetComponent<pooler>();
+        bulletPool = GameObject.Find("EnemyBulletPooler").GetComponent<Pooler>();
         StartCoroutine(FireBullet());
     }
 

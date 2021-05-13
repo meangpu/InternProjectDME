@@ -9,11 +9,11 @@ public class BulletEnemy : MonoBehaviour
 
     public int damage = 10;
     public float lifeTime = 5f;
-    private pooler pool;
+    private Pooler pool;
 
     private void Start() {
         // Destroy(gameObject, lifeTime);
-        pool = transform.parent.GetComponent<pooler>();
+        pool = transform.parent.GetComponent<Pooler>();
     }
 
     private void Update()

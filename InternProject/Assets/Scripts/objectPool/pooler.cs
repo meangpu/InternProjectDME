@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pooler : MonoBehaviour
+public class Pooler : MonoBehaviour
 {
     [SerializeField] private GameObject spawnPrefab;
     [SerializeField] private int poolSize;

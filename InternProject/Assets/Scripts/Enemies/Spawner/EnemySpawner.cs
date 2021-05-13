@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<EnemyObj> enemys = new List<EnemyObj>();
 
     [Header("Pool")]
-    [SerializeField] private pooler enemyPool;
+    [SerializeField] private Pooler enemyPool;
 
 
     void Start()

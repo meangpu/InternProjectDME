@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyGetHit : MonoBehaviour
 {
-    private pooler pool;
+    private Pooler pool;
 
     private void Start() 
     {
-        pool = transform.parent.GetComponent<pooler>();
+        pool = transform.parent.GetComponent<Pooler>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
