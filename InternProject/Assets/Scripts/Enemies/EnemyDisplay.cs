@@ -8,12 +8,13 @@ public class EnemyDisplay : MonoBehaviour
     public SpriteRenderer eneImage;
     public float eneSpeed;
     public GameObject target;
+    public string tagName;
 
     public void StartDisplay(EnemyObj enemy)
     {
         eneImage.sprite = enemy.artWork;
         eneSpeed = enemy.moveSpeed;
-        target = enemy.target;
+        tagName = enemy.targetTagName;
     }
 
 }

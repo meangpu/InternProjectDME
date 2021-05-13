@@ -32,6 +32,11 @@ public class BulletEnemy : MonoBehaviour
         pool.ReturnObject(gameObject);
     }
 
+    public void DestroyFromPool()
+    {
+        pool.ReturnObject(gameObject);
+    }
+
     private void Move()
     {
         rb.velocity = (Vector2)transform.up * bulletSpeed;

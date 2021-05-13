@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: robot
   m_EditorClassIdentifier: 
   enemyName: robot
+  tag: []
   des: for test
   artWork: {fileID: -9084962280864733834, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
   hp: 5
   moveSpeed: 0.5
   damage: 3
   EC: 5
-  target: {fileID: 4311762890589491710, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
+  targetTagName: Base

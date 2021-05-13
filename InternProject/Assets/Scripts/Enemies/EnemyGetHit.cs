@@ -16,7 +16,7 @@ public class EnemyGetHit : MonoBehaviour
         if(col.gameObject.CompareTag("PlayerBullet"))
         {
             TakeDamage(col.gameObject.GetComponent<TankBullet>().damage);
-            Destroy(col.gameObject);  // retuen player bulett yo pool
+            Destroy(col.gameObject);  // return player bulett yo pool
         }
     }
 

@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    private GameObject nowtarget;
+    private string nowtarget;
     private Transform tranTarget;
+    private GameObject target;
     public bool startTracking = false;
+    
     private Rigidbody2D rb;
     private Vector2 movement;
     private float moveSpeed;
+
 
     public void setupTrack()
     {
         rb = this.GetComponent<Rigidbody2D>();
         startTracking = true;
-        nowtarget = gameObject.GetComponent<EnemyDisplay>().target;
+
+        nowtarget = gameObject.GetComponent<EnemyDisplay>().tagName;
+        target = GameObject.FindGameObjectsWithTag(nowtarget)[0];
+
         moveSpeed = gameObject.GetComponent<EnemyDisplay>().eneSpeed;
-        tranTarget = nowtarget.transform;
+        // tranTarget = nowtarget.transform;
+        tranTarget = target.transform;
     }
 
     private void tracking()
@@ -34,14 +41,12 @@ public class EnemyFollow : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
     }
 
-
-    void Update()
+    private void Update() 
     {
         if (startTracking)
         {
             tracking();
         }
-        
     }
 
     private void FixedUpdate() 
