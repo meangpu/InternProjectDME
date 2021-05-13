@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
     [Header("Temp Fields")]
     [SerializeField] private GameObject bulletPrefab = null;
 
+    // Misc
     private Camera mainCamera;
+    private GameManager gameManager;
 
     // Player Controls vars
     private PlayerControls playerControls;
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         playerControls.Tank.Shoot.performed += _ => OnHoldShootButton();
         playerControls.Tank.Shoot.canceled += _ => OnReleaseShootButton();
@@ -60,6 +63,8 @@ public class Player : MonoBehaviour
         currentAmmoCount = maxAmmoCount;
 
         reloadTime = tank.reloadTime;
+
+        UpdateAmmoUI();
     }
 
     private void OnDisable()
@@ -127,6 +132,7 @@ public class Player : MonoBehaviour
     private IEnumerator StartShootCooldown(float cooldownTime)
     {
         currentAmmoCount--;
+        UpdateAmmoUI();
         canShoot = false;
         yield return new WaitForSeconds(cooldownTime);
         canShoot = true;
@@ -151,8 +157,10 @@ public class Player : MonoBehaviour
     private IEnumerator Reload()
     {
         currentAmmoCount = 0;
+        UpdateAmmoUI();
         yield return new WaitForSeconds(reloadTime);
         currentAmmoCount = maxAmmoCount;
+        UpdateAmmoUI();
     }
 
     private void Skill1Activate()
@@ -163,5 +171,10 @@ public class Player : MonoBehaviour
     private void OnStatsUpdate()
     {
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
+    }
+
+    private void UpdateAmmoUI()
+    {
+        gameManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
     }
 }

@@ -11,23 +11,20 @@ public class EnemyGetHit : MonoBehaviour
         pool = transform.parent.GetComponent<Pooler>();
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("PlayerBullet"))
         {
-            TakeDamage(col.gameObject.GetComponent<TankBullet>().damage);
-            Destroy(col.gameObject);  // return player bulett yo pool
+            TankBullet bullet = col.gameObject.GetComponent<TankBullet>();
+            TakeDamage(bullet.damage);
+            bullet.DestroySelf();
         }
     }
 
-    void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
-        // Debug.Log(damage);
-        // Destroy(gameObject);
-
         // add check if hp <= 0
         pool.ReturnObject(gameObject);
-
     }
 
 }

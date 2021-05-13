@@ -7,15 +7,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TMP_Text ammoUI = null;
 
-    void Start()
+    public void UpdateAmmoUI(int currentAmmo, int maxAmmo)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ammoUI.text = $"{currentAmmo} / {maxAmmo}";
     }
 }

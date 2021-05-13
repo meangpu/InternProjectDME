@@ -26,13 +26,13 @@ public class BulletEnemy : MonoBehaviour
         StartCoroutine(DestroyOverTme());
     }
 
-    IEnumerator DestroyOverTme()
+    private IEnumerator DestroyOverTme()
     {
         yield return new WaitForSeconds(lifeTime);
-        pool.ReturnObject(gameObject);
+        DestroySelf();
     }
 
-    public void DestroyFromPool()
+    public void DestroySelf()
     {
         pool.ReturnObject(gameObject);
     }
