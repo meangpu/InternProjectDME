@@ -612,10 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0298a1970c83c4f9a7b253dea33245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   ammoUI: {fileID: 809939278}
-=======
->>>>>>> Stashed changes
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0

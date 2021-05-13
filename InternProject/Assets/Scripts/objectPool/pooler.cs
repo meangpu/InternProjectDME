@@ -59,7 +59,5 @@ public class Pooler : MonoBehaviour
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.SetActive(true);
-
-        // return gameObject;
     }
 }

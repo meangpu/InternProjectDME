@@ -17,10 +17,7 @@ public class EnemyShoot : MonoBehaviour
 
     private IEnumerator FireBullet()
     {
-        GameObject gameObject = bulletPool.GetObject();
-        gameObject.transform.position = spawnPoint.position;
-        gameObject.transform.rotation = spawnPoint.rotation;
-        gameObject.SetActive(true);
+        bulletPool.SpawnObject(spawnPoint.position, spawnPoint.rotation);
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(FireBullet());
     }
