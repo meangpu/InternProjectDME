@@ -39,7 +39,7 @@ public class Pooler : MonoBehaviour
 
     public void ReturnObject(GameObject obj)
     {
-        Debug.Assert(usedList.Contains(obj)); //check if there is obj in usedlist
+        // Debug.Assert(usedList.Contains(obj)); //check if there is obj in usedlist
         obj.SetActive(false);
         usedList.Remove(obj);
         freeList.Add(obj);
@@ -51,5 +51,15 @@ public class Pooler : MonoBehaviour
         g.transform.parent = transform;
         g.SetActive(false);
         freeList.Add(g);
+    }
+
+    public void SpawnObject(Vector3 position, Quaternion rotation)
+    {
+        GameObject gameObject = GetObject();
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
+        gameObject.SetActive(true);
+
+        // return gameObject;
     }
 }

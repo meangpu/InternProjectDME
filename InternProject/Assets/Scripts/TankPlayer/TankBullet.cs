@@ -16,7 +16,7 @@ public class TankBullet : MonoBehaviour
 
     private void Start()
     {
-        pool = gameObject.GetComponent<Pooler>();
+        pool = transform.parent.GetComponent<Pooler>();
     }
 
     private void Update()

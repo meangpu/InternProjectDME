@@ -21,10 +21,7 @@ public class EnemyShoot : MonoBehaviour
         gameObject.transform.position = spawnPoint.position;
         gameObject.transform.rotation = spawnPoint.rotation;
         gameObject.SetActive(true);
-        // Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(FireBullet());
     }
-
-
 }

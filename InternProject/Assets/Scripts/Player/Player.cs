@@ -11,12 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
     [SerializeField] private Tank tank = null;
 
-    [Header("Temp Fields")]
-    [SerializeField] private GameObject bulletPrefab = null;
-
     // Misc
     private Camera mainCamera;
-    private GameManager gameManager;
+    private UIManager uiManager;
+    private Pooler bulletPool;
 
     // Player Controls vars
     private PlayerControls playerControls;
@@ -27,6 +25,7 @@ public class Player : MonoBehaviour
     // Player Tank States
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
+    private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
 
     // Tank stats
     private float cooldownBetweenShots;
@@ -45,7 +44,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        bulletPool = GameObject.Find("PlayerBulletPooler").GetComponent<Pooler>();
 
         playerControls.Tank.Shoot.performed += _ => OnHoldShootButton();
         playerControls.Tank.Shoot.canceled += _ => OnReleaseShootButton();
@@ -123,8 +123,12 @@ public class Player : MonoBehaviour
             StartCoroutine(Reload());
         }
         else // Shoot normally
-        {     
-            Instantiate(bulletPrefab, barrel.position, barrel.rotation);
+        {
+            bulletPool.SpawnObject(barrel.position, barrel.rotation);
+            /*GameObject bullet = bulletPool.GetObject();
+            bullet.transform.position = barrel.position;
+            bullet.transform.rotation = barrel.rotation;*/
+            //Instantiate(bulletPrefab, barrel.position, barrel.rotation);
             StartCoroutine(StartShootCooldown(cooldownBetweenShots));
         }  
     }
@@ -156,11 +160,15 @@ public class Player : MonoBehaviour
 
     private IEnumerator Reload()
     {
+        if (isReloading) { yield break; } // in IEnumerator, yield break = return;
+
+        isReloading = true;
         currentAmmoCount = 0;
         UpdateAmmoUI();
         yield return new WaitForSeconds(reloadTime);
         currentAmmoCount = maxAmmoCount;
         UpdateAmmoUI();
+        isReloading = false;
     }
 
     private void Skill1Activate()
@@ -175,6 +183,6 @@ public class Player : MonoBehaviour
 
     private void UpdateAmmoUI()
     {
-        gameManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
+        uiManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
     }
 }
