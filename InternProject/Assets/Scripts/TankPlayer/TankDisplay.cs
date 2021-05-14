@@ -14,9 +14,7 @@ public class TankDisplay : MonoBehaviour
 
     void Start()
     {
-        textName.text = tank.tankName;
-        tankImage.sprite = tank.artWork;
+        textName.text = tank.GetName();
+        tankImage.sprite = tank.GetSprite();
     }
-
-
 }

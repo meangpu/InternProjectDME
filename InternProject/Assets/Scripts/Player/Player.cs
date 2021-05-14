@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private Tank tank = null;
+    [SerializeField] private TankTurret turret = null;
 
     // Misc
     private UIManager uiManager;
@@ -38,16 +39,16 @@ public class Player : MonoBehaviour
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         playerAbilities = GetComponent<PlayerAbilities>();
 
-        fireRate = tank.rateOfFire;
+        fireRate = turret.GetRateOfFire();
         cooldownBetweenShots = 1 / fireRate;
 
-        movementSpeed = tank.moveSpeed;
-        rotationSpeed = tank.rotationSpeed;
+        movementSpeed = tank.GetMovementSpeed();
+        rotationSpeed = tank.GetRotationSpeed();
 
-        maxAmmoCount = tank.ammoCount;
+        maxAmmoCount = turret.GetAmmoCount();
         currentAmmoCount = maxAmmoCount;
 
-        reloadTime = tank.reloadTime;
+        reloadTime = turret.GetReloadTime();
 
         UpdateAmmoUI();
     }
