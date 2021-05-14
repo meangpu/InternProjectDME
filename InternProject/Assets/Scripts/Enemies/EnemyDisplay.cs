@@ -12,9 +12,9 @@ public class EnemyDisplay : MonoBehaviour
 
     public void StartDisplay(EnemyObj enemy)
     {
-        eneImage.sprite = enemy.artWork;
-        eneSpeed = enemy.moveSpeed;
-        tagName = enemy.targetTagName;
+        eneImage.sprite = enemy.GetSprite();
+        eneSpeed = enemy.GetMovementSpeed();
+        tagName = enemy.GetTargetTag();
     }
 
 }

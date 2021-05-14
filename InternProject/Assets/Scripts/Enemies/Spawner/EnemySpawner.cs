@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     {
         EnemyObj nowEne = enemys[Random.Range (0, enemys.Count)];
         // Debug.Log(nowEne);
-        if (waveManager.EC_Point - nowEne.EC >= 0)
+        if (waveManager.EC_Point - nowEne.GetEC() >= 0)
         {
             // Instantiate(nowEne.enemy, transform.position,  Quaternion.Euler(new Vector3(0, 0, 90)));
             GameObject g = enemyPool.GetObject();
@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
             g.SetActive(true);
             g.GetComponent<EnemyFollow>().setupTrack();
 
-            waveManager.EC_Point -= nowEne.EC;
+            waveManager.EC_Point -= nowEne.GetEC();
             waveManager.SetECSlider();
         }
         else
