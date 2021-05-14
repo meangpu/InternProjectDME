@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="NewTank", menuName="NewTank")]
+[CreateAssetMenu(fileName="New Tank", menuName="Tank/Create New Tank")]
 public class Tank : ScriptableObject
 {
     public string tankName;
