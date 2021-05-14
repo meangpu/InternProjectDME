@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,33 +6,40 @@ using UnityEngine;
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private Player player = null; // Change to input later
+    [SerializeField] private PlayerInputManager playerInput = null; // Change to input later
 
     [Header("Abilities parameters")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 5f;
     [SerializeField] private float dashDuration = 0.25f;
 
-    private bool isDashing = false; // Check if the player is dashing
+    private bool canDash = false; // Check if the player can dash
 
-    public void Dash()
+    private Action dashingCallback;
+    private Action canDashCallback;
+    
+    public void Dash(Action dashingCallback, Action canDashCallback)
     {
-        if (isDashing) { return; }
+        if (canDash) { return; }
 
-        isDashing = true;
-        player.DisableMovement();
-        player.DisableRotation();
-        rb.velocity = (Vector2)transform.up * dashSpeed;
+        this.dashingCallback = dashingCallback;
+        this.canDashCallback = canDashCallback;
+        canDash = true;
+        playerInput.DisableMovement();
+        playerInput.DisableRotation();
+        rb.velocity = (Vector2)transform.up * -dashSpeed;
         StartCoroutine(OnDashCooldown());
     }
 
     private IEnumerator OnDashCooldown()
     {
         yield return new WaitForSeconds(dashDuration);
-        player.EnableMovement();
-        player.EnableRotation();
+        dashingCallback();
+        playerInput.EnableMovement();
+        playerInput.EnableRotation();
         yield return new WaitForSeconds(dashCooldown - dashDuration);
-        isDashing = false;
+        canDash = false;
+        canDashCallback();
     }
 
     public void CastEnergyShield()
