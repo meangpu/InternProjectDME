@@ -5,14 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName="New Tank", menuName="Tank/Create New Tank")]
 public class Tank : ScriptableObject
 {
-    public string tankName;
-    public string tankDes;
-    public Sprite artWork;
-    public int hp;
-    public int damage;
-    public int ammoCount;
-    public float rateOfFire;
-    public float reloadTime;
-    public float moveSpeed;
-    public float rotationSpeed;
+    [SerializeField] private string tankName;
+    [SerializeField] private string tankDes;
+    [SerializeField] private Sprite artWork;
+    [SerializeField] private int hp;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed;
+
+    public string GetName() => tankName;
+    public string GetDescription() => tankDes;
+    public Sprite GetSprite() => artWork;
+    public int GetHealth() => hp;
+    public float GetMovementSpeed() => moveSpeed;
+    public float GetRotationSpeed() => rotationSpeed;
 }

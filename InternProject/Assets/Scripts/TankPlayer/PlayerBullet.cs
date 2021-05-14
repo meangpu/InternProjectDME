@@ -7,4 +7,6 @@ public class PlayerBullet : ScriptableObject
 {
     [SerializeField] private string bulletName;
     [SerializeField] private Sprite artWork;
+
+    public Sprite GetSprite() => artWork;
 }
