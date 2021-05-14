@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private Camera mainCamera;
     private UIManager uiManager;
     private Pooler bulletPool;
+    private PlayerAbilities playerAbilities;
 
     // Player Controls vars
     private PlayerControls playerControls;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
+    private bool isDashing = false; // Check if the player is dashing
 
     // Tank stats
     private float cooldownBetweenShots;
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
         mainCamera = Camera.main;
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         bulletPool = GameObject.Find("PlayerBulletPooler").GetComponent<Pooler>();
+        playerAbilities = GetComponent<PlayerAbilities>();
 
         playerControls.Tank.Shoot.performed += _ => OnHoldShootButton();
         playerControls.Tank.Shoot.canceled += _ => OnReleaseShootButton();
@@ -173,7 +176,8 @@ public class Player : MonoBehaviour
 
     private void Skill1Activate()
     {
-        Debug.Log("First ability slot activated");
+        if (isDashing) { return; }
+        playerAbilities.Dash();
     }
 
     private void OnStatsUpdate()

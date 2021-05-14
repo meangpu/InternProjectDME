@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 5943029956014393996}
   - component: {fileID: 6839855375599364145}
   - component: {fileID: 5943029956014393997}
+  - component: {fileID: 7553780951413289878}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -413,8 +414,17 @@ MonoBehaviour:
   rb: {fileID: 6839855375599364145}
   gun: {fileID: 4789166324028387149}
   barrel: {fileID: 4789166323244050169}
-  movementSpeed: 5
-  rotationSpeed: 3
   tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
-  bulletPrefab: {fileID: 7632373239638726007, guid: 61824cf3fca38ae499ae0d2a0934d1d3, type: 3}
-  controllerDeadZone: 0.1
+--- !u!114 &7553780951413289878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4411ef23a440d0d4e968b2a18adf14aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 6839855375599364145}
