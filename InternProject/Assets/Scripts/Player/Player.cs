@@ -7,18 +7,18 @@ public class Player : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private Transform gun = null; // Gun Pivoting point
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
     [SerializeField] private Tank tank = null;
 
     // Misc
-    private Camera mainCamera;
     private UIManager uiManager;
     private Pooler bulletPool;
     private PlayerAbilities playerAbilities;
+    private PlayerInputManager input;
+    private PlayerAimAtPoint gun;
 
     // Player Controls vars
-    private PlayerControls playerControls;
+   
     private float moveDirection;
     private float rotateDirection;
     private Vector2 mousePos;
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
     private bool isDashing = false; // Check if the player is dashing
+    private bool canDash = true; // Check if the player can dash
 
     // Tank stats
     private float cooldownBetweenShots;
@@ -38,23 +39,14 @@ public class Player : MonoBehaviour
     private int currentAmmoCount;
     private float reloadTime;
 
-    private void Awake()
-    {
-        playerControls = new PlayerControls();
-    }
+    
 
     private void Start()
     {
-        mainCamera = Camera.main;
+        input = GetComponent<PlayerInputManager>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         bulletPool = GameObject.Find("PlayerBulletPooler").GetComponent<Pooler>();
-        playerAbilities = GetComponent<PlayerAbilities>();
-
-        playerControls.Tank.Shoot.performed += _ => OnHoldShootButton();
-        playerControls.Tank.Shoot.canceled += _ => OnReleaseShootButton();
-        playerControls.Tank.SpecialShoot.performed += _ => SpecialShoot();
-        playerControls.Tank.Reload.performed += _ => StartCoroutine(Reload());
-        playerControls.Tank.Skill1.performed += _ => Skill1Activate();
+        playerAbilities = GetComponent<PlayerAbilities>();   
 
         fireRate = tank.rateOfFire;
         cooldownBetweenShots = 1 / fireRate;
@@ -70,31 +62,24 @@ public class Player : MonoBehaviour
         UpdateAmmoUI();
     }
 
-    private void OnDisable()
-    {
-        playerControls.Disable();
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
 
     private void Update()
     {
         ReadInputValues();
-        RotateBarrel();
-        Move();
-        RotateTank();
 
+        if (!isDashing)
+        {
+            Move();
+            RotateTank();
+        }
+        
         if (holdOnShoot) { Shoot(); } // Shoot continuously while shoot button is held down.
     }
 
     private void ReadInputValues() // Read all input values from the Input System
     {
-        moveDirection = playerControls.Tank.Move.ReadValue<float>();
-        rotateDirection = playerControls.Tank.Rotate.ReadValue<float>();
-        mousePos = playerControls.Tank.LookAt.ReadValue<Vector2>();
+        moveDirection = input.GetMoveValue();
+        rotateDirection = input.GetRotationValue();
     }
 
     private void Move()
@@ -107,12 +92,12 @@ public class Player : MonoBehaviour
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
     }
 
-    private void OnHoldShootButton() // If shoot button is held down.
+    public void OnHoldShootButton() // If shoot button is held down.
     {
         holdOnShoot = true;
     }
 
-    private void OnReleaseShootButton() // If shoot button is released.
+    public void OnReleaseShootButton() // If shoot button is released.
     {
         holdOnShoot = false;
     }
@@ -141,23 +126,13 @@ public class Player : MonoBehaviour
         canShoot = true;
     }
 
-    private void RotateBarrel()
-    {
-        Vector2 cursorPosOnScreen = mainCamera.ScreenToWorldPoint(mousePos);
-
-        Vector3 gunDirection = (Vector3)cursorPosOnScreen - gun.position;
-
-        float aimAtAngle = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
-
-        gun.rotation = Quaternion.RotateTowards(gun.rotation, Quaternion.Euler(0, 0, aimAtAngle+90), Mathf.Infinity);
-    }
-
-    private void SpecialShoot()
+    
+    public void SpecialShoot()
     {
         Debug.Log("Performed an alternate attack");
     }
 
-    private IEnumerator Reload()
+    public IEnumerator Reload()
     {
         if (isReloading) { yield break; } // in IEnumerator, yield break = return;
 
@@ -170,9 +145,12 @@ public class Player : MonoBehaviour
         isReloading = false;
     }
 
-    private void Skill1Activate()
+    public void Skill1Activate()
     {
-        playerAbilities.Dash();
+        if (!canDash) { return; }
+        canDash = false;
+        isDashing = true;
+        playerAbilities.Dash(() => { isDashing = false; }, () => { canDash = true; });
     }
 
     private void OnStatsUpdate()
@@ -183,25 +161,5 @@ public class Player : MonoBehaviour
     private void UpdateAmmoUI()
     {
         uiManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
-    }
-
-    public void DisableMovement()
-    {
-        playerControls.Tank.Move.Disable();
-    }
-
-    public void DisableRotation()
-    {
-        playerControls.Tank.Rotate.Disable();
-    }
-
-    public void EnableMovement()
-    {
-        playerControls.Tank.Move.Enable();
-    }
-
-    public void EnableRotation()
-    {
-        playerControls.Tank.Rotate.Enable();
     }
 }

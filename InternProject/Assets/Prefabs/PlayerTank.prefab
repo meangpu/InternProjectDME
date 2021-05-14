@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4789166324028387149}
+  - component: {fileID: 3972142031548917476}
   m_Layer: 0
   m_Name: Gun Pivot
   m_TagString: Untagged
@@ -61,6 +62,19 @@ Transform:
   m_Father: {fileID: 5943029956014393993}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3972142031548917476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789166324028387148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47158c2739baf2429c30e9c6b74423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 4789166324028387149}
 --- !u!1 &4789166324446901854
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +301,7 @@ GameObject:
   - component: {fileID: 6839855375599364145}
   - component: {fileID: 5943029956014393997}
   - component: {fileID: 7553780951413289878}
+  - component: {fileID: 6596479384599892429}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -301,7 +316,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5943029956014393994}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.892, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -412,7 +427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6839855375599364145}
-  gun: {fileID: 4789166324028387149}
   barrel: {fileID: 4789166323244050169}
   tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
 --- !u!114 &7553780951413289878
@@ -428,7 +442,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6839855375599364145}
-  player: {fileID: 5943029956014393997}
+  playerInput: {fileID: 6596479384599892429}
   dashSpeed: 10
   dashCooldown: 5
   dashDuration: 0.25
+--- !u!114 &6596479384599892429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e570ce27fd4e64695dcf75aafd75f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
