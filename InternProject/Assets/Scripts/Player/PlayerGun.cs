@@ -8,6 +8,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private Player player = null;
 
     private Pooler bulletPool;
+    private ReloadBar reloadBar;
 
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
@@ -16,6 +17,7 @@ public class PlayerGun : MonoBehaviour
     private void Start()
     {
         bulletPool = GameObject.Find("PlayerBulletPooler").GetComponent<Pooler>();
+        reloadBar = GameObject.FindGameObjectWithTag("UIManager").GetComponent<ReloadBar>();
     }
 
     private void Update()
@@ -62,9 +64,11 @@ public class PlayerGun : MonoBehaviour
         if (isReloading) { yield break; } // in IEnumerator, yield break = return;
 
         isReloading = true;
+        float reloadTime = player.GetReloadTime();
+        reloadBar.SetReloadTimer(reloadTime);
         player.EmptyCurrentAmmoCount();
         player.UpdateAmmoUI();
-        yield return new WaitForSeconds(player.GetReloadTime());
+        yield return new WaitForSeconds(reloadTime);
         player.ReloadAmmoCount();
         player.UpdateAmmoUI();
         isReloading = false;
