@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50d277517751524c9bf545299dc296c, type: 3}
-  m_Name: green
+  m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
+  m_Name: New Turret
   m_EditorClassIdentifier: 
-  tankName: basic
-  tankDes: very basic tank cheap but work
-  artWork: {fileID: 6981943689483637337, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
-  hp: 45
-  moveSpeed: 4
-  rotationSpeed: 0
+  turretName: 
+  description: 
+  artworks: []
+  damage: 0
+  ammoCount: 0
+  rateOfFire: 0
+  reloadTime: 0
