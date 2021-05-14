@@ -128,10 +128,6 @@ public class Player : MonoBehaviour
         else // Shoot normally
         {
             bulletPool.SpawnObject(barrel.position, barrel.rotation);
-            /*GameObject bullet = bulletPool.GetObject();
-            bullet.transform.position = barrel.position;
-            bullet.transform.rotation = barrel.rotation;*/
-            //Instantiate(bulletPrefab, barrel.position, barrel.rotation);
             StartCoroutine(StartShootCooldown(cooldownBetweenShots));
         }  
     }
@@ -176,7 +172,6 @@ public class Player : MonoBehaviour
 
     private void Skill1Activate()
     {
-        if (isDashing) { return; }
         playerAbilities.Dash();
     }
 
@@ -188,5 +183,25 @@ public class Player : MonoBehaviour
     private void UpdateAmmoUI()
     {
         uiManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
+    }
+
+    public void DisableMovement()
+    {
+        playerControls.Tank.Move.Disable();
+    }
+
+    public void DisableRotation()
+    {
+        playerControls.Tank.Rotate.Disable();
+    }
+
+    public void EnableMovement()
+    {
+        playerControls.Tank.Move.Enable();
+    }
+
+    public void EnableRotation()
+    {
+        playerControls.Tank.Rotate.Enable();
     }
 }

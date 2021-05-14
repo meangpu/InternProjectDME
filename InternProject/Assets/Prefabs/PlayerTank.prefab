@@ -428,3 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6839855375599364145}
+  player: {fileID: 5943029956014393997}
+  dashSpeed: 10
+  dashCooldown: 5
+  dashDuration: 0.25
