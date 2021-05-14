@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInputManager : MonoBehaviour
 {
     private Player player;
+    private PlayerGun gun;
     private PlayerControls playerControls;
 
     private void Awake()
@@ -15,11 +16,12 @@ public class PlayerInputManager : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Player>();
+        gun = GetComponentInChildren<PlayerGun>();
 
-        playerControls.Tank.Shoot.performed += _ => player.OnHoldShootButton();
-        playerControls.Tank.Shoot.canceled += _ => player.OnReleaseShootButton();
+        playerControls.Tank.Shoot.performed += _ => gun.OnHoldShootButton();
+        playerControls.Tank.Shoot.canceled += _ => gun.OnReleaseShootButton();
         playerControls.Tank.SpecialShoot.performed += _ => player.SpecialShoot();
-        playerControls.Tank.Reload.performed += _ => StartCoroutine(player.Reload());
+        playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => player.Skill1Activate();
     }
 
