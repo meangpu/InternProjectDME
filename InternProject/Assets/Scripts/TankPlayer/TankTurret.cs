@@ -7,7 +7,7 @@ public class TankTurret : ScriptableObject
 {
     [SerializeField] private string turretName;
     [SerializeField] private string description;
-    [SerializeField] private Sprite[] artworks;
+    [SerializeField] private Sprite artworks;
     [SerializeField] private int damage;
     [SerializeField] private int ammoCount;
     [SerializeField] private float rateOfFire;
@@ -15,7 +15,7 @@ public class TankTurret : ScriptableObject
 
     public string GetName() => turretName;
     public string GetDescription() => description;
-    public Sprite[] GetSprite() => artworks;
+    public Sprite GetSprite() => artworks;
     public int GetDamage() => damage;
     public int GetAmmoCount() => ammoCount;
     public float GetRateOfFire() => rateOfFire;

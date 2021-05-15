@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
-  m_Name: New Turret
+  m_Name: gun 1
   m_EditorClassIdentifier: 
-  turretName: 
-  description: 
-  artworks: []
-  damage: 0
-  ammoCount: 0
-  rateOfFire: 0
-  reloadTime: 0
+  turretName: gun1
+  description: The basic gun
+  artworks: {fileID: -4994951833088967198, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
+  damage: 2
+  ammoCount: 4
+  rateOfFire: 3
+  reloadTime: 1
