@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 5943029956014393997}
   - component: {fileID: 7553780951413289878}
   - component: {fileID: 6596479384599892429}
+  - component: {fileID: 4723530992476281506}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -461,6 +462,7 @@ MonoBehaviour:
   dashSpeed: 10
   dashCooldown: 5
   dashDuration: 0.25
+  anim: {fileID: 4723530992476281506}
 --- !u!114 &6596479384599892429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,3 +475,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e570ce27fd4e64695dcf75aafd75f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4723530992476281506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5451f1e7ac2494f4b89e701aa0a35c0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

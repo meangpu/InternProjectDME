@@ -12,6 +12,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 5f;
     [SerializeField] private float dashDuration = 0.25f;
+    [SerializeField] private Animator anim;
 
     private bool canDash = false; // Check if the player can dash
 
@@ -28,6 +29,7 @@ public class PlayerAbilities : MonoBehaviour
         playerInput.DisableMovement();
         playerInput.DisableRotation();
         rb.velocity = (Vector2)transform.up * -dashSpeed;
+        anim.SetTrigger("dash");
         StartCoroutine(OnDashCooldown());
     }
 
