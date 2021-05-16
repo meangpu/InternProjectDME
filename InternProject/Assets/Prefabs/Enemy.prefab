@@ -189,7 +189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eneImage: {fileID: 5298252096397123444}
+  eneSpeed: 0
   target: {fileID: 0}
+  tagName: 
 --- !u!114 &5298252096397123447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,10 +279,10 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.8820755, g: 0.9068567, b: 1, a: 1}
+  m_Color: {r: 0.8867924, g: 0.72145575, b: 0.69855815, a: 1}
   m_Intensity: 0.3
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 07e6c3cf000000005752afda
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

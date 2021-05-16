@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
   m_Name: gun 2
   m_EditorClassIdentifier: 
-  turretName: gun1
+  turretName: gun2
   description: The basic gun
   artworks: {fileID: 6412504248339571876, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
   damage: 2
