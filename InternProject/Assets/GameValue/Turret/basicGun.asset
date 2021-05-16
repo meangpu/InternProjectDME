@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
-  m_Name: gun
+  m_Name: basicGun
   m_EditorClassIdentifier: 
   turretName: gun1
   description: The basic gun

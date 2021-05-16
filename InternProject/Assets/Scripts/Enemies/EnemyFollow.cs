@@ -12,6 +12,8 @@ public class EnemyFollow : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private float moveSpeed;
+    // public Transform child;
+    
 
 
     public void setupTrack()
@@ -47,6 +49,8 @@ public class EnemyFollow : MonoBehaviour
         {
             tracking();
         }
+
+        // child.transform.rotation = Quaternion.Euler (0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
     }
 
     private void FixedUpdate() 

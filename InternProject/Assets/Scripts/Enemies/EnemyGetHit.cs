@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyGetHit : MonoBehaviour
 {
     private Pooler pool;
+    [SerializeField] private Slider hpSlider;
+    [SerializeField] private EnemyDisplay enemyDisplay;
+
+    [SerializeField] private Image circleHp;
 
     private void Start() 
     {
@@ -23,8 +28,27 @@ public class EnemyGetHit : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        // add check if hp <= 0
-        pool.ReturnObject(gameObject);
+        enemyDisplay.hp -= damage;
+
+
+        if (enemyDisplay.hp <= 0)
+        {
+            circleHp.fillAmount = 0;
+            pool.ReturnObject(gameObject);
+        }
+        updateHpCircle(enemyDisplay.hp, enemyDisplay.maxhp);
+
+    }
+
+    // private void updateSlider(int _hp)
+    // {
+    //     hpSlider.value = _hp;
+    // }
+
+    private void updateHpCircle(float _hp, float _maxHp)
+    {
+        float nowvalue =  _hp/_maxHp;
+        circleHp.fillAmount = nowvalue;
     }
 
 }
