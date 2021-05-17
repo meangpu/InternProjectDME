@@ -6,18 +6,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private Tank tank = null;
     [SerializeField] private TankTurret turret = null;
 
     // Misc
     private UIManager uiManager;
     private PlayerAbilities playerAbilities;
-    private PlayerInputManager input;
-
-    // Player Controls vars
-    private float moveDirection;
-    private float rotateDirection;
+    private PlayerMovement playerMovement;
 
     // Player Tank States
     
@@ -27,23 +21,18 @@ public class Player : MonoBehaviour
     // Tank stats
     private float cooldownBetweenShots;
     private float fireRate;
-    private float movementSpeed;
-    private float rotationSpeed;
     private int maxAmmoCount;
     private int currentAmmoCount;
     private float reloadTime;
 
     private void Start()
     {
-        input = GetComponent<PlayerInputManager>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         playerAbilities = GetComponent<PlayerAbilities>();
+        playerMovement = GetComponent<PlayerMovement>();
 
         fireRate = turret.GetRateOfFire();
         cooldownBetweenShots = 1 / fireRate;
-
-        movementSpeed = tank.GetMovementSpeed();
-        rotationSpeed = tank.GetRotationSpeed();
 
         maxAmmoCount = turret.GetAmmoCount();
         currentAmmoCount = maxAmmoCount;
@@ -56,29 +45,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        ReadInputValues();
-
         if (!isDashing)
         {
-            Move();
-            RotateTank();
+            playerMovement.Move();
+            playerMovement.RotateTank();
         }
-    }
-
-    private void ReadInputValues() // Read all input values from the Input System
-    {
-        moveDirection = input.GetMoveValue();
-        rotateDirection = input.GetRotationValue();
-    }
-
-    private void Move()
-    {
-        rb.velocity = new Vector2(transform.up.x, transform.up.y) * -moveDirection * movementSpeed;
-    }
-
-    private void RotateTank()
-    {
-        rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
     }
 
     public void SpecialShoot()

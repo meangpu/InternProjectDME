@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 7553780951413289878}
   - component: {fileID: 6596479384599892429}
   - component: {fileID: 4723530992476281506}
+  - component: {fileID: 1352913647339779572}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -442,8 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4512b84e2e665b54faeff86b2dc03078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6839855375599364145}
-  tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
   turret: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
 --- !u!114 &7553780951413289878
 MonoBehaviour:
@@ -494,3 +493,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1352913647339779572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae374a033a1dd1c4fb12a9766587b01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
+  rb: {fileID: 6839855375599364145}
