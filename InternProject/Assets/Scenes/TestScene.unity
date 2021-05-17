@@ -27863,7 +27863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 8338263324132100305, guid: fe410beffa856824c9a9cbd4e2a8260d, type: 3}
-  poolSize: 120
+  poolSize: 150
   expandAble: 1
 --- !u!4 &1445214387
 Transform:
