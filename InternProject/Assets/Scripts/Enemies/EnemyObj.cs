@@ -12,7 +12,8 @@ public class EnemyObj : ScriptableObject
     [SerializeField] private Sprite[] artWork;
     [SerializeField] private int hp;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private int damage;
+    [SerializeField] private int minDamage;
+    [SerializeField] private int maxDamage;
     [SerializeField] private int EC;
     [SerializeField] private string targetTagName;
     [SerializeField] private bool isPassive;
@@ -24,9 +25,15 @@ public class EnemyObj : ScriptableObject
     public Sprite[] GetSprite() => artWork;
     public int GetHealth() => hp;
     public float GetMovementSpeed() => moveSpeed;
-    public int GetDamage() => damage;
+    public int GetMinDamage() => minDamage;
+    public int GetMaxDamage() => maxDamage;
     public int GetEC() => EC;
     public string GetTargetTag() => targetTagName;
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
+
+    public int GetRandomDamage()
+    {
+        return Random.Range(minDamage, maxDamage + 1);
+    }
 }
