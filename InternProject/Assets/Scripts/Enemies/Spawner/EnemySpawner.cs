@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
             g.transform.position = transform.position;
             g.transform.rotation = transform.rotation;
             g.SetActive(true);
+
             g.GetComponent<EnemyFollow>().setupTrack();
 
             waveManager.EC_Point -= nowEne.GetEC();

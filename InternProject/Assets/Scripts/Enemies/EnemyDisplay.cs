@@ -13,6 +13,7 @@ public class EnemyDisplay : MonoBehaviour
     public int hp;
     public int maxhp;
     public Image circleHp;
+    public GameObject parentHp;
     [SerializeField] private Slider hpSlider;
 
     public void StartDisplay(EnemyObj enemy)
@@ -23,6 +24,7 @@ public class EnemyDisplay : MonoBehaviour
         hp = enemy.GetHealth();
         maxhp = enemy.GetHealth();
         circleHp.fillAmount = 1;
+        parentHp.gameObject.SetActive(false);
         // hpSlider.maxValue = enemy.GetHealth();
         // hpSlider.value = enemy.GetHealth();
     }

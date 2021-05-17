@@ -10,11 +10,13 @@ public class EnemyAiSpring : MonoBehaviour
 
     public Vector3 GetMovementIntention (GameObject enemy)
     {
+        enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
         // initialise intention
         Vector3 intention = Vector3.zero;
 
         //chase the player
-        Vector3 direction = player.transform.position - enemy.transform.position;
+        Vector3 direction = (player.transform.position - enemy.transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, enemy.transform.position);
 
         float targetDistance = 1f;
@@ -25,31 +27,30 @@ public class EnemyAiSpring : MonoBehaviour
         foreach (GameObject otherEnemy in enemys)
         {
             if(enemy == otherEnemy) continue;  // Don't repel self
-            Vector3 _direction = enemy.transform.position - otherEnemy.transform.position;
+            Vector3 _direction = (enemy.transform.position - otherEnemy.transform.position).normalized;
             float _distance = Vector3.Distance(enemy.transform.position, otherEnemy.transform.position);
 
             float springStrenght = 1f / (1f + _distance * _distance * _distance);
             intention -= direction * springStrenght;
         }
 
-        if (intention.magnitude < 0.5f)
+        if (intention.magnitude < 0.8f)
         {
             return Vector3.zero;
         }
 
 
         return intention.normalized;
-
     }
-    // Start is called before the first frame update
-    void Start()
+
+    [ContextMenu("wwaaa")]
+    public void checkMeangpu()
     {
+        foreach(GameObject otherEnemy in enemys)
+        {
+            Debug.Log(otherEnemy);
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

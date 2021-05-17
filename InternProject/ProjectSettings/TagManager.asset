@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - GameManager
   - UIManager
+  - Enemy
   layers:
   - Default
   - TransparentFX

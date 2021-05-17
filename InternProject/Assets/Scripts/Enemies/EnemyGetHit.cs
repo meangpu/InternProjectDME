@@ -10,6 +10,7 @@ public class EnemyGetHit : MonoBehaviour
     [SerializeField] private EnemyDisplay enemyDisplay;
 
     [SerializeField] private Image circleHp;
+    [SerializeField] private GameObject parentHp;
 
     private void Start() 
     {
@@ -28,6 +29,11 @@ public class EnemyGetHit : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        if (!parentHp.gameObject.activeSelf)
+        {
+            parentHp.gameObject.SetActive(true);
+        }
+        
         enemyDisplay.hp -= damage;
 
 

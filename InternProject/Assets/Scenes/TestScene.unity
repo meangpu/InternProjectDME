@@ -26101,6 +26101,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadBar: {fileID: 501368540}
   reloading: 0
+--- !u!1001 &151337524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8232353531178655584, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 207739d9763997f4ebf9910707b32c5f, type: 2}
+    - target: {fileID: 8232353531280522004, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Name
+      value: Homing Missile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7150931
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.6581347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
 --- !u!1 &312512232
 GameObject:
   m_ObjectHideFlags: 0
@@ -27227,7 +27288,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4311762890589491696, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4311762890589491696, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28447,7 +28508,7 @@ Transform:
   m_Children:
   - {fileID: 1527041617}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4789166324514989936
 PrefabInstance:
@@ -28511,6 +28572,10 @@ PrefabInstance:
     - target: {fileID: 5943029956014393994, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: m_Name
       value: PlayerTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839855375599364145, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+      propertyPath: m_Mass
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852568b80bf722645832f953e7d1d429, type: 3}
