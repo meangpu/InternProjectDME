@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private PlayerInputManager playerInput = null; // Change to input later
+    [SerializeField] private PlayerInputManager playerInput = null;
 
     [Header("Abilities parameters")]
     [SerializeField] private float dashSpeed = 10f;
@@ -26,8 +26,6 @@ public class PlayerAbilities : MonoBehaviour
         this.dashingCallback = dashingCallback;
         this.canDashCallback = canDashCallback;
         canDash = true;
-        playerInput.DisableMovement();
-        playerInput.DisableRotation();
         rb.velocity = (Vector2)transform.up * -dashSpeed;
         anim.SetTrigger("dash");
         StartCoroutine(OnDashCooldown());
@@ -37,8 +35,6 @@ public class PlayerAbilities : MonoBehaviour
     {
         yield return new WaitForSeconds(dashDuration);
         dashingCallback();
-        playerInput.EnableMovement();
-        playerInput.EnableRotation();
         yield return new WaitForSeconds(dashCooldown - dashDuration);
         canDash = false;
         canDashCallback();
