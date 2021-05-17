@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
-  m_Name: robot
+  m_Name: man
   m_EditorClassIdentifier: 
-  enemyName: robot
+  enemyName: man
   tags: []
-  des: for test
+  des: 
   artWork:
-  - {fileID: -9084962280864733834, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
-  - {fileID: 1746977588534103761, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
-  hp: 30
-  moveSpeed: 0.5
-  damage: 3
-  EC: 5
+  - {fileID: 1516127635739607740, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  hp: 10
+  moveSpeed: 1
+  damage: 0
+  EC: 2
   targetTagName: Player
   isPassive: 0
   attackRange: 0

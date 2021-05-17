@@ -9,7 +9,7 @@ public class EnemyObj : ScriptableObject
     [SerializeField] private string enemyName;
     [SerializeField] private string[] tags;
     [SerializeField] private string des;
-    [SerializeField] private Sprite artWork;
+    [SerializeField] private Sprite[] artWork;
     [SerializeField] private int hp;
     [SerializeField] private float moveSpeed;
     [SerializeField] private int damage;
@@ -21,7 +21,7 @@ public class EnemyObj : ScriptableObject
     public string GetName() => enemyName;
     public string[] GetTags() => tags;
     public string GetDescription() => des;
-    public Sprite GetSprite() => artWork;
+    public Sprite[] GetSprite() => artWork;
     public int GetHealth() => hp;
     public float GetMovementSpeed() => moveSpeed;
     public int GetDamage() => damage;

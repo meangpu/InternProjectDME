@@ -18,7 +18,7 @@ public class EnemyDisplay : MonoBehaviour
 
     public void StartDisplay(EnemyObj enemy)
     {
-        eneImage.sprite = enemy.GetSprite();
+        eneImage.sprite = enemy.GetSprite()[Random.Range(0, enemy.GetSprite().Length)];
         eneSpeed = enemy.GetMovementSpeed();
         tagName = enemy.GetTargetTag();
         hp = enemy.GetHealth();
