@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class TowerProjectile : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab = null;
+    [SerializeField] private Rigidbody2D rb = null;
 
-    private Vector3 targetPosition;
+    [Header("Temp Fields")]
+    [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private float lifeTime = 1f;
+    [SerializeField] private int damage = 10;
 
-    private void Create(Vector3 position, Vector3 targetPosition)
+    private void Update()
     {
-        GameObject projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
-        Transform projectileTransform = projectile.transform;
-
-        TowerProjectile towerProjectile = projectileTransform.GetComponent<TowerProjectile>();
-        towerProjectile.Setup(targetPosition);
+        rb.velocity = (Vector2)transform.up * bulletSpeed;
     }
 
-    private void Setup(Vector3 targetPosition)
+    private void OnEnable()
     {
-        this.targetPosition = targetPosition;
+        StartCoroutine(DestroyOverTme());
     }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
+
+    private IEnumerator DestroyOverTme()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        DestroySelf();
+    }
+
 }

@@ -14,7 +14,7 @@ public class PlayerGun : MonoBehaviour
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
 
-    private void Start()
+    private void Awake()
     {
         bulletPool = GameObject.Find("PlayerBulletPooler").GetComponent<Pooler>();
         reloadBar = GameObject.FindGameObjectWithTag("UIManager").GetComponent<ReloadBar>();
