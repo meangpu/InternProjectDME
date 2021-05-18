@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
             g.SetActive(true);
 
             g.GetComponent<EnemyFollow>().setupTrack();
+            g.GetComponent<EnemyShoot>().StartShoot();
 
             waveManager.EC_Point -= nowEne.GetEC();
             waveManager.SetECSlider();

@@ -10,7 +10,7 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Pooler bulletPool;
     private IEnumerator countFirebullet;
 
-    void Start()
+    public void StartShoot()
     {
         bulletPool = GameObject.Find("EnemyBulletPooler").GetComponent<Pooler>();
         if (countFirebullet != null)
