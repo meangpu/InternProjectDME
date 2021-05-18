@@ -9,7 +9,7 @@ public class TowerProjectile : MonoBehaviour
     [Header("Temp Fields")]
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private float lifeTime = 1f;
-    [SerializeField] private int damage = 10;
+    [SerializeField] public int damage = 10;
 
     private void Update()
     {
@@ -21,7 +21,7 @@ public class TowerProjectile : MonoBehaviour
         StartCoroutine(DestroyOverTme());
     }
 
-    private void DestroySelf()
+    public void DestroySelf()
     {
         Destroy(gameObject);
     }
