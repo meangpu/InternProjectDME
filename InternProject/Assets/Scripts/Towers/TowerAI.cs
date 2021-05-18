@@ -46,6 +46,11 @@ public class TowerAI : MonoBehaviour
 
     private void FindTarget()
     {
+        if (target != null && target.gameObject.activeSelf)
+        {
+            return;
+        }
+
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliderArray)
         {
