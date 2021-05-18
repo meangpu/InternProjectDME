@@ -28,7 +28,6 @@ public class TowerAI : MonoBehaviour
             ResetScanTimer();
         }
 
-        // If target is not null, Shoot at it
         if (target != null && (timeAfterShot >= shootInterval))
         {
             Shoot();
