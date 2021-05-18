@@ -9,6 +9,7 @@ public class BulletEnemy : MonoBehaviour
 
     public int damage = 10;
     public float lifeTime = 5f;
+    [SerializeField] bool isControlled = true;
     private Pooler pool;
 
     private void Start() {
@@ -18,12 +19,20 @@ public class BulletEnemy : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if (isControlled)
+        {
+            Move();
+        }
+        
     }
 
     private void OnEnable() 
     {
-        StartCoroutine(DestroyOverTme());
+        if (isControlled)
+        {
+            StartCoroutine(DestroyOverTme());
+        }
+        
     }
 
     private IEnumerator DestroyOverTme()
