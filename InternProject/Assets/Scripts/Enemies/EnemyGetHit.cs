@@ -25,6 +25,12 @@ public class EnemyGetHit : MonoBehaviour
             TakeDamage(bullet.damage);
             bullet.DestroySelf();
         }
+        if(col.gameObject.CompareTag("TowerBullet"))
+        {
+            TowerProjectile bullet = col.gameObject.GetComponent<TowerProjectile>();
+            TakeDamage(bullet.damage);
+            bullet.DestroySelf();
+        }
     }
 
     private void TakeDamage(int damage)
