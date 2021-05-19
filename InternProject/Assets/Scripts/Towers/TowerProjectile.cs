@@ -23,7 +23,7 @@ public class TowerProjectile : MonoBehaviour
 
     public void DestroySelf()
     {
-        Destroy(gameObject);
+        PoolingSingleton.Instance.TowerBulletPool.ReturnObject(gameObject);
     }
 
     private IEnumerator DestroyOverTme()

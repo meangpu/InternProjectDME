@@ -7,7 +7,6 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
     [SerializeField] private Player player = null;
 
-    private Pooler bulletPool;
     private ReloadBar reloadBar;
 
     private bool canShoot = true; // Check if the player can shoot between shots
@@ -16,7 +15,6 @@ public class PlayerGun : MonoBehaviour
 
     private void Awake()
     {
-        bulletPool = GameObject.Find("PlayerBulletPooler").GetComponent<Pooler>();
         reloadBar = GameObject.FindGameObjectWithTag("UIManager").GetComponent<ReloadBar>();
     }
 
@@ -35,7 +33,7 @@ public class PlayerGun : MonoBehaviour
         }
         else // Shoot normally
         {
-            bulletPool.SpawnObject(barrel.position, barrel.rotation);
+            PoolingSingleton.Instance.PlayerBulletPool.SpawnObject(barrel.position, barrel.rotation);
             StartCoroutine(StartShootCooldown(player.GetCoolDownBetweenShots()));
         }  
     }

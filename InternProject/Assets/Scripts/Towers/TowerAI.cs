@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerAI : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab = null;
+    // [SerializeField] private GameObject projectilePrefab = null;
     [SerializeField] private Transform projectileSpawnPointTransform = null;
     [SerializeField] private float targetScanInterval = 0.1f;
     [SerializeField] private float shootInterval = 0.5f;
@@ -40,7 +40,7 @@ public class TowerAI : MonoBehaviour
         projectileSpawnPoint = projectileSpawnPointTransform.position;
         projectileRotation = projectileSpawnPointTransform.rotation;
 
-        Instantiate(projectilePrefab, projectileSpawnPoint, projectileRotation);
+        PoolingSingleton.Instance.TowerBulletPool.SpawnObject(projectileSpawnPoint, projectileRotation);
     }
 
     private void FindTarget()

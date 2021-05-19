@@ -48,7 +48,7 @@ public class Pooler : MonoBehaviour
     private void GenerateNewObject()
     {
         GameObject g = Instantiate(spawnPrefab);
-        g.transform.parent = transform;
+        g.transform.parent = transform; 
         g.SetActive(false);
         freeList.Add(g);
     }
@@ -60,4 +60,5 @@ public class Pooler : MonoBehaviour
         gameObject.transform.rotation = rotation;
         gameObject.SetActive(true);
     }
+
 }

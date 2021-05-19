@@ -7,17 +7,10 @@ public class TankBullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
 
-    private Pooler pool;
-
     // Temporary variables
     [SerializeField] private float bulletSpeed = 10f;
     public int damage = 10;
     public float lifeTime = 4f;
-
-    private void Start()
-    {
-        pool = transform.parent.GetComponent<Pooler>();
-    }
 
     private void Update()
     {
@@ -37,7 +30,7 @@ public class TankBullet : MonoBehaviour
 
     public void DestroySelf()
     {
-        pool.ReturnObject(gameObject);
+        PoolingSingleton.Instance.PlayerBulletPool.ReturnObject(gameObject);
     }
 
     private void Move()

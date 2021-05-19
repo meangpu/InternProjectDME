@@ -7,12 +7,11 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float waitTime;
-    [SerializeField] private Pooler bulletPool;
     private IEnumerator countFirebullet;
 
     public void StartShoot()
     {
-        bulletPool = GameObject.Find("EnemyBulletPooler").GetComponent<Pooler>();
+        
         if (countFirebullet != null)
         {
             // this make sure that only one Coroutine count
@@ -24,7 +23,7 @@ public class EnemyShoot : MonoBehaviour
 
     private IEnumerator FireBullet()
     {
-        bulletPool.SpawnObject(spawnPoint.position, spawnPoint.rotation);
+        PoolingSingleton.Instance.EnemyBulletPool.SpawnObject(spawnPoint.position, spawnPoint.rotation);
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(FireBullet());
     }
