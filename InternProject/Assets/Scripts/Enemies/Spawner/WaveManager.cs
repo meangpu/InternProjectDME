@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     public Slider minWaveSlider;
     public Slider bigWaveSlider;
     public TMP_Text enemyLefttext;
+    [SerializeField] private GameManager gameManager;
 
     [Header("Pool")]
     [SerializeField] private Pooler enemyPool;
@@ -64,11 +65,13 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-	    // if (waveindex == EnemyWaves.Length)
-		// {
-		// 	// gameManager.WinLevel();
-		// 	this.enabled = false;
-		// }
+	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
+		{
+            // happen when enemy reach 0 and there no next wave
+			this.enabled = false;
+            gameManager.LevelWon();
+            Debug.Log("YOU WIN!!");
+		}
 
 		if (countDown <= 0f)
 		{
@@ -93,8 +96,9 @@ public class WaveManager : MonoBehaviour
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
-            float rand = Random.value; // random number between 0 and 1
-            Debug.Log(rand);
+
+            // float rand = Random.value; // random number between 0 and 1
+            // Debug.Log(rand);
 
             foreach (var enemy in pointToSpawn.EnemyList)
             {
@@ -129,13 +133,6 @@ public class WaveManager : MonoBehaviour
         
         waveindex++;
 
-        
-
-	    if (waveindex == EnemyWaves.Length)
-		{
-			// gameManager.WinLevel();
-			this.enabled = false;
-		}
     }
 
 
