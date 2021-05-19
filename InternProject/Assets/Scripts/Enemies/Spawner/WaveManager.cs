@@ -7,14 +7,36 @@ using TMPro;
 public class WaveManager : MonoBehaviour
 {
     [System.Serializable]
-    public class EnemyWave
+    public class EnemyProbObj
     {
-        public int id;
-        public int EC_POINT;
+        public EnemyObj enemy;
+        public float prob;  // 0 - 1 
     }
 
+    [System.Serializable]
+    public class EnemyAndPoint
+    {
+        public EnemyProbObj[] EnemyList;
+        public Transform spawnPoint;
+    }
+
+    [System.Serializable]
+    public class EnemyWave
+    {
+        public int EC;
+        public float countDown;
+        public int timeBeforeNextWave;
+        public EnemyAndPoint[] EnemyAndPoint;
+    }
+
+    
     public int EC_Point;
     public Slider sliderEneSpawner;
+    [Header("UIthing")]
+    public TMP_Text enemyLefttext;
+    [Header("WaveInfo")]
+    public static int EnemyAlive = 0;
+    public EnemyWave[] EnemyWaves;
 
     public void decreasePoint(int reduce)
     {
@@ -35,6 +57,17 @@ public class WaveManager : MonoBehaviour
     {
         sliderEneSpawner.maxValue = EC_Point;
         sliderEneSpawner.value = EC_Point;
+    }
+
+    public void SetEnemyLeftText()
+    {
+        enemyLefttext.text = WaveManager.EnemyAlive.ToString();
+    }
+
+    [ContextMenu("dasdw")]
+    public void meangpu()
+    {
+        Debug.Log(EnemyAlive);
     }
 
 }

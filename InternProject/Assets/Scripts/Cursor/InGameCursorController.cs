@@ -5,11 +5,16 @@ using UnityEngine;
 public class InGameCursorController : MonoBehaviour
 {
     [SerializeField] private Texture2D cursor = null;
+    [SerializeField] private bool isLockInGamePreview;
 
     private void Awake()
     {
         ChangeCursor(cursor);
-        Cursor.lockState = CursorLockMode.Confined;
+        if (isLockInGamePreview)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        
     }
 
     private void ChangeCursor(Texture2D cursorType)

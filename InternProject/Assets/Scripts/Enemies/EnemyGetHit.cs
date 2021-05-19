@@ -12,8 +12,11 @@ public class EnemyGetHit : MonoBehaviour
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
 
+    [SerializeField] private WaveManager waveManager;
+
     private void Start() 
     {
+        waveManager = GameObject.Find("waveManager").GetComponent<WaveManager>(); //// fix this 
         pool = transform.parent.GetComponent<Pooler>();
     }
 
@@ -47,6 +50,9 @@ public class EnemyGetHit : MonoBehaviour
         {
             circleHp.fillAmount = 0;
             pool.ReturnObject(gameObject);
+            WaveManager.EnemyAlive--;
+
+            waveManager.SetEnemyLeftText();
         }
         updateHpCircle(enemyDisplay.hp, enemyDisplay.maxhp);
 

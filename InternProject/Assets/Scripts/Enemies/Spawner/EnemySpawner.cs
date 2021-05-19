@@ -37,9 +37,18 @@ public class EnemySpawner : MonoBehaviour
 
             g.GetComponent<EnemyFollow>().setupTrack();
             g.GetComponent<EnemyShoot>().StartShoot();
+            
+            // add enemy count 
+            WaveManager.EnemyAlive++;
+            
+            
 
             waveManager.EC_Point -= nowEne.GetEC();
             waveManager.SetECSlider();
+            waveManager.SetEnemyLeftText();
+            
+            
+            
         }
         else
         {

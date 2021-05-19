@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PoolingSingleton : MonoBehaviour
 {
     public static PoolingSingleton Instance { get; private set; }
@@ -10,6 +11,7 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler playerBulletPool = null;
     [SerializeField] private Pooler towerBulletPool = null;
     [SerializeField] private Pooler enemyPool = null;
+
 
     public Pooler EnemyBulletPool 
     { 
@@ -30,6 +32,7 @@ public class PoolingSingleton : MonoBehaviour
     {
         get { return enemyPool; }
     }
+
 
     private void Awake()
     {
