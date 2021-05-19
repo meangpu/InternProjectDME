@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
     }

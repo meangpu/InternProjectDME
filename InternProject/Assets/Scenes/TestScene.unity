@@ -55024,11 +55024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: hp
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: maxHp
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: gameManager
@@ -55989,7 +55989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+  m_Color: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -56784,6 +56784,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: mapChoose
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 493555991}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2100074217
