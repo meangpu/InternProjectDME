@@ -13,6 +13,7 @@ public class BaseClass : MonoBehaviour
         public GameObject gunObj;
         public Transform gunPos;
     }
+
     [Header("BaseInfo")]
     public int maxHp;
     public int hp;
@@ -20,6 +21,7 @@ public class BaseClass : MonoBehaviour
     [Header("HP")]
     public Slider siderHealth;
     public TMP_Text textHp;
+    [SerializeField] GameManager gameManager;
 
 
 
@@ -84,6 +86,7 @@ public class BaseClass : MonoBehaviour
     void gotDestroy()
     {
         // Debug.Log("Base got Destroy!!");
+        gameManager.GameOver();
     }
 
 }

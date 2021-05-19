@@ -6,6 +6,13 @@ using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class EnemyWave
+    {
+        public int id;
+        public int EC_POINT;
+    }
+
     public int EC_Point;
     public Slider sliderEneSpawner;
 

@@ -16,6 +16,6 @@ public class PlayerGetHit : MonoBehaviour
 
     void TakeDamage(int dmg)
     {
-        Debug.Log(dmg);
+        // Debug.Log(dmg);
     }
 }
