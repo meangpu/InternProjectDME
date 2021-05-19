@@ -25,12 +25,15 @@ public class Player : MonoBehaviour
     private int currentAmmoCount;
     private float reloadTime;
 
-    private void Start()
+    private void Awake()
     {
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         playerAbilities = GetComponent<PlayerAbilities>();
         playerMovement = GetComponent<PlayerMovement>();
+    }
 
+    private void Start()
+    {
         fireRate = turret.GetRateOfFire();
         cooldownBetweenShots = 1 / fireRate;
 

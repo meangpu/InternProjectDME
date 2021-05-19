@@ -16,9 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private float movementSpeed;
     private float rotationSpeed;
 
-    private void Start()
+    private void Awake()
     {
         input = GetComponent<PlayerInputManager>();
+    }
+
+    private void Start()
+    {
         movementSpeed = tank.GetMovementSpeed();
         rotationSpeed = tank.GetRotationSpeed();
     }
