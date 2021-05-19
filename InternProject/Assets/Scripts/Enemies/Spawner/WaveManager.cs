@@ -6,68 +6,155 @@ using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class EnemyProbObj
-    {
-        public EnemyObj enemy;
-        public float prob;  // 0 - 1 
-    }
-
-    [System.Serializable]
-    public class EnemyAndPoint
-    {
-        public EnemyProbObj[] EnemyList;
-        public Transform spawnPoint;
-    }
-
-    [System.Serializable]
-    public class EnemyWave
-    {
-        public int EC;
-        public float countDown;
-        public int timeBeforeNextWave;
-        public EnemyAndPoint[] EnemyAndPoint;
-    }
-
-    
-    public int EC_Point;
-    public Slider sliderEneSpawner;
     [Header("UIthing")]
+    public Slider minWaveSlider;
+    public Slider bigWaveSlider;
     public TMP_Text enemyLefttext;
+
+    [Header("Pool")]
+    [SerializeField] private Pooler enemyPool;
+
     [Header("WaveInfo")]
+    [SerializeField] float timeBeforeNextWave;
+    private float countDown;
     public static int EnemyAlive = 0;
     public EnemyWave[] EnemyWaves;
+    private int waveindex = 0;
 
-    public void decreasePoint(int reduce)
+
+    public void set_MinSlider(int _value)
     {
-        EC_Point -= reduce;
+        minWaveSlider.value = _value;
     }
 
-    public void addPoint(int addValue)
+    public void setUp_MinSlider(int _value)
     {
-        EC_Point += addValue;
+        minWaveSlider.maxValue = _value;
+        minWaveSlider.value = _value;
     }
 
-    public void SetECSlider()
+    public void set_MaxSlider(int _value)
     {
-        sliderEneSpawner.value = EC_Point;
+        bigWaveSlider.value = _value;
     }
 
-    public void SetMaxEC()
+    public void setUp_MaxSlider(int _value)
     {
-        sliderEneSpawner.maxValue = EC_Point;
-        sliderEneSpawner.value = EC_Point;
+        bigWaveSlider.maxValue = _value;
+        bigWaveSlider.value = _value;
     }
+
 
     public void SetEnemyLeftText()
     {
         enemyLefttext.text = WaveManager.EnemyAlive.ToString();
     }
 
-    [ContextMenu("dasdw")]
-    public void meangpu()
+
+    private void Start() 
     {
-        Debug.Log(EnemyAlive);
+        setUp_MaxSlider(EnemyWaves.Length);
     }
+
+
+    private void Update() 
+    {
+        if (EnemyAlive > 0)
+        {
+            return;
+        }
+
+	    // if (waveindex == EnemyWaves.Length)
+		// {
+		// 	// gameManager.WinLevel();
+		// 	this.enabled = false;
+		// }
+
+		if (countDown <= 0f)
+		{
+			StartCoroutine(SpawnWave());
+			countDown = timeBeforeNextWave;
+			return;
+		}
+
+        countDown -= Time.deltaTime;
+
+        countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+        
+    }
+
+
+
+    IEnumerator SpawnWave()
+    {
+        EnemyWave wave = EnemyWaves[waveindex];
+        setUp_MinSlider(wave.EC);
+        set_MaxSlider(EnemyWaves.Length - (waveindex+1));
+
+        foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
+        {
+            float rand = Random.value; // random number between 0 and 1
+            Debug.Log(rand);
+
+            foreach (var enemy in pointToSpawn.EnemyList)
+            {
+                for (int i = 0; i < enemy.count; i++)
+                {
+                    if (wave.EC - enemy.enemy.GetEC() >= 0)
+                    {
+                        SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                        wave.EC -= enemy.enemy.GetEC();
+                        set_MinSlider(wave.EC);
+                        yield return new WaitForSeconds(wave.spawnRate);
+                    }
+                }
+
+
+                // if(enemy.prob > rand) // if random number less than probobility
+                // {
+                //     if (wave.EC - enemy.enemy.GetEC() >= 0)  // spawn when wave have enough ec
+                //     {
+                //         SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                //         wave.EC -= enemy.enemy.GetEC();
+
+                //         set_MinSlider(wave.EC);
+                //         yield return new WaitForSeconds(wave.spawnRate);
+                //     }
+                // }
+
+
+            }
+        }
+
+        
+        waveindex++;
+
+        
+
+	    if (waveindex == EnemyWaves.Length)
+		{
+			// gameManager.WinLevel();
+			this.enabled = false;
+		}
+    }
+
+
+    void SpawnEnemy(EnemyObj enemy, Transform spawnPos)
+    {
+        GameObject g = enemyPool.GetObject();
+        g.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
+        g.transform.position = spawnPos.position;
+        g.transform.rotation = spawnPos.rotation;
+        g.SetActive(true);
+
+        g.GetComponent<EnemyFollow>().setupTrack();
+        g.GetComponent<EnemyShoot>().StartShoot();
+        
+        // add enemy count 
+        EnemyAlive++;  
+
+        SetEnemyLeftText();
+    }
+
 
 }
