@@ -16,6 +16,8 @@ public class PlayerStats : MonoBehaviour
     private int health;
     private int minDamage;
     private int maxDamage;
+    private int maxEnergy;
+    private int energy;
     private float cooldownBetweenShots;
     private float fireRate;
     private int maxAmmoCount;
@@ -29,6 +31,8 @@ public class PlayerStats : MonoBehaviour
 
     public event Action<int, int> OnDamageTaken;
     public event Action<int, int> OnHealTaken;
+
+    public event Action<int, int> OnAmmoUpdated;
 
     private void Awake()
     {
@@ -52,6 +56,9 @@ public class PlayerStats : MonoBehaviour
         maxHealth = tank.GetHealth();
         health = maxHealth;
 
+        maxEnergy = tank.GetEnergy();
+        energy = maxEnergy;
+
         fireRate = turret.GetRateOfFire();
         cooldownBetweenShots = 1 / fireRate;
 
@@ -65,13 +72,11 @@ public class PlayerStats : MonoBehaviour
 
         minDamage = turret.GetMinDamage();
         maxDamage = turret.GetMaxDamage();
-
-        UpdateAmmoUI();
     }
 
     private void UpdateAmmoUI()
     {
-        UIManager.Instance.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
+        OnAmmoUpdated?.Invoke(currentAmmoCount, maxAmmoCount);
     }
 
     private void OnStatsUpdate()
@@ -108,8 +113,12 @@ public class PlayerStats : MonoBehaviour
         OnHealTaken?.Invoke(health, maxHealth);
     }
 
+    #region Stats Retrieving
     public int GetHealth() => health;
     public int GetMaxHealth() => maxHealth;
+
+    public int GetEnergy() => energy;
+    public int GetMaxEnergy() => maxEnergy;
 
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
@@ -136,4 +145,6 @@ public class PlayerStats : MonoBehaviour
 
     public float GetMovementSpeed() => movementSpeed;
     public float GetRotationSpeed() => rotationSpeed;
+
+    #endregion
 }

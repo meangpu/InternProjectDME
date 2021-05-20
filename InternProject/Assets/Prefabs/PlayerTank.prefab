@@ -214,7 +214,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5943029955331855895}
   - component: {fileID: 5943029955331855892}
-  - component: {fileID: 5634870229774026051}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -288,20 +287,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5634870229774026051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5943029955331855894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9ba6b43eb2b81499bc4cb866fda8eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barrel: {fileID: 4789166323244050169}
-  playerStats: {fileID: 3061819531511047170}
 --- !u!1 &5943029956014393994
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +306,7 @@ GameObject:
   - component: {fileID: 1352913647339779572}
   - component: {fileID: 7474375946340464500}
   - component: {fileID: 3061819531511047170}
+  - component: {fileID: 5935434833198695600}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -533,3 +519,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23a5bfd7a3e36d46aef208b641dd52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5935434833198695600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9ba6b43eb2b81499bc4cb866fda8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 4789166323244050169}
+  playerStats: {fileID: 3061819531511047170}

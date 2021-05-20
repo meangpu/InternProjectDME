@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text ammoUI = null;
     [SerializeField] private ReloadBar reloadBar = null;
 
+    private PlayerStats playerStats;
+
     private void Awake()
     {
         if (Instance == null)
@@ -20,6 +22,15 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        playerStats = PlayerStats.Instance;
+    }
+
+    private void Start()
+    {
+        playerStats.OnAmmoUpdated += UpdateAmmoUI;
+
+        UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
     }
 
     public void UpdateAmmoUI(int currentAmmo, int maxAmmo)
@@ -30,5 +41,10 @@ public class UIManager : MonoBehaviour
     public void Reload(float reloadTime)
     {
         reloadBar.SetReloadTimer(reloadTime);
+    }
+
+    private void OnDestroy()
+    {
+        playerStats.OnAmmoUpdated -= UpdateAmmoUI;
     }
 }
