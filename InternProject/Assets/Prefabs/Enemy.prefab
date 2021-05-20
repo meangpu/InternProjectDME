@@ -528,7 +528,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 5298252095771945956}
   bullet: {fileID: 8338263324132100305, guid: fe410beffa856824c9a9cbd4e2a8260d, type: 3}
   waitTime: 2
-  bulletPool: {fileID: 0}
+  startWaitTime: 2
 --- !u!114 &5298252096397123450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +545,8 @@ MonoBehaviour:
   enemyDisplay: {fileID: 5298252096397123446}
   circleHp: {fileID: 1203445315743443537}
   parentHp: {fileID: 4239616382442133906}
+  dmgpopUp: {fileID: 0}
+  waveManager: {fileID: 0}
 --- !u!114 &3129964001925013690
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,7 +41,9 @@ public class EnemyGetHit : MonoBehaviour
             parentHp.gameObject.SetActive(true);
         }
         
+        DamagePopup.Create(transform.position, damage);
         enemyDisplay.hp -= damage;
+
 
 
         if (enemyDisplay.hp <= 0)
