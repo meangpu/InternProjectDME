@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     // Player Stats
     private int gold;
-    private int tankLevel;
+    private int tankLevel = 1;
 
     // Tank Stats from Scriptable Object
     private int maxHealth;
@@ -18,6 +18,8 @@ public class PlayerStats : MonoBehaviour
     private int maxDamage;
     private int maxEnergy;
     private int energy;
+    private float energyRegenRate;
+    private float timePerEnergy;
     private float cooldownBetweenShots;
     private float fireRate;
     private int maxAmmoCount;
@@ -58,6 +60,8 @@ public class PlayerStats : MonoBehaviour
 
         maxEnergy = tank.GetEnergy();
         energy = maxEnergy;
+        energyRegenRate = tank.GetEnergyRate();
+        timePerEnergy = 1 / energyRegenRate;
 
         fireRate = turret.GetRateOfFire();
         cooldownBetweenShots = 1 / fireRate;
