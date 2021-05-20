@@ -6,11 +6,15 @@ public class PlayerStats : MonoBehaviour
 {
     // public static PlayerStats Instance { get; private set; }
 
-    private int gold = 0;
-    private int tankLevel = 0;
-    private int health = 50;
-    private int minDamage = 0;
-    private int maxDamage = 1;
+    // Player Stats
+    private int gold;
+    private int tankLevel;
+
+    // Tank Stats from Scriptable Object
+    private int maxHealth;
+    private int health;
+    private int minDamage;
+    private int maxDamage;
     private float cooldownBetweenShots;
     private float fireRate;
     private int maxAmmoCount;
@@ -28,6 +32,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        health = maxHealth;
+
         fireRate = turret.GetRateOfFire();
         cooldownBetweenShots = 1 / fireRate;
 
@@ -47,6 +53,11 @@ public class PlayerStats : MonoBehaviour
     private void OnStatsUpdate()
     {
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
+    }
+
+    public int GetDamage()
+    {
+        return Random.Range(minDamage, maxDamage + 1);
     }
 
     public int GetMaxAmmoCount() => maxAmmoCount;
