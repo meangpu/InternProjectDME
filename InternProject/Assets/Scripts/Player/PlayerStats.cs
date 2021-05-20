@@ -27,8 +27,20 @@ public class PlayerStats : MonoBehaviour
     private TankTurret turret;
     private Tank tank;
 
+    public event Action<int, int> OnDamageTaken;
+    public event Action<int, int> OnHealTaken;
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         Player player = GetComponent<Player>();
 
         turret = player.GetTurret();
@@ -55,17 +67,11 @@ public class PlayerStats : MonoBehaviour
         maxDamage = turret.GetMaxDamage();
 
         UpdateAmmoUI();
-        UpdateHealthUI();
     }
 
-    public void UpdateAmmoUI()
+    private void UpdateAmmoUI()
     {
         UIManager.Instance.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
-    }
-
-    public void UpdateHealthUI()
-    {
-        UIManager.Instance.UpdateHealthUI(health, maxHealth);
     }
 
     private void OnStatsUpdate()
@@ -73,7 +79,7 @@ public class PlayerStats : MonoBehaviour
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
     }
 
-    public int GetDamage()
+    public int DealDamage()
     {
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
@@ -81,19 +87,48 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damageInflicted)
     {
         health -= damageInflicted;
-        UpdateHealthUI();
 
         if (health <= 0)
         {
-            Debug.Log("Player is dead");
+            health = 0;
         }
+
+        OnDamageTaken?.Invoke(health, maxHealth);
     }
+
+    public void Heal(int healInflicted)
+    {
+        health += healInflicted;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        OnHealTaken?.Invoke(health, maxHealth);
+    }
+
+    public int GetHealth() => health;
+    public int GetMaxHealth() => maxHealth;
 
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
-    public void DecreaseCurrentAmmoCount(int decrement = 1) => currentAmmoCount -= decrement;
-    public void EmptyCurrentAmmoCount() => currentAmmoCount = 0;
-    public void ReloadAmmoCount() => currentAmmoCount = maxAmmoCount;
+
+    public void DecreaseCurrentAmmoCount(int decrement = 1)
+    {
+        currentAmmoCount -= decrement;
+        UpdateAmmoUI();
+    }
+    public void EmptyCurrentAmmoCount()
+    {
+        currentAmmoCount = 0;
+        UpdateAmmoUI();
+    }
+    public void ReloadAmmoCount()
+    {
+        currentAmmoCount = maxAmmoCount;
+        UpdateAmmoUI();
+    }
 
     public float GetCoolDownBetweenShots() => cooldownBetweenShots;
 

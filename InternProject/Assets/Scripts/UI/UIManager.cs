@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text ammoUI = null;
     [SerializeField] private ReloadBar reloadBar = null;
-    [SerializeField] private HealthBar healthBar = null;
 
     private void Awake()
     {
@@ -31,10 +30,5 @@ public class UIManager : MonoBehaviour
     public void Reload(float reloadTime)
     {
         reloadBar.SetReloadTimer(reloadTime);
-    }
-
-    public void UpdateHealthUI(int currentHealth, int maxHealth)
-    {
-        healthBar.UpdateUI(currentHealth, maxHealth);
     }
 }

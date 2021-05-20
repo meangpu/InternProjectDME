@@ -26319,7 +26319,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.804
+  m_FillAmount: 0.631
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -26393,7 +26393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadBar: {fileID: 501368540}
-  reloading: 0
 --- !u!114 &124237220
 MonoBehaviour:
   m_ObjectHideFlags: 0

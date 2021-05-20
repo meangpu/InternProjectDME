@@ -11,7 +11,7 @@ public class ReloadBar : MonoBehaviour
     private float maxProgress;
     private float progressImageVelocity;
 
-    [SerializeField] private bool reloading = false;
+    private bool reloading = false;
 
     public void SetReloadTimer(float maxProgress)
     {

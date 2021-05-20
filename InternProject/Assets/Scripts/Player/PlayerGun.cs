@@ -44,7 +44,6 @@ public class PlayerGun : MonoBehaviour
     private IEnumerator StartShootCooldown(float cooldownTime)
     {
         playerStats.DecreaseCurrentAmmoCount();
-        playerStats.UpdateAmmoUI();
         canShoot = false;
         yield return new WaitForSeconds(cooldownTime);
         canShoot = true;
@@ -58,10 +57,8 @@ public class PlayerGun : MonoBehaviour
         float reloadTime = playerStats.GetReloadTime();
         UIManager.Instance.Reload(reloadTime);
         playerStats.EmptyCurrentAmmoCount();
-        playerStats.UpdateAmmoUI();
         yield return new WaitForSeconds(reloadTime);
         playerStats.ReloadAmmoCount();
-        playerStats.UpdateAmmoUI();
         isReloading = false;
     }
 }
