@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 4789166323244050169}
-  player: {fileID: 5943029956014393997}
+  playerStats: {fileID: 3061819531511047170}
 --- !u!1 &5943029956014393994
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 4723530992476281506}
   - component: {fileID: 1352913647339779572}
   - component: {fileID: 7474375946340464500}
+  - component: {fileID: 3061819531511047170}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -445,7 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
-  turretImg: {fileID: 0}
 --- !u!114 &7553780951413289878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,5 +519,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 094f32e884b3fdf4daf095ecfaed662d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3061819531511047170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23a5bfd7a3e36d46aef208b641dd52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
