@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject winPanel;
 
     private void Start() 
     {
@@ -31,4 +32,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    public void LevelWon()
+    {
+        PauseGame();
+        winPanel.SetActive(true);
+    }
+
 }
