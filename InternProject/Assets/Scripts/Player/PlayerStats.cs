@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     private int tankLevel;
 
     // Tank Stats from Scriptable Object
-    private int maxHealth;
+    private int maxHealth = 50;
     private int health;
     private int minDamage;
     private int maxDamage;
@@ -21,12 +21,10 @@ public class PlayerStats : MonoBehaviour
     private int currentAmmoCount;
     private float reloadTime;
 
-    private UIManager uiManager;
     private TankTurret turret;
 
     private void Awake()
     {
-        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         turret = GetComponent<Player>().GetTurret();
     }
 
@@ -47,7 +45,7 @@ public class PlayerStats : MonoBehaviour
 
     public void UpdateAmmoUI()
     {
-        uiManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
+        UIManager.Instance.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
     }
 
     private void OnStatsUpdate()
@@ -58,6 +56,13 @@ public class PlayerStats : MonoBehaviour
     public int GetDamage()
     {
         return Random.Range(minDamage, maxDamage + 1);
+    }
+
+    public void TakeDamage(int damageInflicted)
+    {
+        health -= damageInflicted;
+
+        // if (health <= 0) {kill}
     }
 
     public int GetMaxAmmoCount() => maxAmmoCount;

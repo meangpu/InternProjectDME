@@ -26343,6 +26343,7 @@ GameObject:
   - component: {fileID: 124237217}
   - component: {fileID: 124237218}
   - component: {fileID: 124237219}
+  - component: {fileID: 124237220}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: UIManager
@@ -26391,6 +26392,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadBar: {fileID: 501368540}
   reloading: 0
+--- !u!114 &124237220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124237216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a04122169152f43bc1d3b1fea09153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 90747289}
+  healthText: {fileID: 2058887550}
 --- !u!1001 &151337524
 PrefabInstance:
   m_ObjectHideFlags: 0
