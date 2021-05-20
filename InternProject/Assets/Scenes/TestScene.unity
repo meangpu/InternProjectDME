@@ -53880,7 +53880,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1533023315}
-  winPanel: {fileID: 1606726706}
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0
@@ -55057,7 +55056,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1056445400 stripped
 Transform:
@@ -55274,7 +55273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4311762890589491696, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4311762890589491696, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55396,7 +55395,7 @@ Transform:
   - {fileID: 1821031912}
   - {fileID: 1379113920}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1194388670
 GameObject:
@@ -56554,7 +56553,7 @@ Transform:
   - {fileID: 493555992}
   - {fileID: 124237217}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685086130
 GameObject:
@@ -57323,6 +57322,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948353084}
   m_CullTransparentMesh: 1
+--- !u!212 &1950020772 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5943029955331855892, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+  m_PrefabInstance: {fileID: 4789166324514989936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1972452175
 GameObject:
   m_ObjectHideFlags: 0
@@ -57357,7 +57361,6 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
-  gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
@@ -57487,7 +57490,6 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
-  gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
@@ -57578,7 +57580,6 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
-  gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
@@ -57637,7 +57638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.600006, y: -36.399994}
+  m_AnchoredPosition: {x: -39.599976, y: -36.400024}
   m_SizeDelta: {x: 192.68, y: 48.645}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2051873142
@@ -57766,7 +57767,7 @@ Transform:
   m_Children:
   - {fileID: 1527041617}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2100074214
 GameObject:
@@ -57979,7 +57980,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5943029956014393993, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5943029956014393993, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: m_LocalScale.x
@@ -58036,14 +58037,10 @@ PrefabInstance:
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: turret
       value: 
-<<<<<<< Updated upstream
-      objectReference: {fileID: 11400000, guid: 9a5cdc2e297bd3d48b4086494c62b53c, type: 2}
+      objectReference: {fileID: 11400000, guid: 112533ba55947934ea6907d9fe48cd3f, type: 2}
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: turretImg
       value: 
       objectReference: {fileID: 1950020772}
-=======
-      objectReference: {fileID: 11400000, guid: 112533ba55947934ea6907d9fe48cd3f, type: 2}
->>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852568b80bf722645832f953e7d1d429, type: 3}

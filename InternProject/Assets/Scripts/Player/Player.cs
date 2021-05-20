@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private TankTurret turret = null;
-    [SerializeField] private SpriteRenderer turretImg = null;
 
     // Misc
     private UIManager uiManager;
@@ -35,9 +34,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        
         fireRate = turret.GetRateOfFire();
-        turretImg.sprite = turret.GetSprite();
         cooldownBetweenShots = 1 / fireRate;
 
         maxAmmoCount = turret.GetAmmoCount();
