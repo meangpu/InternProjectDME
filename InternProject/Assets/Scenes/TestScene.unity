@@ -53880,6 +53880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1533023315}
+  winPanel: {fileID: 1606726706}
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0
@@ -57353,7 +57354,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972452175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
   m_Name: 
@@ -57361,6 +57362,7 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
+  gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
@@ -57490,6 +57492,7 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
+  gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
@@ -57572,7 +57575,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972452175}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
   m_Name: 
@@ -57580,6 +57583,7 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
+  gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
