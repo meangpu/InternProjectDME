@@ -47,13 +47,10 @@ public class EnemyGetHit : MonoBehaviour
         if (enemyDisplay.hp <= 0)
         {
             circleHp.fillAmount = 0;
-<<<<<<< Updated upstream
             PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
-=======
->>>>>>> Stashed changes
+
             WaveManager.EnemyAlive--;
             waveManager.SetEnemyLeftText();
-            pool.ReturnObject(gameObject);
             this.enabled = false;
         }
         updateHpCircle(enemyDisplay.hp, enemyDisplay.maxhp);
