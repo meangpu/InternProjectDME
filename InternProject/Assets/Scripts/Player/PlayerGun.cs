@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerGun : MonoBehaviour
 {
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
-    [SerializeField] private Player player = null;
+    [SerializeField] private PlayerStats playerStats = null;
 
     private ReloadBar reloadBar;
 
@@ -27,14 +27,14 @@ public class PlayerGun : MonoBehaviour
     {
         if (!canShoot) { return; }
 
-        if (player.GetCurrentAmmoCount() < 1) // If ammo is depleted and the player attempts to shoot, do an auto reload.
+        if (playerStats.GetCurrentAmmoCount() < 1) // If ammo is depleted and the player attempts to shoot, do an auto reload.
         {
             StartCoroutine(Reload());
         }
         else // Shoot normally
         {
             PoolingSingleton.Instance.PlayerBulletPool.SpawnObject(barrel.position, barrel.rotation);
-            StartCoroutine(StartShootCooldown(player.GetCoolDownBetweenShots()));
+            StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
         }  
     }
 
@@ -50,8 +50,8 @@ public class PlayerGun : MonoBehaviour
 
     private IEnumerator StartShootCooldown(float cooldownTime)
     {
-        player.DecreaseCurrentAmmoCount();
-        player.UpdateAmmoUI();
+        playerStats.DecreaseCurrentAmmoCount();
+        playerStats.UpdateAmmoUI();
         canShoot = false;
         yield return new WaitForSeconds(cooldownTime);
         canShoot = true;
@@ -62,13 +62,13 @@ public class PlayerGun : MonoBehaviour
         if (isReloading) { yield break; } // in IEnumerator, yield break = return;
 
         isReloading = true;
-        float reloadTime = player.GetReloadTime();
+        float reloadTime = playerStats.GetReloadTime();
         reloadBar.SetReloadTimer(reloadTime);
-        player.EmptyCurrentAmmoCount();
-        player.UpdateAmmoUI();
+        playerStats.EmptyCurrentAmmoCount();
+        playerStats.UpdateAmmoUI();
         yield return new WaitForSeconds(reloadTime);
-        player.ReloadAmmoCount();
-        player.UpdateAmmoUI();
+        playerStats.ReloadAmmoCount();
+        playerStats.UpdateAmmoUI();
         isReloading = false;
     }
 }

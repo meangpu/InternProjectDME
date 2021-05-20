@@ -4,19 +4,58 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats Instance { get; private set; }
+    // public static PlayerStats Instance { get; private set; }
 
-    [SerializeField] private int gold = 0;
-    // [SerializeField] private 
-    // Start is called before the first frame update
-    void Start()
+    private int gold = 0;
+    private int tankLevel = 0;
+    private int health = 50;
+    private int minDamage = 0;
+    private int maxDamage = 1;
+    private float cooldownBetweenShots;
+    private float fireRate;
+    private int maxAmmoCount;
+    private int currentAmmoCount;
+    private float reloadTime;
+
+    private UIManager uiManager;
+    private TankTurret turret;
+
+    private void Awake()
     {
-        
+        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        turret = GetComponent<Player>().GetTurret();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        fireRate = turret.GetRateOfFire();
+        cooldownBetweenShots = 1 / fireRate;
+
+        maxAmmoCount = turret.GetAmmoCount();
+        currentAmmoCount = maxAmmoCount;
+
+        reloadTime = turret.GetReloadTime();
+
+        UpdateAmmoUI();
     }
+
+    public void UpdateAmmoUI()
+    {
+        uiManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
+    }
+
+    private void OnStatsUpdate()
+    {
+        // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
+    }
+
+    public int GetMaxAmmoCount() => maxAmmoCount;
+    public int GetCurrentAmmoCount() => currentAmmoCount;
+    public void DecreaseCurrentAmmoCount(int decrement = 1) => currentAmmoCount -= decrement;
+    public void EmptyCurrentAmmoCount() => currentAmmoCount = 0;
+    public void ReloadAmmoCount() => currentAmmoCount = maxAmmoCount;
+
+    public float GetCoolDownBetweenShots() => cooldownBetweenShots;
+
+    public float GetReloadTime() => reloadTime;
 }
