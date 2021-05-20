@@ -55,6 +55,7 @@ public class WaveManager : MonoBehaviour
     private void Start() 
     {
         SetUp_MaxSlider(EnemyWaves.Length);
+        countDown = 0;
     }
 
 
@@ -80,6 +81,11 @@ public class WaveManager : MonoBehaviour
 			return;
 		}
 
+        // if (EnemyWaves[waveindex].EC > 0)
+        // {
+
+        // }
+
         countDown -= Time.deltaTime;
 
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
@@ -97,48 +103,51 @@ public class WaveManager : MonoBehaviour
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
             float rand = Random.value; // random number between 0 and 1
-            Debug.Log(rand);
-
-            foreach (var enemy in pointToSpawn.EnemyList)
+            while (wave.EC > 0)
             {
-                for (int i = 0; i < enemy.count; i++)
+                foreach (var enemy in pointToSpawn.EnemyList)
                 {
-                    if (wave.EC - enemy.enemy.GetEC() >= 0)
+                    if(enemy.prob > rand) // if random number less than probobility
                     {
-                        SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-                        wave.EC -= enemy.enemy.GetEC();
-                        Set_MinSlider(wave.EC);
-                        yield return new WaitForSeconds(wave.spawnRate);
+                        if (wave.EC - enemy.enemy.GetEC() >= 0)  // spawn when wave have enough ec
+                        {
+                            SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                            wave.EC -= enemy.enemy.GetEC();
+
+                            Set_MinSlider(wave.EC);
+                            yield return new WaitForSeconds(wave.spawnRate);
+                        }
+                    }
+                    else
+                    {
+                        rand = Random.value;
                     }
                 }
 
 
-                // if(enemy.prob > rand) // if random number less than probobility
-                // {
-                //     if (wave.EC - enemy.enemy.GetEC() >= 0)  // spawn when wave have enough ec
-                //     {
-                //         SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-                //         wave.EC -= enemy.enemy.GetEC();
-
-                //         set_MinSlider(wave.EC);
-                //         yield return new WaitForSeconds(wave.spawnRate);
-                //     }
-                // }
-
 
             }
-        }
-
-        
+            
+            //////////////////// -- STABLE --/////////////////////////////
+            // foreach (var enemy in pointToSpawn.EnemyList)
+            // {
+                
+            //     for (int i = 0; i < enemy.count; i++)
+            //     {
+                    
+            //         if (wave.EC - enemy.enemy.GetEC() >= 0)
+            //         {
+            //             SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+            //             wave.EC -= enemy.enemy.GetEC();
+            //             Set_MinSlider(wave.EC);
+            //             yield return new WaitForSeconds(wave.spawnRate);
+            //         }
+            //     }
+            // }
+            //////////////////// -- STABLE --/////////////////////////////
+        } 
         waveindex++;
 
-        
-
-	    // if (waveindex == EnemyWaves.Length)
-		// {
-		// 	// gameManager.WinLevel();
-		// 	this.enabled = false;
-		// }
     }
 
 

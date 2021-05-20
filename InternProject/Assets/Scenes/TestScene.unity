@@ -57587,21 +57587,24 @@ MonoBehaviour:
   enemyPool: {fileID: 1260280414}
   timeBeforeNextWave: 2
   EnemyWaves:
-  - EC: 2
+  - EC: 80
     spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 908b24406de87154dba4fbbdb27ca104, type: 2}
         count: 2
-        prob: 0
+        prob: 0.01
+      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
+        count: 2
+        prob: 0.95
       spawnPoint: {fileID: 716646180}
-  - EC: 2
+  - EC: 50
     spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 908b24406de87154dba4fbbdb27ca104, type: 2}
         count: 2
-        prob: 0
+        prob: 1
       spawnPoint: {fileID: 716646180}
 --- !u!4 &2003594912 stripped
 Transform:
