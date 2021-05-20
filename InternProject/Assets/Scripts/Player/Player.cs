@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] private TankTurret turret = null;
 
     // Misc
-    private UIManager uiManager;
     private PlayerAbilities playerAbilities;
     private PlayerMovement playerMovement;
 
@@ -18,33 +17,11 @@ public class Player : MonoBehaviour
     private bool isDashing = false; // Check if the player is dashing
     private bool canDash = true; // Check if the player can dash
 
-    // Tank stats
-    private float cooldownBetweenShots;
-    private float fireRate;
-    private int maxAmmoCount;
-    private int currentAmmoCount;
-    private float reloadTime;
-
     private void Awake()
     {
-        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         playerAbilities = GetComponent<PlayerAbilities>();
         playerMovement = GetComponent<PlayerMovement>();
     }
-
-    private void Start()
-    {
-        fireRate = turret.GetRateOfFire();
-        cooldownBetweenShots = 1 / fireRate;
-
-        maxAmmoCount = turret.GetAmmoCount();
-        currentAmmoCount = maxAmmoCount;
-
-        reloadTime = turret.GetReloadTime();
-
-        UpdateAmmoUI();
-    }
-
 
     private void Update()
     {
@@ -68,23 +45,5 @@ public class Player : MonoBehaviour
         playerAbilities.Dash(() => { isDashing = false; }, () => { canDash = true; });
     }
 
-    private void OnStatsUpdate()
-    {
-        // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
-    }
-
-    public void UpdateAmmoUI()
-    {
-        uiManager.UpdateAmmoUI(currentAmmoCount, maxAmmoCount);
-    }
-
-    public int GetMaxAmmoCount() => maxAmmoCount;
-    public int GetCurrentAmmoCount() => currentAmmoCount;
-    public void DecreaseCurrentAmmoCount(int decrement = 1) => currentAmmoCount -= decrement;
-    public void EmptyCurrentAmmoCount() => currentAmmoCount = 0;
-    public void ReloadAmmoCount() => currentAmmoCount = maxAmmoCount;
-
-    public float GetCoolDownBetweenShots() => cooldownBetweenShots;
-
-    public float GetReloadTime() => reloadTime;
+    public TankTurret GetTurret() => turret;
 }
