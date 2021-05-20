@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7632373239638726001}
   - component: {fileID: 7632373239638726006}
-  - component: {fileID: 7632373239638726002}
   - component: {fileID: 7632373239638726003}
   - component: {fileID: 7632373239638726000}
+  - component: {fileID: -7770153480288779455}
   m_Layer: 0
   m_Name: Player Bullet
   m_TagString: PlayerBullet
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7632373239638726002
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7632373239638726007}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.28}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.28}
-  m_EdgeRadius: 0
 --- !u!50 &7632373239638726003
 Rigidbody2D:
   serializedVersion: 4
@@ -145,6 +119,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7632373239638726003}
-  bulletSpeed: 12
-  damage: 10
+  bulletSpeed: 18
+  damage: 50
   lifeTime: 10
+--- !u!60 &-7770153480288779455
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632373239638726007}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.125, y: 0.21875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.0390625, y: 0.109375}
+      - {x: -0.0625, y: 0.0859375}
+      - {x: -0.0625, y: -0.109375}
+      - {x: 0.0625, y: -0.109375}
+      - {x: 0.0625, y: 0.09375}
+      - {x: 0.046875, y: 0.109375}

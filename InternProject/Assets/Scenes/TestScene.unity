@@ -57323,11 +57323,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948353084}
   m_CullTransparentMesh: 1
---- !u!212 &1950020772 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5943029955331855892, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-  m_PrefabInstance: {fileID: 4789166324514989936}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1972452175
 GameObject:
   m_ObjectHideFlags: 0
@@ -58041,10 +58036,14 @@ PrefabInstance:
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: turret
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 11400000, guid: 9a5cdc2e297bd3d48b4086494c62b53c, type: 2}
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: turretImg
       value: 
       objectReference: {fileID: 1950020772}
+=======
+      objectReference: {fileID: 11400000, guid: 112533ba55947934ea6907d9fe48cd3f, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852568b80bf722645832f953e7d1d429, type: 3}
