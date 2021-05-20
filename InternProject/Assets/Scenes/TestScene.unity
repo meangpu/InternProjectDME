@@ -54529,23 +54529,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809939276}
   m_CullTransparentMesh: 1
---- !u!1 &819374002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5943029956014393994, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-  m_PrefabInstance: {fileID: 4789166324514989936}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &819374011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819374002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094f32e884b3fdf4daf095ecfaed662d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &845682430
 GameObject:
   m_ObjectHideFlags: 0
@@ -58063,9 +58046,5 @@ PrefabInstance:
       propertyPath: turretImg
       value: 
       objectReference: {fileID: 1950020772}
-    - target: {fileID: 6839855375599364145, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852568b80bf722645832f953e7d1d429, type: 3}

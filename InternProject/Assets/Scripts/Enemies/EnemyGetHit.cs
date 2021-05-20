@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyGetHit : MonoBehaviour
 {
-    private Pooler pool;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private EnemyDisplay enemyDisplay;
 
@@ -17,7 +16,6 @@ public class EnemyGetHit : MonoBehaviour
     private void Start() 
     {
         waveManager = GameObject.Find("waveManager").GetComponent<WaveManager>(); //// fix this 
-        pool = transform.parent.GetComponent<Pooler>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -49,7 +47,7 @@ public class EnemyGetHit : MonoBehaviour
         if (enemyDisplay.hp <= 0)
         {
             circleHp.fillAmount = 0;
-            pool.ReturnObject(gameObject);
+            PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
             WaveManager.EnemyAlive--;
 
             waveManager.SetEnemyLeftText();

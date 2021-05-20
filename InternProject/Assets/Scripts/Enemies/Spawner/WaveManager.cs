@@ -23,23 +23,23 @@ public class WaveManager : MonoBehaviour
     private int waveindex = 0;
 
 
-    public void set_MinSlider(int _value)
+    public void Set_MinSlider(int _value)
     {
         minWaveSlider.value = _value;
     }
 
-    public void setUp_MinSlider(int _value)
+    public void SetUp_MinSlider(int _value)
     {
         minWaveSlider.maxValue = _value;
         minWaveSlider.value = _value;
     }
 
-    public void set_MaxSlider(int _value)
+    public void Set_MaxSlider(int _value)
     {
         bigWaveSlider.value = _value;
     }
 
-    public void setUp_MaxSlider(int _value)
+    public void SetUp_MaxSlider(int _value)
     {
         bigWaveSlider.maxValue = _value;
         bigWaveSlider.value = _value;
@@ -54,7 +54,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start() 
     {
-        setUp_MaxSlider(EnemyWaves.Length);
+        SetUp_MaxSlider(EnemyWaves.Length);
     }
 
 
@@ -91,8 +91,8 @@ public class WaveManager : MonoBehaviour
     IEnumerator SpawnWave()
     {
         EnemyWave wave = EnemyWaves[waveindex];
-        setUp_MinSlider(wave.EC);
-        set_MaxSlider(EnemyWaves.Length - (waveindex+1));
+        SetUp_MinSlider(wave.EC);
+        Set_MaxSlider(EnemyWaves.Length - (waveindex+1));
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -108,7 +108,7 @@ public class WaveManager : MonoBehaviour
                     {
                         SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
                         wave.EC -= enemy.enemy.GetEC();
-                        set_MinSlider(wave.EC);
+                        Set_MinSlider(wave.EC);
                         yield return new WaitForSeconds(wave.spawnRate);
                     }
                 }
