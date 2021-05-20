@@ -16,11 +16,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Pooler enemyPool;
 
     [Header("WaveInfo")]
+    [SerializeField] bool useRandom;
     [SerializeField] float timeBeforeNextWave;
     private float countDown;
     public static int EnemyAlive = 0;
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
+
 
 
     public void Set_MinSlider(int _value)
@@ -102,49 +104,54 @@ public class WaveManager : MonoBehaviour
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
-            float rand = Random.value; // random number between 0 and 1
-            while (wave.EC > 0)
+            if (useRandom)
             {
+                float rand = Random.value; // random number between 0 and 1
+                while (wave.EC > 0)
+                {
+                    foreach (var enemy in pointToSpawn.EnemyList)
+                    {
+                        if(enemy.prob > rand) // if random number less than probobility
+                        {
+                            if (wave.EC - enemy.enemy.GetEC() >= 0)  // spawn when wave have enough ec
+                            {
+                                SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                                wave.EC -= enemy.enemy.GetEC();
+
+                                Set_MinSlider(wave.EC);
+                                yield return new WaitForSeconds(wave.spawnRate);
+                            }
+                        }
+                        else
+                        {
+                            rand = Random.value;
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                //////////////////// -- STABLE --/////////////////////////////
                 foreach (var enemy in pointToSpawn.EnemyList)
                 {
-                    if(enemy.prob > rand) // if random number less than probobility
+                    
+                    for (int i = 0; i < enemy.count; i++)
                     {
-                        if (wave.EC - enemy.enemy.GetEC() >= 0)  // spawn when wave have enough ec
+                        
+                        if (wave.EC - enemy.enemy.GetEC() >= 0)
                         {
                             SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
                             wave.EC -= enemy.enemy.GetEC();
-
                             Set_MinSlider(wave.EC);
                             yield return new WaitForSeconds(wave.spawnRate);
                         }
                     }
-                    else
-                    {
-                        rand = Random.value;
-                    }
                 }
-
-
-
+                //////////////////// -- STABLE --/////////////////////////////
             }
             
-            //////////////////// -- STABLE --/////////////////////////////
-            // foreach (var enemy in pointToSpawn.EnemyList)
-            // {
-                
-            //     for (int i = 0; i < enemy.count; i++)
-            //     {
-                    
-            //         if (wave.EC - enemy.enemy.GetEC() >= 0)
-            //         {
-            //             SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-            //             wave.EC -= enemy.enemy.GetEC();
-            //             Set_MinSlider(wave.EC);
-            //             yield return new WaitForSeconds(wave.spawnRate);
-            //         }
-            //     }
-            // }
-            //////////////////// -- STABLE --/////////////////////////////
+   
         } 
         waveindex++;
 

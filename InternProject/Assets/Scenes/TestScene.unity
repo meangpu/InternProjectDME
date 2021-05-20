@@ -26307,7 +26307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46648645, g: 0.9811321, b: 0.21751513, a: 1}
+  m_Color: {r: 0.042719822, g: 0.6037736, b: 0.10537551, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26319,7 +26319,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.218
+  m_FillAmount: 0.804
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -55403,7 +55403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.25, b: 0.25, a: 1}
+  m_Color: {r: 0.6981132, g: 0.121840514, b: 0.14756647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -57853,7 +57853,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972452175}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
   m_Name: 
@@ -57863,27 +57863,28 @@ MonoBehaviour:
   enemyLefttext: {fileID: 845682432}
   gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
-  timeBeforeNextWave: 2
+  useRandom: 0
+  timeBeforeNextWave: 5
   EnemyWaves:
-  - EC: 60
-    spawnRate: 0.2
+  - EC: 20
+    spawnRate: 0.3
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         count: 5
-        prob: 1
+        prob: 0.6
       spawnPoint: {fileID: 895374816}
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
         count: 4
-        prob: 1
+        prob: 0.8
       spawnPoint: {fileID: 1274255943}
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
         count: 5
-        prob: 1
+        prob: 0.4
       spawnPoint: {fileID: 1194388671}
-  - EC: 60
+  - EC: 40
     spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -57933,7 +57934,7 @@ MonoBehaviour:
         count: 10
         prob: 1
       spawnPoint: {fileID: 1194388671}
-  - EC: 60
+  - EC: 80
     spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -57993,6 +57994,7 @@ MonoBehaviour:
   enemyLefttext: {fileID: 845682432}
   gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
+  useRandom: 0
   timeBeforeNextWave: 2
   EnemyWaves:
   - EC: 60
@@ -58074,7 +58076,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972452175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
   m_Name: 
@@ -58084,6 +58086,7 @@ MonoBehaviour:
   enemyLefttext: {fileID: 845682432}
   gameManager: {fileID: 493555991}
   enemyPool: {fileID: 1260280414}
+  useRandom: 0
   timeBeforeNextWave: 2
   EnemyWaves:
   - EC: 80
@@ -58310,8 +58313,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
