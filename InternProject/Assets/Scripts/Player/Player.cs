@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
+    [SerializeField] private Tank tank = null;
     [SerializeField] private TankTurret turret = null;
 
     // Misc
@@ -45,5 +46,6 @@ public class Player : MonoBehaviour
         playerAbilities.Dash(() => { isDashing = false; }, () => { canDash = true; });
     }
 
+    public Tank GetTank() => tank;
     public TankTurret GetTurret() => turret;
 }

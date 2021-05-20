@@ -26378,6 +26378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoUI: {fileID: 809939278}
+  reloadBar: {fileID: 124237219}
+  healthBar: {fileID: 124237220}
 --- !u!114 &124237219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58319,7 +58321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 24/100
+  m_text: 24 / 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
   m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}

@@ -9,6 +9,7 @@ public class Tank : ScriptableObject
     [SerializeField] private string tankDes;
     [SerializeField] private Sprite artWork;
     [SerializeField] private int hp;
+    [SerializeField] private int energy;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
@@ -16,6 +17,7 @@ public class Tank : ScriptableObject
     public string GetDescription() => tankDes;
     public Sprite GetSprite() => artWork;
     public int GetHealth() => hp;
+    public int GetEnergy() => energy;
     public float GetMovementSpeed() => moveSpeed;
     public float GetRotationSpeed() => rotationSpeed;
 }

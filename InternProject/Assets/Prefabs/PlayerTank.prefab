@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4512b84e2e665b54faeff86b2dc03078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
   turret: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
 --- !u!114 &7553780951413289878
 MonoBehaviour:
@@ -459,7 +460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6839855375599364145}
-  playerInput: {fileID: 6596479384599892429}
   dashSpeed: 10
   dashCooldown: 5
   dashDuration: 0.25
@@ -507,7 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae374a033a1dd1c4fb12a9766587b01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
   rb: {fileID: 6839855375599364145}
 --- !u!114 &7474375946340464500
 MonoBehaviour:
@@ -521,6 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094f32e884b3fdf4daf095ecfaed662d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 3061819531511047170}
 --- !u!114 &3061819531511047170
 MonoBehaviour:
   m_ObjectHideFlags: 0

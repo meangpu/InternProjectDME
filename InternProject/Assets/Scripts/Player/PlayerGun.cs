@@ -7,16 +7,9 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
     [SerializeField] private PlayerStats playerStats = null;
 
-    private ReloadBar reloadBar;
-
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
-
-    private void Awake()
-    {
-        reloadBar = GameObject.FindGameObjectWithTag("UIManager").GetComponent<ReloadBar>();
-    }
 
     private void Update()
     {
@@ -63,7 +56,7 @@ public class PlayerGun : MonoBehaviour
 
         isReloading = true;
         float reloadTime = playerStats.GetReloadTime();
-        reloadBar.SetReloadTimer(reloadTime);
+        UIManager.Instance.Reload(reloadTime);
         playerStats.EmptyCurrentAmmoCount();
         playerStats.UpdateAmmoUI();
         yield return new WaitForSeconds(reloadTime);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerGetHit : MonoBehaviour
 {
+    [SerializeField] private PlayerStats playerStats = null;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("EnemyBullet"))
@@ -14,8 +16,8 @@ public class PlayerGetHit : MonoBehaviour
         }
     }
 
-    void TakeDamage(int dmg)
+    private void TakeDamage(int dmg)
     {
-        // Debug.Log(dmg);
+        playerStats.TakeDamage(dmg);
     }
 }

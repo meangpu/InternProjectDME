@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private PlayerInputManager playerInput = null;
 
     [Header("Abilities parameters")]
     [SerializeField] private float dashSpeed = 10f;

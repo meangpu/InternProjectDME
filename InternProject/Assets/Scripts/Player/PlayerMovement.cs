@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Tank tank = null;
     [SerializeField] private Rigidbody2D rb = null;
 
     private PlayerInputManager input;
+    private PlayerStats playerStats;
 
     // Player Controls vars
     private float moveDirection;
@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<PlayerInputManager>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Start()
     {
-        movementSpeed = tank.GetMovementSpeed();
-        rotationSpeed = tank.GetRotationSpeed();
+        GetTankAttributes();
     }
 
     private void Update()
@@ -46,5 +46,11 @@ public class PlayerMovement : MonoBehaviour
     public void RotateTank()
     {
         rb.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -rotateDirection * rotationSpeed));
+    }
+
+    private void GetTankAttributes()
+    {
+        movementSpeed = playerStats.GetMovementSpeed();
+        rotationSpeed = playerStats.GetRotationSpeed();
     }
 }
