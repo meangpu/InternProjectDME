@@ -32,7 +32,7 @@ public class DamagePopup : MonoBehaviour
     public void Setup(int damageAmount) {
         textMesh.SetText(damageAmount.ToString());
 
-        textMesh.fontSize = 3;
+        textMesh.fontSize = 2;
         textColor = Color.white;
 
         textMesh.color = textColor;
