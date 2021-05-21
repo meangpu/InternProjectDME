@@ -56264,7 +56264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c26d1abc72a25408b270d5405b81b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
+  spawnPrefab: {fileID: 1139181902996810874, guid: 891cef5396d0dea43bb0f5aa8d31db4b, type: 3}
   poolSize: 10
   expandAble: 0
 --- !u!1 &1274255942
@@ -59224,7 +59224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165b776e115499a4489f33456adc3973, type: 3}
