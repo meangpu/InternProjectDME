@@ -11,6 +11,7 @@ public class PlayerGetHit : MonoBehaviour
         if(col.gameObject.TryGetComponent(out BulletEnemy bullet))
         {
             TakeDamage(bullet.Damage);
+            DamagePopup.Create(transform.position, bullet.Damage);
             bullet.DestroySelf();
         }
     }
