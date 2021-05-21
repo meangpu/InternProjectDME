@@ -10,10 +10,19 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image healthBarDamaged = null;
     [SerializeField] private TMP_Text healthText = null;
 
-    private const float DAMAGED_HEALTH_SHRINK_TIMER_MAX = 0.5f;
+    [SerializeField] private Image energyBar = null;
+    [SerializeField] private Image energyBarSpent = null;
+    [SerializeField] private TMP_Text energyText = null;
+
+    [SerializeField] private float shrinkSpeed = 0.5f;
+    [SerializeField] private const float BAR_SHRINK_TIMER_MAX = 0.5f;
 
     private PlayerStats playerStats;
-    private float damagedHealthShrinkTimer;
+    private float healthBarShrinkTimer;
+    private float energyBarShrinkTimer;
+
+    private HealthOrManaSystem healthSystem;
+    private HealthOrManaSystem energySystem;
 
     private void Awake()
     {
@@ -21,50 +30,89 @@ public class HealthBar : MonoBehaviour
     }
 
     private void Start()
-    {   
-        HandleHealTaken(playerStats.GetHealth(), playerStats.GetMaxHealth());
-        playerStats.OnDamageTaken += HandleDamageTaken;
-        playerStats.OnHealTaken += HandleHealTaken;
+    {
+        healthSystem = playerStats.GetHealthSystem();
+        energySystem = playerStats.GetEnergySystem();
+
+        SetBar(healthSystem.GetPercentage(), healthBar);
+        SetBar(energySystem.GetPercentage(), energyBar);
+
+        healthSystem.OnDamaged += HandleDamageTaken;
+        healthSystem.OnHealed += HandleHealTaken;
+
+        energySystem.OnDamaged += HandleEnergySpent;
+        energySystem.OnHealed += HandleEnergyRegained;
     }
 
     private void Update()
     {
-        damagedHealthShrinkTimer -= Time.deltaTime;
-        if (damagedHealthShrinkTimer < 0)
+        float timeElapsed = Time.deltaTime;
+        healthBarShrinkTimer -= timeElapsed;
+        energyBarShrinkTimer -= timeElapsed;
+
+        if (healthBarShrinkTimer < 0)
         {
             if (healthBar.fillAmount < healthBarDamaged.fillAmount)
             {
-                float shrinkSpeed = 0.5f;
-                healthBarDamaged.fillAmount -= shrinkSpeed * Time.deltaTime;
+                healthBarDamaged.fillAmount -= shrinkSpeed * timeElapsed;
+            }
+        }
+
+        if (energyBarShrinkTimer < 0)
+        {
+            if (energyBar.fillAmount < energyBarSpent.fillAmount)
+            {
+                energyBarSpent.fillAmount -= shrinkSpeed * timeElapsed;
             }
         }
     }
 
-    private void UpdateUI(int currentHealth, int maxHealth)
+    private void UpdateUI(TMP_Text textField, int currentHealth, int maxHealth)
     {
-        healthText.text = $"{currentHealth} / {maxHealth}";
-
-        float healthPercentage = (float)currentHealth / maxHealth;
-
-        healthBar.fillAmount = healthPercentage;
+        textField.text = $"{currentHealth} / {maxHealth}";
     }
 
     private void HandleDamageTaken(int currentHealth, int maxHealth) 
     {
-        UpdateUI(currentHealth, maxHealth);
-        damagedHealthShrinkTimer = DAMAGED_HEALTH_SHRINK_TIMER_MAX;
+        UpdateUI(healthText, currentHealth, maxHealth);
+        SetBar(healthSystem.GetPercentage(), healthBar);
+        healthBarShrinkTimer = BAR_SHRINK_TIMER_MAX;
     }
 
     private void HandleHealTaken(int currentHealth, int maxHealth)
     {
-        UpdateUI(currentHealth, maxHealth);
+        UpdateUI(healthText, currentHealth, maxHealth);
+        SetBar(healthSystem.GetPercentage(), healthBar);
 
         healthBarDamaged.fillAmount = healthBar.fillAmount;
     }
 
+    private void HandleEnergySpent(int currentEnergy, int maxEnergy)
+    {
+        UpdateUI(energyText, currentEnergy, maxEnergy);
+        SetBar(energySystem.GetPercentage(), energyBar);
+        energyBarShrinkTimer = BAR_SHRINK_TIMER_MAX;
+    }
+
+    private void HandleEnergyRegained(int currentEnergy, int maxEnergy)
+    {
+        UpdateUI(energyText, currentEnergy, maxEnergy);
+        SetBar(energySystem.GetPercentage(), energyBar);
+
+        energyBarSpent.fillAmount = energyBar.fillAmount;
+    }
+
+    private void SetBar(float percentage, Image bar)
+    {
+        bar.fillAmount = percentage; 
+    }
+
     private void OnDestroy()
     {
-        playerStats.OnDamageTaken -= HandleDamageTaken;
-        playerStats.OnHealTaken -= HandleHealTaken;
+        healthSystem.OnDamaged -= HandleDamageTaken;
+        healthSystem.OnHealed -= HandleHealTaken;
+
+        energySystem.OnDamaged -= HandleEnergySpent;
+        energySystem.OnHealed -= HandleEnergyRegained;
     }
 }

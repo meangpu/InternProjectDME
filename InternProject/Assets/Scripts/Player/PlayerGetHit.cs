@@ -18,6 +18,6 @@ public class PlayerGetHit : MonoBehaviour
 
     private void TakeDamage(int dmg)
     {
-        playerStats.TakeDamage(dmg);
+        playerStats.GetHealthSystem().Damage(dmg);
     }
 }

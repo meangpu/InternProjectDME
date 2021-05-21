@@ -26407,6 +26407,10 @@ MonoBehaviour:
   healthBar: {fileID: 90747289}
   healthBarDamaged: {fileID: 1810230993}
   healthText: {fileID: 2058887550}
+  energyBar: {fileID: 1756819884}
+  energyBarSpent: {fileID: 2068867697}
+  energyText: {fileID: 1239691410}
+  shrinkSpeed: 0.5
 --- !u!1001 &151337524
 PrefabInstance:
   m_ObjectHideFlags: 0

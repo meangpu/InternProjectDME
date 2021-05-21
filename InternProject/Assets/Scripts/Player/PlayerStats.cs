@@ -11,13 +11,17 @@ public class PlayerStats : MonoBehaviour
     private int gold;
     private int tankLevel = 1;
 
+    // Health and Energy
+    private HealthOrManaSystem healthSystem;
+    private HealthOrManaSystem energySystem;
+
     // Tank Stats from Scriptable Object
-    private int maxHealth;
-    private int health;
+    /*private int maxHealth;
+    private int health;*/
     private int minDamage;
     private int maxDamage;
-    private int maxEnergy;
-    private int energy;
+    /*private int maxEnergy;
+    private int energy;*/
     private float energyRegenRate;
     private float timePerEnergy;
     private float cooldownBetweenShots;
@@ -28,16 +32,15 @@ public class PlayerStats : MonoBehaviour
     private float movementSpeed;
     private float rotationSpeed;
 
+    private float timeElapsed;
+
     private TankTurret turret;
     private Tank tank;
 
-    public event Action<int, int> OnDamageTaken;
-    public event Action<int, int> OnHealTaken;
+    /*public event Action<int, int> OnDamageTaken;
+    public event Action<int, int> OnHealTaken;*/
 
     public event Action<int, int> OnAmmoUpdated;
-
-    public event Action<int, int> OnEnergySpent;
-    public event Action<int, int> OnEnergyRegained;
 
     private void Awake()
     {
@@ -58,11 +61,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        maxHealth = tank.GetHealth();
-        health = maxHealth;
+        healthSystem = new HealthOrManaSystem(tank.GetHealth());
+        energySystem = new HealthOrManaSystem(tank.GetEnergy());
 
-        maxEnergy = tank.GetEnergy();
-        energy = maxEnergy;
         energyRegenRate = tank.GetEnergyRate();
         timePerEnergy = 1 / energyRegenRate;
 
@@ -88,12 +89,11 @@ public class PlayerStats : MonoBehaviour
 
     private void RegenerateEnergy()
     {
-        float timeElapsed = 0;
         timeElapsed += Time.deltaTime;
 
         if (timeElapsed >= timePerEnergy)
         {
-            energy++;
+            energySystem.Heal(1);
             timeElapsed = 0;
         }
     }
@@ -103,7 +103,7 @@ public class PlayerStats : MonoBehaviour
         OnAmmoUpdated?.Invoke(currentAmmoCount, maxAmmoCount);
     }
 
-    private void OnStatsUpdate()
+    private void UpdateStats()
     {
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
     }
@@ -113,7 +113,7 @@ public class PlayerStats : MonoBehaviour
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
 
-    public void TakeDamage(int damageInflicted)
+    /*public void TakeDamage(int damageInflicted)
     {
         health -= damageInflicted;
 
@@ -135,14 +135,18 @@ public class PlayerStats : MonoBehaviour
         }
 
         OnHealTaken?.Invoke(health, maxHealth);
-    }
+    }*/
 
     #region Stats Retrieving
-    public int GetHealth() => health;
+
+    /*public int GetHealth() => health;
     public int GetMaxHealth() => maxHealth;
 
     public int GetEnergy() => energy;
-    public int GetMaxEnergy() => maxEnergy;
+    public int GetMaxEnergy() => maxEnergy;*/
+
+    public HealthOrManaSystem GetHealthSystem() => healthSystem;
+    public HealthOrManaSystem GetEnergySystem() => energySystem;
 
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
