@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     public void SpecialShoot()
     {
-        Debug.Log("Performed an alternate attack");
+        // Debug.Log("Performed an alternate attack");
         playerGun.shootSpecial();
     }
 

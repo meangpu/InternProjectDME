@@ -7,11 +7,11 @@ using TMPro;
 public class DamagePopup : MonoBehaviour
 {
 
-    public static DamagePopup Create(Vector3 position, int damageAmount) {
+    public static DamagePopup Create(Vector3 position, int damageAmount, string type) {
         Transform damagePopupTransform = Instantiate(GameAssets.i.prefabDmgPopUp, position, Quaternion.identity);
 
         DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-        damagePopup.Setup(damageAmount);
+        damagePopup.Setup(damageAmount, type);
 
         return damagePopup;
     }
@@ -29,11 +29,21 @@ public class DamagePopup : MonoBehaviour
         textMesh = transform.GetComponent<TextMeshPro>();
     }
 
-    public void Setup(int damageAmount) {
+    public void Setup(int damageAmount, string type) {
         textMesh.SetText(damageAmount.ToString());
+        if (type == "Player") 
+        {
+            Color red = new Color(1, 0.28f, 0.28f, 1);
+            textMesh.fontSize = 3;
+            textColor = red;
+        }
+        else if (type == "Enemy")
+        {
+            textMesh.fontSize = 2;
+            textColor = Color.white;
+        }
 
-        textMesh.fontSize = 2;
-        textColor = Color.white;
+
 
         textMesh.color = textColor;
         disappearTimer = DISAPPEAR_TIMER_MAX;

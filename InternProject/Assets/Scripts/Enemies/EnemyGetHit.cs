@@ -40,7 +40,7 @@ public class EnemyGetHit : MonoBehaviour
             parentHp.gameObject.SetActive(true);
         }
         
-        DamagePopup.Create(transform.position, damage);
+        DamagePopup.Create(transform.position, damage, "Enemy");
         enemyDisplay.Health -= damage;
 
 
