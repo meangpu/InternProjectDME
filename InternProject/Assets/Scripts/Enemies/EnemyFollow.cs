@@ -10,32 +10,32 @@ public class EnemyFollow : MonoBehaviour
     public bool startTracking = false;
     
     [SerializeField] private Rigidbody2D rb;
-    private Vector2 movement;
     private float moveSpeed;
     [SerializeField] EnemyAiSpring springAI;
     // public Transform child;
     
 
 
-    public void setupTrack()
+    public void SetupTrack()
     {
         // rb = this.GetComponent<Rigidbody2D>();
+        EnemyDisplay enemy = gameObject.GetComponent<EnemyDisplay>();
 
         startTracking = true;
-        nowtarget = gameObject.GetComponent<EnemyDisplay>().tagName;
+        nowtarget = enemy.TagName;
         target = GameObject.FindGameObjectsWithTag(nowtarget)[0];
 
-        moveSpeed = gameObject.GetComponent<EnemyDisplay>().eneSpeed;
+        moveSpeed = enemy.Speed;
         // tranTarget = nowtarget.transform;
         tranTarget = target.transform;
     }
 
-    private void aiSpringMove()
+    private void AISpringMove()
     {
         rb.MovePosition(transform.position + (springAI.GetMovementIntention(gameObject) * moveSpeed * Time.deltaTime));
     }
 
-    private void tracking()
+    private void Tracking()
     {
         Vector3 direction = tranTarget.position - transform.position;
 
@@ -55,14 +55,14 @@ public class EnemyFollow : MonoBehaviour
     {
         if (startTracking)
         {
-            tracking();
+            Tracking();
         }
 
     }
 
     private void FixedUpdate() 
     {
-        aiSpringMove();
+        AISpringMove();
 
         // moveEnemy(movement);
     }

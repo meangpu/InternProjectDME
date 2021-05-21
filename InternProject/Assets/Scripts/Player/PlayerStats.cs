@@ -36,6 +36,9 @@ public class PlayerStats : MonoBehaviour
 
     public event Action<int, int> OnAmmoUpdated;
 
+    public event Action<int, int> OnEnergySpent;
+    public event Action<int, int> OnEnergyRegained;
+
     private void Awake()
     {
         if (Instance == null)
@@ -76,6 +79,23 @@ public class PlayerStats : MonoBehaviour
 
         minDamage = turret.GetMinDamage();
         maxDamage = turret.GetMaxDamage();
+    }
+
+    private void Update()
+    {
+        RegenerateEnergy();
+    }
+
+    private void RegenerateEnergy()
+    {
+        float timeElapsed = 0;
+        timeElapsed += Time.deltaTime;
+
+        if (timeElapsed >= timePerEnergy)
+        {
+            energy++;
+            timeElapsed = 0;
+        }
     }
 
     private void UpdateAmmoUI()

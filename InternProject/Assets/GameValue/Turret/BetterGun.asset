@@ -15,8 +15,8 @@ MonoBehaviour:
   turretName: gun1
   description: The basic gun
   artworks: {fileID: -788753711389941659, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
-  minDamage: 0
-  maxDamage: 0
+  minDamage: 12
+  maxDamage: 24
   ammoCount: 999
   rateOfFire: 10
   reloadTime: 0.1

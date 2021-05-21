@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject bullet;
     [SerializeField] private float waitTime;
     [SerializeField] private float startWaitTime = 2f;
+    [SerializeField] private EnemyDisplay enemy = null;
+
     private IEnumerator countFirebullet;
 
     public void StartShoot()
     {
-        
         if (countFirebullet != null)
         {
             // this make sure that only one Coroutine count
@@ -26,7 +26,7 @@ public class EnemyShoot : MonoBehaviour
 
     private IEnumerator FireBullet()
     {
-        PoolingSingleton.Instance.EnemyBulletPool.SpawnObject(spawnPoint.position, spawnPoint.rotation);
+        PoolingSingleton.Instance.EnemyBulletPool.SpawnBullet(spawnPoint.position, spawnPoint.rotation, DealDamage());
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(FireBullet());
     }
@@ -35,5 +35,10 @@ public class EnemyShoot : MonoBehaviour
     {
         yield return new WaitForSeconds(startWaitTime);
         StartCoroutine(FireBullet());
+    }
+
+    private int DealDamage()
+    {
+        return Random.Range(enemy.MinDamage, enemy.MaxDamage + 1);
     }
 }

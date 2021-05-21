@@ -6,14 +6,17 @@ using TMPro;
 
 public class EnemyDisplay : MonoBehaviour
 {
-    public SpriteRenderer eneImage;
-    public float eneSpeed;
-    public GameObject target;
-    public string tagName;
-    public int hp;
-    public int maxhp;
-    public Image circleHp;
-    public GameObject parentHp;
+    private SpriteRenderer eneImage;
+    private float eneSpeed;
+    private GameObject target;
+    private string tagName;
+    private int hp;
+    private int maxhp;
+    private Image circleHp;
+    private GameObject parentHp;
+    private int minDamage;
+    private int maxDamage;
+
     [SerializeField] private Slider hpSlider;
 
     public void StartDisplay(EnemyObj enemy)
@@ -23,11 +26,24 @@ public class EnemyDisplay : MonoBehaviour
         tagName = enemy.GetTargetTag();
         hp = enemy.GetHealth();
         maxhp = enemy.GetHealth();
+        minDamage = enemy.GetMinDamage();
+        maxDamage = enemy.GetMaxDamage();
         circleHp.fillAmount = 1;
         parentHp.gameObject.SetActive(false);
         // hpSlider.maxValue = enemy.GetHealth();
         // hpSlider.value = enemy.GetHealth();
     }
+
+    public SpriteRenderer Image { get { return eneImage; } }
+    public float Speed { get { return eneSpeed; } }
+    public GameObject Target { get { return target; } }
+    public string TagName { get { return tagName; } }
+    public int Health { get { return hp; } set { hp = value; } }
+    public int MaxHealth { get { return maxhp; } }
+    public Image CircleHP { get { return circleHp; } }
+    public GameObject ParentHP { get { return parentHp; } }
+    public int MinDamage { get { return minDamage; } }
+    public int MaxDamage { get { return maxDamage; } }
 
 
 }

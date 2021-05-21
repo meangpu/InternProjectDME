@@ -504,14 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc327fe792caca48b00b35b8e321386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eneImage: {fileID: 5298252096397123444}
-  eneSpeed: 0
-  target: {fileID: 0}
-  tagName: 
-  hp: 0
-  maxhp: 0
-  circleHp: {fileID: 1203445315743443537}
-  parentHp: {fileID: 4239616382442133906}
   hpSlider: {fileID: 4310673483400928915}
 --- !u!114 &5298252096397123447
 MonoBehaviour:
@@ -526,9 +518,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5298252095771945956}
-  bullet: {fileID: 8338263324132100305, guid: fe410beffa856824c9a9cbd4e2a8260d, type: 3}
   waitTime: 2
   startWaitTime: 2
+  enemy: {fileID: 5298252096397123446}
 --- !u!114 &5298252096397123450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,8 +537,6 @@ MonoBehaviour:
   enemyDisplay: {fileID: 5298252096397123446}
   circleHp: {fileID: 1203445315743443537}
   parentHp: {fileID: 4239616382442133906}
-  dmgpopUp: {fileID: 0}
-  waveManager: {fileID: 0}
 --- !u!114 &3129964001925013690
 MonoBehaviour:
   m_ObjectHideFlags: 0

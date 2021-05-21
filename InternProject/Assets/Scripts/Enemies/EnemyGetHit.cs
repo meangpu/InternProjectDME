@@ -13,7 +13,7 @@ public class EnemyGetHit : MonoBehaviour
 
     private WaveManager waveManager;
 
-    private void Start() 
+    private void Awake() 
     {
         waveManager = GameObject.Find("waveManager").GetComponent<WaveManager>(); //// fix this 
     }
@@ -41,11 +41,11 @@ public class EnemyGetHit : MonoBehaviour
         }
         
         DamagePopup.Create(transform.position, damage);
-        enemyDisplay.hp -= damage;
+        enemyDisplay.Health -= damage;
 
 
 
-        if (enemyDisplay.hp <= 0)
+        if (enemyDisplay.Health <= 0)
         {
             circleHp.fillAmount = 0;
             PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
@@ -53,7 +53,7 @@ public class EnemyGetHit : MonoBehaviour
             waveManager.SetEnemyLeftText();
             this.enabled = false;
         }
-        updateHpCircle(enemyDisplay.hp, enemyDisplay.maxhp);
+        UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
 
     }
 
@@ -62,7 +62,7 @@ public class EnemyGetHit : MonoBehaviour
     //     hpSlider.value = _hp;
     // }
 
-    private void updateHpCircle(float _hp, float _maxHp)
+    private void UpdateHpCircle(float _hp, float _maxHp)
     {
         float nowvalue =  _hp/_maxHp;
         circleHp.fillAmount = nowvalue;

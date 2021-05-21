@@ -50,7 +50,7 @@ public class WaveManager : MonoBehaviour
 
     public void SetEnemyLeftText()
     {
-        enemyLefttext.text = WaveManager.EnemyAlive.ToString();
+        enemyLefttext.text = EnemyAlive.ToString();
     }
 
 
@@ -166,7 +166,7 @@ public class WaveManager : MonoBehaviour
         g.transform.rotation = spawnPos.rotation;
         g.SetActive(true);
 
-        g.GetComponent<EnemyFollow>().setupTrack();
+        g.GetComponent<EnemyFollow>().SetupTrack();
         g.GetComponent<EnemyShoot>().StartShoot();
         
         // add enemy count 
