@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: -7842970618747099399, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
   hp: 15
   moveSpeed: 1
-  minDamage: 0
-  maxDamage: 0
+  minDamage: 2
+  maxDamage: 4
   EC: 1
   targetTagName: Base
   isPassive: 0

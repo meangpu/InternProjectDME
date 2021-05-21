@@ -15,7 +15,7 @@ MonoBehaviour:
   tankName: starterTank
   tankDes: very basic tank cheap but work
   artWork: {fileID: -574662044077708817, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
-  hp: 50
+  hp: 200
   energy: 50
   energyRegenRate: 1.2
   moveSpeed: 2
