@@ -6,18 +6,17 @@ using TMPro;
 
 public class EnemyDisplay : MonoBehaviour
 {
-    private SpriteRenderer eneImage;
+    [SerializeField] private SpriteRenderer eneImage;
     private float eneSpeed;
     private GameObject target;
     private string tagName;
     private int hp;
     private int maxhp;
-    private Image circleHp;
-    private GameObject parentHp;
+    [SerializeField] private Image circleHp;
+    [SerializeField] private GameObject parentHp;
     private int minDamage;
     private int maxDamage;
 
-    [SerializeField] private Slider hpSlider;
 
     public void StartDisplay(EnemyObj enemy)
     {

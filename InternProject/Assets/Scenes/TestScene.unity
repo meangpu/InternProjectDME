@@ -56164,7 +56164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
-  poolSize: 61
+  poolSize: 100
   expandAble: 1
 --- !u!4 &1260280415
 Transform:
@@ -56210,7 +56210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 7632373239638726007, guid: 61824cf3fca38ae499ae0d2a0934d1d3, type: 3}
-  poolSize: 31
+  poolSize: 60
   expandAble: 1
 --- !u!4 &1264661256
 Transform:
@@ -56269,8 +56269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c26d1abc72a25408b270d5405b81b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 1139181902996810874, guid: 891cef5396d0dea43bb0f5aa8d31db4b, type: 3}
-  poolSize: 41
+  spawnPrefab: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
+  poolSize: 10
   expandAble: 0
 --- !u!1 &1274255942
 GameObject:
@@ -56697,7 +56697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 8338263324132100305, guid: fe410beffa856824c9a9cbd4e2a8260d, type: 3}
-  poolSize: 151
+  poolSize: 120
   expandAble: 1
 --- !u!4 &1445214387
 Transform:
