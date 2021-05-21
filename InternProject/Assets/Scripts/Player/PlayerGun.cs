@@ -31,6 +31,13 @@ public class PlayerGun : MonoBehaviour
         }  
     }
 
+    public void shootSpecial()
+    {
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(1, 0, 0), barrel.rotation, playerStats.DealDamage());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(-1, 0, 0), barrel.rotation, playerStats.DealDamage());
+    }
+
     public void OnHoldShootButton() // If shoot button is held down.
     {
         holdOnShoot = true;

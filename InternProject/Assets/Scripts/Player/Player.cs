@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     // Misc
     private PlayerAbilities playerAbilities;
     private PlayerMovement playerMovement;
+    
+    private PlayerGun playerGun;
+
 
     // Player Tank States
     
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     {
         playerAbilities = GetComponent<PlayerAbilities>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerGun = GetComponent<PlayerGun>();
     }
 
     private void Update()
@@ -36,6 +40,7 @@ public class Player : MonoBehaviour
     public void SpecialShoot()
     {
         Debug.Log("Performed an alternate attack");
+        playerGun.shootSpecial();
     }
 
     public void Skill1Activate()
