@@ -55781,7 +55781,7 @@ PrefabInstance:
       objectReference: {fileID: 493555991}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: guns.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: guns.Array.data[0].gunObj
@@ -55790,7 +55790,7 @@ PrefabInstance:
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: guns.Array.data[0].gunPos
       value: 
-      objectReference: {fileID: 1239197945}
+      objectReference: {fileID: 926351539}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: guns.Array.data[1].gunObj
       value: 
@@ -55920,11 +55920,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1239197945 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3268912942028125867, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
-  m_PrefabInstance: {fileID: 1142245619}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1239691408
 GameObject:
   m_ObjectHideFlags: 0
@@ -59226,6 +59221,10 @@ PrefabInstance:
     - target: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165b776e115499a4489f33456adc3973, type: 3}

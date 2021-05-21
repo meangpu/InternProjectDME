@@ -29,8 +29,6 @@ public class EnemyDisplay : MonoBehaviour
         maxDamage = enemy.GetMaxDamage();
         circleHp.fillAmount = 1;
         parentHp.gameObject.SetActive(false);
-        // hpSlider.maxValue = enemy.GetHealth();
-        // hpSlider.value = enemy.GetHealth();
     }
 
     public SpriteRenderer Image { get { return eneImage; } }

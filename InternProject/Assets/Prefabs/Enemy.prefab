@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eneImage: {fileID: 5298252096397123444}
   circleHp: {fileID: 1203445315743443537}
-  parentHp: {fileID: 2216999375479228146}
+  parentHp: {fileID: 4239616382442133906}
 --- !u!114 &5298252096397123447
 MonoBehaviour:
   m_ObjectHideFlags: 0
