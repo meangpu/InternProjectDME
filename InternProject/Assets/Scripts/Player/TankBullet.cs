@@ -6,11 +6,15 @@ using UnityEngine;
 public class TankBullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
+    [SerializeField] private DamageSetter damageSetter = null;
 
     // Temporary variables
     [SerializeField] private float bulletSpeed = 10f;
-    public int damage = 10;
     public float lifeTime = 4f;
+
+    private int damage;
+
+    public int Damage { get { return damage; } }
 
     private void Update()
     {
@@ -19,6 +23,7 @@ public class TankBullet : MonoBehaviour
 
     private void OnEnable()
     {
+        damage = damageSetter.Damage;
         StartCoroutine(DestroyOverTime());
     }
 

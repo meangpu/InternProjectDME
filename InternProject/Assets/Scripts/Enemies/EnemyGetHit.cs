@@ -11,7 +11,7 @@ public class EnemyGetHit : MonoBehaviour
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
 
-    [SerializeField] private WaveManager waveManager;
+    private WaveManager waveManager;
 
     private void Start() 
     {
@@ -20,17 +20,16 @@ public class EnemyGetHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("PlayerBullet"))
+        if(col.gameObject.TryGetComponent(out TankBullet bullet))
         {
-            TankBullet bullet = col.gameObject.GetComponent<TankBullet>();
-            TakeDamage(bullet.damage);
+            TakeDamage(bullet.Damage);
             bullet.DestroySelf();
         }
-        if(col.gameObject.CompareTag("TowerBullet"))
+
+        if(col.gameObject.TryGetComponent(out TowerProjectile towerBullet))
         {
-            TowerProjectile bullet = col.gameObject.GetComponent<TowerProjectile>();
-            TakeDamage(bullet.damage);
-            bullet.DestroySelf();
+            TakeDamage(towerBullet.Damage);
+            towerBullet.DestroySelf();
         }
     }
 

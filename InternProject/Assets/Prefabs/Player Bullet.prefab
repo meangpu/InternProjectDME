@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7632373239638726003}
   - component: {fileID: 7632373239638726000}
   - component: {fileID: -7770153480288779455}
+  - component: {fileID: 7082228764101400737}
   m_Layer: 0
   m_Name: Player Bullet
   m_TagString: PlayerBullet
@@ -119,8 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7632373239638726003}
+  damageSetter: {fileID: 7082228764101400737}
   bulletSpeed: 18
-  damage: 10
   lifeTime: 10
 --- !u!60 &-7770153480288779455
 PolygonCollider2D:
@@ -153,3 +154,15 @@ PolygonCollider2D:
       - {x: 0.0625, y: -0.109375}
       - {x: 0.0625, y: 0.09375}
       - {x: 0.046875, y: 0.109375}
+--- !u!114 &7082228764101400737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632373239638726007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798d01a594d7b2b408db073d685b51ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6,27 +6,23 @@ public class BulletEnemy : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private DamageSetter damageSetter = null;
 
-    public int damage = 10;
+    private int damage;
+
+    public int Damage { get { return damage; } }
+
     public float lifeTime = 5f;
-    [SerializeField] bool isControlled = true;
 
     private void Update()
     {
-        if (isControlled)
-        {
-            Move();
-        }
-        
+        Move(); 
     }
 
     private void OnEnable() 
     {
-        if (isControlled)
-        {
-            StartCoroutine(DestroyOverTme());
-        }
-        
+        damage = damageSetter.Damage;
+        StartCoroutine(DestroyOverTme());
     }
 
     private IEnumerator DestroyOverTme()

@@ -8,10 +8,9 @@ public class PlayerGetHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("EnemyBullet"))
+        if(col.gameObject.TryGetComponent(out BulletEnemy bullet))
         {
-            BulletEnemy bullet = col.gameObject.GetComponent<BulletEnemy>();
-            TakeDamage(bullet.damage);
+            TakeDamage(bullet.Damage);
             bullet.DestroySelf();
         }
     }

@@ -26,7 +26,7 @@ public class PlayerGun : MonoBehaviour
         }
         else // Shoot normally
         {
-            PoolingSingleton.Instance.PlayerBulletPool.SpawnObject(barrel.position, barrel.rotation);
+            PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage());
             StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
         }  
     }

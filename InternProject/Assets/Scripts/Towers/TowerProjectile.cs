@@ -5,11 +5,15 @@ using UnityEngine;
 public class TowerProjectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
+    [SerializeField] private DamageSetter damageSetter = null;
 
     [Header("Temp Fields")]
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private float lifeTime = 1f;
-    [SerializeField] public int damage = 10;
+
+    private int damage;
+
+    public int Damage { get { return damage; } }
 
     private void Update()
     {
@@ -18,6 +22,7 @@ public class TowerProjectile : MonoBehaviour
 
     private void OnEnable()
     {
+        damage = damageSetter.Damage;
         StartCoroutine(DestroyOverTme());
     }
 

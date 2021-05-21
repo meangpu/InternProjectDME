@@ -41,10 +41,10 @@ public class BaseClass : MonoBehaviour
     private void Awake() 
     {
         SetMaxHealth();
-        setGun();
+        SetGun();
     }
 
-    private void setGun()
+    private void SetGun()
     {
         foreach (var gun in guns)
         {
@@ -52,40 +52,30 @@ public class BaseClass : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if(col.gameObject.tag == "EnemyBullet")
-        {
-            takeDamage(col.gameObject.GetComponent<BulletEnemy>().damage);
-            col.gameObject.GetComponent<BulletEnemy>().DestroySelf();
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "EnemyBullet")
+        if(col.gameObject.TryGetComponent(out BulletEnemy bullet))
         {
-            takeDamage(col.gameObject.GetComponent<BulletEnemy>().damage);
-            col.gameObject.GetComponent<BulletEnemy>().DestroySelf();
+            TakeDamage(bullet.Damage);
+            bullet.DestroySelf();
         }
     }
 
 
-    void takeDamage(int damage)
+    void TakeDamage(int damage)
     {
         hp -= damage;
         if (hp <= 0)
         {
             hp = 0;
-            gotDestroy();
+            DestroyBase();
         }
         SetHealth(hp);
         
     }
 
-    void gotDestroy()
+    void DestroyBase()
     {
-        // Debug.Log("Base got Destroy!!");
         gameManager.GameOver();
     }
 
