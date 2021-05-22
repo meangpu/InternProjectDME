@@ -13,6 +13,12 @@ public class HealthOrManaSystem
     private int pointAmount;
     private int pointAmountMax;
 
+    public enum HealingType
+    {
+        Additive,
+        Percentage
+    }
+
     public HealthOrManaSystem(int amount)
     {
         pointAmountMax = amount;
@@ -32,14 +38,20 @@ public class HealthOrManaSystem
         OnDamaged?.Invoke(pointAmount, pointAmountMax);
     }
 
-    public void Heal(int pointsHealed)
+    public void Heal(int pointsHealed, HealingType type = HealingType.Additive)
     {
-        pointAmount += pointsHealed;
+        if (type == HealingType.Additive)
+        {
+            pointAmount += pointsHealed;       
+        } else
+        {
+            pointAmount += pointsHealed * pointAmountMax / 100;
+        }
+
         if (pointAmount > pointAmountMax)
         {
             pointAmount = pointAmountMax;
         }
-
         OnHealed?.Invoke(pointAmount, pointAmountMax);
     }
 
@@ -47,4 +59,6 @@ public class HealthOrManaSystem
     {
         return (float)pointAmount / pointAmountMax;
     }
+
+    public int GetAmount() => pointAmount;
 }

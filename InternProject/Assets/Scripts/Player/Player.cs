@@ -11,8 +11,7 @@ public class Player : MonoBehaviour
 
     // Misc
     private PlayerAbilities playerAbilities;
-    private PlayerMovement playerMovement;
-    
+    private PlayerMovement playerMovement; 
     private PlayerGun playerGun;
 
 
