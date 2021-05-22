@@ -16,12 +16,8 @@ public class PlayerStats : MonoBehaviour
     private HealthOrManaSystem energySystem;
 
     // Tank Stats from Scriptable Object
-    /*private int maxHealth;
-    private int health;*/
     private int minDamage;
     private int maxDamage;
-    /*private int maxEnergy;
-    private int energy;*/
     private float energyRegenRate;
     private float timePerEnergy;
     private float cooldownBetweenShots;
@@ -36,9 +32,6 @@ public class PlayerStats : MonoBehaviour
 
     private TankTurret turret;
     private Tank tank;
-
-    /*public event Action<int, int> OnDamageTaken;
-    public event Action<int, int> OnHealTaken;*/
 
     public event Action<int, int> OnAmmoUpdated;
 
@@ -108,42 +101,25 @@ public class PlayerStats : MonoBehaviour
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
     }
 
+    public bool SpendEnergy(int energy)
+    {
+        if (energySystem.GetAmount() < energy)
+        {
+            return false;
+        }
+        else
+        {
+            energySystem.Damage(energy);
+            return true;
+        }
+    }
+
     public int DealDamage()
     {
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
 
-    /*public void TakeDamage(int damageInflicted)
-    {
-        health -= damageInflicted;
-
-        if (health <= 0)
-        {
-            health = 0;
-        }
-
-        OnDamageTaken?.Invoke(health, maxHealth);
-    }
-
-    public void Heal(int healInflicted)
-    {
-        health += healInflicted;
-
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        }
-
-        OnHealTaken?.Invoke(health, maxHealth);
-    }*/
-
     #region Stats Retrieving
-
-    /*public int GetHealth() => health;
-    public int GetMaxHealth() => maxHealth;
-
-    public int GetEnergy() => energy;
-    public int GetMaxEnergy() => maxEnergy;*/
 
     public HealthOrManaSystem GetHealthSystem() => healthSystem;
     public HealthOrManaSystem GetEnergySystem() => energySystem;

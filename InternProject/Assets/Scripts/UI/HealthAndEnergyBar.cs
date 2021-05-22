@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthAndEnergyBar : MonoBehaviour
 {
     [SerializeField] private Image healthBar = null;
     [SerializeField] private Image healthBarDamaged = null;
@@ -42,6 +42,9 @@ public class HealthBar : MonoBehaviour
 
         energySystem.OnDamaged += HandleEnergySpent;
         energySystem.OnHealed += HandleEnergyRegained;
+
+        healthSystem.Heal(100, HealthOrManaSystem.HealingType.Percentage);
+        energySystem.Heal(100, HealthOrManaSystem.HealingType.Percentage);
     }
 
     private void Update()
@@ -72,7 +75,7 @@ public class HealthBar : MonoBehaviour
         textField.text = $"{currentHealth} / {maxHealth}";
     }
 
-    private void HandleDamageTaken(int currentHealth, int maxHealth) 
+    private void HandleDamageTaken(int currentHealth, int maxHealth)
     {
         UpdateUI(healthText, currentHealth, maxHealth);
         SetBar(healthSystem.GetPercentage(), healthBar);
@@ -104,7 +107,7 @@ public class HealthBar : MonoBehaviour
 
     private void SetBar(float percentage, Image bar)
     {
-        bar.fillAmount = percentage; 
+        bar.fillAmount = percentage;
     }
 
     private void OnDestroy()
@@ -116,3 +119,4 @@ public class HealthBar : MonoBehaviour
         energySystem.OnHealed -= HandleEnergyRegained;
     }
 }
+
