@@ -8,8 +8,10 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance { get; private set; }
 
     // Player Stats
-    private int gold;
+    private int startingGold = 500;
     private int tankLevel = 1;
+
+    private GoldSystem goldSystem;
 
     // Health and Energy
     private HealthOrManaSystem healthSystem;
@@ -53,9 +55,11 @@ public class PlayerStats : MonoBehaviour
     }
 
     private void Start()
-    {
+    {   
         healthSystem = new HealthOrManaSystem(tank.GetHealth());
         energySystem = new HealthOrManaSystem(tank.GetEnergy());
+
+        goldSystem = new GoldSystem(startingGold);
 
         energyRegenRate = tank.GetEnergyRate();
         timePerEnergy = 1 / energyRegenRate;
@@ -123,6 +127,8 @@ public class PlayerStats : MonoBehaviour
 
     public HealthOrManaSystem GetHealthSystem() => healthSystem;
     public HealthOrManaSystem GetEnergySystem() => energySystem;
+
+    public GoldSystem GetGoldSystem() => goldSystem;
 
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
