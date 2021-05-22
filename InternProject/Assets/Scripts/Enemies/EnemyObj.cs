@@ -8,6 +8,7 @@ public class EnemyObj : ScriptableObject
 {
     [SerializeField] private string enemyName;
     [SerializeField] private string[] tags;
+    [TextArea(15, 20)]
     [SerializeField] private string des;
     [SerializeField] private Sprite[] artWork;
     [SerializeField] private int hp;

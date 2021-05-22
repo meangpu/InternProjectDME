@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tank : ScriptableObject
 {
     [SerializeField] private string tankName;
+    [TextArea(15, 15)]
     [SerializeField] private string tankDes;
     [SerializeField] private Sprite artWork;
     [SerializeField] private int hp;

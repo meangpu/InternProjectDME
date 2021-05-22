@@ -6,6 +6,7 @@ using UnityEngine;
 public class TankTurret : ScriptableObject
 {
     [SerializeField] private string turretName;
+    [TextArea(7, 7)]
     [SerializeField] private string description;
     [SerializeField] private Sprite artworks;
     [SerializeField] private int minDamage;
