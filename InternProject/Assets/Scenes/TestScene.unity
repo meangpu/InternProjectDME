@@ -54288,7 +54288,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1165103152}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -55920,7 +55920,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1165103152}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1142245619
 PrefabInstance:
@@ -56054,12 +56054,12 @@ Transform:
   m_LocalPosition: {x: 0.19892895, y: -1.0721796, z: -25.847576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1809724761}
   - {fileID: 1365082458}
   - {fileID: 519420032}
   - {fileID: 1295183657}
   - {fileID: 1131086170}
   - {fileID: 1821031912}
+  - {fileID: 1809724761}
   - {fileID: 1379113920}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -56767,7 +56767,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1165103152}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1365082455
 GameObject:
@@ -56841,7 +56841,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1165103152}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379113919
 GameObject:
@@ -57674,7 +57674,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 162cdffcb62964446815ce19f5b9640b, type: 3}
 --- !u!4 &1809724761 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2174651883628779394, guid: 162cdffcb62964446815ce19f5b9640b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1809724760}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1810230991
@@ -57782,7 +57782,7 @@ Transform:
   m_Children:
   - {fileID: 975288008}
   m_Father: {fileID: 1165103152}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1821031913
 MonoBehaviour:
@@ -59632,7 +59632,7 @@ PrefabInstance:
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: turret
       value: 
-      objectReference: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
+      objectReference: {fileID: 11400000, guid: 9b408ee66938f074597099ea8dffaf0c, type: 2}
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: turretImg
       value: 

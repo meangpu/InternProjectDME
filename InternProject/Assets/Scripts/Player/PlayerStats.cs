@@ -52,14 +52,16 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Player player = GetComponent<Player>();
+        
 
-        turret = player.GetTurret();
-        tank = player.GetTank();
     }
 
     private void Start()
     {   
+        Player player = GetComponent<Player>();
+        turret = player.GetTurret();
+        tank = player.GetTank();
+
         healthSystem = new HealthOrManaSystem(tank.GetHealth());
         energySystem = new HealthOrManaSystem(tank.GetEnergy());
 
