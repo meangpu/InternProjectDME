@@ -5199,6 +5199,7 @@ GameObject:
   - component: {fileID: 766859820}
   - component: {fileID: 766859822}
   - component: {fileID: 766859821}
+  - component: {fileID: 766859823}
   m_Layer: 5
   m_Name: GunToChoose
   m_TagString: Untagged
@@ -5280,6 +5281,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8b4334fb7727f5c4b99dc949fc24cfd0, type: 2}
   - {fileID: 11400000, guid: cc7c9bfbfee310141b6ffe5f30043687, type: 2}
   TurretPrefabs: {fileID: 4733284808967477883, guid: 2b1df64ebd8c4d7419ae29df64817b9a, type: 3}
+--- !u!114 &766859823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766859818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &768948264
 GameObject:
   m_ObjectHideFlags: 0
@@ -15767,7 +15781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 10
 --- !u!4 &1485820031
 Transform:

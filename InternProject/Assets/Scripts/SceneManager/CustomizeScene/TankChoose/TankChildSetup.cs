@@ -8,6 +8,13 @@ public class TankChildSetup : MonoBehaviour
     public Image myImageComponent;
     public Tank selfTankData;
     public ChooseTank chooseTankScript;
+    
+    [SerializeField] Toggle selfToggle;
+
+    private void Start() 
+    {
+        selfToggle.group = gameObject.transform.parent.GetComponent<ToggleGroup>();
+    }
 
     public void showData(Tank dataTank)
     {

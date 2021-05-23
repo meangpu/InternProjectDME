@@ -9,6 +9,14 @@ public class GunChildSetup : MonoBehaviour
     public TankTurret selfTurret;
     public ChooseGun chooseGunScript;
 
+    [SerializeField] Toggle selfToggle;
+
+    private void Start() 
+    {
+        selfToggle.group = gameObject.transform.parent.GetComponent<ToggleGroup>();
+    }
+
+
     public void showData(TankTurret gunData)
     {
         myImageComponent.sprite = gunData.GetSprite();
