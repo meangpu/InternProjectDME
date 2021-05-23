@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c50d277517751524c9bf545299dc296c, type: 3}
-  m_Name: basic 3
+  m_Name: black
   m_EditorClassIdentifier: 
-  tankName: starterTank5
-  tankDes: very basic tank cheap but work
-  artWork: {fileID: 3907254485306093545, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
-  hp: 6
-  moveSpeed: 10
-  rotationSpeed: 2.5
+  tankName: Black
+  tankDes: black like a shadow, fastest among all tank.
+  artWork: {fileID: 6429223304102030103, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
+  hp: 80
+  energy: 40
+  energyRegenRate: 1.2
+  moveSpeed: 20
+  rotationSpeed: 4

@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
-  m_Name: BetterGun
+  m_Name: laserGun
   m_EditorClassIdentifier: 
-  turretName: BetterGun
-  description: 'betterGun
-
-'
-  artworks: {fileID: -788753711389941659, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
-  minDamage: 12
-  maxDamage: 24
-  ammoCount: 20
-  rateOfFire: 10
-  reloadTime: 1
+  turretName: LaserGun
+  description: gun that shoot laser
+  artworks: {fileID: 5381782425568947816, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  minDamage: 2
+  maxDamage: 2
+  ammoCount: 999
+  rateOfFire: 60
+  reloadTime: 0.5

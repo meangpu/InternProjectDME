@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 9858408}
   - component: {fileID: 9858407}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,7 +287,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1074199710}
   m_Father: {fileID: 428064631}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 8d8a73e35b35a674e978e4066213cea2, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -316,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7033111994682208990, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  m_Sprite: {fileID: 6981943689483637337, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2694,9 +2695,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.755
+  m_MaxValue: 30
+  m_WholeNumbers: 1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2752,7 +2753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.9843137}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3005,7 +3006,7 @@ RectTransform:
   - {fileID: 139296669}
   - {fileID: 675400050}
   m_Father: {fileID: 933617057}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3524,6 +3525,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477896739}
   m_CullTransparentMesh: 1
+--- !u!1 &480549746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480549747}
+  - component: {fileID: 480549749}
+  - component: {fileID: 480549748}
+  m_Layer: 5
+  m_Name: GunImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &480549747
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480549746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1074199710}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &480549748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480549746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1881840942919325139, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &480549749
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480549746}
+  m_CullTransparentMesh: 1
 --- !u!1 &484490705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,7 +3630,7 @@ RectTransform:
   - {fileID: 338782444}
   - {fileID: 693220998}
   m_Father: {fileID: 933617057}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4628,9 +4704,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.559
+  m_MaxValue: 30
+  m_WholeNumbers: 1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4717,9 +4793,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0.139
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5262,8 +5338,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eedbe7b16ab4994fade0da3356b7e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TankGun: {fileID: 480549748}
   gunName: {fileID: 1891465253}
   gunDes: {fileID: 2105112083}
+  dmg: {fileID: 413664964}
+  ammo: {fileID: 2064045144}
+  rateOfFire: {fileID: 675400051}
+  reload: {fileID: 693220999}
 --- !u!114 &766859822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5278,8 +5359,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretList:
   - {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
-  - {fileID: 11400000, guid: 8b4334fb7727f5c4b99dc949fc24cfd0, type: 2}
-  - {fileID: 11400000, guid: cc7c9bfbfee310141b6ffe5f30043687, type: 2}
+  - {fileID: 11400000, guid: a56200d8dc24c6f47a70dd45e16b4d7a, type: 2}
+  - {fileID: 11400000, guid: 8a61ede8175a3ae4c8e88ae877a0b618, type: 2}
+  - {fileID: 11400000, guid: 125f501948202ec459134244233c1a91, type: 2}
+  - {fileID: 11400000, guid: b322e6aca1367354bb5936e95c8a5c60, type: 2}
+  - {fileID: 11400000, guid: 112533ba55947934ea6907d9fe48cd3f, type: 2}
+  - {fileID: 11400000, guid: 9b408ee66938f074597099ea8dffaf0c, type: 2}
   TurretPrefabs: {fileID: 4733284808967477883, guid: 2b1df64ebd8c4d7419ae29df64817b9a, type: 3}
 --- !u!114 &766859823
 MonoBehaviour:
@@ -5744,9 +5829,9 @@ RectTransform:
   - {fileID: 1891465252}
   - {fileID: 2105112082}
   - {fileID: 714564182}
+  - {fileID: 1767068974}
   - {fileID: 445515274}
   - {fileID: 484490706}
-  - {fileID: 1767068974}
   m_Father: {fileID: 1979022752}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13136,6 +13221,42 @@ RectTransform:
   m_AnchoredPosition: {x: 723.6, y: -481.59003}
   m_SizeDelta: {x: 1200, y: 516.17}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1074199709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074199710}
+  m_Layer: 5
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1074199710
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074199709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 480549747}
+  m_Father: {fileID: 9858406}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000000224, y: -100}
+  m_SizeDelta: {x: 64, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1142037667
 GameObject:
   m_ObjectHideFlags: 0
@@ -13370,9 +13491,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 20
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -15028,9 +15149,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 50
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16566,7 +16687,7 @@ RectTransform:
   - {fileID: 1235617987}
   - {fileID: 2064045143}
   m_Father: {fileID: 933617057}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17519,9 +17640,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.483
+  m_MaxValue: 200
+  m_WholeNumbers: 1
+  m_Value: 23
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -17961,13 +18082,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TankLists:
   - {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
+  - {fileID: 11400000, guid: 78ce3ae17cf38df4fab8c79f7291f531, type: 2}
   - {fileID: 11400000, guid: 9e8519e28d0dfde43b8ff82c918e1e9b, type: 2}
-  - {fileID: 11400000, guid: be692ce02c4522b4e911036f0d6caf83, type: 2}
-  - {fileID: 11400000, guid: 1ee808206b6745f4995602c95794305c, type: 2}
-  - {fileID: 11400000, guid: cb07038ae4dd337469a8f388b339efa0, type: 2}
-  - {fileID: 11400000, guid: e971c1a524f76e741b3fb8e74e6a1c95, type: 2}
-  - {fileID: 11400000, guid: 523a5dc1688db714bb8ed3a84190f8ec, type: 2}
-  - {fileID: 11400000, guid: 131f225e6406b074397202a07d90ae08, type: 2}
+  - {fileID: 11400000, guid: 23d17be246b6470469e31ba50d5d9a16, type: 2}
   TankImgPrefab: {fileID: 4733284808967477883, guid: 7c1275181d86f2b4aada8f4b5063fc41, type: 3}
 --- !u!114 &2115521024
 MonoBehaviour:

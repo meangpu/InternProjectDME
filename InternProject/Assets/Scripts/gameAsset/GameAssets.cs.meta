@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - prefabDmgPopUp: {fileID: 6848471255538527302, guid: 92aadede1e9907c40b603b6cdfbc0e6a, type: 3}
+  - prefabDmgPopUp: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -57337,6 +57337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerImage: {fileID: 4789166324514989937}
+  turretImage: {fileID: 1950020772}
   playerScpt: {fileID: 1583525044}
 --- !u!114 &1583525044 stripped
 MonoBehaviour:
@@ -59568,6 +59569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5943029956014393992, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9606ad9c7311e6d45809332d115b352d, type: 2}
     - target: {fileID: 5943029956014393993, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: m_RootOrder
       value: 0

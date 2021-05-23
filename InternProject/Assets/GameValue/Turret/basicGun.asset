@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
   m_Name: basicGun
   m_EditorClassIdentifier: 
-  turretName: gun1
+  turretName: basicGun
   description: The basic gun
-  artworks: {fileID: -2010980955885669400, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
+  artworks: {fileID: 1881840942919325139, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 2
   maxDamage: 5
   ammoCount: 4

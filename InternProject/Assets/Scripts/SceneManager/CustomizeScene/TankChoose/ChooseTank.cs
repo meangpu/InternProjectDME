@@ -20,7 +20,7 @@ public class ChooseTank : MonoBehaviour
         tankDes.text = dataTank.GetDescription();
         hp.value = dataTank.GetHealth();
         speed.value = dataTank.GetMovementSpeed();
-        // energy.value = dataTank.Get();
+        energy.value = dataTank.GetEnergy();
 
     }
 }

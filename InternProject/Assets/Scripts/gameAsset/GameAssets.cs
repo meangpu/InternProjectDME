@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Reflection;
 
 public class GameAssets : MonoBehaviour
 {
@@ -13,5 +12,6 @@ public class GameAssets : MonoBehaviour
             return _i;
         }
     }
+
     public Transform prefabDmgPopUp;
 }

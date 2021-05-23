@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerGun = GetComponent<PlayerGun>();
         tank = TankCustomizationData.playerTank;
+        turret = TankCustomizationData.playerTurret;
         
         
 

@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
-  m_Name: BetterGun
+  m_Name: SniperRifle
   m_EditorClassIdentifier: 
-  turretName: BetterGun
-  description: 'betterGun
-
-'
-  artworks: {fileID: -788753711389941659, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
-  minDamage: 12
-  maxDamage: 24
-  ammoCount: 20
-  rateOfFire: 10
+  turretName: SniperRifle
+  description: Gun that shoot far far
+  artworks: {fileID: 2694833132498758970, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  minDamage: 90
+  maxDamage: 90
+  ammoCount: 2
+  rateOfFire: 0.5
   reloadTime: 1

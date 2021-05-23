@@ -15,6 +15,8 @@ MonoBehaviour:
   tankName: basic
   tankDes: very basic tank cheap but work
   artWork: {fileID: 6981943689483637337, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
-  hp: 45
-  moveSpeed: 4
-  rotationSpeed: 0
+  hp: 150
+  energy: 20
+  energyRegenRate: 1.2
+  moveSpeed: 5
+  rotationSpeed: 2.5
