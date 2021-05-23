@@ -26380,6 +26380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoUI: {fileID: 809939278}
   reloadBar: {fileID: 124237219}
+  tankNameText: {fileID: 1831799996}
+  tankLevelText: {fileID: 677860219}
 --- !u!114 &124237219
 MonoBehaviour:
   m_ObjectHideFlags: 0

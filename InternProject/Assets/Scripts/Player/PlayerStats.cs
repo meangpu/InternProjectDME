@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance { get; private set; }
 
     // Player Stats
-    private int startingGold = 500;
+    private readonly int startingGold = 500;
     private int tankLevel = 1;
 
     private GoldSystem goldSystem;
@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     private HealthOrManaSystem energySystem;
 
     // Tank Stats from Scriptable Object
+    private string tankName;
     private int minDamage;
     private int maxDamage;
     private float energyRegenRate;
@@ -32,10 +33,13 @@ public class PlayerStats : MonoBehaviour
 
     private float timeElapsed;
 
+    private const int TANK_MAX_LEVEL_LIMIT = 3;
+
     private TankTurret turret;
     private Tank tank;
 
     public event Action<int, int> OnAmmoUpdated;
+    public event Action<int> OnTankLeveledUp;
 
     private void Awake()
     {
@@ -60,6 +64,8 @@ public class PlayerStats : MonoBehaviour
         energySystem = new HealthOrManaSystem(tank.GetEnergy());
 
         goldSystem = new GoldSystem(startingGold);
+
+        tankName = tank.GetName();
 
         energyRegenRate = tank.GetEnergyRate();
         timePerEnergy = 1 / energyRegenRate;
@@ -123,6 +129,18 @@ public class PlayerStats : MonoBehaviour
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
 
+    public void LevelUp()
+    {
+        if (tankLevel == TANK_MAX_LEVEL_LIMIT)
+        {
+            return;
+        }
+
+        tankLevel += 1;
+
+        OnTankLeveledUp?.Invoke(tankLevel);
+    }
+
     #region Stats Retrieving
 
     public HealthOrManaSystem GetHealthSystem() => healthSystem;
@@ -130,6 +148,7 @@ public class PlayerStats : MonoBehaviour
 
     public GoldSystem GetGoldSystem() => goldSystem;
 
+    public string GetTankName() => tankName;
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
 

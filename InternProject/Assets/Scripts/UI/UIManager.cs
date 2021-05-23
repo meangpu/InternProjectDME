@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text ammoUI = null;
     [SerializeField] private ReloadBar reloadBar = null;
+    [SerializeField] private TMP_Text tankNameText = null;
+    [SerializeField] private TMP_Text tankLevelText = null;
 
     private PlayerStats playerStats;
 
@@ -29,8 +32,20 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         playerStats.OnAmmoUpdated += UpdateAmmoUI;
+        playerStats.OnTankLeveledUp += HandleTankLevelUp;
 
         UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
+        UpdateTankName();
+    }
+
+    private void UpdateTankName()
+    {
+        tankNameText.text = playerStats.GetTankName();
+    }
+
+    private void HandleTankLevelUp(int level)
+    {
+        tankLevelText.text = $"LEVEL {level}";
     }
 
     public void UpdateAmmoUI(int currentAmmo, int maxAmmo)
@@ -46,5 +61,6 @@ public class UIManager : MonoBehaviour
     private void OnDestroy()
     {
         playerStats.OnAmmoUpdated -= UpdateAmmoUI;
+        playerStats.OnTankLeveledUp -= HandleTankLevelUp;
     }
 }
