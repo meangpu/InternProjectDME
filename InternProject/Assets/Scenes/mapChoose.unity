@@ -3310,6 +3310,7 @@ GameObject:
   - component: {fileID: 473039656}
   - component: {fileID: 473039658}
   - component: {fileID: 473039657}
+  - component: {fileID: 473039659}
   m_Layer: 5
   m_Name: TankChoose
   m_TagString: Untagged
@@ -3377,6 +3378,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473039655}
   m_CullTransparentMesh: 1
+--- !u!225 &473039659
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473039655}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &477896739
 GameObject:
   m_ObjectHideFlags: 0
@@ -15739,7 +15752,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
 --- !u!114 &1485820030
 MonoBehaviour:
@@ -17869,6 +17882,7 @@ GameObject:
   - component: {fileID: 2115521022}
   - component: {fileID: 2115521023}
   - component: {fileID: 2115521024}
+  - component: {fileID: 2115521025}
   m_Layer: 5
   m_Name: TankToChoose
   m_TagString: Untagged
@@ -17940,7 +17954,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e971c1a524f76e741b3fb8e74e6a1c95, type: 2}
   - {fileID: 11400000, guid: 523a5dc1688db714bb8ed3a84190f8ec, type: 2}
   - {fileID: 11400000, guid: 131f225e6406b074397202a07d90ae08, type: 2}
-  TankImgPrefab: {fileID: 4733284808967477883, guid: 23bc65386d9109148b0a75717a5bd1ae, type: 3}
+  TankImgPrefab: {fileID: 4733284808967477883, guid: 7c1275181d86f2b4aada8f4b5063fc41, type: 3}
 --- !u!114 &2115521024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17959,6 +17973,19 @@ MonoBehaviour:
   hp: {fileID: 1167270022}
   speed: {fileID: 1003436550}
   energy: {fileID: 1261947663}
+--- !u!114 &2115521025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115521020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &2127457451
 GameObject:
   m_ObjectHideFlags: 0
