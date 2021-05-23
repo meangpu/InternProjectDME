@@ -26,5 +26,6 @@ public class TankChildSetup : MonoBehaviour
     public void showTankName()
     {
         chooseTankScript.updateTankData(selfTankData);
+        TankCustomizationData.playerTank = selfTankData;
     }
 }
