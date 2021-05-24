@@ -26,8 +26,17 @@ public class Player : MonoBehaviour
         playerAbilities = GetComponent<PlayerAbilities>();
         playerMovement = GetComponent<PlayerMovement>();
         playerGun = GetComponent<PlayerGun>();
-        tank = TankCustomizationData.playerTank;
-        turret = TankCustomizationData.playerTurret;
+        
+        if (TankCustomizationData.playerTank != null)
+        {
+            tank = TankCustomizationData.playerTank;
+        }
+        if (TankCustomizationData.playerTurret != null)
+        {
+            turret = TankCustomizationData.playerTurret;
+        }
+        
+        
         
         
 
