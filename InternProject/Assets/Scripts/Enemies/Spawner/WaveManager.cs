@@ -73,7 +73,6 @@ public class WaveManager : MonoBehaviour
             // happen when enemy reach 0 and there no next wave
 			this.enabled = false;
             gameManager.LevelWon();
-            Debug.Log("YOU WIN!!");
 		}
 
 		if (countDown <= 0f)
