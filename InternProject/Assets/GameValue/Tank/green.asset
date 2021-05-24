@@ -18,5 +18,5 @@ MonoBehaviour:
   hp: 150
   energy: 20
   energyRegenRate: 1.2
-  moveSpeed: 5
+  moveSpeed: 3
   rotationSpeed: 2.5
