@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] bool useRandom;
     [SerializeField] float timeBeforeNextWave;
     private float countDown;
-    public static int EnemyAlive = 0;
+    public static List<EnemyGetHit> EnemyAlive = new List<EnemyGetHit>();
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
 
@@ -50,7 +50,7 @@ public class WaveManager : MonoBehaviour
 
     public void SetEnemyLeftText()
     {
-        enemyLefttext.text = EnemyAlive.ToString();
+        enemyLefttext.text = EnemyAlive.Count.ToString();
     }
 
 
@@ -63,7 +63,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
-        if (EnemyAlive > 0)
+        if (EnemyAlive.Count > 0)
         {
             return;
         }
@@ -169,7 +169,7 @@ public class WaveManager : MonoBehaviour
         g.GetComponent<EnemyShoot>().StartShoot();
         
         // add enemy count 
-        EnemyAlive++;  
+        EnemyAlive.Add(g.GetComponent<EnemyGetHit>());  
 
         SetEnemyLeftText();
     }
