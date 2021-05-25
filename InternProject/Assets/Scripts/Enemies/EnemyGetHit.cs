@@ -46,17 +46,17 @@ public class EnemyGetHit : MonoBehaviour
 
         if (enemyDisplay.Health <= 0)
         {
-            enemyDie();           
+            EnemyDie();           
         }
         UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
 
     }
 
-    private void enemyDie()
+    private void EnemyDie()
     {
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
-        WaveManager.EnemyAlive--;
+        WaveManager.EnemyAlive.Remove(this);
         waveManager.SetEnemyLeftText();
         this.enabled = false;  
 
