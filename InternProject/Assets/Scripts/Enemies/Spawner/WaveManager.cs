@@ -56,13 +56,16 @@ public class WaveManager : MonoBehaviour
 
     private void Start() 
     {
+        // need to clear enemy data to prevent game not start on second time
+        EnemyAlive.Clear();
         SetUp_MaxSlider(EnemyWaves.Length);
-        countDown = 0;
+        countDown = 1;
     }
 
 
     private void Update() 
     {
+        Debug.Log(countDown);
         if (EnemyAlive.Count > 0)
         {
             return;
