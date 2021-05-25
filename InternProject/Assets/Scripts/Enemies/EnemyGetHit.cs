@@ -23,14 +23,18 @@ public class EnemyGetHit : MonoBehaviour
     {
         if(col.gameObject.TryGetComponent(out TankBullet bullet))
         {
+            knockBack(bullet.transform.position, 0.25f);
             TakeDamage(bullet.Damage);
+            
             bullet.DestroySelf();
         }
 
         if(col.gameObject.TryGetComponent(out TowerProjectile towerBullet))
         {
+            knockBack(towerBullet.transform.position, 0.1f);
             TakeDamage(towerBullet.Damage);
             towerBullet.DestroySelf();
+
         }
     }
 
@@ -73,4 +77,12 @@ public class EnemyGetHit : MonoBehaviour
         circleHp.fillAmount = nowvalue;
     }
 
+    private void knockBack(Vector2 AttackerPos, float knockbackForce)
+    {
+        Vector2 dirFromAttacker = ((Vector2)transform.position - AttackerPos).normalized;     
+        Vector2 kbForce = dirFromAttacker * knockbackForce;
+        transform.position += new Vector3(kbForce.x, kbForce.y, 0);
+
+        // Debug.Log($"{transform.position}, {AttackerPos}, {dirFromAttacker}");
+    }
 }

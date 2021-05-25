@@ -297,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 0}
   enemyDisplay: {fileID: 5298252096397123446}
+  rb: {fileID: 5298252096397123441}
   circleHp: {fileID: 1203445315743443537}
   parentHp: {fileID: 4239616382442133906}
   goldPfb: {fileID: 3812315433506309224, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
