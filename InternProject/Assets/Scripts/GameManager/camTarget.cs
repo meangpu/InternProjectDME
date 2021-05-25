@@ -18,12 +18,9 @@ public class camTarget : MonoBehaviour
         Vector2 cursorPosOnScreen = cam.ScreenToWorldPoint(mousePos);
         Vector2 targetpos = ((Vector2)player.position + cursorPosOnScreen) /2f;
 
-        Debug.Log(cursorPosOnScreen);
-
         targetpos.x = Mathf.Clamp(targetpos.x, -threshold + player.position.x, threshold + player.position.x);
         targetpos.y = Mathf.Clamp(targetpos.y, -threshold + player.position.y, threshold + player.position.y);
 
         this.transform.position = targetpos;
-        // Debug.Log(targetpos);
     }
 }
