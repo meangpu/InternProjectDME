@@ -446,10 +446,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6839855375599364145}
+  dashEnergyCost: 20
   dashSpeed: 10
   dashCooldown: 5
   dashDuration: 0.25
   anim: {fileID: 4723530992476281506}
+  bombEnergyCost: 45
+  bombDamage: 15
+  bombRange: 2.5
+  bombCooldown: 25
 --- !u!114 &6596479384599892429
 MonoBehaviour:
   m_ObjectHideFlags: 0

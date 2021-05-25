@@ -23,6 +23,8 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.SpecialShoot.performed += _ => player.SpecialShoot();
         playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => player.Skill1Activate();
+        playerControls.Tank.Skill2.performed += _ => player.Skill2Activate();
+        // playerControls.Tank.Pause.performed += _ => player.Pause();
     }
 
     private void OnDisable()
