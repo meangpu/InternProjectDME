@@ -10,17 +10,20 @@ public class camTarget : MonoBehaviour
     [SerializeField] PlayerInputManager input;
     Vector2 mousePos;
 
+
+
     void Update()
     {
         mousePos = input.GetMousePosition();
         Vector2 cursorPosOnScreen = cam.ScreenToWorldPoint(mousePos);
-        Vector2 targetpos = ((Vector2)player.position + mousePos) /2f;
-        Debug.Log((Vector2)player.position);
+        Vector2 targetpos = ((Vector2)player.position + cursorPosOnScreen) /2f;
+
+        Debug.Log(cursorPosOnScreen);
 
         targetpos.x = Mathf.Clamp(targetpos.x, -threshold + player.position.x, threshold + player.position.x);
         targetpos.y = Mathf.Clamp(targetpos.y, -threshold + player.position.y, threshold + player.position.y);
 
         this.transform.position = targetpos;
-        // Debug.Log(mousePos);
+        // Debug.Log(targetpos);
     }
 }
