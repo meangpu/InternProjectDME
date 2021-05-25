@@ -71,7 +71,7 @@ public class WaveManager : MonoBehaviour
 	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
 		{
             // happen when enemy reach 0 and there no next wave
-			this.enabled = false;
+			enabled = false;
             gameManager.LevelWon();
 		}
 
@@ -81,11 +81,6 @@ public class WaveManager : MonoBehaviour
 			countDown = timeBeforeNextWave;
 			return;
 		}
-
-        // if (EnemyWaves[waveindex].EC > 0)
-        // {
-
-        // }
 
         countDown -= Time.deltaTime;
 
