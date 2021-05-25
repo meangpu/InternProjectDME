@@ -56079,7 +56079,7 @@ MonoBehaviour:
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0
-  m_FrequencyGain: 0
+  m_FrequencyGain: 2
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &975288011
 MonoBehaviour:
@@ -58565,6 +58565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821031912}
   - component: {fileID: 1821031913}
+  - component: {fileID: 1821031914}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -58622,6 +58623,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 975288008}
+--- !u!114 &1821031914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821031911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e3efdc49891c7429582101bb916755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1822650881
 GameObject:
   m_ObjectHideFlags: 0
