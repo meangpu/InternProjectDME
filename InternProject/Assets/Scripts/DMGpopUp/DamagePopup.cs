@@ -7,13 +7,9 @@ using TMPro;
 public class DamagePopup : MonoBehaviour
 {
 
-    public static DamagePopup Create(Vector3 position, int damageAmount, string type) {
-        Transform damagePopupTransform = Instantiate(GameAssets.i.prefabDmgPopUp, position, Quaternion.identity);
-
-        DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-        damagePopup.Setup(damageAmount, type);
-
-        return damagePopup;
+    public static void Create(Vector3 position, int damageAmount, string type) 
+    {
+        PoolingSingleton.Instance.PopUpPool.SpawnPopup(position, Quaternion.identity, damageAmount, type);
     }
 
     private static int sortingOrder;
@@ -25,7 +21,8 @@ public class DamagePopup : MonoBehaviour
     private Color textColor;
     private Vector3 moveVector;
 
-    private void Awake() {
+    private void Awake() 
+    {
         textMesh = transform.GetComponent<TextMeshPro>();
     }
 
@@ -43,13 +40,12 @@ public class DamagePopup : MonoBehaviour
             textColor = Color.white;
         }
 
-
-
         textMesh.color = textColor;
         disappearTimer = DISAPPEAR_TIMER_MAX;
 
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
+        transform.localScale = Vector3.one;
 
         moveVector = new Vector3(.3f, 1) * 5f;
     }
@@ -75,7 +71,8 @@ public class DamagePopup : MonoBehaviour
             textColor.a -= disappearSpeed * Time.deltaTime;
             textMesh.color = textColor;
             if (textColor.a < 0) {
-                Destroy(gameObject);
+                // Destroy(gameObject);
+                PoolingSingleton.Instance.PopUpPool.ReturnObject(gameObject);
             }
         }
     }

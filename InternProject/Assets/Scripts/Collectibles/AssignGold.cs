@@ -24,7 +24,7 @@ public class AssignGold : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out PlayerStats playerStats))
         {
             playerStats.AddGold(value);
-            gameObject.SetActive(false);
+            PoolingSingleton.Instance.GoldPool.ReturnObject(gameObject);
         }
     }
 

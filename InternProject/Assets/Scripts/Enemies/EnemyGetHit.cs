@@ -42,6 +42,7 @@ public class EnemyGetHit : MonoBehaviour
         }
         
         DamagePopup.Create(transform.position, damage, "Enemy");
+
         enemyDisplay.Health -= damage;
 
         if (enemyDisplay.Health <= 0)
@@ -62,8 +63,7 @@ public class EnemyGetHit : MonoBehaviour
 
         foreach (Gold gold in enemyDisplay.DropGoldSK)
         {
-            GameObject goldSpawn = Instantiate(goldPfb, transform.position, Quaternion.identity);
-            goldSpawn.GetComponent<AssignGold>().setGold(gold);
+            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, gold);
         }
     }
 

@@ -11,6 +11,8 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler playerBulletPool = null;
     [SerializeField] private Pooler towerBulletPool = null;
     [SerializeField] private Pooler enemyPool = null;
+    [SerializeField] private Pooler popUpPool = null;
+    [SerializeField] private Pooler goldPool = null;
 
 
     public Pooler EnemyBulletPool 
@@ -31,6 +33,16 @@ public class PoolingSingleton : MonoBehaviour
     public Pooler EnemyPool
     {
         get { return enemyPool; }
+    }
+
+    public Pooler PopUpPool
+    {
+        get { return popUpPool; }
+    }
+
+    public Pooler GoldPool
+    {
+        get { return goldPool; }
     }
 
 
