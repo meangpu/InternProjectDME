@@ -11,8 +11,12 @@ public class AssignGold : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer.sprite = gold.GetSprite();
-        value = gold.GetValue();
+        if (gold != null)
+        {
+            spriteRenderer.sprite = gold.GetSprite();
+            value = gold.GetValue();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,5 +26,11 @@ public class AssignGold : MonoBehaviour
             playerStats.AddGold(value);
             gameObject.SetActive(false);
         }
+    }
+
+    public void setGold(Gold _newGold)
+    {
+        gold = _newGold;
+        spriteRenderer.sprite = gold.GetSprite();
     }
 }

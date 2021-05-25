@@ -19,6 +19,9 @@ public class EnemyObj : ScriptableObject
     [SerializeField] private string targetTagName;
     [SerializeField] private bool isPassive;
     [SerializeField] private float attackRange;
+    [SerializeField] private float atkSpeed;
+    [SerializeField] private int moneyDrop;
+    [SerializeField] private Gold[] goldDropSK;
 
     public string GetName() => enemyName;
     public string[] GetTags() => tags;
@@ -32,6 +35,9 @@ public class EnemyObj : ScriptableObject
     public string GetTargetTag() => targetTagName;
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
+    public float GetAtkSpeed() => atkSpeed;
+    public int GetMoneyDrop() => moneyDrop;
+    public Gold[] GetMoneyDropSK() => goldDropSK;
 
     public int GetRandomDamage()
     {
