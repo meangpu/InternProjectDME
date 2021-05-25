@@ -26,3 +26,8 @@ MonoBehaviour:
   targetTagName: Player
   isPassive: 0
   attackRange: 0
+  atkSpeed: 0
+  moneyDrop: 2
+  goldDropSK:
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}

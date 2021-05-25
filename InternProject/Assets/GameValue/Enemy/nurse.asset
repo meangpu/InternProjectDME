@@ -25,3 +25,7 @@ MonoBehaviour:
   targetTagName: Base
   isPassive: 0
   attackRange: 0
+  atkSpeed: 0
+  moneyDrop: 1
+  goldDropSK:
+  - {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}

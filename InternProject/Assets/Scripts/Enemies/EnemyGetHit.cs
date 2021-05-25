@@ -10,6 +10,7 @@ public class EnemyGetHit : MonoBehaviour
 
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
+    [SerializeField] private GameObject goldPfb;
 
     private WaveManager waveManager;
 
@@ -43,24 +44,28 @@ public class EnemyGetHit : MonoBehaviour
         DamagePopup.Create(transform.position, damage, "Enemy");
         enemyDisplay.Health -= damage;
 
-
-
         if (enemyDisplay.Health <= 0)
         {
-            circleHp.fillAmount = 0;
-            PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
-            WaveManager.EnemyAlive--;
-            waveManager.SetEnemyLeftText();
-            this.enabled = false;
+            enemyDie();           
         }
         UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
 
     }
 
-    // private void updateSlider(int _hp)
-    // {
-    //     hpSlider.value = _hp;
-    // }
+    private void enemyDie()
+    {
+        circleHp.fillAmount = 0;
+        PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
+        WaveManager.EnemyAlive--;
+        waveManager.SetEnemyLeftText();
+        this.enabled = false;  
+
+        foreach (Gold gold in enemyDisplay.DropGoldSK)
+        {
+            GameObject goldSpawn = Instantiate(goldPfb, transform.position, Quaternion.identity);
+            goldSpawn.GetComponent<AssignGold>().setGold(gold);
+        }
+    }
 
     private void UpdateHpCircle(float _hp, float _maxHp)
     {

@@ -12,6 +12,9 @@ public class EnemyDisplay : MonoBehaviour
     private string tagName;
     private int hp;
     private int maxhp;
+
+    private Gold[] dropGoldSK;
+
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
     private int minDamage;
@@ -29,6 +32,9 @@ public class EnemyDisplay : MonoBehaviour
         maxDamage = enemy.GetMaxDamage();
         circleHp.fillAmount = 1;
         parentHp.gameObject.SetActive(false);
+        //// fix
+        dropGoldSK = enemy.GetMoneyDropSK();
+        //// fix
     }
 
     public SpriteRenderer Image { get { return eneImage; } }
@@ -41,6 +47,8 @@ public class EnemyDisplay : MonoBehaviour
     public GameObject ParentHP { get { return parentHp; } }
     public int MinDamage { get { return minDamage; } }
     public int MaxDamage { get { return maxDamage; } }
+
+    public Gold[] DropGoldSK { get { return dropGoldSK; } }
 
 
 }
