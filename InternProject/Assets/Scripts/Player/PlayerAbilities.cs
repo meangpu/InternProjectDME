@@ -75,7 +75,8 @@ public class PlayerAbilities : MonoBehaviour
         if (!playerStats.SpendEnergy(bombEnergyCost)) { return; }
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, bombRange);
-        CinemacineShake.Instance.ShakeCam(7f, 0.514f);
+
+        CinemacineShake.Instance.ShakeCam(7f, 0.514f); // shake screen
 
         foreach (Collider2D collider in enemies)
         {
