@@ -73,6 +73,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Skill2"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb2c7432-201c-44cb-9b29-eeb8484621f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""67dd3360-6b2b-4939-b1fb-01ec50a4f4d2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -196,6 +212,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Skill1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dffa1cdb-5672-42cb-bea6-e21043fa4838"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bfcb8c3-d5f3-49c9-ad08-be2d4bc64d0e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -217,6 +255,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tank_Reload = m_Tank.FindAction("Reload", throwIfNotFound: true);
         m_Tank_SpecialShoot = m_Tank.FindAction("SpecialShoot", throwIfNotFound: true);
         m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
+        m_Tank_Skill2 = m_Tank.FindAction("Skill2", throwIfNotFound: true);
+        m_Tank_Pause = m_Tank.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +313,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Tank_Reload;
     private readonly InputAction m_Tank_SpecialShoot;
     private readonly InputAction m_Tank_Skill1;
+    private readonly InputAction m_Tank_Skill2;
+    private readonly InputAction m_Tank_Pause;
     public struct TankActions
     {
         private @PlayerControls m_Wrapper;
@@ -284,6 +326,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Reload => m_Wrapper.m_Tank_Reload;
         public InputAction @SpecialShoot => m_Wrapper.m_Tank_SpecialShoot;
         public InputAction @Skill1 => m_Wrapper.m_Tank_Skill1;
+        public InputAction @Skill2 => m_Wrapper.m_Tank_Skill2;
+        public InputAction @Pause => m_Wrapper.m_Tank_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -314,6 +358,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill1.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
                 @Skill1.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
                 @Skill1.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
+                @Skill2.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Skill2.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Skill2.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Pause.started -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
@@ -339,6 +389,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill1.started += instance.OnSkill1;
                 @Skill1.performed += instance.OnSkill1;
                 @Skill1.canceled += instance.OnSkill1;
+                @Skill2.started += instance.OnSkill2;
+                @Skill2.performed += instance.OnSkill2;
+                @Skill2.canceled += instance.OnSkill2;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -361,5 +417,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnSpecialShoot(InputAction.CallbackContext context);
         void OnSkill1(InputAction.CallbackContext context);
+        void OnSkill2(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

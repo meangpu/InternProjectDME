@@ -51,9 +51,6 @@ public class PlayerStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        
-
     }
 
     private void Start()
@@ -123,6 +120,19 @@ public class PlayerStats : MonoBehaviour
         {
             energySystem.Damage(energy);
             return true;
+        }
+    }
+
+    public void AddGold(int goldToAdd)
+    {
+        goldSystem.AddGold(goldToAdd);
+    }
+
+    public void SpendGold(int goldUsed)
+    {
+        if (goldSystem.TrySpendGold(goldUsed))
+        {
+            Debug.Log("Gold spent!");
         }
     }
 
