@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
         {
             turret = TankCustomizationData.playerTurret;
         }
-        
-        
-        
-        
-
     }
 
     private void Update()
@@ -54,7 +49,7 @@ public class Player : MonoBehaviour
     public void SpecialShoot()
     {
         // Debug.Log("Performed an alternate attack");
-        playerGun.shootSpecial();
+        playerGun.ShootSpecial();
     }
 
     public void Skill1Activate()
@@ -63,6 +58,11 @@ public class Player : MonoBehaviour
         canDash = false;
         isDashing = true;
         playerAbilities.Dash(() => { isDashing = false; }, () => { canDash = true; });
+    }
+
+    public void Skill2Activate()
+    {
+        playerAbilities.Bomb();
     }
 
     public Tank GetTank() => tank;
