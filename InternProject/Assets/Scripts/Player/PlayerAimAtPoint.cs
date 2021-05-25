@@ -32,5 +32,7 @@ public class PlayerAimAtPoint : MonoBehaviour
         float aimAtAngle = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
 
         gun.rotation = Quaternion.RotateTowards(gun.rotation, Quaternion.Euler(0, 0, aimAtAngle + 90), Mathf.Infinity);
+
+
     }
 }

@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 7474375946340464500}
   - component: {fileID: 3061819531511047170}
   - component: {fileID: 5935434833198695600}
+  - component: {fileID: 1583525037}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -538,3 +539,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 4789166323244050169}
   playerStats: {fileID: 3061819531511047170}
+--- !u!114 &1583525037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943029956014393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8ef66b5ee0e542b3cf49a299765c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerImage: {fileID: 5943029956014393992}
+  turretImage: {fileID: 5943029955331855892}
+  playerScpt: {fileID: 5943029956014393997}
