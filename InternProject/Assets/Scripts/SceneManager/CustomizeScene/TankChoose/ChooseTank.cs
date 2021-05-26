@@ -13,7 +13,7 @@ public class ChooseTank : MonoBehaviour
     public Slider speed;
     public Slider energy;
     
-    public void updateTankData(Tank dataTank)
+    public void updateTankData(ObjPlayerTank dataTank)
     {
         BigImageOfTank.sprite = dataTank.GetSprite();
         tankName.text = dataTank.GetName();

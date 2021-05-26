@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class AssignGold : MonoBehaviour
 {
-    [SerializeField] private Gold gold = null;
+    [SerializeField] private ObjGold ObjGold = null;
     [SerializeField] private SpriteRenderer spriteRenderer = null;
 
     private int value;
 
     private void Awake()
     {
-        if (gold != null)
+        if (ObjGold != null)
         {
-            spriteRenderer.sprite = gold.GetSprite();
-            value = gold.GetValue();
+            spriteRenderer.sprite = ObjGold.GetSprite();
+            value = ObjGold.GetValue();
         }
 
     }
@@ -28,10 +28,10 @@ public class AssignGold : MonoBehaviour
         }
     }
 
-    public void setGold(Gold _newGold)
+    public void setGold(ObjGold _newGold)
     {
-        gold = _newGold;
-        spriteRenderer.sprite = gold.GetSprite();
-        value = gold.GetValue();
+        ObjGold = _newGold;
+        spriteRenderer.sprite = ObjGold.GetSprite();
+        value = ObjGold.GetValue();
     }
 }

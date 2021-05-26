@@ -5,38 +5,38 @@ using UnityEngine;
 
 public class GoldSystem
 {
-    private int gold;
+    private int ObjGold;
 
     public event Action<int> OnGoldUpdated;
     public event Action OnNotEnoughGold;
 
     public GoldSystem(int startingGold)
     {
-        gold = startingGold;
+        ObjGold = startingGold;
     }
 
     public bool TrySpendGold(int goldUsed)
     {
-        if (gold < goldUsed) 
+        if (ObjGold < goldUsed) 
         {
             OnNotEnoughGold?.Invoke();
             return false; 
         } 
         else
         {
-            gold -= goldUsed;
+            ObjGold -= goldUsed;
 
-            OnGoldUpdated?.Invoke(gold);
+            OnGoldUpdated?.Invoke(ObjGold);
             return true;
         }
     }
 
     public void AddGold(int goldGained)
     {
-        gold += goldGained;
+        ObjGold += goldGained;
 
-        OnGoldUpdated?.Invoke(gold);
+        OnGoldUpdated?.Invoke(ObjGold);
     }
 
-    public int GetGold() => gold;
+    public int GetGold() => ObjGold;
 }

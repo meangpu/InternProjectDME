@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ListOfTank : MonoBehaviour
 {
-    [SerializeField] Tank[] TankLists;
+    [SerializeField] ObjPlayerTank[] TankLists;
     [SerializeField] GameObject TankImgPrefab;
 
 
     private void Start() 
     {
-        foreach (var tank in TankLists)
+        foreach (var ObjPlayerTank in TankLists)
         {
             GameObject newTankButton = Instantiate(TankImgPrefab, gameObject.transform);
-            newTankButton.GetComponent<TankChildSetup>().showData(tank); 
+            newTankButton.GetComponent<TankChildSetup>().showData(ObjPlayerTank); 
             
         }
 

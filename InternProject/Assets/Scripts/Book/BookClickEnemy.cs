@@ -13,7 +13,7 @@ public class BookClickEnemy : MonoBehaviour
     public Slider speed;
 
 
-    public void updateData(EnemyObj _data)
+    public void updateData(ObjEnemy _data)
     {
         enemyBigImage.sprite = _data.GetSprite()[0];
         enemyName.text = _data.GetName();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BookSpawnChild : MonoBehaviour
 {
-    [SerializeField] EnemyObj[] enemyLists;
+    [SerializeField] ObjEnemy[] enemyLists;
     [SerializeField] GameObject EnemyImagePrefabs;
 
     void Start()

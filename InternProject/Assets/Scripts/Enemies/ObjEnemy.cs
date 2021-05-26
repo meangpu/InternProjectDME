@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName="New Enemy", menuName="Enemy/Create New Enemy")]
-public class EnemyObj : ScriptableObject
+public class ObjEnemy : ScriptableObject
 {
     [SerializeField] private string enemyName;
     [SerializeField] private string[] tags;
@@ -21,7 +21,7 @@ public class EnemyObj : ScriptableObject
     [SerializeField] private float attackRange;
     [SerializeField] private float atkSpeed;
     [SerializeField] private int moneyDrop;
-    [SerializeField] private Gold[] goldDropSK;
+    [SerializeField] private ObjGold[] goldDropSK;
 
     public string GetName() => enemyName;
     public string[] GetTags() => tags;
@@ -37,7 +37,7 @@ public class EnemyObj : ScriptableObject
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
     public int GetMoneyDrop() => moneyDrop;
-    public Gold[] GetMoneyDropSK() => goldDropSK;
+    public ObjGold[] GetMoneyDropSK() => goldDropSK;
 
     public int GetRandomDamage()
     {

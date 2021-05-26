@@ -28,12 +28,12 @@ public class GoldDisplay : MonoBehaviour
 
     private void HandleNotEnoughGold()
     {
-        Debug.Log("NOT ENOUGH GOLD");
+        Debug.Log("NOT ENOUGH ObjGold");
     }
 
-    private void HandleGoldUpdated(int gold)
+    private void HandleGoldUpdated(int ObjGold)
     {
-        UpdateUI(gold);
+        UpdateUI(ObjGold);
     }
 
     private void UpdateUI(int goldRemaining)

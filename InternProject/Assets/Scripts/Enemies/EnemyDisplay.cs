@@ -13,7 +13,7 @@ public class EnemyDisplay : MonoBehaviour
     private int hp;
     private int maxhp;
 
-    private Gold[] dropGoldSK;
+    private ObjGold[] dropGoldSK;
 
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
@@ -21,7 +21,7 @@ public class EnemyDisplay : MonoBehaviour
     private int maxDamage;
 
 
-    public void StartDisplay(EnemyObj enemy)
+    public void StartDisplay(ObjEnemy enemy)
     {
         eneImage.sprite = enemy.GetSprite()[Random.Range(0, enemy.GetSprite().Length)];
         eneSpeed = enemy.GetMovementSpeed();
@@ -48,7 +48,7 @@ public class EnemyDisplay : MonoBehaviour
     public int MinDamage { get { return minDamage; } }
     public int MaxDamage { get { return maxDamage; } }
 
-    public Gold[] DropGoldSK { get { return dropGoldSK; } }
+    public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
 
 
 }

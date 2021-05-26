@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TankChildSetup : MonoBehaviour
 {
     public Image myImageComponent;
-    public Tank selfTankData;
+    public ObjPlayerTank selfTankData;
     public ChooseTank chooseTankScript;
     
     [SerializeField] Toggle selfToggle;
@@ -16,7 +16,7 @@ public class TankChildSetup : MonoBehaviour
         selfToggle.group = gameObject.transform.parent.GetComponent<ToggleGroup>();
     }
 
-    public void showData(Tank dataTank)
+    public void showData(ObjPlayerTank dataTank)
     {
         myImageComponent.sprite = dataTank.GetSprite();
         selfTankData = dataTank;

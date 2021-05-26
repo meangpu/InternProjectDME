@@ -7,15 +7,15 @@ public class PlayerDisplay : MonoBehaviour
     [SerializeField] private SpriteRenderer playerImage;
     [SerializeField] private SpriteRenderer turretImage;
     [SerializeField] private Player playerScpt;
-    private Tank tank; 
-    private TankTurret turret; 
+    private ObjPlayerTank ObjPlayerTank; 
+    private ObjTankTurret turret; 
 
     void Start()
     {
         turret = playerScpt.GetTurret();
-        tank = playerScpt.GetTank();
+        ObjPlayerTank = playerScpt.GetTank();
         
-        playerImage.sprite = tank.GetSprite();
+        playerImage.sprite = ObjPlayerTank.GetSprite();
         turretImage.sprite = turret.GetSprite();
     }
 

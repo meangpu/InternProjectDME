@@ -65,7 +65,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
-        Debug.Log(countDown);
+
         if (EnemyAlive.Count > 0)
         {
             return;
@@ -155,7 +155,7 @@ public class WaveManager : MonoBehaviour
     }
 
 
-    void SpawnEnemy(EnemyObj enemy, Transform spawnPos)
+    void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
     {
         GameObject g = enemyPool.GetObject();
         g.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj

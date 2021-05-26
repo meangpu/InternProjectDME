@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class BookChildSetup : MonoBehaviour
 {
     public Image myImageComponent;
-    public EnemyObj selfData;
+    public ObjEnemy selfData;
     public BookClickEnemy chooseEnemyScript;
 
-    public void showData(EnemyObj _data)
+    public void showData(ObjEnemy _data)
     {
         myImageComponent.sprite = _data.GetSprite()[0];
         selfData = _data;

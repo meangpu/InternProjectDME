@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GunChildSetup : MonoBehaviour
 {
     public Image myImageComponent;
-    public TankTurret selfTurret;
+    public ObjTankTurret selfTurret;
     public ChooseGun chooseGunScript;
 
     [SerializeField] Toggle selfToggle;
@@ -17,7 +17,7 @@ public class GunChildSetup : MonoBehaviour
     }
 
 
-    public void showData(TankTurret gunData)
+    public void showData(ObjTankTurret gunData)
     {
         myImageComponent.sprite = gunData.GetSprite();
         selfTurret = gunData;

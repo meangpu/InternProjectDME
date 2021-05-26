@@ -14,7 +14,7 @@ public class ChooseGun : MonoBehaviour
     public Slider rateOfFire;
     public Slider reload;
     
-    public void updateGunData(TankTurret dataGun)
+    public void updateGunData(ObjTankTurret dataGun)
     {
         TankGun.sprite = dataGun.GetSprite();
         gunName.text = dataGun.GetName();

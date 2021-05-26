@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Gold Type", menuName = "Collectibles/Create New Gold Type")]
-public class Gold : ScriptableObject
+[CreateAssetMenu(fileName = "New ObjGold Type", menuName = "Collectibles/Create New ObjGold Type")]
+public class ObjGold : ScriptableObject
 {
     [SerializeField] private Sprite sprite = null;
     [SerializeField] private int value = 1;

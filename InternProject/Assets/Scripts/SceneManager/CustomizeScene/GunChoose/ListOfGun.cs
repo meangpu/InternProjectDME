@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ListOfGun : MonoBehaviour
 {
-    [SerializeField] TankTurret[] TurretList;
+    [SerializeField] ObjTankTurret[] TurretList;
     [SerializeField] GameObject TurretPrefabs;
 
     private void Start() 

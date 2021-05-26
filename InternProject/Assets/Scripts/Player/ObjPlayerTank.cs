@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="New Tank", menuName="Tank/Create New Tank")]
-public class Tank : ScriptableObject
+[CreateAssetMenu(fileName="New ObjPlayerTank", menuName="ObjPlayerTank/Create New ObjPlayerTank")]
+public class ObjPlayerTank : ScriptableObject
 {
     [SerializeField] private string tankName;
     [TextArea(15, 15)]

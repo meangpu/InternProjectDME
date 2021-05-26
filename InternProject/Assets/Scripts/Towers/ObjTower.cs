@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Tower", menuName = "Tower/Create New Tower")]
-public class Tower : ScriptableObject
+[CreateAssetMenu(fileName = "New ObjTower", menuName = "ObjTower/Create New ObjTower")]
+public class ObjTower : ScriptableObject
 {
     [SerializeField] private string towerName;
     [SerializeField] private Sprite sprite;

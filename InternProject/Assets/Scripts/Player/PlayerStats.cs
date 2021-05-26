@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
     private HealthOrManaSystem healthSystem;
     private HealthOrManaSystem energySystem;
 
-    // Tank Stats from Scriptable Object
+    // ObjPlayerTank Stats from Scriptable Object
     private string tankName;
     private int minDamage;
     private int maxDamage;
@@ -35,8 +35,8 @@ public class PlayerStats : MonoBehaviour
 
     private const int TANK_MAX_LEVEL_LIMIT = 3;
 
-    private TankTurret turret;
-    private Tank tank;
+    private ObjTankTurret turret;
+    private ObjPlayerTank ObjPlayerTank;
 
     public event Action<int, int> OnAmmoUpdated;
     public event Action<int> OnTankLeveledUp;
@@ -57,16 +57,16 @@ public class PlayerStats : MonoBehaviour
     {   
         Player player = GetComponent<Player>();
         turret = player.GetTurret();
-        tank = player.GetTank();
+        ObjPlayerTank = player.GetTank();
 
-        healthSystem = new HealthOrManaSystem(tank.GetHealth());
-        energySystem = new HealthOrManaSystem(tank.GetEnergy());
+        healthSystem = new HealthOrManaSystem(ObjPlayerTank.GetHealth());
+        energySystem = new HealthOrManaSystem(ObjPlayerTank.GetEnergy());
 
         goldSystem = new GoldSystem(startingGold);
 
-        tankName = tank.GetName();
+        tankName = ObjPlayerTank.GetName();
 
-        energyRegenRate = tank.GetEnergyRate();
+        energyRegenRate = ObjPlayerTank.GetEnergyRate();
         timePerEnergy = 1 / energyRegenRate;
 
         fireRate = turret.GetRateOfFire();
@@ -77,8 +77,8 @@ public class PlayerStats : MonoBehaviour
 
         reloadTime = turret.GetReloadTime();
 
-        movementSpeed = tank.GetMovementSpeed();
-        rotationSpeed = tank.GetRotationSpeed();
+        movementSpeed = ObjPlayerTank.GetMovementSpeed();
+        rotationSpeed = ObjPlayerTank.GetRotationSpeed();
 
         minDamage = turret.GetMinDamage();
         maxDamage = turret.GetMaxDamage();
@@ -132,7 +132,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (goldSystem.TrySpendGold(goldUsed))
         {
-            Debug.Log("Gold spent!");
+            Debug.Log("ObjGold spent!");
         }
     }
 

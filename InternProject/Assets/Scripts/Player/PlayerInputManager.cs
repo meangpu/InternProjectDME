@@ -18,13 +18,13 @@ public class PlayerInputManager : MonoBehaviour
         player = GetComponent<Player>();
         gun = GetComponentInChildren<PlayerGun>();
 
-        playerControls.Tank.Shoot.performed += _ => gun.OnHoldShootButton();
-        playerControls.Tank.Shoot.canceled += _ => gun.OnReleaseShootButton();
-        playerControls.Tank.SpecialShoot.performed += _ => player.SpecialShoot();
-        playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
-        playerControls.Tank.Skill1.performed += _ => player.Skill1Activate();
-        playerControls.Tank.Skill2.performed += _ => player.Skill2Activate();
-        // playerControls.Tank.Pause.performed += _ => player.Pause();
+        playerControls.ObjPlayerTank.Shoot.performed += _ => gun.OnHoldShootButton();
+        playerControls.ObjPlayerTank.Shoot.canceled += _ => gun.OnReleaseShootButton();
+        playerControls.ObjPlayerTank.SpecialShoot.performed += _ => player.SpecialShoot();
+        playerControls.ObjPlayerTank.Reload.performed += _ => StartCoroutine(gun.Reload());
+        playerControls.ObjPlayerTank.Skill1.performed += _ => player.Skill1Activate();
+        playerControls.ObjPlayerTank.Skill2.performed += _ => player.Skill2Activate();
+        // playerControls.ObjPlayerTank.Pause.performed += _ => player.Pause();
     }
 
     private void OnDisable()
@@ -37,28 +37,28 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Enable();
     }
 
-    public float GetMoveValue() => playerControls.Tank.Move.ReadValue<float>();
-    public float GetRotationValue() => playerControls.Tank.Rotate.ReadValue<float>();
-    public Vector2 GetMousePosition() => playerControls.Tank.LookAt.ReadValue<Vector2>();
+    public float GetMoveValue() => playerControls.ObjPlayerTank.Move.ReadValue<float>();
+    public float GetRotationValue() => playerControls.ObjPlayerTank.Rotate.ReadValue<float>();
+    public Vector2 GetMousePosition() => playerControls.ObjPlayerTank.LookAt.ReadValue<Vector2>();
 
     public void DisableMovement()
     {
-        playerControls.Tank.Move.Disable();
+        playerControls.ObjPlayerTank.Move.Disable();
     }
 
     public void DisableRotation()
     {
-        playerControls.Tank.Rotate.Disable();
+        playerControls.ObjPlayerTank.Rotate.Disable();
     }
 
     public void EnableMovement()
     {
-        playerControls.Tank.Move.Enable();
+        playerControls.ObjPlayerTank.Move.Enable();
     }
 
     public void EnableRotation()
     {
-        playerControls.Tank.Rotate.Enable();
+        playerControls.ObjPlayerTank.Rotate.Enable();
     }
 
 }

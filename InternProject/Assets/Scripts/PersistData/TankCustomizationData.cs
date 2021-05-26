@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class TankCustomizationData : MonoBehaviour
 {
-    public static Tank playerTank;
-    public static TankTurret playerTurret;
+    public static ObjPlayerTank playerTank;
+    public static ObjTankTurret playerTurret;
 }

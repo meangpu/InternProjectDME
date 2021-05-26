@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyProbObj
 {
-    public EnemyObj enemy;
+    public ObjEnemy enemy;
     public int count;
     public float prob;  // 0 - 1 
 }

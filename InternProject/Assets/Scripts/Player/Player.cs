@@ -6,8 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private Tank tank = null;
-    [SerializeField] private TankTurret turret = null;
+    [SerializeField] private ObjPlayerTank ObjPlayerTank = null;
+    [SerializeField] private ObjTankTurret turret = null;
     
 
     // Misc
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private PlayerGun playerGun;
 
 
-    // Player Tank States
+    // Player ObjPlayerTank States
     
     private bool isDashing = false; // Check if the player is dashing
     private bool canDash = true; // Check if the player can dash
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         
         if (TankCustomizationData.playerTank != null)
         {
-            tank = TankCustomizationData.playerTank;
+            ObjPlayerTank = TankCustomizationData.playerTank;
         }
         if (TankCustomizationData.playerTurret != null)
         {
@@ -65,6 +65,6 @@ public class Player : MonoBehaviour
         playerAbilities.Bomb();
     }
 
-    public Tank GetTank() => tank;
-    public TankTurret GetTurret() => turret;
+    public ObjPlayerTank GetTank() => ObjPlayerTank;
+    public ObjTankTurret GetTurret() => turret;
 }

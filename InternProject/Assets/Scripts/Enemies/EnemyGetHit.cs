@@ -65,9 +65,9 @@ public class EnemyGetHit : MonoBehaviour
         waveManager.SetEnemyLeftText();
         this.enabled = false;  
 
-        foreach (Gold gold in enemyDisplay.DropGoldSK)
+        foreach (ObjGold ObjGold in enemyDisplay.DropGoldSK)
         {
-            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, gold);
+            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, ObjGold);
         }
     }
 
