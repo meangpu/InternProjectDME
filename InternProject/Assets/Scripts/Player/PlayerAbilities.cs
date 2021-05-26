@@ -38,15 +38,17 @@ public class PlayerAbilities : MonoBehaviour
         playerStats = PlayerStats.Instance;
         hotkeyAbilityList = new List<HotkeyAbility>();
 
-        hotkeyAbilityList.Add(new HotkeyAbility {
-            abilityType = AbilityType.Dash, 
-            activateAbilityAction = () => Dash() 
-        });
+        
 
         hotkeyAbilityList.Add(new HotkeyAbility
         {
             abilityType = AbilityType.Bomb,
             activateAbilityAction = () => Bomb()
+        });
+        
+        hotkeyAbilityList.Add(new HotkeyAbility {
+            abilityType = AbilityType.Dash, 
+            activateAbilityAction = () => Dash() 
         });
     }
 
@@ -59,6 +61,16 @@ public class PlayerAbilities : MonoBehaviour
         Bomb,
         IncendiaryAmmo,
         AutoLoader
+    }
+
+    public void Skill1Activate()
+    {
+        hotkeyAbilityList[0].activateAbilityAction();
+    }
+
+    public void Skill2Activate()
+    {
+        hotkeyAbilityList[1].activateAbilityAction();
     }
 
     public void Dash(/*Action dashingCallback, Action canDashCallback*/)

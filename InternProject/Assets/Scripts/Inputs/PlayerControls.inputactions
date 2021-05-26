@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "ObjPlayerTank",
+            "name": "Tank",
             "id": "7d86de4e-1af8-4938-8e12-a0b92ce41cdd",
             "actions": [
                 {

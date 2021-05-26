@@ -15,7 +15,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""ObjPlayerTank"",
+            ""name"": ""Tank"",
             ""id"": ""7d86de4e-1af8-4938-8e12-a0b92ce41cdd"",
             ""actions"": [
                 {
@@ -246,17 +246,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // ObjPlayerTank
-        m_ObjPlayerTank = asset.FindActionMap("ObjPlayerTank", throwIfNotFound: true);
-        m_ObjPlayerTank_Move = m_ObjPlayerTank.FindAction("Move", throwIfNotFound: true);
-        m_ObjPlayerTank_Rotate = m_ObjPlayerTank.FindAction("Rotate", throwIfNotFound: true);
-        m_ObjPlayerTank_Shoot = m_ObjPlayerTank.FindAction("Shoot", throwIfNotFound: true);
-        m_ObjPlayerTank_LookAt = m_ObjPlayerTank.FindAction("LookAt", throwIfNotFound: true);
-        m_ObjPlayerTank_Reload = m_ObjPlayerTank.FindAction("Reload", throwIfNotFound: true);
-        m_ObjPlayerTank_SpecialShoot = m_ObjPlayerTank.FindAction("SpecialShoot", throwIfNotFound: true);
-        m_ObjPlayerTank_Skill1 = m_ObjPlayerTank.FindAction("Skill1", throwIfNotFound: true);
-        m_ObjPlayerTank_Skill2 = m_ObjPlayerTank.FindAction("Skill2", throwIfNotFound: true);
-        m_ObjPlayerTank_Pause = m_ObjPlayerTank.FindAction("Pause", throwIfNotFound: true);
+        // Tank
+        m_Tank = asset.FindActionMap("Tank", throwIfNotFound: true);
+        m_Tank_Move = m_Tank.FindAction("Move", throwIfNotFound: true);
+        m_Tank_Rotate = m_Tank.FindAction("Rotate", throwIfNotFound: true);
+        m_Tank_Shoot = m_Tank.FindAction("Shoot", throwIfNotFound: true);
+        m_Tank_LookAt = m_Tank.FindAction("LookAt", throwIfNotFound: true);
+        m_Tank_Reload = m_Tank.FindAction("Reload", throwIfNotFound: true);
+        m_Tank_SpecialShoot = m_Tank.FindAction("SpecialShoot", throwIfNotFound: true);
+        m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
+        m_Tank_Skill2 = m_Tank.FindAction("Skill2", throwIfNotFound: true);
+        m_Tank_Pause = m_Tank.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -303,69 +303,69 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // ObjPlayerTank
-    private readonly InputActionMap m_ObjPlayerTank;
-    private IObjPlayerTankActions m_ObjPlayerTankActionsCallbackInterface;
-    private readonly InputAction m_ObjPlayerTank_Move;
-    private readonly InputAction m_ObjPlayerTank_Rotate;
-    private readonly InputAction m_ObjPlayerTank_Shoot;
-    private readonly InputAction m_ObjPlayerTank_LookAt;
-    private readonly InputAction m_ObjPlayerTank_Reload;
-    private readonly InputAction m_ObjPlayerTank_SpecialShoot;
-    private readonly InputAction m_ObjPlayerTank_Skill1;
-    private readonly InputAction m_ObjPlayerTank_Skill2;
-    private readonly InputAction m_ObjPlayerTank_Pause;
-    public struct ObjPlayerTankActions
+    // Tank
+    private readonly InputActionMap m_Tank;
+    private ITankActions m_TankActionsCallbackInterface;
+    private readonly InputAction m_Tank_Move;
+    private readonly InputAction m_Tank_Rotate;
+    private readonly InputAction m_Tank_Shoot;
+    private readonly InputAction m_Tank_LookAt;
+    private readonly InputAction m_Tank_Reload;
+    private readonly InputAction m_Tank_SpecialShoot;
+    private readonly InputAction m_Tank_Skill1;
+    private readonly InputAction m_Tank_Skill2;
+    private readonly InputAction m_Tank_Pause;
+    public struct TankActions
     {
         private @PlayerControls m_Wrapper;
-        public ObjPlayerTankActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_ObjPlayerTank_Move;
-        public InputAction @Rotate => m_Wrapper.m_ObjPlayerTank_Rotate;
-        public InputAction @Shoot => m_Wrapper.m_ObjPlayerTank_Shoot;
-        public InputAction @LookAt => m_Wrapper.m_ObjPlayerTank_LookAt;
-        public InputAction @Reload => m_Wrapper.m_ObjPlayerTank_Reload;
-        public InputAction @SpecialShoot => m_Wrapper.m_ObjPlayerTank_SpecialShoot;
-        public InputAction @Skill1 => m_Wrapper.m_ObjPlayerTank_Skill1;
-        public InputAction @Skill2 => m_Wrapper.m_ObjPlayerTank_Skill2;
-        public InputAction @Pause => m_Wrapper.m_ObjPlayerTank_Pause;
-        public InputActionMap Get() { return m_Wrapper.m_ObjPlayerTank; }
+        public TankActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Tank_Move;
+        public InputAction @Rotate => m_Wrapper.m_Tank_Rotate;
+        public InputAction @Shoot => m_Wrapper.m_Tank_Shoot;
+        public InputAction @LookAt => m_Wrapper.m_Tank_LookAt;
+        public InputAction @Reload => m_Wrapper.m_Tank_Reload;
+        public InputAction @SpecialShoot => m_Wrapper.m_Tank_SpecialShoot;
+        public InputAction @Skill1 => m_Wrapper.m_Tank_Skill1;
+        public InputAction @Skill2 => m_Wrapper.m_Tank_Skill2;
+        public InputAction @Pause => m_Wrapper.m_Tank_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ObjPlayerTankActions set) { return set.Get(); }
-        public void SetCallbacks(IObjPlayerTankActions instance)
+        public static implicit operator InputActionMap(TankActions set) { return set.Get(); }
+        public void SetCallbacks(ITankActions instance)
         {
-            if (m_Wrapper.m_ObjPlayerTankActionsCallbackInterface != null)
+            if (m_Wrapper.m_TankActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnMove;
-                @Rotate.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnRotate;
-                @Shoot.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnShoot;
-                @LookAt.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnLookAt;
-                @LookAt.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnLookAt;
-                @LookAt.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnLookAt;
-                @Reload.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnReload;
-                @Reload.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnReload;
-                @Reload.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnReload;
-                @SpecialShoot.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSpecialShoot;
-                @SpecialShoot.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSpecialShoot;
-                @SpecialShoot.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSpecialShoot;
-                @Skill1.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSkill1;
-                @Skill1.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSkill1;
-                @Skill1.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSkill1;
-                @Skill2.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSkill2;
-                @Skill2.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSkill2;
-                @Skill2.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnSkill2;
-                @Pause.started -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_ObjPlayerTankActionsCallbackInterface.OnPause;
+                @Move.started -= m_Wrapper.m_TankActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnMove;
+                @Rotate.started -= m_Wrapper.m_TankActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnRotate;
+                @Shoot.started -= m_Wrapper.m_TankActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnShoot;
+                @LookAt.started -= m_Wrapper.m_TankActionsCallbackInterface.OnLookAt;
+                @LookAt.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnLookAt;
+                @LookAt.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnLookAt;
+                @Reload.started -= m_Wrapper.m_TankActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnReload;
+                @SpecialShoot.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSpecialShoot;
+                @SpecialShoot.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSpecialShoot;
+                @SpecialShoot.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSpecialShoot;
+                @Skill1.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
+                @Skill1.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
+                @Skill1.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill1;
+                @Skill2.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Skill2.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Skill2.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Pause.started -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
             }
-            m_Wrapper.m_ObjPlayerTankActionsCallbackInterface = instance;
+            m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -398,7 +398,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             }
         }
     }
-    public ObjPlayerTankActions @ObjPlayerTank => new ObjPlayerTankActions(this);
+    public TankActions @Tank => new TankActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -408,7 +408,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_PlayerSchemeIndex];
         }
     }
-    public interface IObjPlayerTankActions
+    public interface ITankActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);

@@ -62,16 +62,6 @@ public class Player : MonoBehaviour
         playerGun.ShootSpecial();
     }
 
-    public void Skill1Activate()
-    {
-        playerAbilities.Dash(/*() => { isDashing = false; }, () => { canDash = true; }*/);
-    }
-
-    public void Skill2Activate()
-    {
-        playerAbilities.Bomb();
-    }
-
     public ObjPlayerTank GetTank() => tank;
     public ObjTankTurret GetTurret() => turret;
 
