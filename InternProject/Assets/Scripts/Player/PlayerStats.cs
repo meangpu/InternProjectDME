@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     private readonly int startingGold = 500;
     private int tankLevel = 1;
 
+    // Gold
     private GoldSystem goldSystem;
 
     // Health and Energy
@@ -41,6 +42,10 @@ public class PlayerStats : MonoBehaviour
     public event Action<int, int> OnAmmoUpdated;
     public event Action<int> OnTankLeveledUp;
 
+    // Vars for abilities that tweaked stuff
+    private PlayerAbilities playerAbilities;
+    private bool energyShieldEnabled = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -51,6 +56,8 @@ public class PlayerStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        playerAbilities = GetComponent<PlayerAbilities>();
     }
 
     private void Start()
@@ -82,11 +89,16 @@ public class PlayerStats : MonoBehaviour
 
         minDamage = turret.GetMinDamage();
         maxDamage = turret.GetMaxDamage();
+
+        playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
     }
 
     private void Update()
     {
-        RegenerateEnergy();
+        if (!energyShieldEnabled) // Using Energy shield does not regenerate energy
+        {
+            RegenerateEnergy();
+        } 
     }
 
     private void RegenerateEnergy()
@@ -108,6 +120,30 @@ public class PlayerStats : MonoBehaviour
     private void UpdateStats()
     {
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (!energyShieldEnabled)
+        {
+            healthSystem.Damage(damage);
+        } 
+        else
+        {
+            int leftoverDamage = damage;
+            int energyRemaining = energySystem.GetAmount();
+
+            if (energyRemaining >= damage)
+            {
+                energySystem.Damage(damage);
+            }
+            else
+            {
+                leftoverDamage -= energyRemaining;
+                energySystem.Damage(energyRemaining);
+                healthSystem.Damage(leftoverDamage);
+            }
+        }
     }
 
     public bool SpendEnergy(int energy)
@@ -151,6 +187,16 @@ public class PlayerStats : MonoBehaviour
         tankLevel += 1;
 
         OnTankLeveledUp?.Invoke(tankLevel);
+    }
+
+    private void HandleToggleEnergyShield()
+    {
+        energyShieldEnabled = !energyShieldEnabled;
+    }
+
+    private void OnDestroy()
+    {
+        playerAbilities.OnTriggerEnergyShield -= HandleToggleEnergyShield;
     }
 
     #region Stats Retrieving

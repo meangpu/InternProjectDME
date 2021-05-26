@@ -48,8 +48,8 @@ public class PlayerAbilities : MonoBehaviour
 
             new HotkeyAbility
             {
-                abilityType = AbilityType.Bomb,
-                activateAbilityAction = () => Bomb()
+                abilityType = AbilityType.EnergyShield,
+                activateAbilityAction = () => ActivateEnergyShield()
             }
         };
     }

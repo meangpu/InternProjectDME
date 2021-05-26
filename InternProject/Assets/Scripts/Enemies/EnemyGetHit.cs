@@ -63,7 +63,7 @@ public class EnemyGetHit : MonoBehaviour
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);
         waveManager.SetEnemyLeftText();
-        this.enabled = false;  
+        enabled = false;  
 
         foreach (ObjGold ObjGold in enemyDisplay.DropGoldSK)
         {
