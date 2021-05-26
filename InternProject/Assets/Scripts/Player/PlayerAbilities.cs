@@ -23,15 +23,31 @@ public class PlayerAbilities : MonoBehaviour
     private bool canDash = true; // Check if the player can dash
     private bool bombOnCooldown = false;
 
-    private Action dashingCallback;
-    private Action canDashCallback;
+    /*private Action dashingCallback;
+    private Action canDashCallback;*/
+
+    // Events that interfere the movements
+    public event Action OnStartedDashing;
+    public event Action OnFinishedDashing;
 
     private PlayerStats playerStats;
-
+    private List<HotkeyAbility> hotkeyAbilityList;
 
     private void Awake()
     {
         playerStats = PlayerStats.Instance;
+        hotkeyAbilityList = new List<HotkeyAbility>();
+
+        hotkeyAbilityList.Add(new HotkeyAbility {
+            abilityType = AbilityType.Dash, 
+            activateAbilityAction = () => Dash() 
+        });
+
+        hotkeyAbilityList.Add(new HotkeyAbility
+        {
+            abilityType = AbilityType.Bomb,
+            activateAbilityAction = () => Bomb()
+        });
     }
 
     public enum AbilityType
@@ -45,14 +61,15 @@ public class PlayerAbilities : MonoBehaviour
         AutoLoader
     }
 
-    public void Dash(Action dashingCallback, Action canDashCallback)
+    public void Dash(/*Action dashingCallback, Action canDashCallback*/)
     {
         if (!canDash) { return; }
 
         if (!playerStats.SpendEnergy(dashEnergyCost)) { return; }
 
-        this.dashingCallback = dashingCallback;
-        this.canDashCallback = canDashCallback;
+        /*this.dashingCallback = dashingCallback;
+        this.canDashCallback = canDashCallback;*/
+        OnStartedDashing?.Invoke();
         canDash = false;
         rb.velocity = (Vector2)transform.up * -dashSpeed;
         anim.SetTrigger("dash");
@@ -62,10 +79,9 @@ public class PlayerAbilities : MonoBehaviour
     private IEnumerator OnDashCooldown()
     {
         yield return new WaitForSeconds(dashDuration);
-        dashingCallback();
+        OnFinishedDashing?.Invoke();
         yield return new WaitForSeconds(dashCooldown - dashDuration);
         canDash = true;
-        canDashCallback();
     }
 
     public void Bomb()
@@ -90,5 +106,11 @@ public class PlayerAbilities : MonoBehaviour
     public void LaunchHomingMissile()
     {
 
+    }
+
+    public class HotkeyAbility
+    {
+        public AbilityType abilityType;
+        public Action activateAbilityAction;
     }
 }

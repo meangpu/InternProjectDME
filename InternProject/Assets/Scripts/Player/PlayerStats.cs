@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
     private const int TANK_MAX_LEVEL_LIMIT = 3;
 
     private ObjTankTurret turret;
-    private ObjPlayerTank ObjPlayerTank;
+    private ObjPlayerTank tank;
 
     public event Action<int, int> OnAmmoUpdated;
     public event Action<int> OnTankLeveledUp;
@@ -57,16 +57,16 @@ public class PlayerStats : MonoBehaviour
     {   
         Player player = GetComponent<Player>();
         turret = player.GetTurret();
-        ObjPlayerTank = player.GetTank();
+        tank = player.GetTank();
 
-        healthSystem = new HealthOrManaSystem(ObjPlayerTank.GetHealth());
-        energySystem = new HealthOrManaSystem(ObjPlayerTank.GetEnergy());
+        healthSystem = new HealthOrManaSystem(tank.GetHealth());
+        energySystem = new HealthOrManaSystem(tank.GetEnergy());
 
         goldSystem = new GoldSystem(startingGold);
 
-        tankName = ObjPlayerTank.GetName();
+        tankName = tank.GetName();
 
-        energyRegenRate = ObjPlayerTank.GetEnergyRate();
+        energyRegenRate = tank.GetEnergyRate();
         timePerEnergy = 1 / energyRegenRate;
 
         fireRate = turret.GetRateOfFire();
@@ -77,8 +77,8 @@ public class PlayerStats : MonoBehaviour
 
         reloadTime = turret.GetReloadTime();
 
-        movementSpeed = ObjPlayerTank.GetMovementSpeed();
-        rotationSpeed = ObjPlayerTank.GetRotationSpeed();
+        movementSpeed = tank.GetMovementSpeed();
+        rotationSpeed = tank.GetRotationSpeed();
 
         minDamage = turret.GetMinDamage();
         maxDamage = turret.GetMaxDamage();

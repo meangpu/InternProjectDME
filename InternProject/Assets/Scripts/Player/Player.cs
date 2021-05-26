@@ -6,20 +6,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private ObjPlayerTank ObjPlayerTank = null;
+    [SerializeField] private ObjPlayerTank tank = null;
     [SerializeField] private ObjTankTurret turret = null;
     
-
     // Misc
     private PlayerAbilities playerAbilities;
     private PlayerMovement playerMovement; 
     private PlayerGun playerGun;
 
-
-    // Player ObjPlayerTank States
-    
+    // Player Tank States 
     private bool isDashing = false; // Check if the player is dashing
-    private bool canDash = true; // Check if the player can dash
 
     private void Awake()
     {
@@ -29,7 +25,7 @@ public class Player : MonoBehaviour
         
         if (TankCustomizationData.playerTank != null)
         {
-            ObjPlayerTank = TankCustomizationData.playerTank;
+            tank = TankCustomizationData.playerTank;
         }
         if (TankCustomizationData.playerTurret != null)
         {
@@ -37,27 +33,38 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        playerAbilities.OnStartedDashing += HandleOnDashed;
+        playerAbilities.OnFinishedDashing += HandleAfterDashed;
+    }
+
     private void Update()
     {
-        if (!isDashing)
-        {
-            playerMovement.Move();
-            playerMovement.RotateTank();
-        }
+        if (isDashing) { return; }
+ 
+        playerMovement.Move();
+        playerMovement.RotateTank();
+    }
+
+    private void HandleOnDashed()
+    {
+        isDashing = true;
+    }
+
+    private void HandleAfterDashed()
+    {
+        isDashing = false;
     }
 
     public void SpecialShoot()
     {
-        // Debug.Log("Performed an alternate attack");
         playerGun.ShootSpecial();
     }
 
     public void Skill1Activate()
     {
-        if (!canDash) { return; }
-        canDash = false;
-        isDashing = true;
-        playerAbilities.Dash(() => { isDashing = false; }, () => { canDash = true; });
+        playerAbilities.Dash(/*() => { isDashing = false; }, () => { canDash = true; }*/);
     }
 
     public void Skill2Activate()
@@ -65,6 +72,12 @@ public class Player : MonoBehaviour
         playerAbilities.Bomb();
     }
 
-    public ObjPlayerTank GetTank() => ObjPlayerTank;
+    public ObjPlayerTank GetTank() => tank;
     public ObjTankTurret GetTurret() => turret;
+
+    private void OnDestroy()
+    {
+        playerAbilities.OnStartedDashing -= HandleOnDashed;
+        playerAbilities.OnFinishedDashing -= HandleAfterDashed;
+    }
 }
