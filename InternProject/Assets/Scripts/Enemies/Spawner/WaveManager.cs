@@ -6,6 +6,8 @@ using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
+    public static WaveManager Instance;
+
     [Header("UIthing")]
     public Slider minWaveSlider;
     public Slider bigWaveSlider;
@@ -23,7 +25,18 @@ public class WaveManager : MonoBehaviour
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
+    private void Start() 
+    {
+        // need to clear enemy data to prevent game not start on second time
+        EnemyAlive.Clear();
+        SetUp_MaxSlider(EnemyWaves.Length);
+        countDown = 1;
+    }
 
     public void Set_MinSlider(int _value)
     {
@@ -47,21 +60,10 @@ public class WaveManager : MonoBehaviour
         bigWaveSlider.value = _value;
     }
 
-
     public void SetEnemyLeftText()
     {
         enemyLefttext.text = EnemyAlive.Count.ToString();
     }
-
-
-    private void Start() 
-    {
-        // need to clear enemy data to prevent game not start on second time
-        EnemyAlive.Clear();
-        SetUp_MaxSlider(EnemyWaves.Length);
-        countDown = 1;
-    }
-
 
     private void Update() 
     {
@@ -91,9 +93,7 @@ public class WaveManager : MonoBehaviour
         
     }
 
-
-
-    IEnumerator SpawnWave()
+    private IEnumerator SpawnWave()
     {
         EnemyWave wave = EnemyWaves[waveindex];
         SetUp_MinSlider(wave.EC);
@@ -154,8 +154,7 @@ public class WaveManager : MonoBehaviour
 
     }
 
-
-    void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
+    private void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
     {
         GameObject g = enemyPool.GetObject();
         g.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
@@ -172,5 +171,5 @@ public class WaveManager : MonoBehaviour
         SetEnemyLeftText();
     }
 
-
+    public List<EnemyGetHit> EnemyList => EnemyAlive;
 }

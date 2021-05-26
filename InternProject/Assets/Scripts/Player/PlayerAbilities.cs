@@ -23,12 +23,14 @@ public class PlayerAbilities : MonoBehaviour
     private bool canDash = true; // Check if the player can dash
     private bool bombOnCooldown = false;
 
-    /*private Action dashingCallback;
-    private Action canDashCallback;*/
-
+    // ------------------- Events -----------------------
     // Events that interfere the movements
     public event Action OnStartedDashing;
     public event Action OnFinishedDashing;
+
+    public event Action OnTriggerEnergyShield;
+
+    // ------------------- Events -----------------------
 
     private PlayerStats playerStats;
     private List<HotkeyAbility> hotkeyAbilityList;
@@ -36,31 +38,33 @@ public class PlayerAbilities : MonoBehaviour
     private void Awake()
     {
         playerStats = PlayerStats.Instance;
-        hotkeyAbilityList = new List<HotkeyAbility>();
-
-        
-
-        hotkeyAbilityList.Add(new HotkeyAbility
+        hotkeyAbilityList = new List<HotkeyAbility>
         {
-            abilityType = AbilityType.Bomb,
-            activateAbilityAction = () => Bomb()
-        });
-        
-        hotkeyAbilityList.Add(new HotkeyAbility {
-            abilityType = AbilityType.Dash, 
-            activateAbilityAction = () => Dash() 
-        });
+            new HotkeyAbility
+            {
+                abilityType = AbilityType.Dash,
+                activateAbilityAction = () => Dash()
+            },
+
+            new HotkeyAbility
+            {
+                abilityType = AbilityType.Bomb,
+                activateAbilityAction = () => Bomb()
+            }
+        };
     }
 
     public enum AbilityType
     {
+        Empty,
         Dash,
         EnergyShield,
+        EnergyOrb,
         HomingMissile,
         Electrocharge,
         Bomb,
         IncendiaryAmmo,
-        AutoLoader
+        AutoLoader,
     }
 
     public void Skill1Activate()
@@ -73,14 +77,12 @@ public class PlayerAbilities : MonoBehaviour
         hotkeyAbilityList[1].activateAbilityAction();
     }
 
-    public void Dash(/*Action dashingCallback, Action canDashCallback*/)
+    public void Dash()
     {
         if (!canDash) { return; }
 
         if (!playerStats.SpendEnergy(dashEnergyCost)) { return; }
 
-        /*this.dashingCallback = dashingCallback;
-        this.canDashCallback = canDashCallback;*/
         OnStartedDashing?.Invoke();
         canDash = false;
         rb.velocity = (Vector2)transform.up * -dashSpeed;
@@ -117,7 +119,18 @@ public class PlayerAbilities : MonoBehaviour
 
     public void LaunchHomingMissile()
     {
+        // Summon Homing Missile <-- Fix Later
 
+        // Homing Missile Logic (Implement in homingmissile.cs)
+        List<EnemyGetHit> enemyList = WaveManager.Instance.EnemyList;
+
+        int randomTargetIndex = UnityEngine.Random.Range(0, enemyList.Count);
+        EnemyGetHit target = enemyList[randomTargetIndex];
+    }
+
+    public void ActivateEnergyShield()
+    {
+        OnTriggerEnergyShield?.Invoke();
     }
 
     public class HotkeyAbility

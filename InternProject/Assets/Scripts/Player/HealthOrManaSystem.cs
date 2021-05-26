@@ -61,4 +61,9 @@ public class HealthOrManaSystem
     }
 
     public int GetAmount() => pointAmount;
+
+    public void SetNewMax(int newMax)
+    {
+        pointAmountMax = newMax;
+    }
 }

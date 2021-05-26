@@ -16,7 +16,7 @@ public class EnemyGetHit : MonoBehaviour
 
     private void Awake() 
     {
-        waveManager = GameObject.Find("waveManager").GetComponent<WaveManager>(); //// fix this 
+        waveManager = WaveManager.Instance;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
