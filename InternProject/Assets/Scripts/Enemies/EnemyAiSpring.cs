@@ -8,16 +8,16 @@ public class EnemyAiSpring : MonoBehaviour
     private GameObject[] enemys;
 
 
-    public Vector3 GetMovementIntention (GameObject enemy)
+    public Vector2 GetMovementIntention (GameObject enemy)
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
         player = GameObject.FindGameObjectsWithTag("Player")[0];
         // initialise intention
-        Vector3 intention = Vector3.zero;
+        Vector2 intention = Vector2.zero;
 
         //chase the player
-        Vector3 direction = (player.transform.position - enemy.transform.position).normalized;
-        float distance = Vector3.Distance(player.transform.position, enemy.transform.position);
+        Vector2 direction = ((Vector2)player.transform.position - (Vector2)enemy.transform.position).normalized;
+        float distance = Vector2.Distance((Vector2)player.transform.position, (Vector2)enemy.transform.position);
 
         float targetDistance = 1f;
         float springDistance = (distance - targetDistance);
@@ -27,8 +27,8 @@ public class EnemyAiSpring : MonoBehaviour
         foreach (GameObject otherEnemy in enemys)
         {
             if(enemy == otherEnemy) continue;  // Don't repel self
-            Vector3 _direction = (enemy.transform.position - otherEnemy.transform.position).normalized;
-            float _distance = Vector3.Distance(enemy.transform.position, otherEnemy.transform.position);
+            Vector2 _direction = ((Vector2)enemy.transform.position - (Vector2)otherEnemy.transform.position).normalized;
+            float _distance = Vector2.Distance((Vector2)enemy.transform.position, (Vector2)otherEnemy.transform.position);
 
             float springStrenght = 1f / (1f + _distance * _distance * _distance);
             intention -= direction * springStrenght;
@@ -36,21 +36,12 @@ public class EnemyAiSpring : MonoBehaviour
 
         if (intention.magnitude < 0.8f)
         {
-            return Vector3.zero;
+            return Vector2.zero;
         }
 
 
         return intention.normalized;
     }
 
-    [ContextMenu("wwaaa")]
-    public void checkMeangpu()
-    {
-        foreach(GameObject otherEnemy in enemys)
-        {
-            Debug.Log(otherEnemy);
-        }
-        
-    }
 
 }
