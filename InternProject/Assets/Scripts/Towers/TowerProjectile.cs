@@ -15,13 +15,9 @@ public class TowerProjectile : MonoBehaviour
 
     public int Damage { get { return damage; } }
 
-    private void Update()
-    {
-        rb.velocity = (Vector2)transform.up * bulletSpeed;
-    }
-
     private void OnEnable()
     {
+        Move();
         damage = damageSetter.Damage;
         StartCoroutine(DestroyOverTme());
     }
@@ -37,4 +33,8 @@ public class TowerProjectile : MonoBehaviour
         DestroySelf();
     }
 
+    private void Move()
+    {
+        rb.velocity = (Vector2)transform.up * bulletSpeed;
+    }
 }

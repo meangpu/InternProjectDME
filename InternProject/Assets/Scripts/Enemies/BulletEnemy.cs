@@ -14,14 +14,10 @@ public class BulletEnemy : MonoBehaviour
 
     public float lifeTime = 5f;
 
-    private void Update()
-    {
-        Move(); 
-    }
-
     private void OnEnable() 
     {
         damage = damageSetter.Damage;
+        Move();
         StartCoroutine(DestroyOverTme());
     }
 

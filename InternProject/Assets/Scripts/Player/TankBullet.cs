@@ -17,13 +17,9 @@ public class TankBullet : MonoBehaviour
 
     public int Damage { get { return damage; } }
 
-    private void Update()
-    {
-        Move();
-    }
-
     private void OnEnable()
     {
+        Move();
         damage = damageSetter.Damage;
         knockBack = damageSetter.KnockBack;
         StartCoroutine(DestroyOverTime());
