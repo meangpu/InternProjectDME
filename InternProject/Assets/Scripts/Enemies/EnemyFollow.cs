@@ -9,13 +9,14 @@ public class EnemyFollow : MonoBehaviour
     private GameObject target;
     public bool startTracking = false;
     
+    [SerializeField] float rotateAngleAdd;
     [SerializeField] private Rigidbody2D rb;
     private float moveSpeed;
     [SerializeField] EnemyAiSpring springAI;
     // public Transform child;
     
 
-
+    [ContextMenu("sdasd")]
     public void SetupTrack()
     {
         // rb = this.GetComponent<Rigidbody2D>();
@@ -40,16 +41,10 @@ public class EnemyFollow : MonoBehaviour
         Vector3 direction = tranTarget.position - transform.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        rb.rotation = angle+rotateAngleAdd;
 
-        // direction.Normalize();
-        // movement = direction;
     }
 
-    // private void moveEnemy(Vector2 direction)
-    // {
-    //     rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
-    // }
 
     private void Update() 
     {
@@ -64,7 +59,6 @@ public class EnemyFollow : MonoBehaviour
     {
         AISpringMove();
 
-        // moveEnemy(movement);
     }
 
 }

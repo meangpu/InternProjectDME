@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyGetHit : MonoBehaviour, ITargetable
 {
-    [SerializeField] private Slider hpSlider;
     [SerializeField] private EnemyDisplay enemyDisplay;
 
     [SerializeField] private Image circleHp;
@@ -17,12 +16,14 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
     private void Start()
     {
         waveManager = WaveManager.Instance;
+        Debug.Log("WEE");
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.TryGetComponent(out TankBullet bullet))
         {
+            Debug.Log("aaa");
             Knockback(bullet.transform.position, bullet.knockBack + enemyDisplay.KnockBack);
             TakeDamage(bullet.Damage);
             

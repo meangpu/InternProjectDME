@@ -148,13 +148,20 @@ public class WaveManager : MonoBehaviour
                     
                     for (int i = 0; i < enemy.count; i++)
                     {
-                        
-                        if (wave.EC - enemy.enemy.GetEC() >= 0)
+                        if (enemy.isBoss)
                         {
-                            SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-                            wave.EC -= enemy.enemy.GetEC();
-                            Set_MinSlider(wave.EC);
+                            SpawnBoss(enemy.enemyPfb, pointToSpawn.spawnPoint, enemy.enemy);
                             yield return new WaitForSeconds(wave.spawnRate);
+                        }
+                        else
+                        {
+                            if (wave.EC - enemy.enemy.GetEC() >= 0)
+                            {
+                                SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                                wave.EC -= enemy.enemy.GetEC();
+                                Set_MinSlider(wave.EC);
+                                yield return new WaitForSeconds(wave.spawnRate);
+                            }
                         }
                     }
                 }
@@ -181,6 +188,21 @@ public class WaveManager : MonoBehaviour
         // add enemy count 
         EnemyAlive.Add(g.GetComponent<EnemyGetHit>());  
 
+        SetEnemyLeftText();
+    }
+
+    private void SpawnBoss(GameObject bossPfb, Transform spawnPos, ObjEnemy enemy)
+    {
+        GameObject boss = Instantiate(bossPfb, spawnPos);
+        
+
+        boss.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
+        boss.transform.position = spawnPos.position;
+        boss.transform.rotation = spawnPos.rotation;
+
+        boss.GetComponent<EnemyFollow>().SetupTrack();
+        boss.GetComponent<EnemyShoot>().StartShoot();
+        EnemyAlive.Add(boss.GetComponent<EnemyGetHit>());
         SetEnemyLeftText();
     }
 

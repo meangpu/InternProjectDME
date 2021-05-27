@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyProbObj
 {
     public ObjEnemy enemy;
+    public GameObject enemyPfb;
+    public bool isBoss;
     public int count;
     public float prob;  // 0 - 1 
 }

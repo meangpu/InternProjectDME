@@ -7,6 +7,7 @@ using TMPro;
 public class EnemyDisplay : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer eneImage;
+    // [SerializeField] ObjEnemy enemyScriptableObj;
     private float eneSpeed;
     private GameObject target;
     private string tagName;
@@ -21,6 +22,13 @@ public class EnemyDisplay : MonoBehaviour
     private int maxDamage;
     private float knockBack;
 
+    // private void Start() 
+    // {
+    //     if (enemyScriptableObj != null)
+    //     {
+    //         StartDisplay(enemyScriptableObj);
+    //     }
+    // }
 
     public void StartDisplay(ObjEnemy enemy)
     {
@@ -36,6 +44,13 @@ public class EnemyDisplay : MonoBehaviour
         //// fix
         dropGoldSK = enemy.GetMoneyDropSK();
         //// fix
+        refreshHitbox();
+    }
+
+    private void refreshHitbox()
+    {
+        Destroy(GetComponent<PolygonCollider2D>());
+        gameObject.AddComponent<PolygonCollider2D>();
     }
 
     public SpriteRenderer Image { get { return eneImage; } }
