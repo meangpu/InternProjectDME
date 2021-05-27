@@ -12,18 +12,11 @@ public class EnemyGetHit : MonoBehaviour
     [SerializeField] private GameObject parentHp;
     [SerializeField] private GameObject goldPfb;
 
-    private WaveManager waveManager;
-
-    private void Awake() 
-    {
-        waveManager = WaveManager.Instance;
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.TryGetComponent(out TankBullet bullet))
         {
-            knockBack(bullet.transform.position, 0.25f);
+            Knockback(bullet.transform.position, 0.25f);
             TakeDamage(bullet.Damage);
             
             bullet.DestroySelf();
@@ -31,7 +24,7 @@ public class EnemyGetHit : MonoBehaviour
 
         if(col.gameObject.TryGetComponent(out TowerProjectile towerBullet))
         {
-            knockBack(towerBullet.transform.position, 0.1f);
+            Knockback(towerBullet.transform.position, 0.1f);
             TakeDamage(towerBullet.Damage);
             towerBullet.DestroySelf();
 
@@ -45,7 +38,7 @@ public class EnemyGetHit : MonoBehaviour
             parentHp.gameObject.SetActive(true);
         }
         
-        DamagePopup.Create(transform.position, damage, "Enemy");
+        DamagePopup.Create(transform.position, damage, DamagePopup.DamageType.Enemy);
 
         enemyDisplay.Health -= damage;
 
@@ -62,12 +55,12 @@ public class EnemyGetHit : MonoBehaviour
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);
-        waveManager.SetEnemyLeftText();
+        WaveManager.Instance.SetEnemyLeftText();
         enabled = false;  
 
-        foreach (ObjGold ObjGold in enemyDisplay.DropGoldSK)
+        foreach (ObjGold gold in enemyDisplay.DropGoldSK)
         {
-            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, ObjGold);
+            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, gold);
         }
     }
 
@@ -77,7 +70,7 @@ public class EnemyGetHit : MonoBehaviour
         circleHp.fillAmount = nowvalue;
     }
 
-    private void knockBack(Vector2 AttackerPos, float knockbackForce)
+    private void Knockback(Vector2 AttackerPos, float knockbackForce)
     {
         Vector2 dirFromAttacker = ((Vector2)transform.position - AttackerPos).normalized;     
         Vector2 kbForce = dirFromAttacker * knockbackForce;

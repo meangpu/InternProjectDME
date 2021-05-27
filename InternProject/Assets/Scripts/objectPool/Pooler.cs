@@ -103,7 +103,7 @@ public class Pooler : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void SpawnPopup(Vector3 position, Quaternion rotation, int damage, string type)
+    public void SpawnPopup(Vector3 position, Quaternion rotation, int damage, DamagePopup.DamageType type)
     {
         GameObject gameObject = GetObject();
 

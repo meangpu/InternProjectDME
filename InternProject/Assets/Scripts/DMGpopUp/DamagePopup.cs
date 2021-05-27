@@ -6,12 +6,6 @@ using TMPro;
 
 public class DamagePopup : MonoBehaviour
 {
-
-    public static void Create(Vector3 position, int damageAmount, string type) 
-    {
-        PoolingSingleton.Instance.PopUpPool.SpawnPopup(position, Quaternion.identity, damageAmount, type);
-    }
-
     private static int sortingOrder;
 
     private const float DISAPPEAR_TIMER_MAX = 1f;
@@ -21,20 +15,26 @@ public class DamagePopup : MonoBehaviour
     private Color textColor;
     private Vector3 moveVector;
 
+    public enum DamageType
+    {
+        Player,
+        Enemy
+    }
+
     private void Awake() 
     {
         textMesh = transform.GetComponent<TextMeshPro>();
     }
 
-    public void Setup(int damageAmount, string type) {
+    public void Setup(int damageAmount, DamageType type) {
         textMesh.SetText(damageAmount.ToString());
-        if (type == "Player") 
+        if (type == DamageType.Player) 
         {
             Color red = new Color(1, 0.28f, 0.28f, 1);
             textMesh.fontSize = 3;
             textColor = red;
         }
-        else if (type == "Enemy")
+        else if (type == DamageType.Enemy)
         {
             textMesh.fontSize = 2;
             textColor = Color.white;
@@ -75,5 +75,10 @@ public class DamagePopup : MonoBehaviour
                 PoolingSingleton.Instance.PopUpPool.ReturnObject(gameObject);
             }
         }
+    }
+
+    public static void Create(Vector3 position, int damageAmount, DamageType type)
+    {
+        PoolingSingleton.Instance.PopUpPool.SpawnPopup(position, Quaternion.identity, damageAmount, type);
     }
 }
