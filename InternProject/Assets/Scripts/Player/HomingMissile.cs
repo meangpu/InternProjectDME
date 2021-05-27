@@ -34,8 +34,6 @@ public class HomingMissile : MonoBehaviour
         {
             AimAtTarget();
         }
-
-        //Move();
     }
 
     public void Setup(TargetType targetType, float movementSpeed = 2f, float rotationSpeed = 200f)
