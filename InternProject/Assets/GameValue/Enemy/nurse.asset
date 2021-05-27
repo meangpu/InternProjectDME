@@ -29,3 +29,4 @@ MonoBehaviour:
   moneyDrop: 1
   goldDropSK:
   - {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}
+  knockBack: 0.1

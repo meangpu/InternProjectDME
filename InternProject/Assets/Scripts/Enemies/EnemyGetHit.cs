@@ -16,7 +16,7 @@ public class EnemyGetHit : MonoBehaviour
     {
         if(col.gameObject.TryGetComponent(out TankBullet bullet))
         {
-            Knockback(bullet.transform.position, 0.25f);
+            Knockback(bullet.transform.position, bullet.knockBack + enemyDisplay.KnockBack);
             TakeDamage(bullet.Damage);
             
             bullet.DestroySelf();
@@ -24,7 +24,7 @@ public class EnemyGetHit : MonoBehaviour
 
         if(col.gameObject.TryGetComponent(out TowerProjectile towerBullet))
         {
-            Knockback(towerBullet.transform.position, 0.1f);
+            Knockback(towerBullet.transform.position, bullet.knockBack + enemyDisplay.KnockBack);
             TakeDamage(towerBullet.Damage);
             towerBullet.DestroySelf();
 

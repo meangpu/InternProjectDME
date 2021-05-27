@@ -22,6 +22,8 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private float atkSpeed;
     [SerializeField] private int moneyDrop;
     [SerializeField] private ObjGold[] goldDropSK;
+    [Range(0, 0.2f)]
+    [SerializeField] private float knockBack;
 
     public string GetName() => enemyName;
     public string[] GetTags() => tags;
@@ -38,6 +40,7 @@ public class ObjEnemy : ScriptableObject
     public float GetAtkSpeed() => atkSpeed;
     public int GetMoneyDrop() => moneyDrop;
     public ObjGold[] GetMoneyDropSK() => goldDropSK;
+    public float GetKnockBack() => knockBack;
 
     public int GetRandomDamage()
     {

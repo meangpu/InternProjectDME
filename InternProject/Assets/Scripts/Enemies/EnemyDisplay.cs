@@ -19,6 +19,7 @@ public class EnemyDisplay : MonoBehaviour
     [SerializeField] private GameObject parentHp;
     private int minDamage;
     private int maxDamage;
+    private float knockBack;
 
 
     public void StartDisplay(ObjEnemy enemy)
@@ -49,6 +50,7 @@ public class EnemyDisplay : MonoBehaviour
     public int MaxDamage { get { return maxDamage; } }
 
     public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
+    public float KnockBack { get { return knockBack; } }
 
 
 }

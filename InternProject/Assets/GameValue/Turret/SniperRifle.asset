@@ -20,3 +20,4 @@ MonoBehaviour:
   ammoCount: 2
   rateOfFire: 0.5
   reloadTime: 1
+  knockBack: 0.4

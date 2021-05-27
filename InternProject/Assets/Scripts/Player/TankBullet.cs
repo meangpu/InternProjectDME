@@ -13,6 +13,7 @@ public class TankBullet : MonoBehaviour
     public float lifeTime = 4f;
 
     private int damage;
+    public float knockBack;
 
     public int Damage { get { return damage; } }
 
@@ -24,6 +25,7 @@ public class TankBullet : MonoBehaviour
     private void OnEnable()
     {
         damage = damageSetter.Damage;
+        knockBack = damageSetter.KnockBack;
         StartCoroutine(DestroyOverTime());
     }
 

@@ -6,6 +6,8 @@ public class PlayerGun : MonoBehaviour
 {
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
     [SerializeField] private PlayerStats playerStats = null;
+    [SerializeField] Player player;
+
 
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
@@ -26,16 +28,16 @@ public class PlayerGun : MonoBehaviour
         }
         else // Shoot normally
         {
-            PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage());
+            PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
             StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
         }  
     }
 
     public void ShootSpecial()
     {
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(1, 0, 0), barrel.rotation, playerStats.DealDamage());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(-1, 0, 0), barrel.rotation, playerStats.DealDamage());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(1, 0, 0), barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(-1, 0, 0), barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
     }
 
     public void OnHoldShootButton() // If shoot button is held down.
