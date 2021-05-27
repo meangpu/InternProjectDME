@@ -24,7 +24,7 @@ public class HealthAndEnergyBar : MonoBehaviour
     private HealthOrManaSystem healthSystem;
     private HealthOrManaSystem energySystem;
 
-    private void Start()
+    public void CustomStart()
     {
         playerStats = PlayerStats.Instance;
 

@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     // Health and Energy
     private HealthOrManaSystem healthSystem;
     private HealthOrManaSystem energySystem;
+    [SerializeField] HealthAndEnergyBar healthUi;
 
     // ObjPlayerTank Stats from Scriptable Object
     private string tankName;
@@ -92,6 +93,8 @@ public class PlayerStats : MonoBehaviour
         maxDamage = turret.GetMaxDamage();
 
         playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
+        healthUi.CustomStart();
+        
     }
 
     private void Update()
