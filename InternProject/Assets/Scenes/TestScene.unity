@@ -54149,6 +54149,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373132815}
   m_CullTransparentMesh: 1
+--- !u!114 &399489426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3101926655581444469, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
+  m_PrefabInstance: {fileID: 1142245619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &487242171
 GameObject:
   m_ObjectHideFlags: 0
@@ -56667,6 +56678,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 493555991}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
+      propertyPath: sliderHealth
+      value: 
+      objectReference: {fileID: 399489426}
+    - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: guns.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -57288,17 +57303,6 @@ MonoBehaviour:
   enemyPool: {fileID: 1260280414}
   popUpPool: {fileID: 652422169}
   goldPool: {fileID: 123124304}
---- !u!114 &1290887860 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-  m_PrefabInstance: {fileID: 4789166324514989936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4512b84e2e665b54faeff86b2dc03078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1291522958
 GameObject:
   m_ObjectHideFlags: 0
@@ -60321,14 +60325,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2637087395766413536, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c9e4ca539fe226e48af99c458369f9a4, type: 2}
-    - target: {fileID: 5935434833198695600, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1290887860}
     - target: {fileID: 5943029956014393993, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -60378,8 +60374,8 @@ PrefabInstance:
       value: PlayerTank
       objectReference: {fileID: 0}
     - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-      propertyPath: objPlayerTank
+      propertyPath: turret
       value: 
-      objectReference: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
+      objectReference: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852568b80bf722645832f953e7d1d429, type: 3}

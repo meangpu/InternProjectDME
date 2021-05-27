@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c9e4ca539fe226e48af99c458369f9a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
-  turret: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
+  turret: {fileID: 11400000, guid: b322e6aca1367354bb5936e95c8a5c60, type: 2}
 --- !u!114 &7553780951413289878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 4789166323244050169}
   playerStats: {fileID: 3061819531511047170}
+  player: {fileID: 5943029956014393997}
 --- !u!114 &1583525037
 MonoBehaviour:
   m_ObjectHideFlags: 0

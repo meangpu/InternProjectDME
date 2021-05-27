@@ -24,7 +24,8 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
 
         if(col.gameObject.TryGetComponent(out TowerProjectile towerBullet))
         {
-            Knockback(towerBullet.transform.position, bullet.knockBack + enemyDisplay.KnockBack);
+            // add kb from bullet เพิ่ม
+            Knockback(towerBullet.transform.position, enemyDisplay.KnockBack);
             TakeDamage(towerBullet.Damage);
             towerBullet.DestroySelf();
 
