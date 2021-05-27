@@ -24,16 +24,13 @@ public class HealthAndEnergyBar : MonoBehaviour
     private HealthOrManaSystem healthSystem;
     private HealthOrManaSystem energySystem;
 
-    private void Awake()
-    {
-        playerStats = PlayerStats.Instance;
-    }
-
     private void Start()
     {
+        playerStats = PlayerStats.Instance;
+
         healthSystem = playerStats.GetHealthSystem();
         energySystem = playerStats.GetEnergySystem();
-
+        
         SetBar(healthSystem.GetPercentage(), healthBar);
         SetBar(energySystem.GetPercentage(), energyBar);
 

@@ -12,6 +12,13 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
     [SerializeField] private GameObject parentHp;
     [SerializeField] private GameObject goldPfb;
 
+    private WaveManager waveManager;
+
+    private void Start()
+    {
+        waveManager = WaveManager.Instance;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.TryGetComponent(out TankBullet bullet))
@@ -28,7 +35,6 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
             Knockback(towerBullet.transform.position, enemyDisplay.KnockBack);
             TakeDamage(towerBullet.Damage);
             towerBullet.DestroySelf();
-
         }
     }
 
@@ -56,7 +62,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);
-        WaveManager.Instance.SetEnemyLeftText();
+        waveManager.SetEnemyLeftText();
         enabled = false;  
 
         foreach (ObjGold gold in enemyDisplay.DropGoldSK)

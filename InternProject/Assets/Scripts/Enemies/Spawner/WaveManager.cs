@@ -6,7 +6,13 @@ using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
-    public static WaveManager Instance;
+    private static WaveManager instance;
+
+    public static WaveManager Instance 
+    { 
+        get 
+        { return instance; }
+    }
 
     [Header("UIthing")]
     public Slider minWaveSlider;
@@ -27,9 +33,9 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
         else
         {

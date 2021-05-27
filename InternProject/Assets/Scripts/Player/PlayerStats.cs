@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats Instance { get; private set; }
+    private static PlayerStats instance;
+    public static PlayerStats Instance { get { return instance; } }
 
     // Player Stats
     private readonly int startingGold = 500;
@@ -48,9 +49,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
         else
         {

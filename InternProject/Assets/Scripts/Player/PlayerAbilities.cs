@@ -36,8 +36,7 @@ public class PlayerAbilities : MonoBehaviour
     private List<HotkeyAbility> hotkeyAbilityList;
 
     private void Awake()
-    {
-        playerStats = PlayerStats.Instance;
+    {   
         hotkeyAbilityList = new List<HotkeyAbility>
         {
             new HotkeyAbility
@@ -52,6 +51,11 @@ public class PlayerAbilities : MonoBehaviour
                 activateAbilityAction = () => ActivateEnergyShield()
             }
         };
+    }
+
+    private void Start()
+    {
+        playerStats = PlayerStats.Instance;
     }
 
     public enum AbilityType
