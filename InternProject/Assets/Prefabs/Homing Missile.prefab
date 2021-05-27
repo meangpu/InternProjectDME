@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 8232353531280522006}
   - component: {fileID: 8232353531280522007}
   - component: {fileID: 8232353531280522024}
-  - component: {fileID: 989844703292221974}
   - component: {fileID: -1839139374988825819}
   m_Layer: 0
   m_Name: Homing Missile
@@ -180,22 +179,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09757097, y: 0.33339107}
   m_EdgeRadius: 0
---- !u!114 &989844703292221974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8232353531280522004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad4b0955bc5ec44db031b790c1e65ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 8232353531280522007}
-  bulletSpeed: 10
-  damageSetter: {fileID: -1839139374988825819}
-  lifeTime: 5
 --- !u!114 &-1839139374988825819
 MonoBehaviour:
   m_ObjectHideFlags: 0

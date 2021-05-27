@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGetHit : MonoBehaviour
+public class PlayerGetHit : MonoBehaviour, ITargetable
 {
     [SerializeField] private PlayerStats playerStats = null;
 
@@ -20,4 +20,6 @@ public class PlayerGetHit : MonoBehaviour
     {
         playerStats.TakeDamage(dmg);
     }
+
+    public Transform GetTransform() => transform;
 }

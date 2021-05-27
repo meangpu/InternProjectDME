@@ -119,13 +119,7 @@ public class PlayerAbilities : MonoBehaviour
 
     public void LaunchHomingMissile()
     {
-        // Summon Homing Missile <-- Fix Later
-
-        // Homing Missile Logic (Implement in homingmissile.cs)
-        List<EnemyGetHit> enemyList = WaveManager.Instance.EnemyList;
-
-        int randomTargetIndex = UnityEngine.Random.Range(0, enemyList.Count);
-        EnemyGetHit target = enemyList[randomTargetIndex];
+        // Summon Homing Missile
     }
 
     public void ActivateEnergyShield()

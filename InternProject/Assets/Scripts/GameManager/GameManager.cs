@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject winPanel;
 
+    // GameObject references
+    private PlayerGetHit player;
+    private BaseClass playerBase;
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,9 +26,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGetHit>();
+        playerBase = GameObject.FindGameObjectWithTag("Base").GetComponent<BaseClass>();
     }
 
-    private void Start() 
+    private void Start()
     {
         ResumeGame();
     }
@@ -34,8 +41,6 @@ public class GameManager : MonoBehaviour
         PauseGame();
         gameOverPanel.SetActive(true);
     }
-
-
 
     public void PauseGame()
     {
@@ -53,4 +58,6 @@ public class GameManager : MonoBehaviour
         winPanel.SetActive(true);
     }
 
+    public PlayerGetHit GetPlayer() => player;
+    public BaseClass GetPlayerBase() => playerBase;
 }

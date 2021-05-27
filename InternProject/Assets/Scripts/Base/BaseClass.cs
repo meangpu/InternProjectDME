@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class BaseClass : MonoBehaviour
+public class BaseClass : MonoBehaviour, ITargetable
 {
     [System.Serializable]
     public class BaseGun
@@ -19,7 +19,7 @@ public class BaseClass : MonoBehaviour
     public int hp;
     public BaseGun[] guns;
     [Header("HP")]
-    public Slider siderHealth;
+    public Slider sliderHealth;
     public TMP_Text textHp;
     [SerializeField] GameManager gameManager;
 
@@ -27,14 +27,14 @@ public class BaseClass : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        siderHealth.value = health;
+        sliderHealth.value = health;
         textHp.text = $"{health}/{maxHp}";
     }
 
     public void SetMaxHealth()
     {
-        siderHealth.maxValue = maxHp;
-        siderHealth.value = maxHp;
+        sliderHealth.maxValue = maxHp;
+        sliderHealth.value = maxHp;
         textHp.text = $"{maxHp}/{maxHp}";
     }
 
@@ -52,7 +52,7 @@ public class BaseClass : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.TryGetComponent(out BulletEnemy bullet))
         {
@@ -62,8 +62,7 @@ public class BaseClass : MonoBehaviour
         }
     }
 
-
-    void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         hp -= damage;
         if (hp <= 0)
@@ -75,9 +74,11 @@ public class BaseClass : MonoBehaviour
         
     }
 
-    void DestroyBase()
+    private void DestroyBase()
     {
         gameManager.GameOver();
     }
+
+    public Transform GetTransform() => transform;
 
 }

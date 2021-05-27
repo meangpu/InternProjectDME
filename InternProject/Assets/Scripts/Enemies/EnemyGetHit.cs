@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyGetHit : MonoBehaviour
+public class EnemyGetHit : MonoBehaviour, ITargetable
 {
     [SerializeField] private Slider hpSlider;
     [SerializeField] private EnemyDisplay enemyDisplay;
@@ -78,4 +78,6 @@ public class EnemyGetHit : MonoBehaviour
 
         // Debug.Log($"{transform.position}, {AttackerPos}, {dirFromAttacker}");
     }
+
+    public Transform GetTransform() => transform;
 }

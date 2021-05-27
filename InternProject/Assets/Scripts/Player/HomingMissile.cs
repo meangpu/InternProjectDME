@@ -35,7 +35,7 @@ public class HomingMissile : MonoBehaviour
             AimAtTarget();
         }
 
-        Move();
+        //Move();
     }
 
     public void Setup(TargetType targetType, float movementSpeed = 2f, float rotationSpeed = 200f)
@@ -73,30 +73,34 @@ public class HomingMissile : MonoBehaviour
         switch (targetType)
         {
             case TargetType.Player:
-                PlayerGetHit player = GameManager.Instance.GetPlayer();
+                GameManager gameManager = GameManager.Instance;
+                PlayerGetHit player = gameManager.GetPlayer();
+
                 if (player.gameObject.activeSelf) // Player is alive <-- CHANGE LATER
                 {
                     targetable = player.GetComponent<ITargetable>();
                 }
                 else // player is dead, target the base
                 {
-                    targetable = 
+                    targetable = gameManager.GetPlayerBase().GetComponent<ITargetable>();
                 }
-                
-                
                 break;
-            case TargetType.Enemy:
-                List<EnemyGetHit> enemyList = WaveManager.Instance.EnemyList;
 
+            case TargetType.Enemy:
+                // Choose a random enemy to lock on.
+                List<EnemyGetHit> enemyList = WaveManager.Instance.EnemyList;
                 int randomTargetIndex = Random.Range(0, enemyList.Count);
                 EnemyGetHit enemyTarget = enemyList[randomTargetIndex];
+
+                targetable = enemyTarget.GetComponent<ITargetable>();
                 break;
         }
 
+        SetTarget(targetable.GetTransform());
     }
 
-    private void Move()
+    /*private void Move()
     {
         rb.velocity = (Vector2)transform.up * movementSpeed;
-    }
+    }*/
 }
