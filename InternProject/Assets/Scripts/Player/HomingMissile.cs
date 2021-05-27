@@ -4,21 +4,45 @@ using UnityEngine;
 
 public class HomingMissile : MonoBehaviour
 {
-    // Create a target and targetable script
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private float movementSpeed = 2f;
     [SerializeField] private float rotationSpeed = 200f;
 
     private Transform target;
+    private TargetType targetType;
 
-    private void Start()
+    private float timeScanElapsed = 0;
+    private const float TARGET_SCAN_INTERVAL = 0.1f;
+
+    public enum TargetType
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Player,
+        Enemy
     }
 
     private void Update()
-    {   
-        AimAtTarget();
+    {
+        timeScanElapsed += Time.deltaTime;
+
+        if (timeScanElapsed >= TARGET_SCAN_INTERVAL)
+        {
+            timeScanElapsed = 0;
+            FindTarget(targetType);
+        }
+
+        if (target != null)
+        {
+            AimAtTarget();
+        }
+
+        Move();
+    }
+
+    public void Setup(TargetType targetType, float movementSpeed = 2f, float rotationSpeed = 200f)
+    {
+        this.targetType = targetType;
+        this.movementSpeed = movementSpeed;
+        this.rotationSpeed = rotationSpeed;
     }
 
     private void AimAtTarget()
@@ -29,15 +53,50 @@ public class HomingMissile : MonoBehaviour
 
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
-        rb.angularVelocity = -rotateAmount * rotationSpeed;
-        
-        rb.velocity = (Vector2)transform.up * movementSpeed;
+        rb.angularVelocity = -rotateAmount * rotationSpeed; 
     }
 
-    
-    /*  Vector3 direction = target.position - transform.position;
+    private void SetTarget(Transform targetTransform)
+    {
+        target = targetTransform;
+    }
 
-        float aimAtAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    private void FindTarget(TargetType targetType)
+    {
+        if (target != null && target.gameObject.activeSelf)
+        {
+            return;
+        }
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, aimAtAngle), rotationSpeed);*/
+        ITargetable targetable = null;
+
+        switch (targetType)
+        {
+            case TargetType.Player:
+                PlayerGetHit player = GameManager.Instance.GetPlayer();
+                if (player.gameObject.activeSelf) // Player is alive <-- CHANGE LATER
+                {
+                    targetable = player.GetComponent<ITargetable>();
+                }
+                else // player is dead, target the base
+                {
+                    targetable = 
+                }
+                
+                
+                break;
+            case TargetType.Enemy:
+                List<EnemyGetHit> enemyList = WaveManager.Instance.EnemyList;
+
+                int randomTargetIndex = Random.Range(0, enemyList.Count);
+                EnemyGetHit enemyTarget = enemyList[randomTargetIndex];
+                break;
+        }
+
+    }
+
+    private void Move()
+    {
+        rb.velocity = (Vector2)transform.up * movementSpeed;
+    }
 }
