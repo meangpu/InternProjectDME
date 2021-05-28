@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91925f4c95719a743b302a47727acc06, type: 3}
-  m_Name: Dashing Module
+  m_Name: Energy Orb
   m_EditorClassIdentifier: 
-  addonName: Dashing Module
-  description: Dash forward quickly in a short range
-  abilityType: 1
-  icon: {fileID: 8082763461715426152, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
-  energyCost: 20
-  cooldownTime: 5
-  damage: 0
-  range: 0
+  addonName: Energy Orb
+  description: Deploys an orb that orbits around the player that deals damage to
+    any enemies it touches
+  abilityType: 3
+  icon: {fileID: -8247936436179275923, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  energyCost: 35
+  cooldownTime: 25
+  damage: 6
+  range: 7.5
   comboList:
   - {fileID: 11400000, guid: 7610d30400dbc7f4e993c502e7dc6934, type: 2}

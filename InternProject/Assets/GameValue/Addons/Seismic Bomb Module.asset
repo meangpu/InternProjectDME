@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91925f4c95719a743b302a47727acc06, type: 3}
   m_Name: Seismic Bomb Module
   m_EditorClassIdentifier: 
-  addonName: 
-  description: 
-  abilityID: 0
-  energyCost: 0
-  cooldownTime: 0
-  damage: 0
-  range: 0
-  comboList: []
+  addonName: Seismic Bomb Module
+  description: Deals area damage to enemies around the player
+  abilityType: 6
+  icon: {fileID: 1887863682596719256, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  energyCost: 45
+  cooldownTime: 35
+  damage: 40
+  range: 3.5
+  comboList:
+  - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
+  - {fileID: 11400000, guid: 23fc5d59e16ee1d4e9948fd55fdb5cde, type: 2}
