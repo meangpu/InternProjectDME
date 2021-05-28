@@ -17,14 +17,14 @@ public class GunChildSetup : MonoBehaviour
     }
 
 
-    public void showData(ObjTankTurret gunData)
+    public void ShowData(ObjTankTurret gunData)
     {
         myImageComponent.sprite = gunData.GetSprite();
         selfTurret = gunData;
         chooseGunScript = transform.parent.GetComponent<ChooseGun>();
     }
 
-    public void showGunName()
+    public void ShowGunName()
     {
         chooseGunScript.updateGunData(selfTurret);
         TankCustomizationData.playerTurret = selfTurret;

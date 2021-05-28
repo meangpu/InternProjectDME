@@ -13,7 +13,7 @@ public class ListOfGun : MonoBehaviour
         foreach (var gun in TurretList)
         {
             GameObject newTurretButton = Instantiate(TurretPrefabs, gameObject.transform);
-            newTurretButton.GetComponent<GunChildSetup>().showData(gun); 
+            newTurretButton.GetComponent<GunChildSetup>().ShowData(gun); 
             
         }
 
