@@ -5,11 +5,12 @@ using UnityEngine;
 public class Boss1 : MonoBehaviour
 {
     
-    [SerializeField] BoxCollider2D boxCollider = null;
-    [SerializeField] Rigidbody2D rb = null;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] float dashSpeed;
+    [SerializeField] float CoolDownBetweenDash;
+    bool canDash = true;
 
-    public static void warnBoss(GameObject _bossObj)
+    public void warnBoss(GameObject _bossObj)
     {
         
         var allBullet = GameObject.FindGameObjectsWithTag("PlayerBullet");
@@ -17,25 +18,26 @@ public class Boss1 : MonoBehaviour
         {
             TankBullet bulScript = bullet.GetComponent<TankBullet>();
             Vector2  bulletDirection = (bulScript.GetRB().velocity).normalized;
-            float projectionDistance = 1f;
-            Vector2 projectBulletPos = (Vector2)bullet.transform.position + bulletDirection* projectionDistance;
+            float projectionDistance = 0.4f;
 
-            Debug.DrawLine((Vector2)bullet.transform.position, projectBulletPos, Color.green);
-            BoxCollider2D bulBox = bulScript.GetBox();
-            bulBox.enabled = true;
+            Vector2 BulletStartLine = (Vector2)bullet.transform.position + (Vector2)bullet.transform.up*projectionDistance;
 
+            RaycastHit2D hit = Physics2D.Raycast(BulletStartLine, bulletDirection, 3f);
 
+            Debug.DrawRay(BulletStartLine, bulletDirection*3f, Color.green);
 
-            // m_LineRenderer = gameObject.AddComponent<LineRenderer> ();
-
-            // Enemy projectCollision = (bullet.transform.position, projectBulletPos);
-
-            // if (projectCollision != null)
-            // {
-            //     projectCollision.Warn(bullet.direction);
-            // }
+            if(hit.collider != null)
+            {
+                Debug.Log(hit);
+                Dash(bulletDirection);
+            }
 
         }
+    }
+
+    private void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
     }
 
 
@@ -46,16 +48,40 @@ public class Boss1 : MonoBehaviour
             
         }
     }
+    private IEnumerator OnDashCooldown()
+    {
+        yield return new WaitForSeconds(CoolDownBetweenDash);
+        canDash = true;
+    }
 
-    void Update()
+
+    private void FixedUpdate() 
     {
         warnBoss(gameObject);
     }
 
+    [ContextMenu("sdasdas")]
+    void Dash(Vector2 direction)
+    {   
+        if (!canDash) { return; }
 
-    void Dash()
-    {
-        rb.velocity = (Vector2)transform.up * -dashSpeed;
+        int ranDir;
+        if (Random.value > 0.5f)
+        {
+            ranDir = 1;
+        }
+        else
+        {
+            ranDir = -1;
+        }
+        
+        Quaternion rotation = Quaternion.Euler(0, 90 * ranDir, 1);  // create 90 degree rotation
+        Vector2 dodgeVector = rotation * direction;
+        rb.AddForce(dodgeVector * dashSpeed, ForceMode2D.Impulse);
+        canDash = false;
+        StartCoroutine(OnDashCooldown());
+
+        // rb.velocity = Vector2.zero;
         
     }
 }

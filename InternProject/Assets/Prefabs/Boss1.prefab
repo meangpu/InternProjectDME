@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cb836f39b325848ab1988c173fe2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider: {fileID: 0}
   rb: {fileID: 2799973023831598557}
-  dashSpeed: 20
+  dashSpeed: 50
+  CoolDownBetweenDash: 2
 --- !u!1001 &8024478389904652972
 PrefabInstance:
   m_ObjectHideFlags: 0

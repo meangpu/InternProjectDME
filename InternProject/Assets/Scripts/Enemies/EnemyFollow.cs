@@ -57,7 +57,7 @@ public class EnemyFollow : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        AISpringMove();
+        // AISpringMove();
 
     }
 
