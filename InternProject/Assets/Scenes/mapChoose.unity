@@ -4589,6 +4589,7 @@ GameObject:
   - component: {fileID: 542313501}
   - component: {fileID: 542313502}
   - component: {fileID: 542313503}
+  - component: {fileID: 542313504}
   m_Layer: 5
   m_Name: ItemToChoose
   m_TagString: Untagged
@@ -4662,6 +4663,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07005c8f74d501849acd4e748f5cfa60, type: 2}
   - {fileID: 11400000, guid: 41a02a84cf7e4ac4d900572ac6a800e3, type: 2}
   addonModulePrefab: {fileID: 7326254343335685987, guid: 50eea2997021f9a41a5268d432bd3073, type: 3}
+--- !u!114 &542313504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542313500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef666f00aa159a448d198459dff3f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addonName: {fileID: 93296757}
+  description: {fileID: 1388149183}
+  cooldownText: {fileID: 868086347}
+  energyCostText: {fileID: 2013752806}
 --- !u!1 &544032035
 GameObject:
   m_ObjectHideFlags: 0
