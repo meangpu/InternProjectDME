@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7632373239638726003}
   damageSetter: {fileID: 7082228764101400737}
-  bulletSpeed: 5
+  bulletSpeed: 18
   lifeTime: 10
   knockBack: 0
 --- !u!60 &-7770153480288779455

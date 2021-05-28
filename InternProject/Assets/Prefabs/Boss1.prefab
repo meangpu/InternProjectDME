@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2799973023831598557}
-  dashSpeed: 50
-  CoolDownBetweenDash: 2
+  dashSpeed: 2
+  CoolDownBetweenDash: 1
 --- !u!1001 &8024478389904652972
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -28,7 +28,6 @@ public class Boss1 : MonoBehaviour
 
             if(hit.collider != null)
             {
-                Debug.Log(hit);
                 Dash(bulletDirection);
             }
 
@@ -51,6 +50,7 @@ public class Boss1 : MonoBehaviour
     private IEnumerator OnDashCooldown()
     {
         yield return new WaitForSeconds(CoolDownBetweenDash);
+        rb.velocity = Vector2.zero;
         canDash = true;
     }
 
@@ -75,13 +75,16 @@ public class Boss1 : MonoBehaviour
             ranDir = -1;
         }
         
-        Quaternion rotation = Quaternion.Euler(0, 90 * ranDir, 1);  // create 90 degree rotation
-        Vector2 dodgeVector = rotation * direction;
-        rb.AddForce(dodgeVector * dashSpeed, ForceMode2D.Impulse);
+        Quaternion rotation = Quaternion.Euler(0, 1, 90 * ranDir);  // create 90 degree rotation
+        Vector3 dodgeVector = rotation * direction;
+        Debug.Log(dodgeVector);
+        transform.position = transform.position + dodgeVector * dashSpeed;
+        // rb.velocity = (dodgeVector * dashSpeed);
+        
         canDash = false;
         StartCoroutine(OnDashCooldown());
 
-        // rb.velocity = Vector2.zero;
+        
         
     }
 }
