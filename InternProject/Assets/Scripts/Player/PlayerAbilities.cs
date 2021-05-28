@@ -58,19 +58,6 @@ public class PlayerAbilities : MonoBehaviour
         playerStats = PlayerStats.Instance;
     }
 
-    public enum AbilityType
-    {
-        Empty,
-        Dash,
-        EnergyShield,
-        EnergyOrb,
-        HomingMissile,
-        Electrocharge,
-        Bomb,
-        IncendiaryAmmo,
-        AutoLoader,
-    }
-
     public void Skill1Activate()
     {
         hotkeyAbilityList[0].activateAbilityAction();
@@ -131,9 +118,4 @@ public class PlayerAbilities : MonoBehaviour
         OnTriggerEnergyShield?.Invoke();
     }
 
-    public class HotkeyAbility
-    {
-        public AbilityType abilityType;
-        public Action activateAbilityAction;
-    }
 }
