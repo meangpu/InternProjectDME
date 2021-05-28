@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Pooler enemyPool;
 
     [Header("WaveInfo")]
+    [SerializeField] float timeBeforeWinPanel;
     [SerializeField] bool useRandom;
     [SerializeField] float timeBeforeNextWave;
     private float countDown;
@@ -90,7 +91,7 @@ public class WaveManager : MonoBehaviour
 		{
             // happen when enemy reach 0 and there no next wave
 			enabled = false;
-            gameManager.LevelWon();
+            StartCoroutine(gameManager.LevelWon(timeBeforeWinPanel));
 		}
 
 		if (countDown <= 0f)
@@ -206,5 +207,9 @@ public class WaveManager : MonoBehaviour
         SetEnemyLeftText();
     }
 
+
+
     public List<EnemyGetHit> EnemyList => EnemyAlive;
+
+
 }

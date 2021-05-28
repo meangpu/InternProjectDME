@@ -52,11 +52,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void LevelWon()
+    public IEnumerator LevelWon(float _waitTime)
     {
-        PauseGame();
+        yield return new WaitForSeconds(_waitTime);
+
         winPanel.SetActive(true);
+        PauseGame();
     }
+
+
 
     public PlayerGetHit GetPlayer() => player;
     public BaseClass GetPlayerBase() => playerBase;

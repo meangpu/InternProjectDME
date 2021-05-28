@@ -15,8 +15,6 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] EnemyAiSpring springAI;
     // public Transform child;
     
-
-    [ContextMenu("sdasd")]
     public void SetupTrack()
     {
         // rb = this.GetComponent<Rigidbody2D>();
@@ -24,7 +22,7 @@ public class EnemyFollow : MonoBehaviour
 
         startTracking = true;
         nowtarget = enemy.TagName;
-        target = GameObject.FindGameObjectsWithTag(nowtarget)[0];
+        target = GameObject.FindGameObjectWithTag(nowtarget);
 
         moveSpeed = enemy.Speed;
         // tranTarget = nowtarget.transform;
@@ -33,6 +31,8 @@ public class EnemyFollow : MonoBehaviour
 
     private void AISpringMove()
     {
+        // Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position+springAI.GetMovementIntention(gameObject), Color.green);
+
         rb.MovePosition((Vector2)transform.position + (springAI.GetMovementIntention(gameObject) * moveSpeed * Time.deltaTime));
     }
 

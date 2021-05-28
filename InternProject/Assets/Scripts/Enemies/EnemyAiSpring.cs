@@ -11,7 +11,7 @@ public class EnemyAiSpring : MonoBehaviour
     public Vector2 GetMovementIntention (GameObject enemy)
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        player = GameObject.FindGameObjectWithTag("Player");
         // initialise intention
         Vector2 intention = Vector2.zero;
 

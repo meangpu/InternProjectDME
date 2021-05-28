@@ -7,6 +7,7 @@ public class TankBullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private DamageSetter damageSetter = null;
+    [SerializeField] BoxCollider2D boxCollider = null;
 
     // Temporary variables
     [SerializeField] private float bulletSpeed = 10f;
@@ -16,6 +17,9 @@ public class TankBullet : MonoBehaviour
     public float knockBack;
 
     public int Damage { get { return damage; } }
+    public Rigidbody2D GetRB() => rb;
+    public BoxCollider2D GetBox() => boxCollider;
+
 
     private void OnEnable()
     {

@@ -16,14 +16,12 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
     private void Start()
     {
         waveManager = WaveManager.Instance;
-        Debug.Log("WEE");
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.TryGetComponent(out TankBullet bullet))
         {
-            Debug.Log("aaa");
             Knockback(bullet.transform.position, bullet.knockBack + enemyDisplay.KnockBack);
             TakeDamage(bullet.Damage);
             
