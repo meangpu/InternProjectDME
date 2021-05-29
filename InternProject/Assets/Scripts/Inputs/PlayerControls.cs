@@ -236,6 +236,93 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Addons"",
+            ""id"": ""2fd33026-92a7-4775-aaef-25d2741639a3"",
+            ""actions"": [
+                {
+                    ""name"": ""AssignQ"",
+                    ""type"": ""Button"",
+                    ""id"": ""860f8bd0-b6af-4557-bdf6-3f948058fdbd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AssignE"",
+                    ""type"": ""Button"",
+                    ""id"": ""a52d46c9-1188-44cd-9cac-3edcb87e8fb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""74972d76-747a-44da-891e-6be75416bf80"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""850ce108-155d-49f1-b7bb-acf7c0907221"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AssignQ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f31dd4e-1eff-4ab5-9712-0f0691d95251"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AssignQ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""373ad0eb-320c-4e85-a6d5-ae7f3919e6dc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AssignE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e735eb3-7d29-4bad-8d31-5e3be9d8617f"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AssignE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6604779f-eac7-4324-a4d5-c455d6d709dc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -257,6 +344,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
         m_Tank_Skill2 = m_Tank.FindAction("Skill2", throwIfNotFound: true);
         m_Tank_Pause = m_Tank.FindAction("Pause", throwIfNotFound: true);
+        // Addons
+        m_Addons = asset.FindActionMap("Addons", throwIfNotFound: true);
+        m_Addons_AssignQ = m_Addons.FindAction("AssignQ", throwIfNotFound: true);
+        m_Addons_AssignE = m_Addons.FindAction("AssignE", throwIfNotFound: true);
+        m_Addons_Cancel = m_Addons.FindAction("Cancel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -399,6 +491,55 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public TankActions @Tank => new TankActions(this);
+
+    // Addons
+    private readonly InputActionMap m_Addons;
+    private IAddonsActions m_AddonsActionsCallbackInterface;
+    private readonly InputAction m_Addons_AssignQ;
+    private readonly InputAction m_Addons_AssignE;
+    private readonly InputAction m_Addons_Cancel;
+    public struct AddonsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public AddonsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AssignQ => m_Wrapper.m_Addons_AssignQ;
+        public InputAction @AssignE => m_Wrapper.m_Addons_AssignE;
+        public InputAction @Cancel => m_Wrapper.m_Addons_Cancel;
+        public InputActionMap Get() { return m_Wrapper.m_Addons; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AddonsActions set) { return set.Get(); }
+        public void SetCallbacks(IAddonsActions instance)
+        {
+            if (m_Wrapper.m_AddonsActionsCallbackInterface != null)
+            {
+                @AssignQ.started -= m_Wrapper.m_AddonsActionsCallbackInterface.OnAssignQ;
+                @AssignQ.performed -= m_Wrapper.m_AddonsActionsCallbackInterface.OnAssignQ;
+                @AssignQ.canceled -= m_Wrapper.m_AddonsActionsCallbackInterface.OnAssignQ;
+                @AssignE.started -= m_Wrapper.m_AddonsActionsCallbackInterface.OnAssignE;
+                @AssignE.performed -= m_Wrapper.m_AddonsActionsCallbackInterface.OnAssignE;
+                @AssignE.canceled -= m_Wrapper.m_AddonsActionsCallbackInterface.OnAssignE;
+                @Cancel.started -= m_Wrapper.m_AddonsActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_AddonsActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_AddonsActionsCallbackInterface.OnCancel;
+            }
+            m_Wrapper.m_AddonsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @AssignQ.started += instance.OnAssignQ;
+                @AssignQ.performed += instance.OnAssignQ;
+                @AssignQ.canceled += instance.OnAssignQ;
+                @AssignE.started += instance.OnAssignE;
+                @AssignE.performed += instance.OnAssignE;
+                @AssignE.canceled += instance.OnAssignE;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
+            }
+        }
+    }
+    public AddonsActions @Addons => new AddonsActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -419,5 +560,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSkill1(InputAction.CallbackContext context);
         void OnSkill2(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IAddonsActions
+    {
+        void OnAssignQ(InputAction.CallbackContext context);
+        void OnAssignE(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler
+public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private Image image;
 
@@ -25,5 +25,15 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         uiManager.UpdateDescription(addonObject);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        uiManager.HideDescription();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log(addonObject);
     }
 }

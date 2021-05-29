@@ -223,6 +223,93 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Addons",
+            "id": "2fd33026-92a7-4775-aaef-25d2741639a3",
+            "actions": [
+                {
+                    "name": "AssignQ",
+                    "type": "Button",
+                    "id": "860f8bd0-b6af-4557-bdf6-3f948058fdbd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AssignE",
+                    "type": "Button",
+                    "id": "a52d46c9-1188-44cd-9cac-3edcb87e8fb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "74972d76-747a-44da-891e-6be75416bf80",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "850ce108-155d-49f1-b7bb-acf7c0907221",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AssignQ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f31dd4e-1eff-4ab5-9712-0f0691d95251",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AssignQ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "373ad0eb-320c-4e85-a6d5-ae7f3919e6dc",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AssignE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e735eb3-7d29-4bad-8d31-5e3be9d8617f",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AssignE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6604779f-eac7-4324-a4d5-c455d6d709dc",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
