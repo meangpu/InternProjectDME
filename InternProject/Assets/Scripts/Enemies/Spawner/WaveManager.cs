@@ -36,12 +36,10 @@ public class WaveManager : MonoBehaviour
     {
         if (instance == null)
         {
-            Debug.Log("wb");
             instance = this;
         }
         else
         {
-            Debug.Log("dd");
             Destroy(gameObject);
         }
     }
