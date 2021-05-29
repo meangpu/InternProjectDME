@@ -23,4 +23,9 @@ public class ObjAbility : ScriptableObject
     public int GetDamage() => damage;
     public int GetEnergyCost() => energyCost;
     public float GetRange() => range;
+
+    public void ActivateAbility()
+    {
+
+    }
 }

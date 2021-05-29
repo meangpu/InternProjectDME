@@ -5,32 +5,44 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Equipped Addons", menuName = "Saves/Create Player Equipped Addons")]
 public class PlayerEquippedAddons : ScriptableObject
 {
-    [SerializeField] private ObjAbility abilityQ;
-    [SerializeField] private ObjAbility abilityE;
+    [SerializeField] private List<ObjAbility> equippedAddons;
 
-    private List<ObjAbility> equippedAddons;
+    public enum AddonSlot
+    {
+        SlotQ,
+        SlotE
+    }
 
     private void Awake()
     {
-        equippedAddons = new List<ObjAbility>();
-
-        equippedAddons.Add(abilityQ);
-        equippedAddons.Add(abilityE);
+        Debug.Log("SUP");
     }
 
-    public void SetAbilityQ(ObjAbility ability)
+    public void SetAbility(ObjAbility ability, AddonSlot slot)
     {
-        AbilityClashCheck(ability, abilityQ);
-        abilityQ = ability;  
+        int slotIndex = (int)slot;
+        AbilityClashCheck(ability, slotIndex, 1 - slotIndex);
+        equippedAddons[slotIndex] = ability;  
     }
 
-    private void AbilityClashCheck(ObjAbility abilityToApply, ObjAbility abilitySlot) // If the same abilities is equipped twice, swap them.
+    private void AbilityClashCheck(ObjAbility abilityToApply, int thisSlotIndex, int otherSlotIndex) // If the same abilities is equipped twice, swap them.
     {
-        if (abilityQ.GetAbilityType() == AbilityType.Empty) { return; } // If one of it is empty, ignore. So 2 empty slots won't swap places
+        ObjAbility otherAbilitySlot = equippedAddons[otherSlotIndex];
 
-        if (abilityToApply == abilitySlot)
+        if (otherAbilitySlot.GetAbilityType() == AbilityType.Empty) { return; } // If one of it is empty, ignore. So 2 empty slots won't swap places
+
+        if (abilityToApply.GetAbilityType() == otherAbilitySlot.GetAbilityType())
         {
-
+            SwapAbilities(thisSlotIndex, otherSlotIndex);
         }
     }
+
+    private void SwapAbilities(int slotIndexA, int slotIndexB)
+    {
+        ObjAbility temp = equippedAddons[slotIndexA];
+        equippedAddons[slotIndexA] = equippedAddons[slotIndexB];
+        equippedAddons[slotIndexB] = temp;
+    }
+
+    public List<ObjAbility> GetEquippedAddons() => equippedAddons;
 }

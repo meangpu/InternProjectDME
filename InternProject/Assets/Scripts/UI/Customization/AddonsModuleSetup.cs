@@ -34,6 +34,6 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(addonObject);
+        uiManager.SelectAddonToAssign(addonObject);
     }
 }

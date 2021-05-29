@@ -295,7 +295,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -6989901406452889494}
         m_TargetAssemblyTypeName: GunChildSetup, Assembly-CSharp
-        m_MethodName: showGunName
+        m_MethodName: ShowGunName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

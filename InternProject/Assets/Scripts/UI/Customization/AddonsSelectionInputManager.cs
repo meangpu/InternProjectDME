@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class AddonsSelectionInputManager : MonoBehaviour
 {
+    [SerializeField] private PlayerEquippedAddons playerAddonsObject = null;
+    [SerializeField] private ObjAbility emptyAddon = null;
+
     private PlayerControls playerControls;
+
+    private ObjAbility abilityToBeAssigned;
 
     private void Awake()
     {
@@ -13,9 +18,31 @@ public class AddonsSelectionInputManager : MonoBehaviour
 
     private void Start()
     {
-        playerControls.Addons.AssignQ.started += _ => Debug.Log("Q");
-        playerControls.Addons.AssignE.started += _ => Debug.Log("E");
-        playerControls.Addons.Cancel.started += _ => Debug.Log("HOLDUP");
+        playerControls.Addons.AssignQ.started += _ => AssignAbility(PlayerEquippedAddons.AddonSlot.SlotQ);
+        playerControls.Addons.AssignE.started += _ => AssignAbility(PlayerEquippedAddons.AddonSlot.SlotE);
+        playerControls.Addons.Cancel.started += _ => HidePanel();
+    }
+
+    private void HidePanel()
+    {
+        gameObject.SetActive(false);
+        ClearAbilityToBeAssigned();
+    }
+
+    public void AssignAbility(PlayerEquippedAddons.AddonSlot slot)
+    {
+        playerAddonsObject.SetAbility(abilityToBeAssigned, slot);
+        HidePanel();
+    }
+
+    public void PrepareForAbilityAssignment(ObjAbility ability)
+    {
+        abilityToBeAssigned = ability;
+    }
+
+    private void ClearAbilityToBeAssigned()
+    {
+        abilityToBeAssigned = emptyAddon;
     }
 
     private void OnEnable()

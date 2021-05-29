@@ -4722,6 +4722,7 @@ MonoBehaviour:
   description: {fileID: 1388149183}
   cooldownText: {fileID: 868086347}
   energyCostText: {fileID: 2013752806}
+  inputManager: {fileID: 1557609836}
 --- !u!1 &544032035
 GameObject:
   m_ObjectHideFlags: 0
@@ -17024,7 +17025,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 440, y: 225}
+  m_SizeDelta: {x: 450, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388149183
 MonoBehaviour:
@@ -17829,13 +17830,14 @@ GameObject:
   - component: {fileID: 1557609834}
   - component: {fileID: 1557609833}
   - component: {fileID: 1557609832}
+  - component: {fileID: 1557609836}
   m_Layer: 5
   m_Name: Equipping tip Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1557609831
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17907,7 +17909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17932,6 +17934,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557609830}
   m_CullTransparentMesh: 1
+--- !u!114 &1557609836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557609830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebedec5b421265e41a91b21260aae802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAddonsObject: {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
+  emptyAddon: {fileID: 11400000, guid: be90349f2a1ecc3479bbbf18c97ac968, type: 2}
 --- !u!1 &1596647182
 GameObject:
   m_ObjectHideFlags: 0
@@ -18762,7 +18778,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 350, y: -50}
-  m_SizeDelta: {x: -800, y: 184.92}
+  m_SizeDelta: {x: -850, y: 184.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795415740
 MonoBehaviour:

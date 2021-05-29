@@ -41,13 +41,11 @@ public class PlayerAbilities : MonoBehaviour
         {
             new HotkeyAbility
             {
-                abilityType = AbilityType.Dash,
                 activateAbilityAction = () => Dash()
             },
 
             new HotkeyAbility
             {
-                abilityType = AbilityType.EnergyShield,
                 activateAbilityAction = () => ActivateEnergyShield()
             }
         };

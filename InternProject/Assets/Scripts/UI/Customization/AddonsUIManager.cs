@@ -10,6 +10,7 @@ public class AddonsUIManager : MonoBehaviour
     [SerializeField] private TMP_Text description;
     [SerializeField] private TMP_Text cooldownText;
     [SerializeField] private TMP_Text energyCostText;
+    [SerializeField] private AddonsSelectionInputManager inputManager;
 
     private void Start()
     {
@@ -33,5 +34,12 @@ public class AddonsUIManager : MonoBehaviour
     public void ShowDescription()
     {
         parent.SetActive(true);
+    }
+
+    public void SelectAddonToAssign(ObjAbility ability)
+    {
+        inputManager.gameObject.SetActive(true);
+        HideDescription();
+        inputManager.PrepareForAbilityAssignment(ability);
     }
 }
