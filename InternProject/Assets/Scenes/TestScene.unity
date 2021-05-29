@@ -54919,7 +54919,7 @@ Transform:
   m_GameObject: {fileID: 716646179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.8959, y: -3.4442, z: 1.9984136}
-  m_LocalScale: {x: 2.0244, y: 2.1075, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1972452177}
   m_RootOrder: 0
@@ -59485,7 +59485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1972452177}
-  - component: {fileID: 1972452176}
+  - component: {fileID: 1972452178}
   m_Layer: 0
   m_Name: waveManager
   m_TagString: Untagged
@@ -59493,119 +59493,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1972452176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972452175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minWaveSlider: {fileID: 1822650883}
-  bigWaveSlider: {fileID: 1564200065}
-  enemyLefttext: {fileID: 845682432}
-  gameManager: {fileID: 493555991}
-  enemyPool: {fileID: 1260280414}
-  useRandom: 0
-  timeBeforeNextWave: 5
-  EnemyWaves:
-  - EC: 20
-    spawnRate: 0.3
-    EnemyAndPoint:
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 5
-        prob: 0.6
-      spawnPoint: {fileID: 895374816}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 4
-        prob: 0.8
-      spawnPoint: {fileID: 1274255943}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 5
-        prob: 0.4
-      spawnPoint: {fileID: 1194388671}
-  - EC: 40
-    spawnRate: 0.1
-    EnemyAndPoint:
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 10
-        prob: 1
-      spawnPoint: {fileID: 716646180}
-  - EC: 60
-    spawnRate: 0.1
-    EnemyAndPoint:
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 10
-        prob: 1
-      spawnPoint: {fileID: 716646180}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 10
-        prob: 1
-      spawnPoint: {fileID: 895374816}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 10
-        prob: 1
-      spawnPoint: {fileID: 1194388671}
-  - EC: 80
-    spawnRate: 0.1
-    EnemyAndPoint:
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 10
-        prob: 1
-      spawnPoint: {fileID: 716646180}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
-        count: 10
-        prob: 1
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        count: 10
-        prob: 1
-      spawnPoint: {fileID: 895374816}
 --- !u!4 &1972452177
 Transform:
   m_ObjectHideFlags: 0
@@ -59624,6 +59511,61 @@ Transform:
   m_Father: {fileID: 1682581330}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972452178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972452175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minWaveSlider: {fileID: 1822650883}
+  bigWaveSlider: {fileID: 1564200065}
+  enemyLefttext: {fileID: 845682432}
+  gameManager: {fileID: 493555991}
+  enemyPool: {fileID: 1260280414}
+  timeBeforeWinPanel: 2
+  useRandom: 0
+  timeBeforeNextWave: 5
+  EnemyWaves:
+  - EC: 20
+    spawnRate: 0.3
+    EnemyAndPoint:
+    - EnemyList:
+      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
+        enemyPfb: {fileID: 0}
+        isBoss: 0
+        count: 5
+        prob: 0.6
+      spawnPoint: {fileID: 895374816}
+    - EnemyList:
+      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
+        enemyPfb: {fileID: 0}
+        isBoss: 0
+        count: 4
+        prob: 0.8
+      spawnPoint: {fileID: 1274255943}
+    - EnemyList:
+      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
+        enemyPfb: {fileID: 0}
+        isBoss: 0
+        count: 5
+        prob: 0.4
+      spawnPoint: {fileID: 1194388671}
+  - EC: 40
+    spawnRate: 0.1
+    EnemyAndPoint:
+    - EnemyList:
+      - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
+        enemyPfb: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+        isBoss: 1
+        count: 1
+        prob: 1
+      spawnPoint: {fileID: 716646180}
 --- !u!1 &1975830186
 GameObject:
   m_ObjectHideFlags: 0

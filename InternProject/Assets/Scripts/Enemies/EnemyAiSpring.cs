@@ -19,7 +19,7 @@ public class EnemyAiSpring : MonoBehaviour
         Vector2 direction = ((Vector2)player.transform.position - (Vector2)enemy.transform.position).normalized;
         float distance = Vector2.Distance((Vector2)player.transform.position, (Vector2)enemy.transform.position);
 
-        float targetDistance = 1f;
+        float targetDistance = 3f;
         float springDistance = (distance - targetDistance);
         intention += direction*springDistance;
 
@@ -34,7 +34,7 @@ public class EnemyAiSpring : MonoBehaviour
             intention -= direction * springStrenght;
         }
 
-        if (intention.magnitude < 0.8f)
+        if (intention.magnitude < 0.3f)
         {
             return Vector2.zero;
         }

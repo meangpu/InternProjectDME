@@ -27,7 +27,7 @@ public class Boss1 : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(BulletStartLine, bulletDirection, 3f);
 
-            Debug.DrawRay(BulletStartLine, bulletDirection*3f, Color.green);
+            // Debug.DrawRay(BulletStartLine, bulletDirection*3f, Color.green);
 
             if(hit.collider != null)
             {
@@ -78,7 +78,6 @@ public class Boss1 : MonoBehaviour
             ranDir = -1;
         }
         
-        Debug.Log("dd");
         Quaternion rotation = Quaternion.Euler(0, 1, 90 * ranDir);  // create 90 degree rotation
         Vector3 dodgeVector = rotation * direction;
         transform.position = transform.position + dodgeVector * dashSpeed;
@@ -100,7 +99,6 @@ public class Boss1 : MonoBehaviour
             animator.SetTrigger("SecondForm");
             spriteRenderer.material = secondFormMat;
             CoolDownBetweenDash *= 0.7f;
-            Debug.Log(CoolDownBetweenDash);
         }
 
     }
