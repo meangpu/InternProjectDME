@@ -13,6 +13,7 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private float moveSpeed;
     [SerializeField] EnemyAiSpring springAI;
+
     // public Transform child;
     
     public void SetupTrack()
@@ -57,7 +58,7 @@ public class EnemyFollow : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        // AISpringMove();
+        AISpringMove();
 
     }
 

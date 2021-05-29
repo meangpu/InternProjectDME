@@ -96,9 +96,13 @@ public class WaveManager : MonoBehaviour
 
 		if (countDown <= 0f)
 		{
-			StartCoroutine(SpawnWave());
-			countDown = timeBeforeNextWave;
-			return;
+            if (waveindex < EnemyWaves.Length)
+            {
+                StartCoroutine(SpawnWave());
+                countDown = timeBeforeNextWave;
+                return;
+            }
+
 		}
 
         countDown -= Time.deltaTime;

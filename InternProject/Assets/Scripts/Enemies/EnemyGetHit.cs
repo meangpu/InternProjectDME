@@ -11,6 +11,11 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
     [SerializeField] private GameObject parentHp;
     [SerializeField] private GameObject goldPfb;
 
+    [SerializeField] bool isBoss;
+    [SerializeField] Boss1 bossScript;
+
+    bool Immortal = false;
+
     private WaveManager waveManager;
 
     private void Start()
@@ -39,6 +44,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
 
     public void TakeDamage(int damage)
     {
+        if (Immortal) { return; }
         if (!parentHp.gameObject.activeSelf)
         {
             parentHp.gameObject.SetActive(true);
@@ -48,12 +54,29 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
 
         enemyDisplay.Health -= damage;
 
+        if (isBoss)
+        {
+            if (!bossScript.isSecondForm)
+            {
+                if (enemyDisplay.Health <= (enemyDisplay.MaxHealth/2))
+                {
+                    Immortal = true;
+                    bossScript.ChangeForm();
+                }
+            }
+
+        }
+
         if (enemyDisplay.Health <= 0)
         {
             EnemyDie();           
         }
         UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
+    }
 
+    public void undoImmortal()
+    {
+        Immortal = false;
     }
 
     private void EnemyDie()

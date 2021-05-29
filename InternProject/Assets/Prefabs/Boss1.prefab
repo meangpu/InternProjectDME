@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1558775434
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2799973023831598559}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 445ecbb7934e54a4987775b3470796f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8295180279571951452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,8 +32,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2799973023831598557}
-  dashSpeed: 2
-  CoolDownBetweenDash: 1
+  dashSpeed: 3.14
+  CoolDownBetweenDash: 2
+  animator: {fileID: 1558775434}
+  spriteRenderer: {fileID: 2799973023831598552}
+  secondFormMat: {fileID: 2100000, guid: 346d6432f091e014a986dde6cc7addee, type: 2}
 --- !u!1001 &8024478389904652972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94,13 +116,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss1
       objectReference: {fileID: 0}
+    - target: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5298252096397123444, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2d270476e645c9647b104938c8946288, type: 3}
+    - target: {fileID: 5298252096397123444, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 5298252096397123445, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252096397123445, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252096397123445, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252096397123445, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5298252096397123445, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -146,6 +188,14 @@ PrefabInstance:
       propertyPath: enemyScriptableObj
       value: 
       objectReference: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
+    - target: {fileID: 5298252096397123450, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: isBoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252096397123450, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: bossScript
+      value: 
+      objectReference: {fileID: 8295180279571951452}
     - target: {fileID: 6913785809025286437, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_SizeDelta.x
       value: 320
@@ -159,6 +209,11 @@ PrefabInstance:
 --- !u!1 &2799973023831598559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+  m_PrefabInstance: {fileID: 8024478389904652972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2799973023831598552 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5298252096397123444, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
   m_PrefabInstance: {fileID: 8024478389904652972}
   m_PrefabAsset: {fileID: 0}
 --- !u!50 &2799973023831598557 stripped

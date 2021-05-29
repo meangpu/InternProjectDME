@@ -8,11 +8,14 @@ public class Boss1 : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float dashSpeed;
     [SerializeField] float CoolDownBetweenDash;
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Material secondFormMat;
+    public bool isSecondForm;
     bool canDash = true;
 
     public void warnBoss(GameObject _bossObj)
     {
-        
         var allBullet = GameObject.FindGameObjectsWithTag("PlayerBullet");
         foreach (var bullet in allBullet)
         {
@@ -57,10 +60,10 @@ public class Boss1 : MonoBehaviour
 
     private void FixedUpdate() 
     {
+        if (!canDash) { return; }
         warnBoss(gameObject);
     }
 
-    [ContextMenu("sdasdas")]
     void Dash(Vector2 direction)
     {   
         if (!canDash) { return; }
@@ -75,10 +78,11 @@ public class Boss1 : MonoBehaviour
             ranDir = -1;
         }
         
+        Debug.Log("dd");
         Quaternion rotation = Quaternion.Euler(0, 1, 90 * ranDir);  // create 90 degree rotation
         Vector3 dodgeVector = rotation * direction;
-        Debug.Log(dodgeVector);
         transform.position = transform.position + dodgeVector * dashSpeed;
+        animator.SetTrigger("Dash");
         // rb.velocity = (dodgeVector * dashSpeed);
         
         canDash = false;
@@ -87,4 +91,18 @@ public class Boss1 : MonoBehaviour
         
         
     }
+
+    public void ChangeForm()
+    {
+        if (!isSecondForm)
+        {
+            isSecondForm = true;
+            animator.SetTrigger("SecondForm");
+            spriteRenderer.material = secondFormMat;
+            CoolDownBetweenDash *= 0.7f;
+            Debug.Log(CoolDownBetweenDash);
+        }
+
+    }
+
 }
