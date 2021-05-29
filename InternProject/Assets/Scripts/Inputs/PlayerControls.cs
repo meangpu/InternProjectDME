@@ -323,6 +323,52 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""AddonsMenu"",
+            ""id"": ""256ea159-e6f9-4183-a271-027342ae3b9c"",
+            ""actions"": [
+                {
+                    ""name"": ""ClearQ"",
+                    ""type"": ""Button"",
+                    ""id"": ""76be60fb-836a-4a26-a406-c64fc5e9ebff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ClearE"",
+                    ""type"": ""Button"",
+                    ""id"": ""a76f0b9f-f536-4f52-af6e-1614520b17a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cbc2c95f-6d90-4b71-9f34-c5a20bd5b74d"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClearQ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f192352a-74d7-4130-a480-595a19427c2d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClearE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -349,6 +395,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Addons_AssignQ = m_Addons.FindAction("AssignQ", throwIfNotFound: true);
         m_Addons_AssignE = m_Addons.FindAction("AssignE", throwIfNotFound: true);
         m_Addons_Cancel = m_Addons.FindAction("Cancel", throwIfNotFound: true);
+        // AddonsMenu
+        m_AddonsMenu = asset.FindActionMap("AddonsMenu", throwIfNotFound: true);
+        m_AddonsMenu_ClearQ = m_AddonsMenu.FindAction("ClearQ", throwIfNotFound: true);
+        m_AddonsMenu_ClearE = m_AddonsMenu.FindAction("ClearE", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -540,6 +590,47 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public AddonsActions @Addons => new AddonsActions(this);
+
+    // AddonsMenu
+    private readonly InputActionMap m_AddonsMenu;
+    private IAddonsMenuActions m_AddonsMenuActionsCallbackInterface;
+    private readonly InputAction m_AddonsMenu_ClearQ;
+    private readonly InputAction m_AddonsMenu_ClearE;
+    public struct AddonsMenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public AddonsMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ClearQ => m_Wrapper.m_AddonsMenu_ClearQ;
+        public InputAction @ClearE => m_Wrapper.m_AddonsMenu_ClearE;
+        public InputActionMap Get() { return m_Wrapper.m_AddonsMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AddonsMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IAddonsMenuActions instance)
+        {
+            if (m_Wrapper.m_AddonsMenuActionsCallbackInterface != null)
+            {
+                @ClearQ.started -= m_Wrapper.m_AddonsMenuActionsCallbackInterface.OnClearQ;
+                @ClearQ.performed -= m_Wrapper.m_AddonsMenuActionsCallbackInterface.OnClearQ;
+                @ClearQ.canceled -= m_Wrapper.m_AddonsMenuActionsCallbackInterface.OnClearQ;
+                @ClearE.started -= m_Wrapper.m_AddonsMenuActionsCallbackInterface.OnClearE;
+                @ClearE.performed -= m_Wrapper.m_AddonsMenuActionsCallbackInterface.OnClearE;
+                @ClearE.canceled -= m_Wrapper.m_AddonsMenuActionsCallbackInterface.OnClearE;
+            }
+            m_Wrapper.m_AddonsMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ClearQ.started += instance.OnClearQ;
+                @ClearQ.performed += instance.OnClearQ;
+                @ClearQ.canceled += instance.OnClearQ;
+                @ClearE.started += instance.OnClearE;
+                @ClearE.performed += instance.OnClearE;
+                @ClearE.canceled += instance.OnClearE;
+            }
+        }
+    }
+    public AddonsMenuActions @AddonsMenu => new AddonsMenuActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -566,5 +657,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAssignQ(InputAction.CallbackContext context);
         void OnAssignE(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+    }
+    public interface IAddonsMenuActions
+    {
+        void OnClearQ(InputAction.CallbackContext context);
+        void OnClearE(InputAction.CallbackContext context);
     }
 }

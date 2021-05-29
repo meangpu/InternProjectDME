@@ -310,6 +310,52 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "AddonsMenu",
+            "id": "256ea159-e6f9-4183-a271-027342ae3b9c",
+            "actions": [
+                {
+                    "name": "ClearQ",
+                    "type": "Button",
+                    "id": "76be60fb-836a-4a26-a406-c64fc5e9ebff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ClearE",
+                    "type": "Button",
+                    "id": "a76f0b9f-f536-4f52-af6e-1614520b17a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cbc2c95f-6d90-4b71-9f34-c5a20bd5b74d",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClearQ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f192352a-74d7-4130-a480-595a19427c2d",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClearE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

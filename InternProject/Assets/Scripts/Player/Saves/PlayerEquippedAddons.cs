@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerEquippedAddons : ScriptableObject
 {
     [SerializeField] private List<ObjAbility> equippedAddons;
+    [SerializeField] private ObjAbility emptyAbility;
 
     public event Action<int> OnUpdateAddon;
 
@@ -13,6 +14,11 @@ public class PlayerEquippedAddons : ScriptableObject
     {
         SlotQ,
         SlotE
+    }
+
+    public void ClearAbility(AddonSlot slot)
+    {
+        SetAbility(emptyAbility, slot);
     }
 
     public void SetAbility(ObjAbility ability, AddonSlot slot)
