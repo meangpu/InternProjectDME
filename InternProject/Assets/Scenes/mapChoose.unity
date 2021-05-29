@@ -3542,6 +3542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 464654780}
   - component: {fileID: 464654781}
+  - component: {fileID: 464654782}
   m_Layer: 5
   m_Name: Equipped Addons
   m_TagString: Untagged
@@ -3594,6 +3595,23 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &464654782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464654779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abacebb88e08aa047b16c24a08e83e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedAddons: {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
+  uiManager: {fileID: 542313504}
+  addonIcons:
+  - {fileID: 2042953861}
+  - {fileID: 2100459714}
 --- !u!1 &470948296
 GameObject:
   m_ObjectHideFlags: 0

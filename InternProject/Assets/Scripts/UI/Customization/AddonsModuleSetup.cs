@@ -6,10 +6,9 @@ using UnityEngine.EventSystems;
 public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private Image image;
-
-    private ObjAbility addonObject;
-
+    
     private AddonsUIManager uiManager;
+    private ObjAbility addonObject;
 
     private void Awake()
     {

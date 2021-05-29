@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,22 +7,20 @@ public class PlayerEquippedAddons : ScriptableObject
 {
     [SerializeField] private List<ObjAbility> equippedAddons;
 
+    public event Action<int> OnUpdateAddon;
+
     public enum AddonSlot
     {
         SlotQ,
         SlotE
     }
 
-    private void Awake()
-    {
-        Debug.Log("SUP");
-    }
-
     public void SetAbility(ObjAbility ability, AddonSlot slot)
     {
         int slotIndex = (int)slot;
         AbilityClashCheck(ability, slotIndex, 1 - slotIndex);
-        equippedAddons[slotIndex] = ability;  
+        equippedAddons[slotIndex] = ability;
+        OnUpdateAddon?.Invoke(slotIndex);
     }
 
     private void AbilityClashCheck(ObjAbility abilityToApply, int thisSlotIndex, int otherSlotIndex) // If the same abilities is equipped twice, swap them.
@@ -42,6 +40,7 @@ public class PlayerEquippedAddons : ScriptableObject
         ObjAbility temp = equippedAddons[slotIndexA];
         equippedAddons[slotIndexA] = equippedAddons[slotIndexB];
         equippedAddons[slotIndexB] = temp;
+        OnUpdateAddon?.Invoke(slotIndexB);
     }
 
     public List<ObjAbility> GetEquippedAddons() => equippedAddons;
