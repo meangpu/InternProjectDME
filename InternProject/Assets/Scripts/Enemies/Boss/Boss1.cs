@@ -27,7 +27,7 @@ public class Boss1 : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(BulletStartLine, bulletDirection, 3f);
 
-            Debug.DrawRay(BulletStartLine, bulletDirection*3f, Color.green);
+            // Debug.DrawRay(BulletStartLine, bulletDirection*3f, Color.green);
 
             if(hit.collider != null)
             {

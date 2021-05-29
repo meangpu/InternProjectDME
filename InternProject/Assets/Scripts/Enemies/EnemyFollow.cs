@@ -32,7 +32,7 @@ public class EnemyFollow : MonoBehaviour
 
     private void AISpringMove()
     {
-        // Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position+springAI.GetMovementIntention(gameObject), Color.green);
+        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position+springAI.GetMovementIntention(gameObject), Color.green);
 
         rb.MovePosition((Vector2)transform.position + (springAI.GetMovementIntention(gameObject) * moveSpeed * Time.deltaTime));
     }
