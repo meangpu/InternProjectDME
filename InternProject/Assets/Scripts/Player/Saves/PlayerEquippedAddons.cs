@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Equipped Addons", menuName = "Saves/Create Player Equipped Addons")]
 public class PlayerEquippedAddons : ScriptableObject
 {
-    private ObjAbility abilityQ;
-    private ObjAbility abilityE;
+    [SerializeField] private ObjAbility abilityQ;
+    [SerializeField] private ObjAbility abilityE;
 
     private List<ObjAbility> equippedAddons;
 
