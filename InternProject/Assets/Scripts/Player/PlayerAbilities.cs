@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
+    [SerializeField] private PlayerEquippedAddons playerEquippedAddons = null;
 
     [Header("Dash Ability parameters")]
     [SerializeField] private int dashEnergyCost = 20;
@@ -35,17 +36,25 @@ public class PlayerAbilities : MonoBehaviour
     private PlayerStats playerStats;
     private List<HotkeyAbility> hotkeyAbilityList;
 
+    public class HotkeyAbility
+    {
+        public ObjAbility addon;
+        public Action activateAbilityAction;
+    }
+
     private void Awake()
-    {   
+    {
         hotkeyAbilityList = new List<HotkeyAbility>
         {
             new HotkeyAbility
             {
+                addon = playerEquippedAddons.GetEquippedAddons()[0],
                 activateAbilityAction = () => Dash()
             },
 
             new HotkeyAbility
             {
+                addon = playerEquippedAddons.GetEquippedAddons()[1],
                 activateAbilityAction = () => ActivateEnergyShield()
             }
         };

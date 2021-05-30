@@ -26,6 +26,6 @@ public class ObjAbility : ScriptableObject
 
     public void ActivateAbility()
     {
-
+        
     }
 }
