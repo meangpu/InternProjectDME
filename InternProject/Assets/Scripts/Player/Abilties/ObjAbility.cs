@@ -13,6 +13,8 @@ public class ObjAbility : ScriptableObject
     [SerializeField] private float cooldownTime;
     [SerializeField] private int damage;
     [SerializeField] private float range;
+    [SerializeField] private float abilityDuration;
+    [SerializeField] private float percentage;
     [SerializeField] private List<ObjAbility> comboList;
 
     public string GetName() => addonName;
@@ -23,9 +25,6 @@ public class ObjAbility : ScriptableObject
     public int GetDamage() => damage;
     public int GetEnergyCost() => energyCost;
     public float GetRange() => range;
-
-    public void ActivateAbility()
-    {
-        
-    }
+    public float GetDuration() => abilityDuration;
+    public float GetPercentage() => percentage;
 }

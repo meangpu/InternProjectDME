@@ -43,6 +43,7 @@ public class PlayerStats : MonoBehaviour
 
     public event Action<int, int> OnAmmoUpdated;
     public event Action<int> OnTankLeveledUp;
+    public event Action OnEnergyShieldDisabled;
 
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
@@ -99,10 +100,10 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if (!energyShieldEnabled) // Using Energy shield does not regenerate energy
-        {
-            RegenerateEnergy();
-        } 
+        if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
+
+        RegenerateEnergy();
+
     }
 
     private void RegenerateEnergy()
@@ -140,17 +141,23 @@ public class PlayerStats : MonoBehaviour
             if (energyRemaining >= damage)
             {
                 energySystem.Damage(damage);
+
+                if (energyRemaining != 0) { return; }
+
+                HandleToggleEnergyShield();
             }
             else
             {
                 leftoverDamage -= energyRemaining;
                 energySystem.Damage(energyRemaining);
                 healthSystem.Damage(leftoverDamage);
+
+                HandleToggleEnergyShield();
             }
         }
     }
 
-    public bool SpendEnergy(int energy)
+    public bool TrySpendEnergy(int energy)
     {
         if (energySystem.GetAmount() < energy)
         {
@@ -196,6 +203,9 @@ public class PlayerStats : MonoBehaviour
     private void HandleToggleEnergyShield()
     {
         energyShieldEnabled = !energyShieldEnabled;
+
+        if (energyShieldEnabled) { return; }
+        OnEnergyShieldDisabled?.Invoke();
     }
 
     private void OnDestroy()

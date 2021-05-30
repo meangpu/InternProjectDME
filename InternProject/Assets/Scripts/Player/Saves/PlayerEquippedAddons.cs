@@ -50,4 +50,17 @@ public class PlayerEquippedAddons : ScriptableObject
     }
 
     public List<ObjAbility> GetEquippedAddons() => equippedAddons;
+
+    public bool IsEnergyShieldEquipped()
+    {
+        for (int i = 0; i < equippedAddons.Count; i++)
+        {
+            if (equippedAddons[i].GetAbilityType() == AbilityType.EnergyShield)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

@@ -19,6 +19,8 @@ MonoBehaviour:
   energyCost: 30
   cooldownTime: 20
   damage: 15
-  range: 0
+  range: 1
+  abilityDuration: 0
+  percentage: 0
   comboList:
   - {fileID: 11400000, guid: 07005c8f74d501849acd4e748f5cfa60, type: 2}
