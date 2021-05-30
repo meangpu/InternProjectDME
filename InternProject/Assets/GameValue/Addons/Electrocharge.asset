@@ -16,9 +16,11 @@ MonoBehaviour:
   description: Slows enemies around the tank for 5 seconds
   abilityType: 5
   icon: {fileID: -3711355299728609468, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
-  energyCost: 20
-  cooldownTime: 40
+  energyCost: 40
+  cooldownTime: 20
   damage: 0
   range: 4.5
+  abilityDuration: 5
+  percentage: 25
   comboList:
   - {fileID: 11400000, guid: 07005c8f74d501849acd4e748f5cfa60, type: 2}
