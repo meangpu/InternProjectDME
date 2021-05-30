@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private DamageSetter damageSetter = null;
+    public float bulletSpeed = 10f;
 
     private int damage;
 

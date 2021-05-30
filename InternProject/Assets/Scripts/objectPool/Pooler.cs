@@ -94,11 +94,23 @@ public class Pooler : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void SpawnBullet(Vector3 position, Quaternion rotation, int damage, float knockBack)
+    public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float knockBack, ObjEnemyBullet _objBullet)
     {
         GameObject gameObject = GetObject();
         gameObject.GetComponent<DamageSetter>().Damage = damage;
         gameObject.GetComponent<DamageSetter>().KnockBack = knockBack;
+        gameObject.GetComponent<EnemyBulletDisplay>().setupBullet(_objBullet);
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
+        gameObject.SetActive(true);
+    }
+
+    public void SpawnPlayerBullet(Vector3 position, Quaternion rotation, int damage, float knockBack, ObjPlayerBullet _objBullet)
+    {
+        GameObject gameObject = GetObject();
+        gameObject.GetComponent<DamageSetter>().Damage = damage;
+        gameObject.GetComponent<DamageSetter>().KnockBack = knockBack;
+        gameObject.GetComponent<PlayerBulletDisplay>().setupBullet(_objBullet);
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.SetActive(true);

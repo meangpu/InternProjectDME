@@ -28,16 +28,17 @@ public class PlayerGun : MonoBehaviour
         }
         else // Shoot normally
         {
-            PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
+            // ************
+            PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
             StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
         }  
     }
 
     public void ShootSpecial()
     {
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(1, 0, 0), barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnBullet(barrel.position + new Vector3(-1, 0, 0), barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, 15), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, -15), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());    
     }
 
     public void OnHoldShootButton() // If shoot button is held down.

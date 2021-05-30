@@ -16,6 +16,7 @@ public class ObjTankTurret : ScriptableObject
     [SerializeField] private float reloadTime;
     [Range(0, 0.4f)]
     [SerializeField] private float knockBack;
+    [SerializeField] ObjPlayerBullet bulletType;
 
     public string GetName() => turretName;
     public string GetDescription() => description;
@@ -26,6 +27,8 @@ public class ObjTankTurret : ScriptableObject
     public float GetRateOfFire() => rateOfFire;
     public float GetReloadTime() => reloadTime;
     public float GetKnockBack() => knockBack;
+    public ObjPlayerBullet GetBulletType() => bulletType;
+
 
     public int GetRandomDamage()
     {

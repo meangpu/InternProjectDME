@@ -13,14 +13,15 @@ public class EnemyDisplay : MonoBehaviour
     private string tagName;
     private int hp;
     private int maxhp;
-
     private ObjGold[] dropGoldSK;
-
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
     private int minDamage;
     private int maxDamage;
     private float knockBack;
+    ObjEnemyBullet bulletType;
+    float atkSpeed;
+
 
     // private void Start() 
     // {
@@ -43,6 +44,8 @@ public class EnemyDisplay : MonoBehaviour
         parentHp.gameObject.SetActive(false);
         //// fix
         dropGoldSK = enemy.GetMoneyDropSK();
+        bulletType = enemy.GetBulletType();
+        atkSpeed = enemy.GetAtkSpeed();
         //// fix
         refreshHitbox();
     }
@@ -66,6 +69,8 @@ public class EnemyDisplay : MonoBehaviour
 
     public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
     public float KnockBack { get { return knockBack; } }
+    public ObjEnemyBullet BulletType { get { return bulletType; } }
+    public float AtkSpeed { get { return atkSpeed; } }
 
 
 }

@@ -175,6 +175,7 @@ MonoBehaviour:
   animator: {fileID: 1558775434}
   spriteRenderer: {fileID: 2799973023831598552}
   secondFormMat: {fileID: 2100000, guid: 346d6432f091e014a986dde6cc7addee, type: 2}
+  secondFormDashCdMultiplyer: 0.6
   isSecondForm: 0
 --- !u!1001 &8024478389904652972
 PrefabInstance:
@@ -237,11 +238,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5298252095771945956, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5298252095771945956, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.678
+      value: -0.769
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252095771945956, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252095771945956, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298252095771945956, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5298252096397123440, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

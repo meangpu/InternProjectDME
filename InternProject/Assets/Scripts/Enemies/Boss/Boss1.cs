@@ -11,6 +11,7 @@ public class Boss1 : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Material secondFormMat;
+    [SerializeField] float secondFormDashCdMultiplyer;
     public bool isSecondForm;
     bool canDash = true;
 
@@ -98,7 +99,7 @@ public class Boss1 : MonoBehaviour
             isSecondForm = true;
             animator.SetTrigger("SecondForm");
             spriteRenderer.material = secondFormMat;
-            CoolDownBetweenDash *= 0.7f;
+            CoolDownBetweenDash *= secondFormDashCdMultiplyer;
         }
 
     }

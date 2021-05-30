@@ -27,6 +27,7 @@ MonoBehaviour:
   isPassive: 0
   attackRange: 0
   atkSpeed: 0
+  bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
   moneyDrop: 5
   goldDropSK:
   - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}

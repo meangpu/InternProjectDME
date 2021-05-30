@@ -13,6 +13,7 @@ public class EnemyShoot : MonoBehaviour
 
     public void StartShoot()
     {
+        waitTime = 1/enemy.AtkSpeed;
         if (countFirebullet != null)
         {
             // this make sure that only one Coroutine count
@@ -26,7 +27,7 @@ public class EnemyShoot : MonoBehaviour
 
     private IEnumerator FireBullet()
     {
-        PoolingSingleton.Instance.EnemyBulletPool.SpawnBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), 0f);
+        PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), 0f, enemy.BulletType);
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(FireBullet());
     }

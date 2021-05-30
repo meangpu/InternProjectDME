@@ -19,11 +19,14 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private string targetTagName;
     [SerializeField] private bool isPassive;
     [SerializeField] private float attackRange;
+    [Tooltip("how many attack per second")]
     [SerializeField] private float atkSpeed;
+    [SerializeField] ObjEnemyBullet bulletType;
     [SerializeField] private int moneyDrop;
     [SerializeField] private ObjGold[] goldDropSK;
     [Range(0, 0.2f)]
     [SerializeField] private float knockBack;
+
 
     public string GetName() => enemyName;
     public string[] GetTags() => tags;
@@ -41,6 +44,7 @@ public class ObjEnemy : ScriptableObject
     public int GetMoneyDrop() => moneyDrop;
     public ObjGold[] GetMoneyDropSK() => goldDropSK;
     public float GetKnockBack() => knockBack;
+    public ObjEnemyBullet GetBulletType() => bulletType;
 
     public int GetRandomDamage()
     {
