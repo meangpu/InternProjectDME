@@ -22,7 +22,7 @@ MonoBehaviour:
   minDamage: 2
   maxDamage: 4
   EC: 1
-  targetTagName: Base
+  targetTagName: 1
   isPassive: 0
   attackRange: 0
   atkSpeed: 0.5

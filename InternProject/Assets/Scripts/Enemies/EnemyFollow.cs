@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    private string nowtarget;
+    private EnemyTargetType nowtarget;
     private Transform tranTarget;
     private GameObject target;
     public bool startTracking = false;
@@ -23,7 +23,15 @@ public class EnemyFollow : MonoBehaviour
 
         startTracking = true;
         nowtarget = enemy.TagName;
-        target = GameObject.FindGameObjectWithTag(nowtarget);
+        if (nowtarget == EnemyTargetType.Player)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+        else if (nowtarget == EnemyTargetType.Base)
+        {
+            target = GameObject.FindGameObjectWithTag("Base");
+        }
+
 
         moveSpeed = enemy.Speed;
         // tranTarget = nowtarget.transform;
@@ -32,7 +40,7 @@ public class EnemyFollow : MonoBehaviour
 
     private void AISpringMove()
     {
-        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position+springAI.GetMovementIntention(gameObject), Color.green);
+        // Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position+springAI.GetMovementIntention(gameObject), Color.green);
 
         rb.MovePosition((Vector2)transform.position + (springAI.GetMovementIntention(gameObject) * moveSpeed * Time.deltaTime));
     }

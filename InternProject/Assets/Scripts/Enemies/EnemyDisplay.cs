@@ -10,7 +10,7 @@ public class EnemyDisplay : MonoBehaviour
     // [SerializeField] ObjEnemy enemyScriptableObj;
     private float eneSpeed;
     private GameObject target;
-    private string tagName;
+    private EnemyTargetType tagName;
     private int hp;
     private int maxhp;
     private ObjGold[] dropGoldSK;
@@ -59,7 +59,7 @@ public class EnemyDisplay : MonoBehaviour
     public SpriteRenderer Image { get { return eneImage; } }
     public float Speed { get { return eneSpeed; } }
     public GameObject Target { get { return target; } }
-    public string TagName { get { return tagName; } }
+    public EnemyTargetType TagName { get { return tagName; } }
     public int Health { get { return hp; } set { hp = value; } }
     public int MaxHealth { get { return maxhp; } }
     public Image CircleHP { get { return circleHp; } }
