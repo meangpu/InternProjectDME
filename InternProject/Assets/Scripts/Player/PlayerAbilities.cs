@@ -81,7 +81,7 @@ public class PlayerAbilities : MonoBehaviour
                 FastReload(ability.GetPercentage());
                 break;
             case AbilityType.Bomb:
-                Bomb(isCombo, ability.GetRange(), ability.GetDamage());
+                Bomb(isCombo, ability.GetRange(), ability.GetDamage(), ability.GetComboValue());
                 break;
             case AbilityType.Dash:
                 Dash(isCombo, ability.GetRange(), ability.GetDuration());
@@ -163,17 +163,23 @@ public class PlayerAbilities : MonoBehaviour
         playerStats.SetIsImmuned(false);
     }
 
-    private void Bomb(bool isCombo, float range, int damage)
+    private void Bomb(bool isCombo, float range, int damage, float comboRange)
     {
+        range = isCombo ? range : comboRange;
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
 
         CinemacineShake.Instance.ShakeCam(7f, 0.514f); // shake screen
 
         foreach (Collider2D collider in enemies)
         {
-            if (collider.TryGetComponent(out EnemyGetHit enemy))
+            if (collider.TryGetComponent(out IEnemy enemy))
             {
                 enemy.TakeDamage(damage);
+
+                if (!isCombo) { continue; }
+
+                enemy.Stun();
             }
         }
     }

@@ -90,4 +90,9 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
     }
 
     public Transform GetTransform() => transform;
+
+    public void Stun()
+    {
+        enemyDisplay.Stun();
+    }
 }
