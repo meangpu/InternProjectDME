@@ -37,4 +37,12 @@ public class BulletEnemy : MonoBehaviour
         rb.velocity = (Vector2)transform.up * bulletSpeed;
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.TryGetComponent(out IOwnedByPlayer ownedByPlayer))
+        {
+            ownedByPlayer.TakeDamage(damage);
+            DestroySelf();
+        }
+    }
 }

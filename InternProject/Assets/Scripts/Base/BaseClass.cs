@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class BaseClass : MonoBehaviour, ITargetable
+public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
 {
     [System.Serializable]
     public class BaseGun
@@ -52,26 +52,16 @@ public class BaseClass : MonoBehaviour, ITargetable
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.gameObject.TryGetComponent(out BulletEnemy bullet))
-        {
-            TakeDamage(bullet.Damage);
-            DamagePopup.Create(transform.position, bullet.Damage, DamagePopup.DamageType.Player);
-            bullet.DestroySelf();
-        }
-    }
-
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         hp -= damage;
+        DamagePopup.Create(transform.position, damage, DamagePopup.DamageType.Player);
         if (hp <= 0)
         {
             hp = 0;
             DestroyBase();
         }
         SetHealth(hp);
-        
     }
 
     private void DestroyBase()

@@ -130,9 +130,13 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isImmuned) { return; }
+        if (isImmuned) 
+        {   
+            DamagePopup.Create(transform.position, 0, DamagePopup.DamageType.Player);
+            return; 
+        }
 
-        Debug.Log("damage taken");
+        DamagePopup.Create(transform.position, damage, DamagePopup.DamageType.Player);
         if (!energyShieldEnabled)
         {
             healthSystem.Damage(damage);
@@ -207,7 +211,6 @@ public class PlayerStats : MonoBehaviour
     public void SetIsImmuned(bool value)
     {
         isImmuned = value;
-        Debug.Log(value);
     }
 
     private void HandleToggleEnergyShield()

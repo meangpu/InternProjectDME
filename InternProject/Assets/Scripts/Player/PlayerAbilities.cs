@@ -151,7 +151,6 @@ public class PlayerAbilities : MonoBehaviour
         if (!isCombo) { return; }
 
         playerStats.SetIsImmuned(true);
-        Debug.Log("PHASING");
     }
 
     private IEnumerator OnDash(bool isCombo, float dashDuration)
