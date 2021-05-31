@@ -16,7 +16,7 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
     [SerializeField] private int EC;
-    [SerializeField] private string targetTagName;
+    [SerializeField] private EnemyTargetType targetTagName;
     [SerializeField] private bool isPassive;
     [SerializeField] private float attackRange;
     [Tooltip("how many attack per second")]
@@ -37,7 +37,7 @@ public class ObjEnemy : ScriptableObject
     public int GetMinDamage() => minDamage;
     public int GetMaxDamage() => maxDamage;
     public int GetEC() => EC;
-    public string GetTargetTag() => targetTagName;
+    public EnemyTargetType GetTargetTag() => targetTagName;
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
