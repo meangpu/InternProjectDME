@@ -14,6 +14,8 @@ public class ObjTankTurret : ScriptableObject
     [SerializeField] private int ammoCount;
     [SerializeField] private float rateOfFire;
     [SerializeField] private float reloadTime;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float lifetime;
     [Range(0, 0.4f)]
     [SerializeField] private float knockBack;
     [SerializeField] ObjPlayerBullet bulletType;
@@ -27,11 +29,7 @@ public class ObjTankTurret : ScriptableObject
     public float GetRateOfFire() => rateOfFire;
     public float GetReloadTime() => reloadTime;
     public float GetKnockBack() => knockBack;
+    public float GetBulletSpeed() => bulletSpeed;
+    public float GetLifetime() => lifetime;
     public ObjPlayerBullet GetBulletType() => bulletType;
-
-
-    public int GetRandomDamage()
-    {
-        return Random.Range(minDamage, maxDamage + 1);
-    }
 }

@@ -12,6 +12,8 @@ public class ObjTower : ScriptableObject
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
     [SerializeField] private float attackRange;
+    [SerializeField] private float projectileLifetime;
+    [SerializeField] private float projectileSpeed;
     [SerializeField] private bool laserType;
 
     public string GetName() => towerName;
@@ -21,5 +23,7 @@ public class ObjTower : ScriptableObject
     public int GetMinDamage() => minDamage;
     public int GetMaxDamage() => maxDamage;
     public float GetAttackRange() => attackRange;
-    public bool GetIsLaserType() => laserType;
+    public float GetProjectileLifeTime() => projectileLifetime;
+    public float GetProjectileSpeed() => projectileSpeed;
+    public bool IsLaserType() => laserType;
 }
