@@ -47,10 +47,10 @@ public class EnemyDisplay : MonoBehaviour
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
         //// fix
-        refreshHitbox();
+        RefreshHitbox();
     }
 
-    private void refreshHitbox()
+    private void RefreshHitbox()
     {
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();

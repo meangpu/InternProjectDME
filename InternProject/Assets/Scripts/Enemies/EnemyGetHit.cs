@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyGetHit : MonoBehaviour, ITargetable
+public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
 {
     [SerializeField] private EnemyDisplay enemyDisplay;
 
@@ -21,25 +21,6 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
     private void Start()
     {
         waveManager = WaveManager.Instance;
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.gameObject.TryGetComponent(out TankBullet bullet))
-        {
-            Knockback(bullet.transform.position, bullet.knockBack + enemyDisplay.KnockBack);
-            TakeDamage(bullet.Damage);
-            
-            bullet.DestroySelf();
-        }
-
-        if(col.gameObject.TryGetComponent(out TowerProjectile towerBullet))
-        {
-            // add kb from bullet เพิ่ม
-            Knockback(towerBullet.transform.position, enemyDisplay.KnockBack);
-            TakeDamage(towerBullet.Damage);
-            towerBullet.DestroySelf();
-        }
     }
 
     public void TakeDamage(int damage)
@@ -74,7 +55,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
         UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
     }
 
-    public void undoImmortal()
+    public void UndoImmortal()
     {
         Immortal = false;
     }
@@ -99,13 +80,11 @@ public class EnemyGetHit : MonoBehaviour, ITargetable
         circleHp.fillAmount = nowvalue;
     }
 
-    private void Knockback(Vector2 AttackerPos, float knockbackForce)
+    public void TakeKnockback(Vector2 attackerPos, float knockbackForce = 0f)
     {
-        Vector2 dirFromAttacker = ((Vector2)transform.position - AttackerPos).normalized;     
+        Vector2 dirFromAttacker = ((Vector2)transform.position - attackerPos).normalized;     
         Vector2 kbForce = dirFromAttacker * knockbackForce;
         transform.position += new Vector3(kbForce.x, kbForce.y, 0);
-
-        // Debug.Log($"{transform.position}, {AttackerPos}, {dirFromAttacker}");
     }
 
     public Transform GetTransform() => transform;

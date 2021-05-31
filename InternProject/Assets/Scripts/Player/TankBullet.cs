@@ -11,6 +11,7 @@ public class TankBullet : MonoBehaviour
     // Temporary variables
     public float bulletSpeed = 10f;
     public float lifeTime = 4f;
+    private float knockbackForce = 0.1f;
 
     private int damage;
     public float knockBack;
@@ -41,5 +42,15 @@ public class TankBullet : MonoBehaviour
     private void Move()
     {
         rb.velocity = (Vector2)transform.up * bulletSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out IEnemy enemy))
+        {
+            enemy.TakeDamage(damage);
+            enemy.TakeKnockback(transform.position, knockbackForce);
+            DestroySelf();
+        }
     }
 }
