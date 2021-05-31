@@ -13,6 +13,7 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private Sprite[] artWork;
     [SerializeField] private int hp;
     [SerializeField] private float moveSpeed;
+    [SerializeField] float wantDistance;
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
     [SerializeField] private int EC;
@@ -34,6 +35,7 @@ public class ObjEnemy : ScriptableObject
     public Sprite[] GetSprite() => artWork;
     public int GetHealth() => hp;
     public float GetMovementSpeed() => moveSpeed;
+    public float GetWantDistance() => wantDistance;
     public int GetMinDamage() => minDamage;
     public int GetMaxDamage() => maxDamage;
     public int GetEC() => EC;

@@ -4,36 +4,23 @@ using UnityEngine;
 
 public class EnemyAiSpring : MonoBehaviour
 {
-    GameObject player;
-    GameObject target;
     GameObject[] enemys;
-    GameObject playerBase;
 
 
-    public Vector2 GetMovementIntention (GameObject enemy)
+    public Vector2 GetMovementIntention (GameObject enemy, GameObject _target, float _wantDistance)
     {
-        // target = GameObject.FindGameObjectWithTag(_target);
 
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerBase = GameObject.FindGameObjectWithTag("Base");
 
         // initialise intention
         Vector2 intention = Vector2.zero;
 
-        // chase the player
-        Vector2 direction = ((Vector2)player.transform.position - (Vector2)enemy.transform.position).normalized;
-        float distance = Vector2.Distance((Vector2)player.transform.position, (Vector2)enemy.transform.position);
-        float targetDistance = 3f;
+
+        Vector2 direction = ((Vector2)_target.transform.position - (Vector2)enemy.transform.position).normalized;
+        float distance = Vector2.Distance((Vector2)_target.transform.position, (Vector2)enemy.transform.position);
+        float targetDistance = _wantDistance;
         float springDistance = (distance - targetDistance);
         intention += direction*springDistance;
-
-
-        // Vector2 direction = ((Vector2)target.transform.position - (Vector2)enemy.transform.position).normalized;
-        // float distance = Vector2.Distance((Vector2)player.transform.position, (Vector2)enemy.transform.position);
-        // float targetDistance = 3f;
-        // float springDistance = (distance - targetDistance);
-        // intention += direction*springDistance;
 
 
         // spread out

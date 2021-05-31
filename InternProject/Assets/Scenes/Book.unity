@@ -1212,6 +1212,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
   - {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
   - {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
+  - {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
   EnemyImagePrefabs: {fileID: 4733284808967477883, guid: 23bc65386d9109148b0a75717a5bd1ae, type: 3}
 --- !u!114 &783032465
 MonoBehaviour:

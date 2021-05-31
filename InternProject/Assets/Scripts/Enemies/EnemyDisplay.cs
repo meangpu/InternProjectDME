@@ -21,6 +21,7 @@ public class EnemyDisplay : MonoBehaviour
     private float knockBack;
     ObjEnemyBullet bulletType;
     float atkSpeed;
+    float wantDistance;
 
 
     // private void Start() 
@@ -46,6 +47,7 @@ public class EnemyDisplay : MonoBehaviour
         dropGoldSK = enemy.GetMoneyDropSK();
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
+        wantDistance = enemy.GetWantDistance();
         //// fix
         RefreshHitbox();
     }
@@ -71,6 +73,6 @@ public class EnemyDisplay : MonoBehaviour
     public float KnockBack { get { return knockBack; } }
     public ObjEnemyBullet BulletType { get { return bulletType; } }
     public float AtkSpeed { get { return atkSpeed; } }
-
+    public float WantDistance { get { return wantDistance; } }
 
 }
