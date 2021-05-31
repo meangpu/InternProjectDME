@@ -62,9 +62,9 @@ public class PlayerGun : MonoBehaviour
     public IEnumerator Reload(float percentageShortened = 0f)
     {
         if (isReloading) { yield break; } // in IEnumerator, yield break = return;
-
+     
         isReloading = true;
-        float reloadTime = playerStats.GetReloadTime() * (100 - percentageShortened / 100);
+        float reloadTime = playerStats.GetReloadTime() * ((100 - percentageShortened) / 100);
         UIManager.Instance.Reload(reloadTime);
         playerStats.EmptyCurrentAmmoCount();
         yield return new WaitForSeconds(reloadTime);
