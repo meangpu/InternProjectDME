@@ -341,6 +341,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
     - target: {fileID: 5298252096397123450, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1558775434}
+    - target: {fileID: 5298252096397123450, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: isBoss
       value: 1
       objectReference: {fileID: 0}

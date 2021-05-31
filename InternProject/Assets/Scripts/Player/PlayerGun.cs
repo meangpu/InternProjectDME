@@ -37,8 +37,8 @@ public class PlayerGun : MonoBehaviour
     public void ShootSpecial()
     {
         PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, 15), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, -15), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());    
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, 3), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, -3), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());    
     }
 
     public void OnHoldShootButton() // If shoot button is held down.

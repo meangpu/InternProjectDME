@@ -13,6 +13,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
 
     [SerializeField] bool isBoss;
     [SerializeField] Boss1 bossScript;
+    [SerializeField] Animator anim;
 
     bool Immortal = false;
 
@@ -34,6 +35,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
         DamagePopup.Create(transform.position, damage, DamagePopup.DamageType.Enemy);
 
         enemyDisplay.Health -= damage;
+        anim.SetTrigger("GetHit");
 
         if (isBoss)
         {
