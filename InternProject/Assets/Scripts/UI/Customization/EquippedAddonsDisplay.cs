@@ -42,10 +42,14 @@ public class EquippedAddonsDisplay : MonoBehaviour
         }
     }
 
-    private void HandleUpdateAddon(int slotIndex)
+    private void HandleUpdateAddon(int slotIndex, bool isCombo)
     {
         selectedAddons[slotIndex].GetImage().sprite = addonsList[slotIndex].GetIcon();
         selectedAddons[slotIndex].AssignAbilityObject(addonsList[slotIndex]);
+
+        if (!isCombo) { return; }
+
+        Debug.Log("COMBO");
     }
 
     private void OnDestroy()

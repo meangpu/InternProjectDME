@@ -48,6 +48,7 @@ public class PlayerStats : MonoBehaviour
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
+    private bool isImmuned = false;
 
     private void Awake()
     {
@@ -129,6 +130,9 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isImmuned) { return; }
+
+        Debug.Log("damage taken");
         if (!energyShieldEnabled)
         {
             healthSystem.Damage(damage);
@@ -198,6 +202,12 @@ public class PlayerStats : MonoBehaviour
         tankLevel += 1;
 
         OnTankLeveledUp?.Invoke(tankLevel);
+    }
+
+    public void SetIsImmuned(bool value)
+    {
+        isImmuned = value;
+        Debug.Log(value);
     }
 
     private void HandleToggleEnergyShield()

@@ -42,13 +42,13 @@ public class PlayerAbilities : MonoBehaviour
             new HotkeyAbility
             {
                 addon = addonQ,
-                activateAbilityAction = () => ActivateAbility(addonQ)
+                activateAbilityAction = () => ActivateAbility(addonQ, PlayerEquippedAddons.AddonSlot.SlotQ)
             },
 
             new HotkeyAbility
             {
                 addon = addonE,
-                activateAbilityAction = () => ActivateAbility(addonE)
+                activateAbilityAction = () => ActivateAbility(addonE, PlayerEquippedAddons.AddonSlot.SlotQ)
             }
         };
     }
@@ -62,10 +62,11 @@ public class PlayerAbilities : MonoBehaviour
         playerStats.OnEnergyShieldDisabled += PutEnergyShieldOnCooldown;
     }
 
-    private void ActivateAbility(ObjAbility ability)
+    private void ActivateAbility(ObjAbility ability, PlayerEquippedAddons.AddonSlot slot)
     {
         AbilityType abilityType = ability.GetAbilityType();
         int energyCost = ability.GetEnergyCost();
+        bool isCombo = playerEquippedAddons.IsCombo;
 
         if (cooldownSystem.IsOnCooldown(abilityType)) { return; }
 
@@ -80,10 +81,10 @@ public class PlayerAbilities : MonoBehaviour
                 FastReload(ability.GetPercentage());
                 break;
             case AbilityType.Bomb:
-                Bomb(ability.GetRange(), ability.GetDamage());
+                Bomb(isCombo, ability.GetRange(), ability.GetDamage());
                 break;
             case AbilityType.Dash:
-                Dash(ability.GetRange(), ability.GetDuration());
+                Dash(isCombo, ability.GetRange(), ability.GetDuration());
                 break;
             case AbilityType.Electrocharge:
                 Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
@@ -140,21 +141,30 @@ public class PlayerAbilities : MonoBehaviour
 
     #region Abilities
 
-    private void Dash(float speed, float duration)
+    private void Dash(bool isCombo, float speed, float duration)
     {
         OnStartedDashing?.Invoke();
         rb.velocity = (Vector2)transform.up * -speed;
         anim.SetTrigger("dash");
-        StartCoroutine(OnDashCooldown(duration));
+        StartCoroutine(OnDash(isCombo, duration));
+
+        if (!isCombo) { return; }
+
+        playerStats.SetIsImmuned(true);
+        Debug.Log("PHASING");
     }
 
-    private IEnumerator OnDashCooldown(float dashDuration)
+    private IEnumerator OnDash(bool isCombo, float dashDuration)
     {
         yield return new WaitForSeconds(dashDuration);
         OnFinishedDashing?.Invoke();
+
+        if (!isCombo) { yield break; }
+
+        playerStats.SetIsImmuned(false);
     }
 
-    private void Bomb(float range, int damage)
+    private void Bomb(bool isCombo, float range, int damage)
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
 

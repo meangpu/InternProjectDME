@@ -16,6 +16,7 @@ public class ObjAbility : ScriptableObject
     [SerializeField] private float abilityDuration;
     [SerializeField] private float percentage;
     [SerializeField] private List<ObjAbility> comboList;
+    [SerializeField] private float comboValue;
 
     public string GetName() => addonName;
     public string GetDescription() => description;
@@ -27,4 +28,6 @@ public class ObjAbility : ScriptableObject
     public float GetRange() => range;
     public float GetDuration() => abilityDuration;
     public float GetPercentage() => percentage;
+    public List<ObjAbility> GetComboList() => comboList;
+    public float GetComboValue() => comboValue;
 }

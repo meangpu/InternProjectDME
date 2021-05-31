@@ -8,12 +8,24 @@ public class PlayerEquippedAddons : ScriptableObject
     [SerializeField] private List<ObjAbility> equippedAddons;
     [SerializeField] private ObjAbility emptyAbility;
 
-    public event Action<int> OnUpdateAddon;
+    private bool isCombo;
+
+    public event Action<int, bool> OnUpdateAddon;
 
     public enum AddonSlot
     {
         SlotQ,
         SlotE
+    }
+
+    public enum ComboType
+    {
+        None,
+        EnergyDrainOrb,
+        EnergyDash,
+        EMP,
+        IncendiaryCharge,
+        UpgradedMissile
     }
 
     public void ClearAbility(AddonSlot slot)
@@ -24,9 +36,11 @@ public class PlayerEquippedAddons : ScriptableObject
     public void SetAbility(ObjAbility ability, AddonSlot slot)
     {
         int slotIndex = (int)slot;
-        AbilityClashCheck(ability, slotIndex, 1 - slotIndex);
+        int otherSlotIndex = 1 - slotIndex;
+        AbilityClashCheck(ability, slotIndex, otherSlotIndex);
         equippedAddons[slotIndex] = ability;
-        OnUpdateAddon?.Invoke(slotIndex);
+        isCombo = CheckForCombo(slotIndex, otherSlotIndex);
+        OnUpdateAddon?.Invoke(slotIndex, isCombo);
     }
 
     private void AbilityClashCheck(ObjAbility abilityToApply, int thisSlotIndex, int otherSlotIndex) // If the same abilities is equipped twice, swap them.
@@ -46,7 +60,25 @@ public class PlayerEquippedAddons : ScriptableObject
         ObjAbility temp = equippedAddons[slotIndexA];
         equippedAddons[slotIndexA] = equippedAddons[slotIndexB];
         equippedAddons[slotIndexB] = temp;
-        OnUpdateAddon?.Invoke(slotIndexB);
+        OnUpdateAddon?.Invoke(slotIndexB, false);
+    }
+
+    private bool CheckForCombo(int slotIndex, int otherSlotIndex)
+    {   
+        ObjAbility thisSlot = equippedAddons[slotIndex];
+        ObjAbility otherSlot = equippedAddons[otherSlotIndex];
+        List<ObjAbility> comboList = thisSlot.GetComboList();
+        
+
+        for (int i = 0; i < comboList.Count; i++)
+        {
+            if (otherSlot.GetAbilityType() == comboList[i].GetAbilityType())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public List<ObjAbility> GetEquippedAddons() => equippedAddons;
@@ -63,4 +95,6 @@ public class PlayerEquippedAddons : ScriptableObject
 
         return false;
     }
+
+    public bool IsCombo => isCombo;
 }
