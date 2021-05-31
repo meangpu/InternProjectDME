@@ -9,22 +9,9 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] private PlayerEquippedAddons playerEquippedAddons = null;
     [SerializeField] private CooldownSystem cooldownSystem = null;
     [SerializeField] private ObjAbility energyShieldAddon = null;
+    [SerializeField] private PlayerGun playerGun = null;
 
-    /*[Header("Dash Ability parameters")]
-    [SerializeField] private int dashEnergyCost = 20;
-    [SerializeField] private float dashSpeed = 10f;
-    [SerializeField] private float dashCooldown = 5f;
-    [SerializeField] private float dashDuration = 0.25f;*/
     [SerializeField] private Animator anim;
-
-    /*[Header("Bomb Ability parameters")]
-    [SerializeField] private int bombEnergyCost = 45;
-    [SerializeField] private int bombDamage = 15;
-    [SerializeField] private float bombRange = 3.5f;
-    [SerializeField] private float bombCooldown = 25f;*/
-
-    /*private bool canDash = true; // Check if the player can dash
-    private bool bombOnCooldown = false;*/
 
     // ------------------- Events -----------------------
     // Events that interfere the movements
@@ -90,7 +77,7 @@ public class PlayerAbilities : MonoBehaviour
                 Debug.Log("THIS IS EMPTY");
                 break;
             case AbilityType.AutoLoader:
-                Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
+                FastReload(ability.GetPercentage());
                 break;
             case AbilityType.Bomb:
                 Bomb(ability.GetRange(), ability.GetDamage());
@@ -153,14 +140,9 @@ public class PlayerAbilities : MonoBehaviour
 
     #region Abilities
 
-    public void Dash(float speed, float duration)
+    private void Dash(float speed, float duration)
     {
-        /*if (!canDash) { return; }
-
-        if (!playerStats.TrySpendEnergy(dashEnergyCost)) { return; }*/
-
         OnStartedDashing?.Invoke();
-        //canDash = false;
         rb.velocity = (Vector2)transform.up * -speed;
         anim.SetTrigger("dash");
         StartCoroutine(OnDashCooldown(duration));
@@ -170,16 +152,10 @@ public class PlayerAbilities : MonoBehaviour
     {
         yield return new WaitForSeconds(dashDuration);
         OnFinishedDashing?.Invoke();
-        /*yield return new WaitForSeconds(dashCooldown - dashDuration);
-        canDash = true;*/
     }
 
-    public void Bomb(float range, int damage)
+    private void Bomb(float range, int damage)
     {
-        // if (bombOnCooldown) { return; }
-
-        // if (!playerStats.TrySpendEnergy(bombEnergyCost)) { return; }
-
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
 
         CinemacineShake.Instance.ShakeCam(7f, 0.514f); // shake screen
@@ -193,15 +169,19 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
-    public void LaunchHomingMissile()
+    private void LaunchHomingMissile()
     {
         // Summon Homing Missile
     }
 
-    public void ActivateEnergyShield()
+    private void ActivateEnergyShield()
     {
         OnTriggerEnergyShield?.Invoke();
     }
 
+    private void FastReload(float percentage)
+    {
+        StartCoroutine(playerGun.Reload(percentage));
+    }
     #endregion
 }
