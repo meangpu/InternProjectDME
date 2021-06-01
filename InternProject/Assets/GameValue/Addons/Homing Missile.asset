@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91925f4c95719a743b302a47727acc06, type: 3}
   m_Name: Homing Missile
   m_EditorClassIdentifier: 
-  addonName: Homing Missile
+  addonName: Homing Missile Module
   description: Locks on a random enemy and deals damage to enemies near the impact
   abilityType: 4
   icon: {fileID: 21300000, guid: 7a24f3ccd40a0ee4f85353a7ea831af2, type: 3}
@@ -20,7 +20,8 @@ MonoBehaviour:
   cooldownTime: 20
   damage: 15
   range: 1
-  abilityDuration: 0
+  abilityDuration: 7
   percentage: 0
   comboList:
   - {fileID: 11400000, guid: 07005c8f74d501849acd4e748f5cfa60, type: 2}
+  comboValue: 0

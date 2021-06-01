@@ -8,7 +8,7 @@ public class PlayerEquippedAddons : ScriptableObject
     [SerializeField] private List<ObjAbility> equippedAddons;
     [SerializeField] private ObjAbility emptyAbility;
 
-    private bool isCombo;
+    private ComboType comboType = ComboType.None;
 
     public event Action<int, bool> OnUpdateAddon;
 
@@ -16,16 +16,6 @@ public class PlayerEquippedAddons : ScriptableObject
     {
         SlotQ,
         SlotE
-    }
-
-    public enum ComboType
-    {
-        None,
-        EnergyDrainOrb,
-        EnergyDash,
-        EMP,
-        IncendiaryCharge,
-        UpgradedMissile
     }
 
     public void ClearAbility(AddonSlot slot)
@@ -39,8 +29,7 @@ public class PlayerEquippedAddons : ScriptableObject
         int otherSlotIndex = 1 - slotIndex;
         AbilityClashCheck(ability, slotIndex, otherSlotIndex);
         equippedAddons[slotIndex] = ability;
-        isCombo = CheckForCombo(slotIndex, otherSlotIndex);
-        OnUpdateAddon?.Invoke(slotIndex, isCombo);
+        OnUpdateAddon?.Invoke(slotIndex, CheckForCombo(slotIndex, otherSlotIndex));
     }
 
     private void AbilityClashCheck(ObjAbility abilityToApply, int thisSlotIndex, int otherSlotIndex) // If the same abilities is equipped twice, swap them.
@@ -68,16 +57,66 @@ public class PlayerEquippedAddons : ScriptableObject
         ObjAbility thisSlot = equippedAddons[slotIndex];
         ObjAbility otherSlot = equippedAddons[otherSlotIndex];
         List<ObjAbility> comboList = thisSlot.GetComboList();
-        
+        AbilityType thisAbilityType = thisSlot.GetAbilityType();
+        AbilityType otherAbilityType = otherSlot.GetAbilityType();
 
         for (int i = 0; i < comboList.Count; i++)
         {
-            if (otherSlot.GetAbilityType() == comboList[i].GetAbilityType())
+            if (otherAbilityType == comboList[i].GetAbilityType())
             {
+                switch (otherAbilityType)
+                {
+                    case AbilityType.Bomb:
+                        switch (thisAbilityType)
+                        {
+                            case AbilityType.HomingMissile:
+                                comboType = ComboType.UpgradedMissile;
+                                break;
+                            case AbilityType.Electrocharge:
+                                comboType = ComboType.EMP;
+                                break;
+                        }
+                        break;
+                    case AbilityType.Dash:
+                        comboType = ComboType.EnergyDash;
+                        break;
+                    case AbilityType.EnergyShield:
+                        switch (thisAbilityType)
+                        {
+                            case AbilityType.Dash:
+                                comboType = ComboType.EnergyDash;
+                                break;
+                            case AbilityType.EnergyOrb:
+                                comboType = ComboType.EnergyDrainOrb;
+                                break;
+                        }
+                        break;
+                    case AbilityType.Electrocharge:
+                        switch (thisAbilityType)
+                        {
+                            case AbilityType.Bomb:
+                                comboType = ComboType.EMP;
+                                break;
+                            case AbilityType.IncendiaryAmmo:
+                                comboType = ComboType.IncendiaryCharge;
+                                break;
+                        }
+                        break;
+                    case AbilityType.IncendiaryAmmo:
+                        comboType = ComboType.IncendiaryCharge;
+                        break;
+                    case AbilityType.HomingMissile:
+                        comboType = ComboType.UpgradedMissile;
+                        break;
+                    case AbilityType.EnergyOrb:
+                        comboType = ComboType.EnergyDrainOrb;
+                        break;
+                }
                 return true;
             }
         }
 
+        comboType = ComboType.None;
         return false;
     }
 
@@ -96,5 +135,5 @@ public class PlayerEquippedAddons : ScriptableObject
         return false;
     }
 
-    public bool IsCombo => isCombo;
+    public ComboType GetComboType() => comboType;
 }

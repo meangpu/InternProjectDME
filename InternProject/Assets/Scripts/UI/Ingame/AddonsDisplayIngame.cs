@@ -65,6 +65,12 @@ public class AddonsDisplayIngame : MonoBehaviour
             if (cooldownDurationQText.gameObject.activeInHierarchy) { return; }
 
             cooldownDurationQText.gameObject.SetActive(true);
+        } 
+        else
+        {
+            if (!cooldownDurationQText.gameObject.activeInHierarchy) { return; }
+
+            cooldownDurationQText.gameObject.SetActive(false);
         }
 
         if (remainingPercentageE != 0)
@@ -75,6 +81,12 @@ public class AddonsDisplayIngame : MonoBehaviour
             if (cooldownDurationEText.gameObject.activeInHierarchy) { return; }
 
             cooldownDurationEText.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (!cooldownDurationEText.gameObject.activeInHierarchy) { return; }
+
+            cooldownDurationEText.gameObject.SetActive(false);
         }
     }
 

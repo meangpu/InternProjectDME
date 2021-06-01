@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91925f4c95719a743b302a47727acc06, type: 3}
   m_Name: Energy Shield
   m_EditorClassIdentifier: 
-  addonName: Energy Shield
+  addonName: Energy Shield Module
   description: Turns energy into energy armor that absorbs damage instead of health
   abilityType: 2
   icon: {fileID: 6015116524536153082, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
@@ -20,6 +20,9 @@ MonoBehaviour:
   cooldownTime: 10
   damage: 0
   range: 0
+  abilityDuration: 0
+  percentage: 0
   comboList:
   - {fileID: 11400000, guid: 13f6bc3f54445854c8a23caab55edc36, type: 2}
   - {fileID: 11400000, guid: 38dc99719c21df6469e6d92424d003bb, type: 2}
+  comboValue: 0

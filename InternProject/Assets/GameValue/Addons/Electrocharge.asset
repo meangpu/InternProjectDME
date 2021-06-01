@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91925f4c95719a743b302a47727acc06, type: 3}
   m_Name: Electrocharge
   m_EditorClassIdentifier: 
-  addonName: Electrocharge
-  description: Slows enemies around the tank for 5 seconds
+  addonName: Electrocharge Module
+  description: Slows enemies around the tank for 10 seconds
   abilityType: 5
   icon: {fileID: -3711355299728609468, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
   energyCost: 40
   cooldownTime: 20
   damage: 0
-  range: 4.5
+  range: 7
   abilityDuration: 5
   percentage: 25
   comboList:
   - {fileID: 11400000, guid: 07005c8f74d501849acd4e748f5cfa60, type: 2}
+  - {fileID: 11400000, guid: 5119373c163a7b346a7b92dafe481736, type: 2}
+  comboValue: 0

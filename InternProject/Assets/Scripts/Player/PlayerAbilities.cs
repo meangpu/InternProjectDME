@@ -42,13 +42,13 @@ public class PlayerAbilities : MonoBehaviour
             new HotkeyAbility
             {
                 addon = addonQ,
-                activateAbilityAction = () => ActivateAbility(addonQ, PlayerEquippedAddons.AddonSlot.SlotQ)
+                activateAbilityAction = () => ActivateAbility(addonQ)
             },
 
             new HotkeyAbility
             {
                 addon = addonE,
-                activateAbilityAction = () => ActivateAbility(addonE, PlayerEquippedAddons.AddonSlot.SlotQ)
+                activateAbilityAction = () => ActivateAbility(addonE)
             }
         };
     }
@@ -62,11 +62,11 @@ public class PlayerAbilities : MonoBehaviour
         playerStats.OnEnergyShieldDisabled += PutEnergyShieldOnCooldown;
     }
 
-    private void ActivateAbility(ObjAbility ability, PlayerEquippedAddons.AddonSlot slot)
+    private void ActivateAbility(ObjAbility ability)
     {
         AbilityType abilityType = ability.GetAbilityType();
         int energyCost = ability.GetEnergyCost();
-        bool isCombo = playerEquippedAddons.IsCombo;
+        ComboType comboType = playerEquippedAddons.GetComboType();
 
         if (cooldownSystem.IsOnCooldown(abilityType)) { return; }
 
@@ -75,16 +75,15 @@ public class PlayerAbilities : MonoBehaviour
         switch (abilityType)
         {
             case AbilityType.Empty:
-                Debug.Log("THIS IS EMPTY");
                 break;
             case AbilityType.AutoLoader:
                 FastReload(ability.GetPercentage());
                 break;
             case AbilityType.Bomb:
-                Bomb(isCombo, ability.GetRange(), ability.GetDamage(), ability.GetComboValue());
+                Bomb(comboType, ability.GetRange(), ability.GetDamage(), ability.GetComboValue());
                 break;
             case AbilityType.Dash:
-                Dash(isCombo, ability.GetRange(), ability.GetDuration());
+                Dash(comboType, ability.GetRange(), ability.GetDuration());
                 break;
             case AbilityType.Electrocharge:
                 Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
@@ -96,10 +95,10 @@ public class PlayerAbilities : MonoBehaviour
                 ActivateEnergyShield();
                 break;
             case AbilityType.HomingMissile:
-                Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
+                LaunchHomingMissile(comboType, ability.GetDamage(), ability.GetRange(), ability.GetDuration(), ability.GetComboValue());
                 break;
             case AbilityType.IncendiaryAmmo:
-                Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
+                ActivateIncendiary(comboType, ability.GetDuration(), ability.GetPercentage(), ability.GetComboValue());
                 break;
         }
 
@@ -141,31 +140,37 @@ public class PlayerAbilities : MonoBehaviour
 
     #region Abilities
 
-    private void Dash(bool isCombo, float speed, float duration)
+    private void Dash(ComboType comboType, float speed, float duration)
     {
         OnStartedDashing?.Invoke();
         rb.velocity = (Vector2)transform.up * -speed;
         anim.SetTrigger("dash");
-        StartCoroutine(OnDash(isCombo, duration));
+        StartCoroutine(OnDash(comboType, duration));
 
-        if (!isCombo) { return; }
+        if (comboType != ComboType.EnergyDash) { return; }
 
         playerStats.SetIsImmuned(true);
     }
 
-    private IEnumerator OnDash(bool isCombo, float dashDuration)
+    private IEnumerator OnDash(ComboType comboType, float dashDuration)
     {
         yield return new WaitForSeconds(dashDuration);
         OnFinishedDashing?.Invoke();
 
-        if (!isCombo) { yield break; }
+        if (comboType != ComboType.EnergyDash) { yield break; }
 
         playerStats.SetIsImmuned(false);
     }
 
-    private void Bomb(bool isCombo, float range, int damage, float comboRange)
+    private void Bomb(ComboType comboType, float range, int damage, float comboRange)
     {
-        range = isCombo ? range : comboRange;
+        bool isEMP = false;
+
+        if (comboType != ComboType.UpgradedMissile) // Avoid conflicts with Homing Missile + Bomb combo
+        {
+            isEMP = comboType == ComboType.EMP;
+            range = isEMP ? comboRange : range;
+        }
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
 
@@ -177,14 +182,14 @@ public class PlayerAbilities : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
 
-                if (!isCombo) { continue; }
+                if (!isEMP) { continue; }
 
                 enemy.Stun();
             }
         }
     }
 
-    private void LaunchHomingMissile()
+    private void LaunchHomingMissile(ComboType comboType, int damage, float range, float duration, float comboValue)
     {
         // Summon Homing Missile
     }
@@ -197,6 +202,11 @@ public class PlayerAbilities : MonoBehaviour
     private void FastReload(float percentage)
     {
         StartCoroutine(playerGun.Reload(percentage));
+    }
+
+    private void ActivateIncendiary(ComboType comboType, float duration, float percentage, float comboValue)
+    {
+        percentage = comboType == ComboType.IncendiaryCharge ? comboValue : percentage;
     }
     #endregion
 }
