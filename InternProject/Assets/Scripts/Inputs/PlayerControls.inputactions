@@ -70,9 +70,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Pause",
+                    "name": "BuyMode",
                     "type": "Button",
-                    "id": "67dd3360-6b2b-4939-b1fb-01ec50a4f4d2",
+                    "id": "e147e587-70e1-4922-935a-d9f28279e69a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -213,12 +213,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2bfcb8c3-d5f3-49c9-ad08-be2d4bc64d0e",
-                    "path": "<Keyboard>/escape",
+                    "id": "a9edede8-90fa-4a92-802c-f94508a81928",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "BuyMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -352,6 +352,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClearE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "f0b1b426-f3c8-4cc8-b60c-d9863fdd9a8f",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "c562e75c-2f34-42c6-a78b-3e60c7ed89bc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c0872a64-a265-4387-9ca6-c6d882bd1a0c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

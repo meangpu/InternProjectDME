@@ -83,9 +83,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""BuyMode"",
                     ""type"": ""Button"",
-                    ""id"": ""67dd3360-6b2b-4939-b1fb-01ec50a4f4d2"",
+                    ""id"": ""e147e587-70e1-4922-935a-d9f28279e69a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -226,12 +226,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2bfcb8c3-d5f3-49c9-ad08-be2d4bc64d0e"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""a9edede8-90fa-4a92-802c-f94508a81928"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""BuyMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -369,6 +369,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""f0b1b426-f3c8-4cc8-b60c-d9863fdd9a8f"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""c562e75c-2f34-42c6-a78b-3e60c7ed89bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c0872a64-a265-4387-9ca6-c6d882bd1a0c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -389,7 +416,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tank_SpecialShoot = m_Tank.FindAction("SpecialShoot", throwIfNotFound: true);
         m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
         m_Tank_Skill2 = m_Tank.FindAction("Skill2", throwIfNotFound: true);
-        m_Tank_Pause = m_Tank.FindAction("Pause", throwIfNotFound: true);
+        m_Tank_BuyMode = m_Tank.FindAction("BuyMode", throwIfNotFound: true);
         // Addons
         m_Addons = asset.FindActionMap("Addons", throwIfNotFound: true);
         m_Addons_AssignQ = m_Addons.FindAction("AssignQ", throwIfNotFound: true);
@@ -399,6 +426,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_AddonsMenu = asset.FindActionMap("AddonsMenu", throwIfNotFound: true);
         m_AddonsMenu_ClearQ = m_AddonsMenu.FindAction("ClearQ", throwIfNotFound: true);
         m_AddonsMenu_ClearE = m_AddonsMenu.FindAction("ClearE", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -456,7 +486,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Tank_SpecialShoot;
     private readonly InputAction m_Tank_Skill1;
     private readonly InputAction m_Tank_Skill2;
-    private readonly InputAction m_Tank_Pause;
+    private readonly InputAction m_Tank_BuyMode;
     public struct TankActions
     {
         private @PlayerControls m_Wrapper;
@@ -469,7 +499,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @SpecialShoot => m_Wrapper.m_Tank_SpecialShoot;
         public InputAction @Skill1 => m_Wrapper.m_Tank_Skill1;
         public InputAction @Skill2 => m_Wrapper.m_Tank_Skill2;
-        public InputAction @Pause => m_Wrapper.m_Tank_Pause;
+        public InputAction @BuyMode => m_Wrapper.m_Tank_BuyMode;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -503,9 +533,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill2.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
                 @Skill2.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
                 @Skill2.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
-                @Pause.started -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnPause;
+                @BuyMode.started -= m_Wrapper.m_TankActionsCallbackInterface.OnBuyMode;
+                @BuyMode.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnBuyMode;
+                @BuyMode.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnBuyMode;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
@@ -534,9 +564,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill2.started += instance.OnSkill2;
                 @Skill2.performed += instance.OnSkill2;
                 @Skill2.canceled += instance.OnSkill2;
-                @Pause.started += instance.OnPause;
-                @Pause.performed += instance.OnPause;
-                @Pause.canceled += instance.OnPause;
+                @BuyMode.started += instance.OnBuyMode;
+                @BuyMode.performed += instance.OnBuyMode;
+                @BuyMode.canceled += instance.OnBuyMode;
             }
         }
     }
@@ -631,6 +661,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public AddonsMenuActions @AddonsMenu => new AddonsMenuActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Pause;
+    public struct MenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Menu_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -650,7 +713,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSpecialShoot(InputAction.CallbackContext context);
         void OnSkill1(InputAction.CallbackContext context);
         void OnSkill2(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
+        void OnBuyMode(InputAction.CallbackContext context);
     }
     public interface IAddonsActions
     {
@@ -662,5 +725,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnClearQ(InputAction.CallbackContext context);
         void OnClearE(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }
