@@ -106425,8 +106425,8 @@ MonoBehaviour:
   energyCostEText: {fileID: 906742787}
   rechargeBarQ: {fileID: 1881014875}
   rechargeBarE: {fileID: 596795216}
-  cooldownDurationQ: {fileID: 1998518714}
-  cooldownDurationE: {fileID: 105431565}
+  cooldownDurationQText: {fileID: 1998518714}
+  cooldownDurationEText: {fileID: 105431565}
   cooldownSystem: {fileID: 436629468}
 --- !u!114 &285456158
 MonoBehaviour:
@@ -122371,8 +122371,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.001519, y: 10.594311, z: 60}
-  m_Center: {x: 4.61062, y: -0.017791748, z: 0.60297966}
+  m_Size: {x: 8.001519, y: 7.7522945, z: 60}
+  m_Center: {x: 4.61062, y: 1.4032164, z: 0.60297966}
 --- !u!114 &1478190721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122398,7 +122398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478190719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.57, y: -3.16, z: 0}
+  m_LocalPosition: {x: -9.89, y: -25.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
