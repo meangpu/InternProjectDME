@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    [SerializeField] CinemachineVirtualCamera buyModeCam;
+    bool isBuying;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
@@ -60,6 +63,19 @@ public class GameManager : MonoBehaviour
         PauseGame();
     }
 
+    public void BuyModeSwap()
+    {
+        if (isBuying)
+        {
+            isBuying = false;
+            buyModeCam.m_Priority = 0;
+        }
+        else
+        {
+            buyModeCam.m_Priority = 50;
+            isBuying = true;
+        }
+    }
 
 
     public PlayerGetHit GetPlayer() => player;
