@@ -331,8 +331,9 @@ MonoBehaviour:
   maxHp: 200
   hp: 200
   guns: []
-  siderHealth: {fileID: 3101926655581444469}
+  sliderHealth: {fileID: 0}
   textHp: {fileID: 6608464115503124760}
+  gameManager: {fileID: 0}
 --- !u!1 &4429771888563662084
 GameObject:
   m_ObjectHideFlags: 0
