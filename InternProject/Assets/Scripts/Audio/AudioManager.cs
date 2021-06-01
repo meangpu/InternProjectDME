@@ -30,4 +30,9 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    private void Start() 
+    {
+        Play("fish");   
+    }
+
 }
