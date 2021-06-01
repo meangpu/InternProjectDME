@@ -43,24 +43,14 @@ public class PlayerInputManager : MonoBehaviour
     public float GetRotationValue() => playerControls.Tank.Rotate.ReadValue<float>();
     public Vector2 GetMousePosition() => playerControls.Tank.LookAt.ReadValue<Vector2>();
 
-    public void DisableMovement()
+    public void DisableTankControls()
     {
-        playerControls.Tank.Move.Disable();
+        playerControls.Tank.Disable();
     }
 
-    public void DisableRotation()
+    public void EnableTankControls()
     {
-        playerControls.Tank.Rotate.Disable();
-    }
-
-    public void EnableMovement()
-    {
-        playerControls.Tank.Move.Enable();
-    }
-
-    public void EnableRotation()
-    {
-        playerControls.Tank.Rotate.Enable();
+        playerControls.Tank.Enable();
     }
 
 }
