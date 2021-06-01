@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eneImage: {fileID: 5298252096397123444}
+  timeToRecoverFromStun: 5
   circleHp: {fileID: 1203445315743443537}
   parentHp: {fileID: 4239616382442133906}
 --- !u!114 &5298252096397123447
@@ -315,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5cb16daa9195a45beeb449893fd6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 5298252096397123446}
   startTracking: 0
   rotateAngleAdd: 0
   rb: {fileID: 5298252096397123441}
@@ -331,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a8e6e91694c2646bb6b6467cf2057b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5943029956014393994, guid: 852568b80bf722645832f953e7d1d429, type: 3}
 --- !u!114 &7519780366444106344
 MonoBehaviour:
   m_ObjectHideFlags: 0

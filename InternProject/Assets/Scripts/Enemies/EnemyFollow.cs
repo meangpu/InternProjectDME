@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
+    [SerializeField] private EnemyDisplay enemy = null;
     private EnemyTargetType nowtarget;
     private Transform tranTarget;
     private GameObject target;
@@ -16,11 +17,9 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] EnemyAiSpring springAI;
 
     // public Transform child;
-    
+
     public void SetupTrack()
     {
-        // rb = this.GetComponent<Rigidbody2D>();
-        EnemyDisplay enemy = gameObject.GetComponent<EnemyDisplay>();
         distanceToTarget = enemy.WantDistance;
 
         startTracking = true;
@@ -33,7 +32,6 @@ public class EnemyFollow : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Base");
         }
-
 
         moveSpeed = enemy.Speed;
         tranTarget = target.transform;
@@ -63,6 +61,9 @@ public class EnemyFollow : MonoBehaviour
             Tracking();
         }
 
+        if (moveSpeed == enemy.Speed) { return; }
+
+        moveSpeed = enemy.Speed;
     }
 
     private void FixedUpdate() 

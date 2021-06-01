@@ -20,6 +20,9 @@ MonoBehaviour:
   cooldownTime: 35
   damage: 40
   range: 3.5
+  abilityDuration: 0
+  percentage: 0
   comboList:
   - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
   - {fileID: 11400000, guid: 23fc5d59e16ee1d4e9948fd55fdb5cde, type: 2}
+  comboValue: 0
