@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
-  m_Name: Kasadan
+  m_Name: Wolf Turret (AR)
   m_EditorClassIdentifier: 
-  turretName: Kasadan Turret
-  description: Standard issue Kasadan turret. Engineered for apocalypse.
-  artworks: {fileID: 1881840942919325139, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
-  minDamage: 040000000600000008000000
-  maxDamage: 0a0000000e00000012000000
-  ammoCount: 0a0000000c0000000f000000
+  turretName: Wolf Turret
+  description: The turret of the frontiers. Better than Kasadan turret in damage.
+  artworks: {fileID: -1601994312369450604, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  minDamage: 060000000a0000000e000000
+  maxDamage: 0c0000001200000018000000
+  ammoCount: 080000000a0000000c000000
   rateOfFire:
-  - 2.4
-  - 2.5
-  - 2.6
-  reloadTime:
+  - 2.2
   - 2.3
+  - 2.4
+  reloadTime:
+  - 2.2
   - 2.1
   - 2
   bulletSpeed:
