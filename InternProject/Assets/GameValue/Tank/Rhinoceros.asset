@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50d277517751524c9bf545299dc296c, type: 3}
+  m_Name: Rhinoceros
+  m_EditorClassIdentifier: 
+  tankName: R-101 Rhinoceros
+  tankDes: A mediocre tank that comes with high health and high energy capacity.
+    However, the regeneration rate is not very good due to the combustion unit is
+    being repaired due to recent Tolusin raids.
+  artWork: {fileID: 4640508124277707895, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  hp: 7701000090010000a9010000
+  healthRegenRate:
+  - 0.6
+  - 0.8
+  - 1
+  energy: 7800000091000000aa000000
+  energyRegenRate:
+  - 0.8
+  - 1
+  - 1.2
+  moveSpeed:
+  - 1.8
+  - 1.9
+  - 2
+  rotationSpeed:
+  - 2
+  - 2.1
+  - 2.2

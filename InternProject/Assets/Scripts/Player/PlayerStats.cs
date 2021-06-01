@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     // Player Stats
     private readonly int startingGold = 500;
     private int tankLevel = 1;
+    private int gunLevel = 1;
 
     // Gold
     private GoldSystem goldSystem;
@@ -70,29 +71,29 @@ public class PlayerStats : MonoBehaviour
         turret = player.GetTurret();
         tank = player.GetTank();
 
-        healthSystem = new HealthOrManaSystem(tank.GetHealth());
-        energySystem = new HealthOrManaSystem(tank.GetEnergy());
+        healthSystem = new HealthOrManaSystem(tank.GetHealth()[tankLevel - 1]);
+        energySystem = new HealthOrManaSystem(tank.GetEnergy()[tankLevel - 1]);
 
         goldSystem = new GoldSystem(startingGold);
 
         tankName = tank.GetName();
 
-        energyRegenRate = tank.GetEnergyRate();
+        energyRegenRate = tank.GetEnergyRegenRate()[tankLevel - 1];
         timePerEnergy = 1 / energyRegenRate;
 
-        fireRate = turret.GetRateOfFire();
+        fireRate = turret.GetRateOfFire()[gunLevel - 1];
         cooldownBetweenShots = 1 / fireRate;
 
-        maxAmmoCount = turret.GetAmmoCount();
+        maxAmmoCount = turret.GetAmmoCount()[gunLevel - 1];
         currentAmmoCount = maxAmmoCount;
 
-        reloadTime = turret.GetReloadTime();
+        reloadTime = turret.GetReloadTime()[gunLevel - 1];
 
-        movementSpeed = tank.GetMovementSpeed();
-        rotationSpeed = tank.GetRotationSpeed();
+        movementSpeed = tank.GetMovementSpeed()[tankLevel - 1];
+        rotationSpeed = tank.GetRotationSpeed()[tankLevel - 1];
 
-        minDamage = turret.GetMinDamage();
-        maxDamage = turret.GetMaxDamage();
+        minDamage = turret.GetMinDamage()[gunLevel - 1];
+        maxDamage = turret.GetMaxDamage()[gunLevel - 1];
 
         playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
         healthUi.CustomStart();

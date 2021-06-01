@@ -20,18 +20,18 @@ public class PlayerGun : MonoBehaviour
 
     private void Shoot() 
     {
-        if (!canShoot) { return; }
-
         if (playerStats.GetCurrentAmmoCount() < 1) // If ammo is depleted and the player attempts to shoot, do an auto reload.
         {
-            StartCoroutine(Reload());
+            StartCoroutine(Reload(-4.5f));
+            return;
         }
-        else // Shoot normally
-        {
-            // ************
-            PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
-            StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
-        }  
+
+        if (!canShoot) { return; }
+
+        // Shoot normally
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
+        StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
+ 
     }
 
     public void ShootSpecial()

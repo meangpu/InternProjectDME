@@ -294,8 +294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000019073, y: -0.0000014306}
-  m_SizeDelta: {x: 271.47, y: 332.77}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 275, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9858407
 MonoBehaviour:
@@ -14497,7 +14497,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000000224, y: -100}
-  m_SizeDelta: {x: 64, y: 200}
+  m_SizeDelta: {x: 64, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1142037667
 GameObject:
@@ -16929,7 +16929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1372765242
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20186,10 +20186,10 @@ RectTransform:
   m_Father: {fileID: 464654780}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 225, y: -65}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042953861
 MonoBehaviour:
@@ -20532,10 +20532,10 @@ RectTransform:
   m_Father: {fileID: 464654780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 375, y: -65}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100459714
 MonoBehaviour:
@@ -20891,6 +20891,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78ce3ae17cf38df4fab8c79f7291f531, type: 2}
   - {fileID: 11400000, guid: 9e8519e28d0dfde43b8ff82c918e1e9b, type: 2}
   - {fileID: 11400000, guid: 23d17be246b6470469e31ba50d5d9a16, type: 2}
+  - {fileID: 11400000, guid: a14418be2ca8b9d4195214579a9e0e23, type: 2}
   TankImgPrefab: {fileID: 4733284808967477883, guid: 7c1275181d86f2b4aada8f4b5063fc41, type: 3}
 --- !u!114 &2115521024
 MonoBehaviour:

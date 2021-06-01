@@ -18,9 +18,8 @@ public class ChooseTank : MonoBehaviour
         BigImageOfTank.sprite = dataTank.GetSprite();
         tankName.text = dataTank.GetName();
         tankDes.text = dataTank.GetDescription();
-        hp.value = dataTank.GetHealth();
-        speed.value = dataTank.GetMovementSpeed();
-        energy.value = dataTank.GetEnergy();
-
+        hp.value = dataTank.GetHealth()[0];
+        speed.value = dataTank.GetMovementSpeed()[0];
+        energy.value = dataTank.GetEnergy()[0];
     }
 }

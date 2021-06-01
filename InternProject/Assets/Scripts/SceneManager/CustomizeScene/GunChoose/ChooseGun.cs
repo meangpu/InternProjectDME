@@ -20,10 +20,10 @@ public class ChooseGun : MonoBehaviour
         gunName.text = dataGun.GetName();
         gunDes.text = dataGun.GetDescription();
 
-        dmg.value = dataGun.GetMaxDamage();
-        ammo.value = dataGun.GetAmmoCount();
-        rateOfFire.value = dataGun.GetRateOfFire();
-        reload.value = dataGun.GetReloadTime();
+        dmg.value = dataGun.GetMaxDamage()[0];
+        ammo.value = dataGun.GetAmmoCount()[0];
+        rateOfFire.value = dataGun.GetRateOfFire()[0];
+        reload.value = dataGun.GetReloadTime()[0];
 
     }
 }

@@ -47,9 +47,4 @@ public class ObjEnemy : ScriptableObject
     public ObjGold[] GetMoneyDropSK() => goldDropSK;
     public float GetKnockBack() => knockBack;
     public ObjEnemyBullet GetBulletType() => bulletType;
-
-    public int GetRandomDamage()
-    {
-        return Random.Range(minDamage, maxDamage + 1);
-    }
 }
