@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +13,8 @@ public class AddonsDisplayIngame : MonoBehaviour
     [SerializeField] private TMP_Text energyCostEText = null;
     [SerializeField] private Image rechargeBarQ = null;
     [SerializeField] private Image rechargeBarE = null;
-    [SerializeField] private TMP_Text cooldownDurationQ = null;
-    [SerializeField] private TMP_Text cooldownDurationE = null;
+    [SerializeField] private TMP_Text cooldownDurationQText = null;
+    [SerializeField] private TMP_Text cooldownDurationEText = null;
     [SerializeField] private CooldownSystem cooldownSystem = null;
 
     private List<ObjAbility> addonsList;
@@ -27,7 +27,6 @@ public class AddonsDisplayIngame : MonoBehaviour
 
     private float remainingPercentageQ = 0;
     private float remainingPercentageE = 0;
-
 
     private void Awake()
     {
@@ -50,19 +49,35 @@ public class AddonsDisplayIngame : MonoBehaviour
 
     private void Update()
     {
-        if (remainingPercentageQ != 0)
-        {
-            rechargeBarQ.fillAmount = remainingPercentageQ;
-        }
-        
-        if (remainingPercentageE != 0)
-        {
-            rechargeBarE.fillAmount = remainingPercentageE;
-        }
+        ProcessCooldownUIs();
 
         GetRemainingDuration();
         CalculatePercentage();
     }
+
+    private void ProcessCooldownUIs()
+    {
+        if (remainingPercentageQ != 0)
+        {
+            rechargeBarQ.fillAmount = remainingPercentageQ;
+            cooldownDurationQText.text = ((int)remainingCooldownQ).ToString();
+
+            if (cooldownDurationQText.gameObject.activeInHierarchy) { return; }
+
+            cooldownDurationQText.gameObject.SetActive(true);
+        }
+
+        if (remainingPercentageE != 0)
+        {
+            rechargeBarE.fillAmount = remainingPercentageE;
+            cooldownDurationEText.text = ((int)remainingCooldownE).ToString();
+
+            if (cooldownDurationEText.gameObject.activeInHierarchy) { return; }
+
+            cooldownDurationEText.gameObject.SetActive(true);
+        }
+    }
+
 
     private void GetRemainingDuration()
     {
@@ -80,5 +95,8 @@ public class AddonsDisplayIngame : MonoBehaviour
     {
         rechargeBarQ.fillAmount = remainingPercentageQ;
         rechargeBarE.fillAmount = remainingPercentageE;
+
+        cooldownDurationQText.gameObject.SetActive(false);
+        cooldownDurationEText.gameObject.SetActive(false);
     }
 }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class HomingMissile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private float movementSpeed = 2f;
-    [SerializeField] private float rotationSpeed = 200f;
+    
+    private float movementSpeed = 0f;
+    private float rotationSpeed = 0f;
 
     private Transform target;
     private TargetType targetType;

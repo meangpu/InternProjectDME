@@ -56883,8 +56883,8 @@ MonoBehaviour:
   energyCostEText: {fileID: 85676586}
   rechargeBarQ: {fileID: 1810502850}
   rechargeBarE: {fileID: 2133224519}
-  cooldownDurationQ: {fileID: 1859083702}
-  cooldownDurationE: {fileID: 423207487}
+  cooldownDurationQText: {fileID: 1859083702}
+  cooldownDurationEText: {fileID: 423207487}
   cooldownSystem: {fileID: 1915690393}
 --- !u!4 &926351539 stripped
 Transform:
@@ -60053,10 +60053,10 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 0.006
+  m_FillMethod: 1
+  m_FillAmount: 0.31
   m_FillClockwise: 0
-  m_FillOrigin: 2
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1810502851
