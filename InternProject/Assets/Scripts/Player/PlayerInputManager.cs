@@ -26,7 +26,7 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => playerAbilities.Skill1Activate();
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
-        // playerControls.Tank.Pause.performed += _ => player.Pause();
+        playerControls.BuyMenu.BuyMode.performed += _ => Debug.Log("BUY MENU PLZ");
     }
 
     private void OnDisable()

@@ -81,14 +81,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""BuyMode"",
-                    ""type"": ""Button"",
-                    ""id"": ""e147e587-70e1-4922-935a-d9f28279e69a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -221,17 +213,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Skill2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a9edede8-90fa-4a92-802c-f94508a81928"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BuyMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -396,6 +377,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""BuyMenu"",
+            ""id"": ""7306b463-3410-45c7-8cf9-23d65880d8f6"",
+            ""actions"": [
+                {
+                    ""name"": ""BuyMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""f62552c9-fbad-43c4-a7f3-93f23f5a2a9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2ad79bfa-9d88-4baf-8dd8-f5a5eb5aefb4"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BuyMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -416,7 +424,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tank_SpecialShoot = m_Tank.FindAction("SpecialShoot", throwIfNotFound: true);
         m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
         m_Tank_Skill2 = m_Tank.FindAction("Skill2", throwIfNotFound: true);
-        m_Tank_BuyMode = m_Tank.FindAction("BuyMode", throwIfNotFound: true);
         // Addons
         m_Addons = asset.FindActionMap("Addons", throwIfNotFound: true);
         m_Addons_AssignQ = m_Addons.FindAction("AssignQ", throwIfNotFound: true);
@@ -429,6 +436,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
+        // BuyMenu
+        m_BuyMenu = asset.FindActionMap("BuyMenu", throwIfNotFound: true);
+        m_BuyMenu_BuyMode = m_BuyMenu.FindAction("BuyMode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -486,7 +496,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Tank_SpecialShoot;
     private readonly InputAction m_Tank_Skill1;
     private readonly InputAction m_Tank_Skill2;
-    private readonly InputAction m_Tank_BuyMode;
     public struct TankActions
     {
         private @PlayerControls m_Wrapper;
@@ -499,7 +508,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @SpecialShoot => m_Wrapper.m_Tank_SpecialShoot;
         public InputAction @Skill1 => m_Wrapper.m_Tank_Skill1;
         public InputAction @Skill2 => m_Wrapper.m_Tank_Skill2;
-        public InputAction @BuyMode => m_Wrapper.m_Tank_BuyMode;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -533,9 +541,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill2.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
                 @Skill2.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
                 @Skill2.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
-                @BuyMode.started -= m_Wrapper.m_TankActionsCallbackInterface.OnBuyMode;
-                @BuyMode.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnBuyMode;
-                @BuyMode.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnBuyMode;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
@@ -564,9 +569,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill2.started += instance.OnSkill2;
                 @Skill2.performed += instance.OnSkill2;
                 @Skill2.canceled += instance.OnSkill2;
-                @BuyMode.started += instance.OnBuyMode;
-                @BuyMode.performed += instance.OnBuyMode;
-                @BuyMode.canceled += instance.OnBuyMode;
             }
         }
     }
@@ -694,6 +696,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // BuyMenu
+    private readonly InputActionMap m_BuyMenu;
+    private IBuyMenuActions m_BuyMenuActionsCallbackInterface;
+    private readonly InputAction m_BuyMenu_BuyMode;
+    public struct BuyMenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public BuyMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @BuyMode => m_Wrapper.m_BuyMenu_BuyMode;
+        public InputActionMap Get() { return m_Wrapper.m_BuyMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BuyMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IBuyMenuActions instance)
+        {
+            if (m_Wrapper.m_BuyMenuActionsCallbackInterface != null)
+            {
+                @BuyMode.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
+                @BuyMode.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
+                @BuyMode.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
+            }
+            m_Wrapper.m_BuyMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @BuyMode.started += instance.OnBuyMode;
+                @BuyMode.performed += instance.OnBuyMode;
+                @BuyMode.canceled += instance.OnBuyMode;
+            }
+        }
+    }
+    public BuyMenuActions @BuyMenu => new BuyMenuActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -713,7 +748,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSpecialShoot(InputAction.CallbackContext context);
         void OnSkill1(InputAction.CallbackContext context);
         void OnSkill2(InputAction.CallbackContext context);
-        void OnBuyMode(InputAction.CallbackContext context);
     }
     public interface IAddonsActions
     {
@@ -729,5 +763,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IMenuActions
     {
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IBuyMenuActions
+    {
+        void OnBuyMode(InputAction.CallbackContext context);
     }
 }

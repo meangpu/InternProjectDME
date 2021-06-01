@@ -25,4 +25,4 @@ MonoBehaviour:
   percentage: 0
   comboList:
   - {fileID: 11400000, guid: 7610d30400dbc7f4e993c502e7dc6934, type: 2}
-  comboValue: 0
+  comboValue: 3

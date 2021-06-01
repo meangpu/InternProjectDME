@@ -68,14 +68,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "BuyMode",
-                    "type": "Button",
-                    "id": "e147e587-70e1-4922-935a-d9f28279e69a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -208,17 +200,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skill2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a9edede8-90fa-4a92-802c-f94508a81928",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BuyMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -379,6 +360,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "BuyMenu",
+            "id": "7306b463-3410-45c7-8cf9-23d65880d8f6",
+            "actions": [
+                {
+                    "name": "BuyMode",
+                    "type": "Button",
+                    "id": "f62552c9-fbad-43c4-a7f3-93f23f5a2a9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2ad79bfa-9d88-4baf-8dd8-f5a5eb5aefb4",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BuyMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -24,4 +24,4 @@ MonoBehaviour:
   percentage: 20
   comboList:
   - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
-  comboValue: 0
+  comboValue: 30
