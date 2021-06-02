@@ -57,7 +57,7 @@ public class AddonsDisplayIngame : MonoBehaviour
 
     private void ProcessCooldownUIs()
     {
-        if (remainingPercentageQ != 0)
+        if (cooldownSystem.IsOnCooldown(objQ.GetAbilityType()))
         {
             rechargeBarQ.fillAmount = remainingPercentageQ;
             cooldownDurationQText.text = ((int)remainingCooldownQ).ToString();
@@ -73,7 +73,7 @@ public class AddonsDisplayIngame : MonoBehaviour
             cooldownDurationQText.gameObject.SetActive(false);
         }
 
-        if (remainingPercentageE != 0)
+        if (cooldownSystem.IsOnCooldown(objE.GetAbilityType()))
         {
             rechargeBarE.fillAmount = remainingPercentageE;
             cooldownDurationEText.text = ((int)remainingCooldownE).ToString();
