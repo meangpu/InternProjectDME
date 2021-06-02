@@ -117,6 +117,15 @@ public class Pooler : MonoBehaviour
         bulletStats.KnockBack = knockBack;
     }
 
+    public void SpawnTowerBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime)
+    {
+        GameObject bullet = SpawnObject(position, rotation);
+        IProjectile bulletStats = bullet.GetComponent<IProjectile>();
+        bulletStats.Damage = damage;
+        bulletStats.BulletSpeed = speed;
+        bulletStats.Lifetime = lifetime;
+    }
+
     public void SpawnPopup(Vector3 position, Quaternion rotation, int damage, DamagePopup.DamageType type)
     {
         GameObject popup = SpawnObject(position, rotation);

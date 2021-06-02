@@ -22,10 +22,14 @@ public class TowerAI : MonoBehaviour
         towerStats = GetComponent<TowerStats>();
     }
 
+    private void Start()
+    {
+        SetupTower();
+    }
+
     private void OnEnable()
     {
-        range = towerStats.GetAttackRange();
-        shootInterval = towerStats.GetRateOfFire();
+        SetupTower();
     }
 
     private void Update()
@@ -50,7 +54,13 @@ public class TowerAI : MonoBehaviour
         projectileSpawnPoint = projectileSpawnPointTransform.position;
         projectileRotation = projectileSpawnPointTransform.rotation;
 
-        PoolingSingleton.Instance.TowerBulletPool.SpawnObject(projectileSpawnPoint, projectileRotation);
+        PoolingSingleton.Instance.TowerBulletPool.SpawnTowerBullet(projectileSpawnPoint, projectileRotation, towerStats.DealDamage(), towerStats.GetBulletSpeed(), towerStats.GetBulletLifetime());
+    }
+
+    private void SetupTower()
+    {
+        range = towerStats.GetAttackRange();
+        shootInterval = towerStats.GetRateOfFire();
     }
 
     private void FindTarget()

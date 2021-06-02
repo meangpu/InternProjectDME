@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerProjectile : MonoBehaviour
+public class TowerProjectile : MonoBehaviour, IProjectile
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private DamageSetter damageSetter = null;
 
-    [Header("Temp Fields")]
-    [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private float lifeTime = 1f;
-
+    private float bulletSpeed;
+    private float lifetime;
     private int damage;
 
-    public int Damage { get { return damage; } }
+    public int Damage { get => damage; set => damage = value; }
+    public float KnockBack { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public float Lifetime { get => lifetime; set => lifetime = value; }
+    public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
 
     private void OnEnable()
     {
         Move();
-        damage = damageSetter.Damage;
         StartCoroutine(DestroyOverTme());
     }
 
@@ -29,7 +28,7 @@ public class TowerProjectile : MonoBehaviour
 
     private IEnumerator DestroyOverTme()
     {
-        yield return new WaitForSeconds(lifeTime);
+        yield return new WaitForSeconds(lifetime);
         DestroySelf();
     }
 

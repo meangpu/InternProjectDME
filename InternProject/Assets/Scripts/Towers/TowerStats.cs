@@ -17,7 +17,17 @@ public class TowerStats : MonoBehaviour
     private float bulletLifetime;
     private Sprite bulletSprite;
 
+    private void Start()
+    {
+        GetAllStats();
+    }
+
     private void OnEnable()
+    {
+        GetAllStats();
+    }
+
+    private void GetAllStats()
     {
         towerBase.sprite = tower.GetBaseSprite();
         towerTurret.sprite = tower.GetTowerSprite();
@@ -34,6 +44,11 @@ public class TowerStats : MonoBehaviour
     public void SetTowerType(ObjTower tower)
     {
         this.tower = tower;
+    }
+
+    public int DealDamage()
+    {
+        return Random.Range(minDamage, maxDamage + 1);
     }
 
     public int GetMinDamage() => minDamage;
