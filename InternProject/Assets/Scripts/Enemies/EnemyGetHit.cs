@@ -14,6 +14,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
     [SerializeField] bool isBoss;
     [SerializeField] Boss1 bossScript;
     [SerializeField] Animator anim;
+    [SerializeField] ParticleSystem parDeath;
 
     bool Immortal = false;
 
@@ -64,6 +65,7 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
 
     private void EnemyDie()
     {
+        parDeath.Play();
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);
