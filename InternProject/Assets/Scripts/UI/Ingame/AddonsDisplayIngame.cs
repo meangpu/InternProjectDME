@@ -62,17 +62,18 @@ public class AddonsDisplayIngame : MonoBehaviour
             rechargeBarQ.fillAmount = remainingPercentageQ;
             cooldownDurationQText.text = ((int)remainingCooldownQ).ToString();
 
-            if (cooldownDurationQText.gameObject.activeInHierarchy) { return; }
+            if (cooldownDurationQText.gameObject.activeInHierarchy) { goto CheckE; }
 
             cooldownDurationQText.gameObject.SetActive(true);
         } 
         else
         {
-            if (!cooldownDurationQText.gameObject.activeInHierarchy) { return; }
+            if (!cooldownDurationQText.gameObject.activeInHierarchy) { goto CheckE; }
 
             cooldownDurationQText.gameObject.SetActive(false);
         }
 
+        CheckE:
         if (cooldownSystem.IsOnCooldown(objE.GetAbilityType()))
         {
             rechargeBarE.fillAmount = remainingPercentageE;
