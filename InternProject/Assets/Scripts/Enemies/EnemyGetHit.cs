@@ -53,7 +53,8 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
 
         if (enemyDisplay.Health <= 0)
         {
-            EnemyDie();           
+            EnemyDie();   
+                  
         }
         UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
     }
@@ -63,9 +64,12 @@ public class EnemyGetHit : MonoBehaviour, ITargetable, IEnemy
         Immortal = false;
     }
 
+    [ContextMenu("waa")]
     private void EnemyDie()
     {
-        parDeath.Play();
+        parDeath.Play();  
+        parDeath.transform.parent = null;
+        parDeath.transform.position = gameObject.transform.position;
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);
