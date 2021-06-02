@@ -23,8 +23,12 @@ public class PlayerStats : MonoBehaviour
 
     // ObjPlayerTank Stats from Scriptable Object
     private string tankName;
+    private int baseMinDamage;
+    private int baseMaxDamage;
     private int minDamage;
     private int maxDamage;
+    private float healthRegenRate;
+    private float timePerHealth;
     private float energyRegenRate;
     private float timePerEnergy;
     private float cooldownBetweenShots;
@@ -35,7 +39,8 @@ public class PlayerStats : MonoBehaviour
     private float movementSpeed;
     private float rotationSpeed;
 
-    private float timeElapsed;
+    private float timeElapsedHealth;
+    private float timeElapsedEnergy;
 
     private const int TANK_MAX_LEVEL_LIMIT = 3;
 
@@ -50,6 +55,7 @@ public class PlayerStats : MonoBehaviour
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
     private bool isImmuned = false;
+    private float damageBoostDuration = 0;
 
     private void Awake()
     {
@@ -78,6 +84,9 @@ public class PlayerStats : MonoBehaviour
 
         tankName = tank.GetName();
 
+        healthRegenRate = tank.GetHealthRegenRate()[tankLevel - 1];
+        timePerHealth = 1 / healthRegenRate;
+
         energyRegenRate = tank.GetEnergyRegenRate()[tankLevel - 1];
         timePerEnergy = 1 / energyRegenRate;
 
@@ -92,31 +101,50 @@ public class PlayerStats : MonoBehaviour
         movementSpeed = tank.GetMovementSpeed()[tankLevel - 1];
         rotationSpeed = tank.GetRotationSpeed()[tankLevel - 1];
 
-        minDamage = turret.GetMinDamage()[gunLevel - 1];
-        maxDamage = turret.GetMaxDamage()[gunLevel - 1];
+        baseMinDamage = turret.GetMinDamage()[gunLevel - 1];
+        baseMaxDamage = turret.GetMaxDamage()[gunLevel - 1];
+        minDamage = baseMinDamage;
+        maxDamage = baseMaxDamage;
 
         playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
         healthUi.CustomStart();
-        
     }
 
     private void Update()
     {
+        float deltaTime = Time.deltaTime;
+
+        RegenerateHealth(deltaTime);
+
+        damageBoostDuration = Mathf.Max(damageBoostDuration - deltaTime, 0f);
+        TryRemoveDamageBoost();
+
         if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
 
-        RegenerateEnergy();
+        RegenerateEnergy(deltaTime);
 
     }
 
-    private void RegenerateEnergy()
+    private void RegenerateHealth(float deltaTime)
     {
-        timeElapsed += Time.deltaTime;
+        if (healthSystem.GetAmount() == 0) { return; } // IF alive
 
-        if (timeElapsed >= timePerEnergy)
-        {
-            energySystem.Heal(1);
-            timeElapsed = 0;
-        }
+        timeElapsedHealth += deltaTime;
+
+        if (timeElapsedHealth < timePerHealth) { return; }
+
+        healthSystem.Heal(1);
+        timeElapsedHealth = 0;
+    }
+
+    private void RegenerateEnergy(float deltaTime)
+    {
+        timeElapsedEnergy += deltaTime;
+
+        if (timeElapsedEnergy < timePerEnergy) { return; }
+
+        energySystem.Heal(1);
+        timeElapsedEnergy = 0;
     }
 
     private void UpdateAmmoUI()
@@ -197,16 +225,37 @@ public class PlayerStats : MonoBehaviour
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
 
-    public void LevelUp()
+    public void AddDamageBoost(float percentage, float duration)
     {
-        if (tankLevel == TANK_MAX_LEVEL_LIMIT)
-        {
-            return;
-        }
+        minDamage = (int)(minDamage * percentage);
+        maxDamage = (int)(maxDamage * percentage);
+        damageBoostDuration = duration;
+    }
 
-        tankLevel += 1;
+    private void TryRemoveDamageBoost()
+    {
+        if (damageBoostDuration != 0 || minDamage == baseMinDamage) { return; }
+
+        minDamage = baseMinDamage;
+        maxDamage = baseMaxDamage;
+    }
+
+    public void TankLevelUp()
+    {
+        if (tankLevel == TANK_MAX_LEVEL_LIMIT) { return; }
+
+        tankLevel++;
 
         OnTankLeveledUp?.Invoke(tankLevel);
+    }
+
+    public void GunLevelUp()
+    {
+        if (gunLevel == TANK_MAX_LEVEL_LIMIT) { return; }
+
+        gunLevel++;
+
+        // Invoke
     }
 
     public void SetIsImmuned(bool value)

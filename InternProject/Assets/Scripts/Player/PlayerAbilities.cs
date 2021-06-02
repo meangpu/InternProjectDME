@@ -207,6 +207,10 @@ public class PlayerAbilities : MonoBehaviour
     private void ActivateIncendiary(ComboType comboType, float duration, float percentage, float comboValue)
     {
         percentage = comboType == ComboType.IncendiaryCharge ? comboValue : percentage;
+
+        float normalizedPercentage = (100 + percentage) / 100;
+
+        playerStats.AddDamageBoost(normalizedPercentage, duration);
     }
     #endregion
 }
