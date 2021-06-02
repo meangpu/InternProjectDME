@@ -130,6 +130,4 @@ public class Pooler : MonoBehaviour
         GameObject goldItem = SpawnObject(position, rotation);
         goldItem.GetComponent<AssignGold>().SetGold(ObjGold);
     }
-
-
 }

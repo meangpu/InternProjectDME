@@ -27,9 +27,9 @@ MonoBehaviour:
   - 0.1
   - 0.1
   bulletSpeed:
-  - 5
-  - 5
-  - 5
+  - 20
+  - 20
+  - 20
   lifetime: 0.4
   knockBack: 0
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}

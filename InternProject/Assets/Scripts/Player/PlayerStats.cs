@@ -38,6 +38,10 @@ public class PlayerStats : MonoBehaviour
     private float reloadTime;
     private float movementSpeed;
     private float rotationSpeed;
+    private float bulletLifetime;
+    private float bulletSpeed;
+    private float bulletKnockback;
+    private ObjPlayerBullet objBullet;
 
     private float timeElapsedHealth;
     private float timeElapsedEnergy;
@@ -105,6 +109,12 @@ public class PlayerStats : MonoBehaviour
         baseMaxDamage = turret.GetMaxDamage()[gunLevel - 1];
         minDamage = baseMinDamage;
         maxDamage = baseMaxDamage;
+
+        bulletSpeed = turret.GetBulletSpeed()[gunLevel - 1];
+        bulletLifetime = turret.GetLifetime();
+        bulletKnockback = turret.GetKnockBack();
+
+        objBullet = turret.GetBulletType();
 
         playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
         healthUi.CustomStart();
@@ -309,6 +319,12 @@ public class PlayerStats : MonoBehaviour
 
     public float GetMovementSpeed() => movementSpeed;
     public float GetRotationSpeed() => rotationSpeed;
+
+    public float GetBulletLifetime() => bulletLifetime;
+    public float GetBulletSpeed() => bulletSpeed;
+    public float GetKnockbackValue() => bulletKnockback;
+
+    public ObjPlayerBullet GetBulletType() => objBullet;
 
     #endregion
 }

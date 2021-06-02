@@ -6,8 +6,6 @@ public class PlayerGun : MonoBehaviour
 {
     [SerializeField] private Transform barrel = null; // Bullet Spawn point
     [SerializeField] private PlayerStats playerStats = null;
-    [SerializeField] Player player;
-
 
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
@@ -29,16 +27,44 @@ public class PlayerGun : MonoBehaviour
         if (!canShoot) { return; }
 
         // Shoot normally
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
+            barrel.position, 
+            barrel.rotation, 
+            playerStats.DealDamage(), 
+            playerStats.GetBulletSpeed(), 
+            playerStats.GetBulletLifetime(), 
+            playerStats.GetKnockbackValue(), 
+            playerStats.GetBulletType());
         StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
  
     }
 
     public void ShootSpecial()
     {
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation, playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, 3), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(barrel.position, barrel.rotation * Quaternion.Euler(0, 0, -3), playerStats.DealDamage(), player.GetTurret().GetKnockBack(), player.GetTurret().GetBulletType());    
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
+            barrel.position,
+            barrel.rotation,
+            playerStats.DealDamage(),
+            playerStats.GetBulletSpeed(),
+            playerStats.GetBulletLifetime(),
+            playerStats.GetKnockbackValue(),
+            playerStats.GetBulletType());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
+            barrel.position,
+            barrel.rotation * Quaternion.Euler(0, 0, 3),
+            playerStats.DealDamage(),
+            playerStats.GetBulletSpeed(),
+            playerStats.GetBulletLifetime(),
+            playerStats.GetKnockbackValue(),
+            playerStats.GetBulletType());
+        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
+            barrel.position,
+            barrel.rotation * Quaternion.Euler(0, 0, -3),
+            playerStats.DealDamage(),
+            playerStats.GetBulletSpeed(),
+            playerStats.GetBulletLifetime(),
+            playerStats.GetKnockbackValue(),
+            playerStats.GetBulletType()); 
     }
 
     public void OnHoldShootButton() // If shoot button is held down.

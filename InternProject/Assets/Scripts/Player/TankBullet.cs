@@ -3,34 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankBullet : MonoBehaviour
+public class TankBullet : MonoBehaviour, IProjectile
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private DamageSetter damageSetter = null;
-
-    // Temporary variables
-    public float bulletSpeed = 10f;
-    public float lifeTime = 4f;
-    private float knockbackForce = 0.1f;
 
     private int damage;
-    public float knockBack;
+    private float knockback;
+    private float lifetime;
+    private float bulletSpeed;
 
-    public int Damage { get { return damage; } }
+    public int Damage { get => damage; set => damage = value; }
+    public float KnockBack { get => knockback; set => knockback = value; }
+    public float Lifetime { get => lifetime; set => lifetime = value; }
+    public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
+
     public Rigidbody2D GetRB() => rb;
 
 
     private void OnEnable()
     {
         Move();
-        damage = damageSetter.Damage;
-        knockBack = damageSetter.KnockBack;
         StartCoroutine(DestroyOverTime());
     }
 
     private IEnumerator DestroyOverTime()
     {
-        yield return new WaitForSeconds(lifeTime);
+        yield return new WaitForSeconds(lifetime);
         DestroySelf();
     }
 
@@ -49,7 +47,7 @@ public class TankBullet : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out IEnemy enemy))
         {
             enemy.TakeDamage(damage);
-            enemy.TakeKnockback(transform.position, knockbackForce);
+            enemy.TakeKnockback(transform.position, knockback);
             DestroySelf();
         }
     }
