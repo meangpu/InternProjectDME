@@ -12,5 +12,4 @@ public class ObjPlayerBullet : ScriptableObject
     public string GetName() => bulletName;
     public Sprite GetArtWork() => artWork;
     public Material GetMaterial() => material;
-
 }

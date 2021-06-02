@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8338263324132100304}
   - component: {fileID: 2266846991421900408}
   - component: {fileID: 8338263324132100317}
-  - component: {fileID: -4337637521216728207}
   - component: {fileID: 3351476194070106678}
   m_Layer: 0
   m_Name: enemyBullet
@@ -150,21 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8338263324132100304}
-  bulletSpeed: 6
-  damageSetter: {fileID: -4337637521216728207}
-  lifeTime: 10
---- !u!114 &-4337637521216728207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8338263324132100305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 798d01a594d7b2b408db073d685b51ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3351476194070106678
 MonoBehaviour:
   m_ObjectHideFlags: 0

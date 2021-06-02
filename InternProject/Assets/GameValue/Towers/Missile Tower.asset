@@ -23,7 +23,7 @@ MonoBehaviour:
   - 4.5
   - 5
   rateOfFire: 0.33
-  projectileLifetime: 0.3
+  projectileLifetime: 0.7
   projectileSpeed: 2
   areaOfDamage: 1.5
   laserType: 0
