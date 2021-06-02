@@ -4,35 +4,45 @@ using UnityEngine;
 
 public class TowerAI : MonoBehaviour
 {
-    // [SerializeField] private GameObject projectilePrefab = null;
     [SerializeField] private Transform projectileSpawnPointTransform = null;
     [SerializeField] private float targetScanInterval = 0.1f;
-    [SerializeField] private float shootInterval = 0.5f;
-
-    [SerializeField] private float range = 5f;
 
     private Vector3 projectileSpawnPoint;
     private Quaternion projectileRotation;
     private float timeScanPassed;
     private float timeAfterShot;
+    private float shootInterval;
+    private float range;
 
+    private TowerStats towerStats;
     private Enemy target;
+
+    private void Awake()
+    {
+        towerStats = GetComponent<TowerStats>();
+    }
+
+    private void OnEnable()
+    {
+        range = towerStats.GetAttackRange();
+        shootInterval = towerStats.GetRateOfFire();
+    }
 
     private void Update()
     {
         CountTimer();
-
-        if (timeScanPassed >= targetScanInterval)
-        {
-            FindTarget();
-            ResetScanTimer();
-        }
 
         if (target != null && (timeAfterShot >= shootInterval))
         {
             Shoot();
             ResetShootTimer();
         }
+
+        if (timeScanPassed >= targetScanInterval)
+        {
+            FindTarget();
+            ResetScanTimer();
+        } 
     }
 
     private void Shoot()
@@ -45,7 +55,7 @@ public class TowerAI : MonoBehaviour
 
     private void FindTarget()
     {
-        if (target != null && target.gameObject.activeSelf)
+        if (target != null && target.gameObject.activeSelf && Vector2.Distance(transform.position, target.transform.position) <= range)
         {
             return;
         }

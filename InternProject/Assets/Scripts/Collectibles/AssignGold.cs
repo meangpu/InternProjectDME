@@ -28,7 +28,7 @@ public class AssignGold : MonoBehaviour
         }
     }
 
-    public void setGold(ObjGold _newGold)
+    public void SetGold(ObjGold _newGold)
     {
         ObjGold = _newGold;
         spriteRenderer.sprite = ObjGold.GetSprite();

@@ -86,55 +86,49 @@ public class Pooler : MonoBehaviour
         freeList.Add(g);
     }
 
-    public void SpawnObject(Vector3 position, Quaternion rotation)
+    public GameObject SpawnObject(Vector3 position, Quaternion rotation)
     {
         GameObject gameObject = GetObject();
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.SetActive(true);
+
+        return gameObject;
     }
 
-    public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float knockBack, ObjEnemyBullet _objBullet)
+    public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, ObjEnemyBullet _objBullet)
     {
-        GameObject gameObject = GetObject();
-        gameObject.GetComponent<DamageSetter>().Damage = damage;
-        gameObject.GetComponent<DamageSetter>().KnockBack = knockBack;
-        gameObject.GetComponent<EnemyBulletDisplay>().setupBullet(_objBullet);
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
-        gameObject.SetActive(true);
+        GameObject bullet = SpawnObject(position, rotation);
+        bullet.GetComponent<EnemyBulletDisplay>().SetupBullet(_objBullet);
+        IProjectile bulletStats = bullet.GetComponent<IProjectile>();
+        bulletStats.Damage = damage;
+        bulletStats.BulletSpeed = speed;
+        bulletStats.Lifetime = lifetime;     
     }
 
-    public void SpawnPlayerBullet(Vector3 position, Quaternion rotation, int damage, float knockBack, ObjPlayerBullet _objBullet)
+    public void SpawnPlayerBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, float knockBack, ObjPlayerBullet _objBullet)
     {
-        GameObject gameObject = GetObject();
-        gameObject.GetComponent<DamageSetter>().Damage = damage;
-        gameObject.GetComponent<DamageSetter>().KnockBack = knockBack;
-        gameObject.GetComponent<PlayerBulletDisplay>().setupBullet(_objBullet);
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
-        gameObject.SetActive(true);
+        GameObject bullet = SpawnObject(position, rotation);
+        bullet.GetComponent<PlayerBulletDisplay>().SetupBullet(_objBullet);
+        IProjectile bulletStats = bullet.GetComponent<IProjectile>();
+        bulletStats.Damage = damage;
+        bulletStats.BulletSpeed = speed;
+        bulletStats.Lifetime = lifetime;
+        bulletStats.KnockBack = knockBack;
     }
 
     public void SpawnPopup(Vector3 position, Quaternion rotation, int damage, DamagePopup.DamageType type)
     {
-        GameObject gameObject = GetObject();
+        GameObject popup = SpawnObject(position, rotation);
 
-        DamagePopup damagePopup = gameObject.GetComponent<DamagePopup>();
+        DamagePopup damagePopup = popup.GetComponent<DamagePopup>();
         damagePopup.Setup(damage, type);
-
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
-        gameObject.SetActive(true);
     }
 
     public void SpawnGold(Vector3 position, Quaternion rotation, ObjGold ObjGold)
     {
-        GameObject gameObject = GetObject();
-        gameObject.GetComponent<AssignGold>().setGold(ObjGold);
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
-        gameObject.SetActive(true); 
+        GameObject goldItem = SpawnObject(position, rotation);
+        goldItem.GetComponent<AssignGold>().SetGold(ObjGold);
     }
 
 

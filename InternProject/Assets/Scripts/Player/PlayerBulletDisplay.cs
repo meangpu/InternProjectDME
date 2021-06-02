@@ -7,15 +7,15 @@ public class PlayerBulletDisplay : MonoBehaviour
     [SerializeField] TankBullet _bulletScript;
     [SerializeField] SpriteRenderer _spriteRenderer;
 
-    public void setupBullet(ObjPlayerBullet _bullet)
+    public void SetupBullet(ObjPlayerBullet _bullet)
     {
         _spriteRenderer.sprite = _bullet.GetArtWork();
         _spriteRenderer.material = _bullet.GetMaterial();
         _bulletScript.bulletSpeed = _bullet.GetSpeed();
-        refreshHitbox();
+        RefreshHitbox();
     }
 
-    private void refreshHitbox()
+    private void RefreshHitbox()
     {
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;

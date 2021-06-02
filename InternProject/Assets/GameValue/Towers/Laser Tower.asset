@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ffde0b7c1e58d429c4e99185df37fd, type: 3}
+  m_Name: Laser Tower
+  m_EditorClassIdentifier: 
+  towerName: Laser Tower
+  sprite: {fileID: 21300000, guid: 1898fca2246b77547ab3875498455dfb, type: 3}
+  towerBaseSprite: {fileID: 21300000, guid: 8f20e8e9a6eae664cba0505a46690b79, type: 3}
+  projectileSprite: {fileID: 4960783951515338031, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
+  minDamage: 020000000400000007000000
+  maxDamage: 030000000500000008000000
+  attackRange:
+  - 3.5
+  - 3.75
+  - 4
+  rateOfFire: 5
+  projectileLifetime: 0.1
+  projectileSpeed: 0
+  areaOfDamage: 0
+  laserType: 1

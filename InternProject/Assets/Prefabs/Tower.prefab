@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2792474500436230540}
+  - component: {fileID: 803605578437751490}
   - component: {fileID: 2792474500436230547}
   m_Layer: 0
   m_Name: Tower
@@ -78,6 +79,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803605578437751490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792474500436230541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b751ad3334f46324199bd46c2841a837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerLevel: 1
+  tower: {fileID: 11400000, guid: 42a37942165809f44a38442935d6c11c, type: 2}
+  towerBase: {fileID: 2792474500954561039}
+  towerTurret: {fileID: 2792474501053865933}
 --- !u!114 &2792474500436230547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,11 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8fc7b63e5a1d140a6423c210651d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1139181902996810874, guid: 891cef5396d0dea43bb0f5aa8d31db4b, type: 3}
   projectileSpawnPointTransform: {fileID: 2792474500679827443}
   targetScanInterval: 0.1
-  shootInterval: 0.5
-  range: 5
 --- !u!1 &2792474500679827436
 GameObject:
   m_ObjectHideFlags: 0

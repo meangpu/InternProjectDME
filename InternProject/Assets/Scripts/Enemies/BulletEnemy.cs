@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletEnemy : MonoBehaviour
+public class BulletEnemy : MonoBehaviour, IProjectile
 {
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private DamageSetter damageSetter = null;
-    public float bulletSpeed = 10f;
 
+    private float bulletSpeed;
     private int damage;
+    private float lifeTime;
 
-    public int Damage { get { return damage; } }
-
-    public float lifeTime = 5f;
+    public int Damage { get => damage; set => damage = value; }
+    public float KnockBack { get => 0; set => throw new System.NotImplementedException(); }
+    public float Lifetime { get => lifeTime; set => lifeTime = value; }
+    public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
 
     private void OnEnable() 
     {
-        damage = damageSetter.Damage;
         Move();
         StartCoroutine(DestroyOverTme());
     }

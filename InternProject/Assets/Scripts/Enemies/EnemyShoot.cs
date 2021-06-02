@@ -27,7 +27,7 @@ public class EnemyShoot : MonoBehaviour
 
     private IEnumerator FireBullet()
     {
-        PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), 0f, enemy.BulletType);
+        PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), enemy.BulletType);
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(FireBullet());
     }
