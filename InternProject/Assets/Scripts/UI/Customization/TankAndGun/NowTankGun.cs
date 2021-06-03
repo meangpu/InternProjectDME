@@ -9,7 +9,29 @@ public class NowTankGun : MonoBehaviour
     [SerializeField] PlayerTankCustomization nowTankGun;
     [SerializeField] Image TankGunImage;
     [SerializeField] Image TankImage;
+    [SerializeField] ChooseGun gunScpt;
+    [SerializeField] ChooseTank tankScpt;
 
+    private void Start() 
+    {
+        updateImageTankGun();
+    }
+
+    public void updateImageTankGun()
+    {
+        gunScpt.firstDisplayGunData(nowTankGun.GetTurret());
+        tankScpt.firstDisplayTankData(nowTankGun.GetTank());
+    }
+
+    public void saveTankData(ObjPlayerTank _tank)
+    {
+        nowTankGun.SetTank(_tank);
+    }
+
+    public void saveGunData(ObjTankTurret _gun)
+    {
+        nowTankGun.SetTurret(_gun);
+    }
 
 
 }
