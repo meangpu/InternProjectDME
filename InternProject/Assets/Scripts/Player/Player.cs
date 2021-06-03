@@ -22,15 +22,11 @@ public class Player : MonoBehaviour
     {
         playerAbilities = GetComponent<PlayerAbilities>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        tank = scriptObjDataTankGun.GetTank();
+        turret = scriptObjDataTankGun.GetTurret();
         
-        if (TankCustomizationData.playerTank != null)
-        {
-            tank = TankCustomizationData.playerTank;
-        }
-        if (TankCustomizationData.playerTurret != null)
-        {
-            turret = TankCustomizationData.playerTurret;
-        }
+
     }
 
     private void Start()
