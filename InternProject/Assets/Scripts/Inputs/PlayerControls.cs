@@ -389,6 +389,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""2e5a9480-9b63-4d37-9daa-fc2bd04cb990"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -400,6 +408,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""BuyMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e2fe369-636f-4f56-842d-52713bb89c22"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -439,6 +458,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // BuyMenu
         m_BuyMenu = asset.FindActionMap("BuyMenu", throwIfNotFound: true);
         m_BuyMenu_BuyMode = m_BuyMenu.FindAction("BuyMode", throwIfNotFound: true);
+        m_BuyMenu_MousePosition = m_BuyMenu.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -701,11 +721,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_BuyMenu;
     private IBuyMenuActions m_BuyMenuActionsCallbackInterface;
     private readonly InputAction m_BuyMenu_BuyMode;
+    private readonly InputAction m_BuyMenu_MousePosition;
     public struct BuyMenuActions
     {
         private @PlayerControls m_Wrapper;
         public BuyMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @BuyMode => m_Wrapper.m_BuyMenu_BuyMode;
+        public InputAction @MousePosition => m_Wrapper.m_BuyMenu_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_BuyMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -718,6 +740,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BuyMode.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
                 @BuyMode.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
                 @BuyMode.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
+                @MousePosition.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_BuyMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -725,6 +750,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BuyMode.started += instance.OnBuyMode;
                 @BuyMode.performed += instance.OnBuyMode;
                 @BuyMode.canceled += instance.OnBuyMode;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -767,5 +795,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IBuyMenuActions
     {
         void OnBuyMode(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }
