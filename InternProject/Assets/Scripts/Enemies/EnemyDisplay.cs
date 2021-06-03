@@ -40,7 +40,7 @@ public class EnemyDisplay : MonoBehaviour
         eneImage.sprite = enemy.GetSprite()[Random.Range(0, enemy.GetSprite().Length)];
         maxSpeed = enemy.GetMovementSpeed();
         eneSpeed = maxSpeed;
-        tagName = enemy.GetTargetTag();
+        // tagName = enemy.GetTargetTag();
         hp = enemy.GetHealth();
         maxhp = enemy.GetHealth();
         minDamage = enemy.GetMinDamage();
@@ -51,7 +51,7 @@ public class EnemyDisplay : MonoBehaviour
         dropGoldSK = enemy.GetMoneyDropSK();
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
-        wantDistance = enemy.GetWantDistance();
+        // wantDistance = enemy.GetWantDistance();
         //// fix
         RefreshHitbox();
     }
