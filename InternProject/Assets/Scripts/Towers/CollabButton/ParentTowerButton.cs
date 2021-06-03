@@ -19,10 +19,15 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] Ease expandEase;
 	[SerializeField] Ease collapseEase;
 
+	// [Space]
+	// [Header ("Fading")]
+	// [SerializeField] float expandFadeDuration;
+	// [SerializeField] float collapseFadeDuration;
+
 	[Space]
-	[Header ("Fading")]
-	[SerializeField] float expandFadeDuration;
-	[SerializeField] float collapseFadeDuration;
+	[Header ("TowerData")]
+	[SerializeField] ObjTower[] towerToChoose;
+	[SerializeField] GameObject childBuyTower;
 
 	Button mainButton;
 	ChildTowerButton[] menuItems;
@@ -34,6 +39,23 @@ public class ParentTowerButton : MonoBehaviour
 	int itemsCount;
 
 	void Start ()
+	{
+		spawnChild();
+		// setupChild();
+	}
+
+	void spawnChild()
+	{
+        foreach (var tower in towerToChoose)
+        {
+            GameObject newTowerButton = Instantiate(childBuyTower, gameObject.transform);
+            // newTowerButton.GetComponent<GunChildSetup>().ShowData(gun); 
+            
+        }
+
+	}
+
+	void setupChild()
 	{
 		//add all the items to the menuItems array
 		itemsCount = transform.childCount - 1;
@@ -70,14 +92,14 @@ public class ParentTowerButton : MonoBehaviour
 			for (int i = 0; i < itemsCount; i++) {
 				menuItems [i].trans.DOMove (mainButtonPosition + spacing * (i + 1), expandDuration).SetEase (expandEase);
 				//Fade to alpha=1 starting from alpha=0 immediately
-				menuItems [i].img.DOFade (1f, expandFadeDuration).From (0f);
+				// menuItems [i].img.DOFade (1f, expandFadeDuration).From (0f);   ******
 			}
 		} else {
 			//menu closed
 			for (int i = 0; i < itemsCount; i++) {
 				menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
 				//Fade to alpha=0
-				menuItems [i].img.DOFade (0f, collapseFadeDuration);
+				// menuItems [i].img.DOFade (0f, collapseFadeDuration);   *****
 			}
 		}
 
@@ -110,6 +132,8 @@ public class ParentTowerButton : MonoBehaviour
 	void OnDestroy ()
 	{
 		//remove click listener to avoid memory leaks
-		mainButton.onClick.RemoveListener (ToggleMenu);
+
+
+		// mainButton.onClick.RemoveListener (ToggleMenu);
 	}
 }

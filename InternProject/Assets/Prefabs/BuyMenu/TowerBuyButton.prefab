@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3728708104682083029}
   - component: {fileID: 2753982258047150951}
   - component: {fileID: 7644106033523035802}
+  - component: {fileID: 8585167292257228624}
   m_Layer: 0
   m_Name: ButtonToPress
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1535749064117039087, guid: 8e2f8464aaf5dbd448e411b75261e9ba, type: 3}
+  m_Sprite: {fileID: -8128115222843876425, guid: 8e2f8464aaf5dbd448e411b75261e9ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,14 +94,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8753286}
+    oldSize: {x: 1, y: 1.0003755}
     newSize: {x: 1, y: 1.0003755}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -109,6 +110,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8753286}
   m_EdgeRadius: 0
+--- !u!114 &8585167292257228624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000265887223038210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d66605a388bf2438349950f1935914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4538386428586716082
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,5 +173,8 @@ MonoBehaviour:
   collapseDuration: 0
   expandEase: 0
   collapseEase: 0
-  expandFadeDuration: 0
-  collapseFadeDuration: 0
+  towerToChoose:
+  - {fileID: 11400000, guid: 028f83186ab0e1b439a67e1c5b9b3993, type: 2}
+  - {fileID: 11400000, guid: 19fccaf9fb6f5354f9b3bc890d42cb43, type: 2}
+  - {fileID: 11400000, guid: 42a37942165809f44a38442935d6c11c, type: 2}
+  childBuyTower: {fileID: 1972288709307365201, guid: a2f8bbb719e82174c879b14964b089c0, type: 3}

@@ -175,15 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388bb92e8ce47404cb2f788eebf35d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: {x: 0, y: -20}
-  rotationDuration: 0
+  spacing: {x: 0, y: -100}
+  rotationDuration: 0.6
   rotationEase: 0
-  expandDuration: 0
-  collapseDuration: 0
-  expandEase: 0
-  collapseEase: 0
+  expandDuration: 0.3
+  collapseDuration: 0.3
+  expandEase: 25
+  collapseEase: 25
   expandFadeDuration: 0
   collapseFadeDuration: 0
+  towerToChoose: []
 --- !u!1 &622902468
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d5db84bf0d77a49b553d383bca3471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
   trans: {fileID: 0}
 --- !u!1 &704940985
 GameObject:
@@ -452,7 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d5db84bf0d77a49b553d383bca3471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
   trans: {fileID: 0}
 --- !u!1 &749256472
 GameObject:
@@ -834,7 +833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d5db84bf0d77a49b553d383bca3471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
   trans: {fileID: 0}
 --- !u!1 &1460258872
 GameObject:

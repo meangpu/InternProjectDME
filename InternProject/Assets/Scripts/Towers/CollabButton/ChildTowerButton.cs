@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ChildTowerButton : MonoBehaviour
 {
-	[HideInInspector] public Image img;
+	// [HideInInspector] public Image img;   ********
 	[HideInInspector] public Transform trans;
 
 	//SettingsMenu reference
@@ -17,7 +17,7 @@ public class ChildTowerButton : MonoBehaviour
 
 	void Awake ()
 	{
-		img = GetComponent<Image> ();
+		// img = GetComponent<Image> ();        ******
 		trans = transform;
 
 		settingsMenu = trans.parent.GetComponent <ParentTowerButton> ();
