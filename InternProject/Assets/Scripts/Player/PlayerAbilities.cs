@@ -191,7 +191,9 @@ public class PlayerAbilities : MonoBehaviour
 
     private void LaunchHomingMissile(ComboType comboType, int damage, float range, float duration, float comboValue)
     {
-        // Summon Homing Missile
+        range = comboType == ComboType.UpgradedMissile ? comboValue : range;
+
+        PoolingSingleton.Instance.HomingMissilePool.SpawnPlayerMissile(transform.position, transform.rotation, damage, playerStats.GetBulletSpeed(), range, duration);
     }
 
     private void ActivateEnergyShield()

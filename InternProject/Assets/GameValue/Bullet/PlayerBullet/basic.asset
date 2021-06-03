@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: basic
   m_EditorClassIdentifier: 
   bulletName: basic
-  bulletSpeed: 18
   artWork: {fileID: 3510491651354406898, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   material: {fileID: 2100000, guid: 241cdbe748f336c418f79a23374e7787, type: 2}

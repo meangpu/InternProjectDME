@@ -6,7 +6,6 @@ public class HomingMissile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
     
-    private float movementSpeed = 0f;
     private float rotationSpeed = 0f;
 
     private Transform target;
@@ -37,10 +36,9 @@ public class HomingMissile : MonoBehaviour
         }
     }
 
-    public void Setup(TargetType targetType, float movementSpeed = 2f, float rotationSpeed = 200f)
+    public void Setup(TargetType targetType, float rotationSpeed = 200f)
     {
         this.targetType = targetType;
-        this.movementSpeed = movementSpeed;
         this.rotationSpeed = rotationSpeed;
     }
 

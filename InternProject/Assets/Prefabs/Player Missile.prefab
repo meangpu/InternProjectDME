@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5151974249297987577}
-  damageSetter: {fileID: 5997207938617235403}
-  bulletSpeed: 10
-  lifeTime: 4
-  knockBack: 0
+  dealsAOEDamage: 1
 --- !u!1001 &3837151149580205294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,14 +81,3 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8232353531280522007, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
   m_PrefabInstance: {fileID: 3837151149580205294}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5997207938617235403 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -1839139374988825819, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
-  m_PrefabInstance: {fileID: 3837151149580205294}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5151974249297987578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 798d01a594d7b2b408db073d685b51ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

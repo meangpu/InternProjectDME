@@ -86,57 +86,78 @@ public class Pooler : MonoBehaviour
         freeList.Add(g);
     }
 
-    public GameObject SpawnObject(Vector3 position, Quaternion rotation)
+    public GameObject SpawnObject()
     {
         GameObject gameObject = GetObject();
+        return gameObject;
+    }
+
+    private void SetupObject(GameObject gameObject, Vector3 position, Quaternion rotation) 
+    {
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.SetActive(true);
-
-        return gameObject;
     }
 
     public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, ObjEnemyBullet _objBullet)
     {
-        GameObject bullet = SpawnObject(position, rotation);
+        GameObject bullet = SpawnObject();
         bullet.GetComponent<EnemyBulletDisplay>().SetupBullet(_objBullet);
         IProjectile bulletStats = bullet.GetComponent<IProjectile>();
         bulletStats.Damage = damage;
         bulletStats.BulletSpeed = speed;
-        bulletStats.Lifetime = lifetime;     
+        bulletStats.Lifetime = lifetime;
+        SetupObject(bullet, position, rotation);
     }
 
     public void SpawnPlayerBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, float knockBack, ObjPlayerBullet _objBullet)
     {
-        GameObject bullet = SpawnObject(position, rotation);
+        GameObject bullet = SpawnObject();
         bullet.GetComponent<PlayerBulletDisplay>().SetupBullet(_objBullet);
         IProjectile bulletStats = bullet.GetComponent<IProjectile>();
         bulletStats.Damage = damage;
         bulletStats.BulletSpeed = speed;
         bulletStats.Lifetime = lifetime;
         bulletStats.KnockBack = knockBack;
+        SetupObject(bullet, position, rotation);
+    }
+
+    public void SpawnPlayerMissile(Vector3 position, Quaternion rotation, int damage, float speed, float range, float lifetime)
+    {
+        GameObject missile = SpawnObject();
+        missile.GetComponent<HomingMissile>().Setup(HomingMissile.TargetType.Enemy);
+        IAreaOfDamage missileStats = missile.GetComponent<IAreaOfDamage>();
+        missileStats.Damage = damage;
+        missileStats.BulletSpeed = speed;
+        missileStats.AreaOfDamage = range;
+        missileStats.Lifetime = lifetime;
+        SetupObject(missile, position, rotation);
     }
 
     public void SpawnTowerBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime)
     {
-        GameObject bullet = SpawnObject(position, rotation);
+        GameObject bullet = SpawnObject();
         IProjectile bulletStats = bullet.GetComponent<IProjectile>();
         bulletStats.Damage = damage;
         bulletStats.BulletSpeed = speed;
         bulletStats.Lifetime = lifetime;
+        SetupObject(bullet, position, rotation);
     }
 
     public void SpawnPopup(Vector3 position, Quaternion rotation, int damage, DamagePopup.DamageType type)
     {
-        GameObject popup = SpawnObject(position, rotation);
+        GameObject popup = SpawnObject();
 
         DamagePopup damagePopup = popup.GetComponent<DamagePopup>();
         damagePopup.Setup(damage, type);
+
+        SetupObject(popup, position, rotation);
     }
 
     public void SpawnGold(Vector3 position, Quaternion rotation, ObjGold ObjGold)
     {
-        GameObject goldItem = SpawnObject(position, rotation);
+        GameObject goldItem = SpawnObject();
         goldItem.GetComponent<AssignGold>().SetGold(ObjGold);
+        SetupObject(goldItem, position, rotation);
     }
 }
