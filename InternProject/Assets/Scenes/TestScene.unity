@@ -71247,5 +71247,24 @@ PrefabInstance:
       propertyPath: turret
       value: 
       objectReference: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
+    - target: {fileID: 5943029956014393997, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+      propertyPath: scriptObjDataTankGun
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
+    - target: {fileID: 7553780951413289878, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+      propertyPath: playerGun
+      value: 
+      objectReference: {fileID: 4789166324514989937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+--- !u!114 &4789166324514989937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5935434833198695600, guid: 852568b80bf722645832f953e7d1d429, type: 3}
+  m_PrefabInstance: {fileID: 4789166324514989936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9ba6b43eb2b81499bc4cb866fda8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

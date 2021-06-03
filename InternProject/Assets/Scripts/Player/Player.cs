@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private ObjPlayerTank tank = null;
     [SerializeField] private ObjTankTurret turret = null;
+    [SerializeField] PlayerTankCustomization scriptObjDataTankGun;
     
     // Misc
     private PlayerAbilities playerAbilities;
@@ -21,7 +22,6 @@ public class Player : MonoBehaviour
     {
         playerAbilities = GetComponent<PlayerAbilities>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerGun = GetComponent<PlayerGun>();
         
         if (TankCustomizationData.playerTank != null)
         {

@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000000037253, y: -38}
   m_SizeDelta: {x: 275, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9858407
@@ -1575,7 +1575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &199992112
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2234,8 +2234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 279.80548}
-  m_SizeDelta: {x: 0, y: -559.6109}
+  m_AnchoredPosition: {x: 0, y: 219.98997}
+  m_SizeDelta: {x: 0, y: -439.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &338782443
 GameObject:
@@ -3120,8 +3120,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4482422, y: 137.05005}
-  m_SizeDelta: {x: -1408.2, y: -409.6984}
+  m_AnchoredPosition: {x: -1.4482422, y: 191.86}
+  m_SizeDelta: {x: -1408.2, y: -519.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428064632
 MonoBehaviour:
@@ -3174,6 +3174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nowTankGun: {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
+  TankGunImage: {fileID: 9858407}
+  TankImage: {fileID: 480549748}
 --- !u!1 &434928757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,7 +5039,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 448.88, y: 158.71}
+  m_SizeDelta: {x: 448.88, y: 183.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558403098
 MonoBehaviour:
@@ -5168,11 +5170,11 @@ RectTransform:
   m_Father: {fileID: 882953296}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 94.48996}
-  m_SizeDelta: {x: 0, y: -188.99}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.099915, y: -0.000030517578}
+  m_SizeDelta: {x: 512, y: 85.98}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &634145079
 GameObject:
   m_ObjectHideFlags: 0
@@ -5827,8 +5829,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -189.32}
-  m_SizeDelta: {x: -120, y: -479.9}
+  m_AnchoredPosition: {x: 0, y: -183.29}
+  m_SizeDelta: {x: -120, y: -467.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707605305
 MonoBehaviour:
@@ -6214,8 +6216,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 92.323}
-  m_SizeDelta: {x: -120, y: -406.0265}
+  m_AnchoredPosition: {x: 0, y: 156.38}
+  m_SizeDelta: {x: -120, y: -534.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &766859820
 MonoBehaviour:
@@ -6260,6 +6262,7 @@ MonoBehaviour:
   ammo: {fileID: 2064045144}
   rateOfFire: {fileID: 675400051}
   reload: {fileID: 693220999}
+  nowTankGun: {fileID: 428064634}
 --- !u!114 &766859822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6942,8 +6945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 605.79, y: -361.69006}
-  m_SizeDelta: {x: -1311.6, y: -821.06}
+  m_AnchoredPosition: {x: -1.4481812, y: -258.77002}
+  m_SizeDelta: {x: -1408.2, y: -823.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882953297
 MonoBehaviour:
@@ -7093,8 +7096,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -158.00002}
-  m_SizeDelta: {x: -120, y: -417.2575}
+  m_AnchoredPosition: {x: 0, y: -198.35}
+  m_SizeDelta: {x: -120, y: -497.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933617058
 MonoBehaviour:
@@ -7157,8 +7160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -34.977997}
-  m_SizeDelta: {x: 0, y: -69.955}
+  m_AnchoredPosition: {x: 0, y: -42.990005}
+  m_SizeDelta: {x: 0, y: -85.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955357204
 MonoBehaviour:
@@ -18573,7 +18576,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 383.9692, y: 44.7376}
+  m_SizeDelta: {x: 481.32, y: 71.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1713421778
 MonoBehaviour:
@@ -19102,8 +19105,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 279.80548}
-  m_SizeDelta: {x: 0, y: -559.6109}
+  m_AnchoredPosition: {x: 0, y: 374.2899}
+  m_SizeDelta: {x: 0, y: -748.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1795415738
 GameObject:
@@ -19427,7 +19430,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 383.9692, y: 36.1663}
+  m_SizeDelta: {x: 463.18, y: 55.012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891465253
 MonoBehaviour:
@@ -19914,8 +19917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 605.79, y: 137.04999}
-  m_SizeDelta: {x: -1311.6262, y: -409.6984}
+  m_AnchoredPosition: {x: 605.79, y: 42.567993}
+  m_SizeDelta: {x: -1311.63, y: -220.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979022753
 MonoBehaviour:
@@ -20651,7 +20654,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 448.8777, y: 52.08}
+  m_SizeDelta: {x: 448.88, y: 107.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105112083
 MonoBehaviour:
@@ -20700,8 +20703,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20861,8 +20864,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 150.2}
-  m_SizeDelta: {x: -120, y: -521.79}
+  m_AnchoredPosition: {x: 0, y: 166.62}
+  m_SizeDelta: {x: -120, y: -642.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2115521022
 MonoBehaviour:
@@ -20925,6 +20928,7 @@ MonoBehaviour:
   hp: {fileID: 1167270022}
   speed: {fileID: 1003436550}
   energy: {fileID: 1261947663}
+  nowTankGun: {fileID: 428064634}
 --- !u!114 &2115521025
 MonoBehaviour:
   m_ObjectHideFlags: 0
