@@ -20,11 +20,26 @@ public class ChooseGun : MonoBehaviour
         TankGun.sprite = dataGun.GetSprite();
         gunName.text = dataGun.GetName();
         gunDes.text = dataGun.GetDescription();
-
         dmg.value = dataGun.GetMaxDamage()[0];
         ammo.value = dataGun.GetAmmoCount()[0];
         rateOfFire.value = dataGun.GetRateOfFire()[0];
         reload.value = dataGun.GetReloadTime()[0];
+        nowTankGun.saveGunData(dataGun);
+    }
 
+    public void firstDisplayGunData(ObjTankTurret dataGun)
+    {
+        TankGun.sprite = dataGun.GetSprite();
+        gunName.text = dataGun.GetName();
+        gunDes.text = dataGun.GetDescription();
+        dmg.value = dataGun.GetMaxDamage()[0];
+        ammo.value = dataGun.GetAmmoCount()[0];
+        rateOfFire.value = dataGun.GetRateOfFire()[0];
+        reload.value = dataGun.GetReloadTime()[0];
+    }
+
+    public void showNowGunData()
+    {
+        nowTankGun.updateImageTankGun();
     }
 }

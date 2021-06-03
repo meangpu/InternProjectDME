@@ -27,7 +27,16 @@ public class GunChildSetup : MonoBehaviour
     public void ShowGunName()
     {
         chooseGunScript.updateGunData(selfTurret);
-        TankCustomizationData.playerTurret = selfTurret;
+    }
+
+    public void DisplayGun()
+    {
+        chooseGunScript.firstDisplayGunData(selfTurret);
+    }
+
+    public void showOnExit()
+    {
+        chooseGunScript.showNowGunData();
     }
 
 }
