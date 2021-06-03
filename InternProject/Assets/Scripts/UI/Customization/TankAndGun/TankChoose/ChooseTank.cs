@@ -12,7 +12,7 @@ public class ChooseTank : MonoBehaviour
     public Slider hp;
     public Slider speed;
     public Slider energy;
-    [SerializeField] NowTankGun nowTankGun;
+    public NowTankGun nowTankGun;
     
     public void updateTankData(ObjPlayerTank dataTank)
     {

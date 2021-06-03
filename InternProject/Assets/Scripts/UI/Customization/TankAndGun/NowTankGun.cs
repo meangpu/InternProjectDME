@@ -6,7 +6,7 @@ using TMPro;
 
 public class NowTankGun : MonoBehaviour
 {
-    [SerializeField] PlayerTankCustomization nowTankGun;
+    public PlayerTankCustomization nowTankGun;
     [SerializeField] Image TankGunImage;
     [SerializeField] Image TankImage;
     [SerializeField] ChooseGun gunScpt;

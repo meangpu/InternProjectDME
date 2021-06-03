@@ -21,6 +21,11 @@ public class TankChildSetup : MonoBehaviour
         myImageComponent.sprite = dataTank.GetSprite();
         selfTankData = dataTank;
         chooseTankScript = transform.parent.GetComponent<ChooseTank>();
+
+        if (selfTankData == chooseTankScript.nowTankGun.nowTankGun.GetTank())
+        {
+            selfToggle.isOn = true;
+        }
     }
 
     public void showTankName()

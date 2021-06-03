@@ -22,6 +22,10 @@ public class GunChildSetup : MonoBehaviour
         myImageComponent.sprite = gunData.GetSprite();
         selfTurret = gunData;
         chooseGunScript = transform.parent.GetComponent<ChooseGun>();
+        if (selfTurret == chooseGunScript.nowTankGun.nowTankGun.GetTurret())
+        {
+            selfToggle.isOn = true;
+        }
     }
 
     public void ShowGunName()

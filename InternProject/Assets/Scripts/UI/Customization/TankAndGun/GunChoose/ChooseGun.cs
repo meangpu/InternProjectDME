@@ -13,7 +13,7 @@ public class ChooseGun : MonoBehaviour
     public Slider ammo;
     public Slider rateOfFire;
     public Slider reload;
-    [SerializeField] NowTankGun nowTankGun;
+    public NowTankGun nowTankGun;
     
     public void updateGunData(ObjTankTurret dataGun)
     {
