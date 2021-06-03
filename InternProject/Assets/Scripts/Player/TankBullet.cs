@@ -15,6 +15,8 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
 
     private float areaOfDamage;
 
+    private bool isActivated = false;
+
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => knockback; set => knockback = value; }
     public float Lifetime { get => lifetime; set => lifetime = value; }
@@ -26,6 +28,7 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
 
     private void OnEnable()
     {
+        isActivated = false;
         Move();
         StartCoroutine(DestroyOverTime());
     }
@@ -63,6 +66,8 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isActivated) { return; }
+
         GameObject collidingObject = collision.gameObject;
 
         if (collidingObject.TryGetComponent(out IEnemy enemy))
@@ -85,6 +90,7 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
                 enemy.TakeKnockback(transform.position, knockback);
             }
 
+            isActivated = true;
             DestroySelf();
         }
     }
