@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System;
 
@@ -12,6 +13,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ReloadBar reloadBar = null;
     [SerializeField] private TMP_Text tankNameText = null;
     [SerializeField] private TMP_Text tankLevelText = null;
+    [Header("BuyModeDisable")]
+    [SerializeField] GameObject addOnDisplay;
+    [SerializeField] GameObject bulletDisplay;
+
 
     private PlayerStats playerStats;
 
@@ -63,4 +68,17 @@ public class UIManager : MonoBehaviour
         playerStats.OnAmmoUpdated -= UpdateAmmoUI;
         playerStats.OnTankLeveledUp -= HandleTankLevelUp;
     }
+
+    public void OpenBuyMenu()
+    {
+        addOnDisplay.SetActive(false);
+        bulletDisplay.SetActive(false);
+    }
+
+    public void CloseBuyMenu()
+    {
+        addOnDisplay.SetActive(true);
+        bulletDisplay.SetActive(true);
+    }
+  
 }

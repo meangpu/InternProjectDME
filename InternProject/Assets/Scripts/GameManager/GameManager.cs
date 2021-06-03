@@ -69,11 +69,13 @@ public class GameManager : MonoBehaviour
         {
             isBuying = false;
             buyModeCam.m_Priority = 0;
+            UIManager.Instance.CloseBuyMenu();
         }
         else
         {
             buyModeCam.m_Priority = 50;
             isBuying = true;
+            UIManager.Instance.OpenBuyMenu();
         }
     }
 
