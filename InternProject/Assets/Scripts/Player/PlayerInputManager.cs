@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    private Player player;
     private PlayerGun gun;
     private PlayerControls playerControls;
     private PlayerAbilities playerAbilities;
@@ -13,7 +12,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         playerControls = new PlayerControls();
 
-        player = GetComponent<Player>();
         gun = GetComponentInChildren<PlayerGun>();
         playerAbilities = GetComponent<PlayerAbilities>();
     }
@@ -22,7 +20,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         playerControls.Tank.Shoot.performed += _ => gun.OnHoldShootButton();
         playerControls.Tank.Shoot.canceled += _ => gun.OnReleaseShootButton();
-        playerControls.Tank.SpecialShoot.performed += _ => player.SpecialShoot();
+        playerControls.Tank.SpecialShoot.performed += _ => gun.ShootSpecial();
         playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => playerAbilities.Skill1Activate();
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
