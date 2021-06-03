@@ -13,11 +13,9 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private Sprite[] artWork;
     [SerializeField] private int hp;
     [SerializeField] private float moveSpeed;
-    [SerializeField] float wantDistance;
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
     [SerializeField] private int EC;
-    [SerializeField] private EnemyTargetType targetTagName;
     [SerializeField] private bool isPassive;
     [SerializeField] private float attackRange;
     [Tooltip("how many attack per second")]
@@ -25,8 +23,6 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] ObjEnemyBullet bulletType;
     [SerializeField] private int moneyDrop;
     [SerializeField] private ObjGold[] goldDropSK;
-    [Range(0, 0.2f)]
-    [SerializeField] private float knockBack;
 
 
     public string GetName() => enemyName;
@@ -35,16 +31,13 @@ public class ObjEnemy : ScriptableObject
     public Sprite[] GetSprite() => artWork;
     public int GetHealth() => hp;
     public float GetMovementSpeed() => moveSpeed;
-    public float GetWantDistance() => wantDistance;
     public int GetMinDamage() => minDamage;
     public int GetMaxDamage() => maxDamage;
     public int GetEC() => EC;
-    public EnemyTargetType GetTargetTag() => targetTagName;
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
     public int GetMoneyDrop() => moneyDrop;
     public ObjGold[] GetMoneyDropSK() => goldDropSK;
-    public float GetKnockBack() => knockBack;
     public ObjEnemyBullet GetBulletType() => bulletType;
 }
