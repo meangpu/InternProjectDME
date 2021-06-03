@@ -9,11 +9,13 @@ public class TowerProjectile : MonoBehaviour, IProjectile
     private float bulletSpeed;
     private float lifetime;
     private int damage;
+    private bool isActivated;
 
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
+    public bool IsActivated { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     private void OnEnable()
     {
