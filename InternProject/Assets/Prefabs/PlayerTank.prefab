@@ -536,7 +536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
-  turret: {fileID: 11400000, guid: b322e6aca1367354bb5936e95c8a5c60, type: 2}
+  turret: {fileID: 11400000, guid: ee643e1a394ab9a4ca774a19320fe7cd, type: 2}
+  scriptObjDataTankGun: {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
 --- !u!114 &7553780951413289878
 MonoBehaviour:
   m_ObjectHideFlags: 0

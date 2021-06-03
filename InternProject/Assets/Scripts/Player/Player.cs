@@ -53,11 +53,6 @@ public class Player : MonoBehaviour
         isDashing = false;
     }
 
-    public void SpecialShoot()
-    {
-        playerGun.ShootSpecial();
-    }
-
     public ObjPlayerTank GetTank() => tank;
     public ObjTankTurret GetTurret() => turret;
 

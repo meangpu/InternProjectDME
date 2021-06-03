@@ -27,44 +27,36 @@ public class PlayerGun : MonoBehaviour
         if (!canShoot) { return; }
 
         // Shoot normally
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
-            barrel.position, 
-            barrel.rotation, 
-            playerStats.DealDamage(), 
-            playerStats.GetBulletSpeed(), 
-            playerStats.GetBulletLifetime(), 
-            playerStats.GetKnockbackValue(), 
-            playerStats.GetBulletType());
-        StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots()));
- 
+        SpawnBullet();
     }
 
     public void ShootSpecial()
     {
+        if (playerStats.GetCurrentAmmoCount() < 2)
+        {
+            if (playerStats.GetCurrentAmmoCount() == 0)
+            {
+                StartCoroutine(Reload(-4.5f));
+            }
+            return;
+        }
+
+        if (!canShoot) { return; }
+
+        SpawnBullet(1.5f, 2f, 2);
+    }
+
+    private void SpawnBullet(float damageMultiplier = 1f, float speedMultiplier = 1f, int ammoUsed = 1)
+    {
         PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
             barrel.position,
             barrel.rotation,
-            playerStats.DealDamage(),
-            playerStats.GetBulletSpeed(),
+            (int)(playerStats.DealDamage() * damageMultiplier),
+            playerStats.GetBulletSpeed() * speedMultiplier,
             playerStats.GetBulletLifetime(),
             playerStats.GetKnockbackValue(),
             playerStats.GetBulletType());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
-            barrel.position,
-            barrel.rotation * Quaternion.Euler(0, 0, 3),
-            playerStats.DealDamage(),
-            playerStats.GetBulletSpeed(),
-            playerStats.GetBulletLifetime(),
-            playerStats.GetKnockbackValue(),
-            playerStats.GetBulletType());
-        PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
-            barrel.position,
-            barrel.rotation * Quaternion.Euler(0, 0, -3),
-            playerStats.DealDamage(),
-            playerStats.GetBulletSpeed(),
-            playerStats.GetBulletLifetime(),
-            playerStats.GetKnockbackValue(),
-            playerStats.GetBulletType()); 
+        StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots(), ammoUsed));
     }
 
     public void OnHoldShootButton() // If shoot button is held down.
@@ -77,9 +69,9 @@ public class PlayerGun : MonoBehaviour
         holdOnShoot = false;
     }
 
-    private IEnumerator StartShootCooldown(float cooldownTime)
+    private IEnumerator StartShootCooldown(float cooldownTime, int ammoUsed = 1)
     {
-        playerStats.DecreaseCurrentAmmoCount();
+        playerStats.DecreaseCurrentAmmoCount(ammoUsed);
         canShoot = false;
         yield return new WaitForSeconds(cooldownTime);
         canShoot = true;
