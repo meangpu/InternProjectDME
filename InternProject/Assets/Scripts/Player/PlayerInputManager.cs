@@ -41,6 +41,8 @@ public class PlayerInputManager : MonoBehaviour
     public float GetRotationValue() => playerControls.Tank.Rotate.ReadValue<float>();
     public Vector2 GetMousePosition() => playerControls.Tank.LookAt.ReadValue<Vector2>();
 
+    // public Vector2 GetMousePositionInBuyMode() => playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
+
     public void DisableTankControls()
     {
         playerControls.Tank.Disable();
