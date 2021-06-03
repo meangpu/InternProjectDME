@@ -59,6 +59,7 @@ public class PlayerStats : MonoBehaviour
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
     private bool isImmuned = false;
+    private bool incendiaryAmmoEnabled = false;
     private float damageBoostDuration = 0;
 
     private void Awake()
@@ -125,9 +126,7 @@ public class PlayerStats : MonoBehaviour
         float deltaTime = Time.deltaTime;
 
         RegenerateHealth(deltaTime);
-
-        damageBoostDuration = Mathf.Max(damageBoostDuration - deltaTime, 0f);
-        TryRemoveDamageBoost();
+        HandleDamageBoost(deltaTime);
 
         if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
 
@@ -235,19 +234,29 @@ public class PlayerStats : MonoBehaviour
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
 
+    private void HandleDamageBoost(float deltaTime)
+    {
+        if (!incendiaryAmmoEnabled) { return; }
+
+        damageBoostDuration = Mathf.Max(damageBoostDuration - deltaTime, 0f);
+        TryRemoveDamageBoost();
+    }
+
     public void AddDamageBoost(float percentage, float duration)
     {
         minDamage = (int)(minDamage * percentage);
         maxDamage = (int)(maxDamage * percentage);
         damageBoostDuration = duration;
+        incendiaryAmmoEnabled = true;
     }
 
     private void TryRemoveDamageBoost()
     {
-        if (damageBoostDuration != 0 || minDamage == baseMinDamage) { return; }
+        if (damageBoostDuration != 0f || !incendiaryAmmoEnabled) { return; }
 
         minDamage = baseMinDamage;
         maxDamage = baseMaxDamage;
+        incendiaryAmmoEnabled = false;
     }
 
     public void TankLevelUp()
