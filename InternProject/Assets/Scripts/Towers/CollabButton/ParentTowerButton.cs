@@ -4,11 +4,6 @@ using DG.Tweening;
 
 public class ParentTowerButton : MonoBehaviour
 {
-
-
-
-
-
 	[Header ("space between menu items")]
 	[SerializeField] Vector2 spacing;
 

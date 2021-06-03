@@ -72058,6 +72058,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1446505579}
     m_Modifications:
+    - target: {fileID: 2753982258047150951, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753982258047150951, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -626044329
+      objectReference: {fileID: 0}
     - target: {fileID: 3018757116064015387, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -72105,6 +72113,14 @@ PrefabInstance:
     - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_Name
       value: TowerBuyButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.212
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.737
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 90263396613848815, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
