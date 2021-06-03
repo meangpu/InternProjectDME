@@ -9,16 +9,16 @@ public class TowerProjectile : MonoBehaviour, IProjectile
     private float bulletSpeed;
     private float lifetime;
     private int damage;
-    private bool isActivated;
+    private bool isActivated = false;
 
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
-    public bool IsActivated { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     private void OnEnable()
     {
+        isActivated = false;
         Move();
         StartCoroutine(DestroyOverTme());
     }
@@ -41,9 +41,12 @@ public class TowerProjectile : MonoBehaviour, IProjectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isActivated) { return; }
+
         if (collision.gameObject.TryGetComponent(out IEnemy enemy))
         {
             enemy.TakeDamage(damage);
+            isActivated = true;
             DestroySelf();
         }
     }

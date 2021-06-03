@@ -4,5 +4,4 @@ public interface IProjectile
     public float KnockBack { get; set; }
     public float Lifetime { get; set; }
     public float BulletSpeed { get; set; }
-    public bool IsActivated { get; set; }
 }

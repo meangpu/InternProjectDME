@@ -9,6 +9,7 @@ public class BulletEnemy : MonoBehaviour, IProjectile
     private float bulletSpeed;
     private int damage;
     private float lifeTime;
+    private bool isActivated = false;
 
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => 0; set => throw new System.NotImplementedException(); }
@@ -17,6 +18,7 @@ public class BulletEnemy : MonoBehaviour, IProjectile
 
     private void OnEnable() 
     {
+        isActivated = false;
         Move();
         StartCoroutine(DestroyOverTme());
     }
@@ -39,9 +41,12 @@ public class BulletEnemy : MonoBehaviour, IProjectile
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (isActivated) { return; }
+
         if (col.gameObject.TryGetComponent(out IOwnedByPlayer ownedByPlayer))
         {
             ownedByPlayer.TakeDamage(damage);
+            isActivated = true;
             DestroySelf();
         }
     }
