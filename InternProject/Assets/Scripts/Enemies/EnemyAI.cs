@@ -21,7 +21,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        playerBase = GameObject.FindGameObjectWithTag("Player").transform;
+        playerBase = GameObject.FindGameObjectWithTag("Base").transform;
+        currentTarget = playerBase;
     }
 
     private void Update()
@@ -50,17 +51,11 @@ public class EnemyAI : MonoBehaviour
     private void Move()
     {
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        rb.velocity = transform.right * enemyDisplay.Speed;   // direction * enemyDisplay.Speed;
-        
-
-
-        // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rb.velocity = transform.right * enemyDisplay.Speed;
 
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, direction);
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, enemyDisplay.Speed);
-
-        // rb.rotation = angle * enemyDisplay.Speed;
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
@@ -76,7 +71,7 @@ public class EnemyAI : MonoBehaviour
 
         if (currentTime < pathScanInterval) { return; }
 
-        seeker.StartPath(rb.position, playerBase.position, OnPathComplete);
+        seeker.StartPath(rb.position, currentTarget.position, OnPathComplete);
         currentTime = 0f; 
     }
 

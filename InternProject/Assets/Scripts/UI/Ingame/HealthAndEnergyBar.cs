@@ -84,7 +84,10 @@ public class HealthAndEnergyBar : MonoBehaviour
         UpdateUI(healthText, currentHealth, maxHealth);
         SetBar(healthSystem.GetPercentage(), healthBar);
 
-        healthBarDamaged.fillAmount = healthBar.fillAmount;
+        if (healthBarDamaged.fillAmount < healthBar.fillAmount)
+        {
+            healthBarDamaged.fillAmount = healthBar.fillAmount;
+        }
     }
 
     private void HandleEnergySpent(int currentEnergy, int maxEnergy)
@@ -99,7 +102,10 @@ public class HealthAndEnergyBar : MonoBehaviour
         UpdateUI(energyText, currentEnergy, maxEnergy);
         SetBar(energySystem.GetPercentage(), energyBar);
 
-        energyBarSpent.fillAmount = energyBar.fillAmount;
+        if (energyBarSpent.fillAmount < energyBar.fillAmount)
+        {
+            energyBarSpent.fillAmount = energyBar.fillAmount;
+        }
     }
 
     private void SetBar(float percentage, Image bar)
