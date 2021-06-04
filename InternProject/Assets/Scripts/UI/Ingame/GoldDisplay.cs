@@ -11,19 +11,18 @@ public class GoldDisplay : MonoBehaviour
     private PlayerStats playerStats;
     private GoldSystem goldSystem;
 
-    private void Awake()
+    private IEnumerator Start()
     {
         playerStats = PlayerStats.Instance;
-    }
 
-    private void Start()
-    {   
         goldSystem = playerStats.GetGoldSystem();
 
         UpdateUI(goldSystem.GetGold());
 
         goldSystem.OnGoldUpdated += HandleGoldUpdated;
         goldSystem.OnNotEnoughGold += HandleNotEnoughGold;
+
+        yield break;
     }
 
     private void HandleNotEnoughGold()

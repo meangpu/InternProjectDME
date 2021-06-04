@@ -52,5 +52,4 @@ public class PlayerInputManager : MonoBehaviour
     {
         playerControls.Tank.Enable();
     }
-
 }

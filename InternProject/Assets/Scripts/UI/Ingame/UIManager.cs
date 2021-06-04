@@ -30,12 +30,12 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        playerStats = PlayerStats.Instance;
     }
 
     private void Start()
     {
+        playerStats = PlayerStats.Instance;
+
         playerStats.OnAmmoUpdated += UpdateAmmoUI;
         playerStats.OnTankLeveledUp += HandleTankLevelUp;
 
