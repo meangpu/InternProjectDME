@@ -101,4 +101,9 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     {
         enemyDisplay.Stun();
     }
+
+    public void Slow(float percentage, float duration)
+    {
+        enemyDisplay.Slow(percentage, duration);
+    }
 }

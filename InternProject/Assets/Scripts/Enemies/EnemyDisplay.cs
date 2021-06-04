@@ -62,7 +62,7 @@ public class EnemyDisplay : MonoBehaviour
 
     public void Slow(float percentage, float duration)
     {
-        enemySpeed = ((100 - percentage) * enemySpeed);
+        enemySpeed = ((100 - percentage) * enemySpeed / 100);
         slowDuration = duration;
         isSlowed = true;
     }
