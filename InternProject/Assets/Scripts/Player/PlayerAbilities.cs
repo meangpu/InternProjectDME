@@ -86,7 +86,7 @@ public class PlayerAbilities : MonoBehaviour
                 Dash(comboType, ability.GetRange(), ability.GetDuration());
                 break;
             case AbilityType.Electrocharge:
-                Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
+                ActivateElectrocharge(ability.GetRange(), ability.GetDuration(), ability.GetPercentage());
                 break;
             case AbilityType.EnergyOrb:
                 Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
@@ -213,6 +213,19 @@ public class PlayerAbilities : MonoBehaviour
         float normalizedPercentage = (100 + percentage) / 100;
 
         playerStats.AddDamageBoost(normalizedPercentage, duration);
+    }
+
+    private void ActivateElectrocharge(float range, float duration, float percentage)
+    {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
+
+        foreach (Collider2D collider in enemies)
+        {
+            if (collider.TryGetComponent(out IEnemy enemy))
+            {
+                enemy.Slow(percentage, duration);
+            }
+        }
     }
     #endregion
 }

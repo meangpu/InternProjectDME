@@ -5,4 +5,5 @@ public interface IEnemy
     public void TakeDamage(int damage);
     public void TakeKnockback(Vector2 attackerPos, float knockbackForce);
     public void Stun();
+    public void Slow(float percentage, float duration);
 }
