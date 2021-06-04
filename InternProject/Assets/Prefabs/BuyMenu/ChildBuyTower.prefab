@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5475285444597768190}
   - component: {fileID: 3344374858584796458}
   - component: {fileID: 8617790026557297225}
+  - component: {fileID: -4642754802787722843}
   m_Layer: 0
   m_Name: ChildBuyTower
   m_TagString: Untagged
@@ -122,3 +123,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d66605a388bf2438349950f1935914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4642754802787722843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972288709307365201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d5db84bf0d77a49b553d383bca3471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 0}
