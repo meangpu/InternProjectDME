@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 0}
+  button: {fileID: 2490650062621981249}
   towerPfb: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
 --- !u!1 &2959325661137802340
 GameObject:

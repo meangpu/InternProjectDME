@@ -10,7 +10,7 @@ public class ChildTowerButton : MonoBehaviour
 	ParentTowerButton settingsMenu;
 
 	//item button
-	Button button;
+	[SerializeField] Button button;
 
 	//index of the item in the hierarchy
 	int index;
@@ -33,9 +33,7 @@ public class ChildTowerButton : MonoBehaviour
 		index = trans.GetSiblingIndex () - 1;
 
 		//add click listener
-
-		// button = GetComponent<Button> ();
-		// button.onClick.AddListener (OnItemClick);
+		button.onClick.AddListener (OnItemClick);
 	}
 
 	void OnItemClick ()
@@ -45,9 +43,8 @@ public class ChildTowerButton : MonoBehaviour
 
 	void OnDestroy ()
 	{
-		//remove click listener to avoid memory leaks
-
-		// button.onClick.RemoveListener (OnItemClick);
+		// remove click listener to avoid memory leaks
+		button.onClick.RemoveListener (OnItemClick);
 	}
 
 	public void previewBuy()

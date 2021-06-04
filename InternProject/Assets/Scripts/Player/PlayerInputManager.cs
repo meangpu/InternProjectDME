@@ -25,6 +25,8 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Skill1.performed += _ => playerAbilities.Skill1Activate();
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
         playerControls.BuyMenu.BuyMode.performed += _ => GameManager.Instance.BuyModeSwap();
+
+        GameManager.Instance.onBuyModeTrigger += BuyModehandler;
     }
 
     private void OnDisable()
@@ -51,5 +53,18 @@ public class PlayerInputManager : MonoBehaviour
     public void EnableTankControls()
     {
         playerControls.Tank.Enable();
+    }
+
+    public void BuyModehandler()
+    {
+		if (GameManager.Instance.isBuying)
+		{
+            EnableTankControls();
+		}
+		else
+		{
+            DisableTankControls();
+		}
+
     }
 }
