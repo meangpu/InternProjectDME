@@ -6,8 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private ObjPlayerTank tank = null;
-    [SerializeField] private ObjTankTurret turret = null;
+    private ObjPlayerTank tank = null;
+    private ObjTankTurret turret = null;
     [SerializeField] PlayerTankCustomization scriptObjDataTankGun;
     
     // Misc
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     {
         playerAbilities.OnStartedDashing += HandleOnDashed;
         playerAbilities.OnFinishedDashing += HandleAfterDashed;
+        UIManager.Instance.customStart();
     }
 
     private void Update()

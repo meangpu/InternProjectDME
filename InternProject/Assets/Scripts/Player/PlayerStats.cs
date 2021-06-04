@@ -73,6 +73,13 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+    }
+
+    private void Start()
+    {
+
+
         Player player = GetComponent<Player>();
         turret = player.GetTurret();
         tank = player.GetTank();
@@ -83,10 +90,8 @@ public class PlayerStats : MonoBehaviour
         energySystem = new HealthOrManaSystem(tank.GetEnergy()[tankLevel - 1]);
 
         goldSystem = new GoldSystem(startingGold);
-    }
 
-    private void Start()
-    {
+
         tankName = tank.GetName();
 
         healthRegenRate = tank.GetHealthRegenRate()[tankLevel - 1];

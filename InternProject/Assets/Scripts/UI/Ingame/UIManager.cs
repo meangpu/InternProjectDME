@@ -32,7 +32,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    // private void Start()
+    // {
+    //     playerStats = PlayerStats.Instance;
+
+    //     playerStats.OnAmmoUpdated += UpdateAmmoUI;
+    //     playerStats.OnTankLeveledUp += HandleTankLevelUp;
+
+    //     UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
+    //     UpdateTankName();
+    // }
+
+    public void customStart()
     {
         playerStats = PlayerStats.Instance;
 
