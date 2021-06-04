@@ -16,6 +16,7 @@ public class ObjTower : ScriptableObject
     [SerializeField] private float projectileLifetime;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float areaOfDamage;
+    [SerializeField] private int[] upgradeCost;
     [SerializeField] private bool laserType;
 
     public string GetName() => towerName;
@@ -30,4 +31,5 @@ public class ObjTower : ScriptableObject
     public float GetProjectileSpeed() => projectileSpeed;
     public float GetAreaOfDamage() => areaOfDamage;
     public bool IsLaserType() => laserType;
+    public int[] GetUpgradeCost() => upgradeCost;
 }

@@ -15,6 +15,7 @@ public class ObjPlayerTank : ScriptableObject
     [SerializeField] [Tooltip("Energy Regeneration Rate: EP/s (Supports float)")] private float[] energyRegenRate;
     [SerializeField] private float[] moveSpeed;
     [SerializeField] private float[] rotationSpeed;
+    [SerializeField] private int[] upgradeCost;
 
     public string GetName() => tankName;
     public string GetDescription() => tankDes;
@@ -25,4 +26,5 @@ public class ObjPlayerTank : ScriptableObject
     public float[] GetEnergyRegenRate() => energyRegenRate;
     public float[] GetMovementSpeed() => moveSpeed;
     public float[] GetRotationSpeed() => rotationSpeed;
+    public int[] GetUpgradeCost() => upgradeCost;
 }

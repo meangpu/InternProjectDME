@@ -19,6 +19,7 @@ public class ObjTankTurret : ScriptableObject
     [Range(0, 0.4f)]
     [SerializeField] private float knockBack;
     [SerializeField] ObjPlayerBullet bulletType;
+    [SerializeField] private int[] upgradeCost;
 
     public string GetName() => turretName;
     public string GetDescription() => description;
@@ -32,4 +33,5 @@ public class ObjTankTurret : ScriptableObject
     public float[] GetBulletSpeed() => bulletSpeed;
     public float GetLifetime() => lifetime;
     public ObjPlayerBullet GetBulletType() => bulletType;
+    public int[] GetUpgradeCost() => upgradeCost;
 }
