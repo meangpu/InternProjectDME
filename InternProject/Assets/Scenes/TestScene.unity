@@ -70424,21 +70424,7 @@ MonoBehaviour:
     spawnRate: 0.3
     EnemyAndPoint:
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        enemyPfb: {fileID: 0}
-        isBoss: 0
-        count: 5
-        prob: 0.6
-      spawnPoint: {fileID: 895374816}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
-        enemyPfb: {fileID: 0}
-        isBoss: 0
-        count: 4
-        prob: 0.8
-      spawnPoint: {fileID: 1274255943}
-    - EnemyList:
-      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
+      - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5

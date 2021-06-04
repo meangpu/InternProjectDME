@@ -85,9 +85,9 @@ public class HomingMissile : MonoBehaviour
 
             case TargetType.Enemy:
                 // Choose a random enemy to lock on.
-                List<EnemyGetHit> enemyList = WaveManager.Instance.EnemyList;
+                List<Enemy> enemyList = WaveManager.Instance.EnemyList;
                 int randomTargetIndex = Random.Range(0, enemyList.Count);
-                EnemyGetHit enemyTarget = enemyList[randomTargetIndex];
+                Enemy enemyTarget = enemyList[randomTargetIndex];
 
                 targetable = enemyTarget.GetComponent<ITargetable>();
                 break;

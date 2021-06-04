@@ -7,7 +7,6 @@ using UnityEngine;
 public class ObjEnemy : ScriptableObject
 {
     [SerializeField] private string enemyName;
-    [SerializeField] private string[] tags;
     [TextArea(15, 20)]
     [SerializeField] private string des;
     [SerializeField] private Sprite[] artWork;
@@ -20,13 +19,14 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private float attackRange;
     [Tooltip("how many attack per second")]
     [SerializeField] private float atkSpeed;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletLifetime;
     [SerializeField] ObjEnemyBullet bulletType;
-    [SerializeField] private int moneyDrop;
     [SerializeField] private ObjGold[] goldDropSK;
-
-
+    [SerializeField] private EnemyType enemyType;
+    [SerializeField] private bool isFlying;
+    
     public string GetName() => enemyName;
-    public string[] GetTags() => tags;
     public string GetDescription() => des;
     public Sprite[] GetSprite() => artWork;
     public int GetHealth() => hp;
@@ -37,7 +37,10 @@ public class ObjEnemy : ScriptableObject
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
-    public int GetMoneyDrop() => moneyDrop;
     public ObjGold[] GetMoneyDropSK() => goldDropSK;
+    public float GetBulletLifetime() => bulletLifetime;
+    public float GetBulletSpeed() => bulletSpeed;
     public ObjEnemyBullet GetBulletType() => bulletType;
+    public EnemyType GetEnemyType() => enemyType;
+    public bool GetIsFlying() => isFlying;
 }

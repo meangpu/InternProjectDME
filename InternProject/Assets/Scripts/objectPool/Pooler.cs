@@ -99,6 +99,20 @@ public class Pooler : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void SpawnEnemy(Vector3 position, Quaternion rotation, ObjEnemy objEnemy)
+    {
+        GameObject enemy = SpawnObject();
+        enemy.GetComponent<EnemyDisplay>().StartDisplay(objEnemy);
+
+        if (enemy.TryGetComponent(out EnemyShoot enemyShoot))
+        {
+            enemyShoot.StartShoot();
+        }
+        
+        SetupObject(enemy, position, rotation);
+        WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
+    }
+
     public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, ObjEnemyBullet _objBullet)
     {
         GameObject bullet = SpawnObject();

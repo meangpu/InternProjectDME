@@ -20,15 +20,12 @@ public class WaveManager : MonoBehaviour
     public TMP_Text enemyLefttext;
     [SerializeField] private GameManager gameManager;
 
-    [Header("Pool")]
-    [SerializeField] private Pooler enemyPool;
-
     [Header("WaveInfo")]
     [SerializeField] float timeBeforeWinPanel;
     [SerializeField] bool useRandom;
     [SerializeField] float timeBeforeNextWave;
     private float countDown;
-    public static List<EnemyGetHit> EnemyAlive = new List<EnemyGetHit>();
+    public static List<Enemy> EnemyAlive = new List<Enemy>();
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
 
@@ -181,18 +178,8 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
     {
-        GameObject g = enemyPool.GetObject();
-        g.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
-        g.transform.position = spawnPos.position;
-        g.transform.rotation = spawnPos.rotation;
-        g.SetActive(true);
-
-        g.GetComponent<EnemyFollow>().SetupTrack();
-        g.GetComponent<EnemyShoot>().StartShoot();
+        PoolingSingleton.Instance.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
         
-        // add enemy count 
-        EnemyAlive.Add(g.GetComponent<EnemyGetHit>());  
-
         SetEnemyLeftText();
     }
 
@@ -205,15 +192,11 @@ public class WaveManager : MonoBehaviour
         boss.transform.position = spawnPos.position;
         boss.transform.rotation = spawnPos.rotation;
 
-        boss.GetComponent<EnemyFollow>().SetupTrack();
         boss.GetComponent<EnemyShoot>().StartShoot();
-        EnemyAlive.Add(boss.GetComponent<EnemyGetHit>());
+        EnemyAlive.Add(boss.GetComponent<Enemy>());
         SetEnemyLeftText();
     }
 
-
-
-    public List<EnemyGetHit> EnemyList => EnemyAlive;
-
+    public List<Enemy> EnemyList => EnemyAlive;
 
 }
