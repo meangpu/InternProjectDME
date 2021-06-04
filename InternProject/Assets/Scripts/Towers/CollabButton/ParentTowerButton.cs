@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ParentTowerButton : MonoBehaviour
 {
@@ -29,9 +31,10 @@ public class ParentTowerButton : MonoBehaviour
 	[Header ("TowerData")]
 	[SerializeField] ObjTower[] towerToChoose;
 	[SerializeField] GameObject childBuyTower;
+	[SerializeField] float disableChildTImer;
 
 	// mainChildButton mainButton;
-	EventTrigger mainButton;
+	mainChildButton mainButton;
 	ChildTowerButton[] menuItems;
 
 	//is menu opened or not
@@ -39,6 +42,7 @@ public class ParentTowerButton : MonoBehaviour
 
 	Vector2 mainButtonPosition;
 	int itemsCount;
+
 
 	void Start ()
 	{
@@ -51,6 +55,7 @@ public class ParentTowerButton : MonoBehaviour
         foreach (var tower in towerToChoose)
         {
             GameObject newTowerButton = Instantiate(childBuyTower, gameObject.transform);
+			newTowerButton.SetActive(false);
             // newTowerButton.GetComponent<GunChildSetup>().ShowData(gun); 
             
         }
@@ -64,21 +69,38 @@ public class ParentTowerButton : MonoBehaviour
 		menuItems = new ChildTowerButton[itemsCount];
 		for (int i = 0; i < itemsCount; i++) {
 			// +1 to ignore the main button
-			menuItems [i] = transform.GetChild (i + 1).GetComponent<ChildTowerButton>();
+			menuItems[i] = transform.GetChild (i + 1).GetComponent<ChildTowerButton>();
 		}
 
-		mainButton = transform.GetChild(0).GetComponent<EventTrigger>();
-		// mainButton.onClick.AddListener(ToggleMenu);
+		mainButton = transform.GetChild(0).GetComponent<mainChildButton>();
+		// mainButton.OnPointerClick.AddListener(ToggleMenu);
 
 
 
 		//SetAsLastSibling () to make sure that the main button will be always at the top layer
 		mainButton.transform.SetAsLastSibling();
-
 		mainButtonPosition = mainButton.transform.position;
 
 		//set all menu items position to mainButtonPosition
 		ResetPositions ();
+	}
+
+	void EnableObject()
+	{
+		int childEnableCount = transform.childCount;
+		for (int i = 0; i < childEnableCount; i++) {
+			transform.GetChild (i).gameObject.SetActive(true);
+		}
+	}
+
+
+	IEnumerator DisableObject()
+	{
+		yield return new WaitForSeconds(disableChildTImer);
+		int childCount = transform.childCount;
+		for (int i = 0; i < childCount-1; i++) {
+			transform.GetChild(i).gameObject.SetActive(false);
+		}
 	}
 
 	void ResetPositions ()
@@ -88,17 +110,21 @@ public class ParentTowerButton : MonoBehaviour
 		}
 	}
 
-	void ToggleMenu ()
+	public void ToggleMenu ()
 	{
 		isExpanded = !isExpanded;
 
 		if (isExpanded) {
 			//menu opened
+			EnableObject();
 			for (int i = 0; i < itemsCount; i++) {
 				menuItems [i].trans.DOMove (mainButtonPosition + spacing * (i + 1), expandDuration).SetEase (expandEase);
 				//Fade to alpha=1 starting from alpha=0 immediately
 				// menuItems [i].img.DOFade (1f, expandFadeDuration).From (0f);   ******
 			}
+			RotateMainButton(180, 0);
+
+
 		} else {
 			//menu closed
 			for (int i = 0; i < itemsCount; i++) {
@@ -106,13 +132,20 @@ public class ParentTowerButton : MonoBehaviour
 				//Fade to alpha=0
 				// menuItems [i].img.DOFade (0f, collapseFadeDuration);   *****
 			}
+			RotateMainButton(0, 180);
+			StartCoroutine(DisableObject());
+			
 		}
 
-		//rotate main button arround Z axis by 180 degree starting from 0
+		
+	}
+
+	void RotateMainButton(float angle, float startAngel)
+	{
 		mainButton.transform
-			.DORotate (Vector3.forward * 180f, rotationDuration)
-			.From (Vector3.zero)
-			.SetEase (rotationEase);
+		.DORotate (Vector3.forward * angle, rotationDuration)
+		.From (Vector3.zero + new Vector3(0, 0, startAngel))
+		.SetEase (rotationEase);
 	}
 
 	public void OnItemClick (int index)
