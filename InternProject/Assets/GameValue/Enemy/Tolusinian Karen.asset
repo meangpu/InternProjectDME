@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
-  m_Name: Man 1
+  m_Name: Tolusinian Karen
   m_EditorClassIdentifier: 
-  enemyName: Tolusin Patriot
-  des: 
+  enemyName: Tolusinian Karen
+  des: 'The Karens from the tolusinian charge with the intention to destroy Kasadan
+    with their ego because there is no manager in the Kasadan government.
+
+
+    -
+    High Speed'
   artWork:
-  - {fileID: 5955748402571542897, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
-  - {fileID: 3736488901424624328, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
-  - {fileID: 4250466633346753518, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
-  hp: 30
-  moveSpeed: 1
+  - {fileID: 6506884560519211664, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  hp: 20
+  moveSpeed: 2.5
   minDamage: 10
   maxDamage: 10
   EC: 1
@@ -28,8 +31,9 @@ MonoBehaviour:
   atkSpeed: 0
   bulletSpeed: 0
   bulletLifetime: 0
-  bulletType: {fileID: 0}
+  bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
   goldDropSK:
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
   - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
   - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
   - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}

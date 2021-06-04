@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
+  m_Name: Hitman
+  m_EditorClassIdentifier: 
+  enemyName: Hitman
+  des: 'Hired by the government of Tolusin, these killing machines have what it takes
+    to destroy any country in the world.
+
+
+    - High Damage'
+  artWork:
+  - {fileID: -8514851373406117482, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  - {fileID: 699240837882599984, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  hp: 40
+  moveSpeed: 1.2
+  minDamage: 10
+  maxDamage: 20
+  EC: 3
+  isPassive: 0
+  attackRange: 3
+  atkSpeed: 1
+  bulletSpeed: 8
+  bulletLifetime: 0.8
+  bulletType: {fileID: 0}
+  goldDropSK:
+  - {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  enemyType: 0
+  isFlying: 0

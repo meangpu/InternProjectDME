@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
+  m_Name: Doomsday Tank
+  m_EditorClassIdentifier: 
+  enemyName: Doomsday Tank
+  des: 
+  artWork:
+  - {fileID: 4570037600429773219, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  hp: 500
+  moveSpeed: 0.3
+  minDamage: 35
+  maxDamage: 50
+  EC: 40
+  isPassive: 0
+  attackRange: 3
+  atkSpeed: 0.25
+  bulletSpeed: 12
+  bulletLifetime: 0.5
+  bulletType: {fileID: 0}
+  goldDropSK:
+  - {fileID: 11400000, guid: 945f257d7c7f23b42afb92d5387e697f, type: 2}
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  enemyType: 2
+  isFlying: 0

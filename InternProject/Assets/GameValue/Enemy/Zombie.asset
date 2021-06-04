@@ -10,25 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
-  m_Name: nurse
+  m_Name: Zombie
   m_EditorClassIdentifier: 
-  enemyName: nurse
-  tags: []
+  enemyName: Zombie
   des: 
   artWork:
-  - {fileID: -7842970618747099399, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
-  hp: 15
-  moveSpeed: 1
-  wantDistance: 3
-  minDamage: 2
-  maxDamage: 4
-  EC: 1
-  targetTagName: 1
+  - {fileID: -6142324308395457208, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  - {fileID: -29939870544612685, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  hp: 150
+  moveSpeed: 0.5
+  minDamage: 5
+  maxDamage: 10
+  EC: 3
   isPassive: 0
-  attackRange: 0
+  attackRange: 2.5
   atkSpeed: 0.5
-  bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
-  moneyDrop: 1
+  bulletSpeed: 5
+  bulletLifetime: 0.6
+  bulletType: {fileID: 0}
   goldDropSK:
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
   - {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}
-  knockBack: 0
+  enemyType: 0
+  isFlying: 0

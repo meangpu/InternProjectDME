@@ -15,7 +15,7 @@ MonoBehaviour:
   tankName: B27 Butcher
   tankDes: A chunky tank that was used against Tolusin troops in the past. Comes
     with very high damage resistance with the cost of manueverability.
-  artWork: {fileID: 6429223304102030103, guid: b3b1a8ed31c8dc74e9ebd898770480ee, type: 3}
+  artWork: {fileID: 5372019543797684615, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: c2010000e00100000d020000
   healthRegenRate:
   - 1.5

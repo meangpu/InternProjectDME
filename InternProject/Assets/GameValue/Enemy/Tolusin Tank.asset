@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
+  m_Name: Tolusin Tank
+  m_EditorClassIdentifier: 
+  enemyName: Tolusin Tank
+  des: 
+  artWork:
+  - {fileID: 5372019543797684615, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  hp: 225
+  moveSpeed: 0.5
+  minDamage: 12
+  maxDamage: 24
+  EC: 15
+  isPassive: 0
+  attackRange: 4.5
+  atkSpeed: 0.25
+  bulletSpeed: 9
+  bulletLifetime: 0.8
+  bulletType: {fileID: 0}
+  goldDropSK:
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  enemyType: 2
+  isFlying: 0

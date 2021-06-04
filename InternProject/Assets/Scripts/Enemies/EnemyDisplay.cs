@@ -11,7 +11,7 @@ public class EnemyDisplay : MonoBehaviour
 
     // [SerializeField] ObjEnemy enemyScriptableObj;
     private float maxSpeed;
-    private float eneSpeed;
+    private float enemySpeed;
     private GameObject target;
     private EnemyTargetType tagName;
     private int hp;
@@ -21,26 +21,33 @@ public class EnemyDisplay : MonoBehaviour
     [SerializeField] private GameObject parentHp;
     private int minDamage;
     private int maxDamage;
-    ObjEnemyBullet bulletType;
-    float atkSpeed;
-    float wantDistance;
+    private ObjEnemyBullet bulletType;
+    private float atkSpeed;
+    private float slowDuration;
 
     private bool isStunned = false;
+    private bool isSlowed = false;
     private float timeElapsedAfterStunned = 0f;
 
     private void Update()
     {
-        if (!isStunned) { return; }
+        float deltaTime = Time.deltaTime;
 
-        RecoverFromStun(Time.deltaTime);
+        RecoverFromSlow(deltaTime);
+        RecoverFromStun(deltaTime);
+    }
+
+    private void OnEnable()
+    {
+        isStunned = false;
+        isSlowed = false;
     }
 
     public void StartDisplay(ObjEnemy enemy)
     {
         eneImage.sprite = enemy.GetSprite()[Random.Range(0, enemy.GetSprite().Length)];
         maxSpeed = enemy.GetMovementSpeed();
-        eneSpeed = maxSpeed;
-        // tagName = enemy.GetTargetTag();
+        enemySpeed = maxSpeed;
         hp = enemy.GetHealth();
         maxhp = enemy.GetHealth();
         minDamage = enemy.GetMinDamage();
@@ -51,28 +58,40 @@ public class EnemyDisplay : MonoBehaviour
         dropGoldSK = enemy.GetMoneyDropSK();
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
-        // wantDistance = enemy.GetWantDistance();
-        //// fix
-        RefreshHitbox();
     }
 
-    private void RefreshHitbox()
+    public void Slow(float percentage, float duration)
     {
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>();
+        enemySpeed = ((100 - percentage) * enemySpeed);
+        slowDuration = duration;
+        isSlowed = true;
+    }
+
+    private void RecoverFromSlow(float deltaTime)
+    {
+        if (!isSlowed) { return; }
+
+        slowDuration -= deltaTime;
+
+        if (slowDuration > 0) { return; }
+
+        enemySpeed = maxSpeed;
+        isSlowed = false;
     }
 
     public void Stun()
     {
-        eneSpeed = 0f;
+        enemySpeed = 0f;
         isStunned = true;
     }
 
     public void RecoverFromStun(float deltaTime)
     {
+        if (!isStunned) { return; }
+
         timeElapsedAfterStunned += deltaTime;
 
-        eneSpeed = Mathf.Clamp(eneSpeed + (maxSpeed * deltaTime / timeToRecoverFromStun), 0f, maxSpeed);
+        enemySpeed = Mathf.Clamp(enemySpeed + (maxSpeed * deltaTime / timeToRecoverFromStun), 0f, maxSpeed);
 
         if (timeElapsedAfterStunned >= timeToRecoverFromStun)
         {
@@ -82,7 +101,7 @@ public class EnemyDisplay : MonoBehaviour
     }
 
     public SpriteRenderer Image { get { return eneImage; } }
-    public float Speed { get { return eneSpeed; } set { eneSpeed = value; } }
+    public float Speed { get { return enemySpeed; } set { enemySpeed = value; } }
     public GameObject Target { get { return target; } }
     public EnemyTargetType TagName { get { return tagName; } }
     public int Health { get { return hp; } set { hp = value; } }
@@ -95,6 +114,5 @@ public class EnemyDisplay : MonoBehaviour
     public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
     public ObjEnemyBullet BulletType { get { return bulletType; } }
     public float AtkSpeed { get { return atkSpeed; } }
-    public float WantDistance { get { return wantDistance; } }
 
 }

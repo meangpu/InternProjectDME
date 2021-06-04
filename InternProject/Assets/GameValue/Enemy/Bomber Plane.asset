@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
+  m_Name: Bomber Plane
+  m_EditorClassIdentifier: 
+  enemyName: Bomber Plane
+  des: 
+  artWork:
+  - {fileID: 21300000, guid: f54627291a1c56b41824b39bdc865104, type: 3}
+  hp: 300
+  moveSpeed: 0.75
+  minDamage: 30
+  maxDamage: 60
+  EC: 25
+  isPassive: 0
+  attackRange: 2
+  atkSpeed: 0.25
+  bulletSpeed: 0
+  bulletLifetime: 1
+  bulletType: {fileID: 0}
+  goldDropSK: []
+  enemyType: 2
+  isFlying: 1
