@@ -13,8 +13,7 @@ public class AssignGold : MonoBehaviour
     {
         if (ObjGold != null)
         {
-            spriteRenderer.sprite = ObjGold.GetSprite();
-            value = ObjGold.GetValue();
+            SetGold(ObjGold);
         }
 
     }

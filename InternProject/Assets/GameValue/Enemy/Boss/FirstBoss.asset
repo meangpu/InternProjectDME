@@ -13,23 +13,22 @@ MonoBehaviour:
   m_Name: FirstBoss
   m_EditorClassIdentifier: 
   enemyName: FirstBoss
-  tags: []
   des: The very first boss in this game, having special ability to dash quickly to
     avoid player bullet
   artWork:
   - {fileID: 21300000, guid: 2d270476e645c9647b104938c8946288, type: 3}
   hp: 200
   moveSpeed: 2
-  wantDistance: 6
   minDamage: 6
   maxDamage: 12
   EC: 20
-  targetTagName: 0
   isPassive: 0
   attackRange: 0
   atkSpeed: 0.75
+  bulletSpeed: 0
+  bulletLifetime: 0
   bulletType: {fileID: 11400000, guid: 7aaa4c4a6cbf78e46aaeaf81c3cd99d9, type: 2}
-  moneyDrop: 0
   goldDropSK:
   - {fileID: 11400000, guid: 945f257d7c7f23b42afb92d5387e697f, type: 2}
-  knockBack: 0
+  enemyType: 0
+  isFlying: 0
