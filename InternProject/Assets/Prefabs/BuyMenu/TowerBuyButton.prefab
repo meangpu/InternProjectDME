@@ -180,3 +180,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 42a37942165809f44a38442935d6c11c, type: 2}
   childBuyTower: {fileID: 1972288709307365201, guid: a2f8bbb719e82174c879b14964b089c0, type: 3}
   disableChildTImer: 0.3
+  changeMat: {fileID: 2753982258047150951}
+  notGlowMat: {fileID: 2100000, guid: e4dc12cdc00a8ae4ebe1f60a9657db1b, type: 2}
+  glowMat: {fileID: 2100000, guid: 7a0fa60be8ef74a4e9fa35fe7a249718, type: 2}

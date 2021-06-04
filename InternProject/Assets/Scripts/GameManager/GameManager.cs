@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] CinemachineVirtualCamera buyModeCam;
-    bool isBuying;
+    public bool isBuying;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;

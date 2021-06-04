@@ -36,6 +36,9 @@ public class ParentTowerButton : MonoBehaviour
 	// mainChildButton mainButton;
 	mainChildButton mainButton;
 	ChildTowerButton[] menuItems;
+	[SerializeField] SpriteRenderer changeMat;
+    [SerializeField] Material notGlowMat;
+    [SerializeField] Material glowMat;
 
 	//is menu opened or not
 	bool isExpanded = false;
@@ -48,6 +51,7 @@ public class ParentTowerButton : MonoBehaviour
 	{
 		spawnChild();
 		setupChild();
+		UpdateMaterial();
 	}
 
 	void spawnChild()
@@ -165,6 +169,19 @@ public class ParentTowerButton : MonoBehaviour
 				Debug.Log ("Vibration");
 				break;
 		}
+	}
+
+	public void UpdateMaterial()
+	{
+		if (GameManager.Instance.isBuying)
+		{
+			changeMat.material = glowMat;
+		}
+		else
+		{
+			changeMat.material = notGlowMat;
+		}
+		
 	}
 
 	void OnDestroy ()
