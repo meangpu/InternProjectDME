@@ -26,8 +26,9 @@ public class ChildTowerButton : MonoBehaviour
 		index = trans.GetSiblingIndex () - 1;
 
 		//add click listener
-		button = GetComponent<Button> ();
-		button.onClick.AddListener (OnItemClick);
+
+		// button = GetComponent<Button> ();
+		// button.onClick.AddListener (OnItemClick);
 	}
 
 	void OnItemClick ()
@@ -38,6 +39,7 @@ public class ChildTowerButton : MonoBehaviour
 	void OnDestroy ()
 	{
 		//remove click listener to avoid memory leaks
-		button.onClick.RemoveListener (OnItemClick);
+
+		// button.onClick.RemoveListener (OnItemClick);
 	}
 }

@@ -29,7 +29,7 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] ObjTower[] towerToChoose;
 	[SerializeField] GameObject childBuyTower;
 
-	Button mainButton;
+	mainChildButton mainButton;
 	ChildTowerButton[] menuItems;
 
 	//is menu opened or not
@@ -41,7 +41,7 @@ public class ParentTowerButton : MonoBehaviour
 	void Start ()
 	{
 		spawnChild();
-		// setupChild();
+		setupChild();
 	}
 
 	void spawnChild()
@@ -62,13 +62,16 @@ public class ParentTowerButton : MonoBehaviour
 		menuItems = new ChildTowerButton[itemsCount];
 		for (int i = 0; i < itemsCount; i++) {
 			// +1 to ignore the main button
-			menuItems [i] = transform.GetChild (i + 1).GetComponent <ChildTowerButton> ();
+			menuItems [i] = transform.GetChild (i + 1).GetComponent<ChildTowerButton>();
 		}
 
-		mainButton = transform.GetChild (0).GetComponent <Button> ();
-		mainButton.onClick.AddListener (ToggleMenu);
+		mainButton = transform.GetChild(0).GetComponent<mainChildButton>();
+		// mainButton.onClick.AddListener(ToggleMenu);
+
+
+
 		//SetAsLastSibling () to make sure that the main button will be always at the top layer
-		mainButton.transform.SetAsLastSibling ();
+		mainButton.transform.SetAsLastSibling();
 
 		mainButtonPosition = mainButton.transform.position;
 
@@ -79,7 +82,7 @@ public class ParentTowerButton : MonoBehaviour
 	void ResetPositions ()
 	{
 		for (int i = 0; i < itemsCount; i++) {
-			menuItems [i].trans.position = mainButtonPosition;
+			menuItems[i].trans.position = mainButtonPosition;
 		}
 	}
 
