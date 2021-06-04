@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class ParentTowerButton : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] ObjTower[] towerToChoose;
 	[SerializeField] GameObject childBuyTower;
 
-	mainChildButton mainButton;
+	// mainChildButton mainButton;
+	EventTrigger mainButton;
 	ChildTowerButton[] menuItems;
 
 	//is menu opened or not
@@ -65,7 +67,7 @@ public class ParentTowerButton : MonoBehaviour
 			menuItems [i] = transform.GetChild (i + 1).GetComponent<ChildTowerButton>();
 		}
 
-		mainButton = transform.GetChild(0).GetComponent<mainChildButton>();
+		mainButton = transform.GetChild(0).GetComponent<EventTrigger>();
 		// mainButton.onClick.AddListener(ToggleMenu);
 
 
