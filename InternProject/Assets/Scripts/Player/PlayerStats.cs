@@ -19,8 +19,6 @@ public class PlayerStats : MonoBehaviour
     // Health and Energy
     private HealthOrManaSystem healthSystem;
     private HealthOrManaSystem energySystem;
-    [SerializeField] HealthAndEnergyBar healthUi;
-
     // ObjPlayerTank Stats from Scriptable Object
     private string tankName;
     private int baseMinDamage;
@@ -123,7 +121,6 @@ public class PlayerStats : MonoBehaviour
         objBullet = turret.GetBulletType();
 
         playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
-        healthUi.CustomStart();
     }
 
     private void Update()
