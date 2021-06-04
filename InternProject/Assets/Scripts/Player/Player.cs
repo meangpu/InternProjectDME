@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     // Misc
     private PlayerAbilities playerAbilities;
     private PlayerMovement playerMovement; 
-    private PlayerGun playerGun;
 
     // Player Tank States 
     private bool isDashing = false; // Check if the player is dashing
@@ -25,15 +24,12 @@ public class Player : MonoBehaviour
 
         tank = scriptObjDataTankGun.GetTank();
         turret = scriptObjDataTankGun.GetTurret();
-        
-
     }
 
     private void Start()
     {
         playerAbilities.OnStartedDashing += HandleOnDashed;
         playerAbilities.OnFinishedDashing += HandleAfterDashed;
-        UIManager.Instance.customStart();
     }
 
     private void Update()
