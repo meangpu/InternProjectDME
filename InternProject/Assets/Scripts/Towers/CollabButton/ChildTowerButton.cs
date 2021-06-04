@@ -15,10 +15,17 @@ public class ChildTowerButton : MonoBehaviour
 	//index of the item in the hierarchy
 	int index;
 
+	Transform parentTrans;
+
+	[SerializeField] GameObject towerPfb;
+
+	GameObject previewTower;
+
 	void Awake ()
 	{
 		// img = GetComponent<Image> ();        ******
 		trans = transform;
+		parentTrans = transform.parent.parent;
 
 		settingsMenu = trans.parent.GetComponent <ParentTowerButton> ();
 
@@ -41,5 +48,18 @@ public class ChildTowerButton : MonoBehaviour
 		//remove click listener to avoid memory leaks
 
 		// button.onClick.RemoveListener (OnItemClick);
+	}
+
+	public void previewBuy()
+	{
+		previewTower = Instantiate(towerPfb, parentTrans.position, Quaternion.identity);
+	}
+
+	public void destroyPreview()
+	{
+		if (previewTower != null)
+		{
+			Destroy(previewTower);
+		}
 	}
 }

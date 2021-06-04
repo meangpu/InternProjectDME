@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 using Cinemachine;
 
 public class GameManager : MonoBehaviour
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     // GameObject references
     private PlayerGetHit player;
     private BaseClass playerBase;
+
+    public event Action onBuyModeTrigger;
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         ResumeGame();
     }
+
 
     public void GameOver()
     {
@@ -65,6 +69,10 @@ public class GameManager : MonoBehaviour
 
     public void BuyModeSwap()
     {
+        if (onBuyModeTrigger != null)
+        {
+            onBuyModeTrigger();
+        }
         if (isBuying)
         {
             isBuying = false;

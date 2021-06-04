@@ -34,9 +34,9 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] float disableChildTImer;
 
 	// mainChildButton mainButton;
-	mainChildButton mainButton;
+	Button mainButton;
 	ChildTowerButton[] menuItems;
-	[SerializeField] SpriteRenderer changeMat;
+	[SerializeField] Image changeMat;
     [SerializeField] Material notGlowMat;
     [SerializeField] Material glowMat;
 
@@ -49,9 +49,9 @@ public class ParentTowerButton : MonoBehaviour
 
 	void Start ()
 	{
+		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
 		spawnChild();
 		setupChild();
-		UpdateMaterial();
 	}
 
 	void spawnChild()
@@ -60,7 +60,8 @@ public class ParentTowerButton : MonoBehaviour
         {
             GameObject newTowerButton = Instantiate(childBuyTower, gameObject.transform);
 			newTowerButton.SetActive(false);
-            // newTowerButton.GetComponent<GunChildSetup>().ShowData(gun); 
+			var imageSetter = newTowerButton.transform.GetChild(0);
+            imageSetter.GetComponent<TowerChildDisplay>().displayImg(tower); 
             
         }
 
@@ -76,7 +77,7 @@ public class ParentTowerButton : MonoBehaviour
 			menuItems[i] = transform.GetChild (i + 1).GetComponent<ChildTowerButton>();
 		}
 
-		mainButton = transform.GetChild(0).GetComponent<mainChildButton>();
+		mainButton = transform.GetChild(0).GetComponent<Button>();
 		// mainButton.OnPointerClick.AddListener(ToggleMenu);
 
 
@@ -175,11 +176,17 @@ public class ParentTowerButton : MonoBehaviour
 	{
 		if (GameManager.Instance.isBuying)
 		{
-			changeMat.material = glowMat;
+			mainButton.interactable = false;
+			changeMat.material = notGlowMat;
+			if (isExpanded)
+			{
+				ToggleMenu();
+			}
 		}
 		else
 		{
-			changeMat.material = notGlowMat;
+			changeMat.material = glowMat;		
+			mainButton.interactable = true;
 		}
 		
 	}

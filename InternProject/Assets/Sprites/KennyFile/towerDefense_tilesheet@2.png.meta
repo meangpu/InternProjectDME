@@ -6268,10 +6268,10 @@ TextureImporter:
       name: towerDefense_tilesheet@2_249
       rect:
         serializedVersion: 2
-        x: 2432
-        y: 256
-        width: 128
-        height: 128
+        x: 2434
+        y: 259
+        width: 123
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6751,10 +6751,10 @@ TextureImporter:
       name: towerDefense_tilesheet@2_272
       rect:
         serializedVersion: 2
-        x: 2432
-        y: 128
-        width: 128
-        height: 128
+        x: 2473
+        y: 171
+        width: 45
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
