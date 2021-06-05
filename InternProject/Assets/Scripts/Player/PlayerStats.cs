@@ -21,6 +21,7 @@ public class PlayerStats : MonoBehaviour
     private HealthOrManaSystem energySystem;
     // ObjPlayerTank Stats from Scriptable Object
     private string tankName;
+    private string gunName;
     private int baseMinDamage;
     private int baseMaxDamage;
     private int minDamage;
@@ -86,6 +87,7 @@ public class PlayerStats : MonoBehaviour
         goldSystem = new GoldSystem(startingGold);
 
         tankName = tank.GetName();
+        gunName = turret.GetName();
 
         healthRegenRate = tank.GetHealthRegenRate()[tankLevel - 1];
         timePerHealth = 1 / healthRegenRate;
@@ -300,6 +302,7 @@ public class PlayerStats : MonoBehaviour
     public GoldSystem GetGoldSystem() => goldSystem;
 
     public string GetTankName() => tankName;
+    public string GetGunName() => gunName;
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
 

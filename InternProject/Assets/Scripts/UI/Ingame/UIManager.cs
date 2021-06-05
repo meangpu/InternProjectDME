@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ReloadBar reloadBar = null;
     [SerializeField] private TMP_Text tankNameText = null;
     [SerializeField] private TMP_Text tankLevelText = null;
+    [SerializeField] private TMP_Text gunNameText = null;
+    [SerializeField] private TMP_Text gunLevelText = null;
     [Header("BuyModeDisable")]
     [SerializeField] GameObject addOnDisplay;
     [SerializeField] GameObject bulletDisplay;
@@ -40,18 +42,24 @@ public class UIManager : MonoBehaviour
         playerStats.OnTankLeveledUp += HandleTankLevelUp;
 
         UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
-        UpdateTankName();
+        UpdateTankAttribute();
     }
 
 
-    private void UpdateTankName()
+    private void UpdateTankAttribute()
     {
         tankNameText.text = playerStats.GetTankName();
+        gunNameText.text = playerStats.GetGunName();
     }
 
     private void HandleTankLevelUp(int level)
     {
         tankLevelText.text = $"LEVEL {level}";
+    }
+
+    private void HandleGunLevelUp(int level)
+    {
+        gunLevelText.text = $"LEVEL {level}";
     }
 
     public void UpdateAmmoUI(int currentAmmo, int maxAmmo)
