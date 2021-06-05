@@ -12,8 +12,6 @@ public class EnemyDisplay : MonoBehaviour
     // [SerializeField] ObjEnemy enemyScriptableObj;
     private float maxSpeed;
     private float enemySpeed;
-    private GameObject target;
-    private EnemyTargetType tagName;
     private int hp;
     private int maxhp;
     private ObjGold[] dropGoldSK;
@@ -24,6 +22,9 @@ public class EnemyDisplay : MonoBehaviour
     private ObjEnemyBullet bulletType;
     private float atkSpeed;
     private float slowDuration;
+    private float attackRange;
+
+    private bool isPassive;
 
     private bool isStunned = false;
     private bool isSlowed = false;
@@ -54,10 +55,11 @@ public class EnemyDisplay : MonoBehaviour
         maxDamage = enemy.GetMaxDamage();
         circleHp.fillAmount = 1;
         parentHp.gameObject.SetActive(false);
-        //// fix
+        isPassive = enemy.GetIsPassive();
         dropGoldSK = enemy.GetMoneyDropSK();
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
+        attackRange = enemy.GetAttackRange();
     }
 
     public void Slow(float percentage, float duration)
@@ -102,17 +104,15 @@ public class EnemyDisplay : MonoBehaviour
 
     public SpriteRenderer Image { get { return eneImage; } }
     public float Speed { get { return enemySpeed; } set { enemySpeed = value; } }
-    public GameObject Target { get { return target; } }
-    public EnemyTargetType TagName { get { return tagName; } }
     public int Health { get { return hp; } set { hp = value; } }
     public int MaxHealth { get { return maxhp; } }
     public Image CircleHP { get { return circleHp; } }
     public GameObject ParentHP { get { return parentHp; } }
     public int MinDamage { get { return minDamage; } }
     public int MaxDamage { get { return maxDamage; } }
-
+    public bool IsPassive { get { return isPassive; } }
     public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
     public ObjEnemyBullet BulletType { get { return bulletType; } }
     public float AtkSpeed { get { return atkSpeed; } }
-
+    public float AttackRange { get { return attackRange; } }
 }
