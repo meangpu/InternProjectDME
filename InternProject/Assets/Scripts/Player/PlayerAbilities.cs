@@ -10,6 +10,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] private CooldownSystem cooldownSystem = null;
     [SerializeField] private ObjAbility energyShieldAddon = null;
     [SerializeField] private PlayerGun playerGun = null;
+    [SerializeField] private GameObject orb = null;
 
     [SerializeField] private Animator anim;
 
@@ -89,7 +90,7 @@ public class PlayerAbilities : MonoBehaviour
                 ActivateElectrocharge(ability.GetRange(), ability.GetDuration(), ability.GetPercentage());
                 break;
             case AbilityType.EnergyOrb:
-                Debug.Log($"Cooldown: {ability.GetCooldown()} Cost: {ability.GetEnergyCost()}");
+                ActivateEnergyOrb(comboType, ability.GetDamage(), ability.GetRange(), ability.GetDuration(), ability.GetComboValue());
                 break;
             case AbilityType.EnergyShield:
                 ActivateEnergyShield();
@@ -226,6 +227,14 @@ public class PlayerAbilities : MonoBehaviour
                 enemy.Slow(percentage, duration);
             }
         }
+    }
+
+    private void ActivateEnergyOrb(ComboType comboType, int damage, float range, float duration, float comboValue)
+    {
+        int energyPerHit = comboType == ComboType.EnergyDrainOrb ? (int)comboValue : 0;
+
+        orb.SetActive(true);
+        orb.GetComponent<EnergyOrb>().Setup(damage, range, duration, energyPerHit);
     }
     #endregion
 }

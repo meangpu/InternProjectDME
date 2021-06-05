@@ -17,11 +17,11 @@ MonoBehaviour:
     any enemies it touches
   abilityType: 3
   icon: {fileID: -8247936436179275923, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
-  energyCost: 35
-  cooldownTime: 25
+  energyCost: 30
+  cooldownTime: 20
   damage: 6
-  range: 7.5
-  abilityDuration: 7
+  range: 0.5
+  abilityDuration: 10
   percentage: 0
   comboList:
   - {fileID: 11400000, guid: 7610d30400dbc7f4e993c502e7dc6934, type: 2}
