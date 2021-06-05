@@ -24,7 +24,7 @@ public class EnergyOrb : MonoBehaviour
         lifetime += deltaTime;
 
         rb.velocity = transform.up * maxRange;
-        orbPivot.Rotate(0, 0, 150 * deltaTime);
+        orbPivot.Rotate(0, 0, 240 * deltaTime);
 
         if (lifetime > duration)
         {

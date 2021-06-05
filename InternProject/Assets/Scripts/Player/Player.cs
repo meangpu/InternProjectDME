@@ -6,13 +6,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
-    private ObjPlayerTank tank = null;
-    private ObjTankTurret turret = null;
     [SerializeField] PlayerTankCustomization scriptObjDataTankGun;
     
     // Misc
     private PlayerAbilities playerAbilities;
-    private PlayerMovement playerMovement; 
+    private PlayerMovement playerMovement;
+    private ObjPlayerTank tank = null;
+    private ObjTankTurret turret = null;
 
     // Player Tank States 
     private bool isDashing = false; // Check if the player is dashing
