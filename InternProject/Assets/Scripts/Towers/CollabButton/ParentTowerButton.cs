@@ -74,7 +74,7 @@ public class ParentTowerButton : MonoBehaviour
 	{
 		alreadyHaveTower = true;
 		UpdateMaterial();
-		// upgradeParent.SetActive(true);
+		upgradeParent.SetActive(true);
 	}
 
 	void setupChild()

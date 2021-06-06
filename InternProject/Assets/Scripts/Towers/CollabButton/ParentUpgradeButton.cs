@@ -75,7 +75,6 @@ public class ParentUpgradeButton : MonoBehaviour
 		if (isExpanded) {
 			//menu opened
 			for (int i = 0; i < allButtonList.Length; i++) {
-				
 				allButtonList[i].button.transform.DOMove(allButtonList[i].wantedLocation.position, expandDuration).SetEase (expandEase);
 			}
 			RotateMainButton(180, 0);
