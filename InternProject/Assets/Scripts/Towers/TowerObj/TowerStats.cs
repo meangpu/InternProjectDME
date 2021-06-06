@@ -65,7 +65,8 @@ public class TowerStats : MonoBehaviour
 
     public void RefreshTowerVisualRange()
     {
-        towerRangeDisplay.transform.localScale = Vector3.one * range;
+        // for some reason rane is 2 times bigger
+        towerRangeDisplay.transform.localScale = Vector3.one * range *2;
     }
 
     public int GetMinDamage() => minDamage;
