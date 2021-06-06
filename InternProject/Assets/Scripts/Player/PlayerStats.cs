@@ -50,10 +50,12 @@ public class PlayerStats : MonoBehaviour
     private ObjTankTurret turret;
     private ObjPlayerTank tank;
 
+    // Events
     public event Action<int, int> OnAmmoUpdated;
     public event Action<int> OnTankLeveledUp;
+    public event Action<int> OnGunLeveledUp;
     public event Action OnEnergyShieldDisabled;
-
+    
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
@@ -273,7 +275,7 @@ public class PlayerStats : MonoBehaviour
 
         gunLevel++;
 
-        // Invoke
+        OnGunLeveledUp?.Invoke(gunLevel);
     }
 
     public void SetIsImmuned(bool value)
