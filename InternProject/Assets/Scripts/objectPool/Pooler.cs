@@ -106,7 +106,7 @@ public class Pooler : MonoBehaviour
 
         if (enemy.TryGetComponent(out EnemyShoot enemyShoot))
         {
-            enemyShoot.StartShoot();
+            enemyShoot.StartShooting();
         }
         
         SetupObject(enemy, position, rotation);
