@@ -31,7 +31,7 @@ public class ParentTowerButton : MonoBehaviour
 	[Header ("TowerData")]
 	[SerializeField] ObjTower[] towerToChoose;
 	[SerializeField] GameObject childBuyTower;
-	[SerializeField] float disableChildTImer;
+	[SerializeField] float disableChildTimer = 0.3f;
 
 	// mainChildButton mainButton;
 	Button mainButton;
@@ -39,9 +39,11 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] Image changeMat;
     [SerializeField] Material notGlowMat;
     [SerializeField] Material glowMat;
+	[SerializeField] Material haveTower;
 
 	//is menu opened or not
 	bool isExpanded = false;
+	bool alreadyHaveTower;
 
 	Vector2 mainButtonPosition;
 	int itemsCount;
@@ -63,9 +65,14 @@ public class ParentTowerButton : MonoBehaviour
 			newTowerButton.SetActive(false);
 			var imageSetter = newTowerButton.transform.GetChild(0);
             imageSetter.GetComponent<TowerChildDisplay>().displayImg(tower); 
-            
         }
+	}
 
+
+	public void haveBuildTower()
+	{
+		alreadyHaveTower = true;
+		UpdateMaterial();
 	}
 
 	void setupChild()
@@ -100,7 +107,7 @@ public class ParentTowerButton : MonoBehaviour
 
 	IEnumerator DisableObject()
 	{
-		yield return new WaitForSeconds(disableChildTImer);
+		yield return new WaitForSeconds(disableChildTimer);
 		int childCount = transform.childCount;
 		for (int i = 0; i < childCount-1; i++) {
 			transform.GetChild(i).gameObject.SetActive(false);
@@ -151,20 +158,33 @@ public class ParentTowerButton : MonoBehaviour
 
 	public void UpdateMaterial()
 	{
-		if (GameManager.Instance.isBuying)
+		if (!alreadyHaveTower)
+		{
+			if (GameManager.Instance.isBuying)
+			{
+				mainButton.interactable = false;
+				changeMat.material = notGlowMat;
+				if (isExpanded)
+				{
+					ToggleMenu();
+				}
+			}
+			else
+			{
+				changeMat.material = glowMat;		
+				mainButton.interactable = true;
+			}
+		}
+		else
 		{
 			mainButton.interactable = false;
-			changeMat.material = notGlowMat;
+			changeMat.material = haveTower;
 			if (isExpanded)
 			{
 				ToggleMenu();
 			}
 		}
-		else
-		{
-			changeMat.material = glowMat;		
-			mainButton.interactable = true;
-		}
+
 		
 	}
 

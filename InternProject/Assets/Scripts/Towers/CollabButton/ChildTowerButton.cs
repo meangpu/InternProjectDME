@@ -8,7 +8,7 @@ public class ChildTowerButton : MonoBehaviour
 	[SerializeField] Button buyButton;
 
 	//SettingsMenu reference
-	ParentTowerButton settingsMenu;
+	ParentTowerButton parentTowerButton;
 	Transform previewTranform;
 	Transform towerBuyTransform;
 
@@ -31,7 +31,7 @@ public class ChildTowerButton : MonoBehaviour
 		// obj preview tower
 		previewTranform = transform.parent.parent.parent.GetChild(0);
 		towerBuyTransform = transform.parent.parent.parent.GetChild(1);
-		settingsMenu = transform.parent.GetComponent<ParentTowerButton>();
+		parentTowerButton = transform.parent.GetComponent<ParentTowerButton>();
 	}
 
 	private void Start() 
@@ -67,14 +67,19 @@ public class ChildTowerButton : MonoBehaviour
 
 	public void buyTower()
 	{
-		if (towerBuyTransform.childCount == 0)
+		// check if player already buy tower
+		if (towerBuyTransform.childCount == 1)
 		{
+			towerBuyTransform.gameObject.SetActive(true);
 			PlayerStats.Instance.SpendGold(towerObject.GetUpgradeCost()[0]);
 			GameObject buildTower = Instantiate(towerPfb, towerBuyTransform.position, Quaternion.identity);
 			buildTower.GetComponent<TowerStats>().SetTowerType(towerObject);
 			buildTower.transform.parent = towerBuyTransform;
 			GameManager.Instance.checkWhatCanBuy();
+			parentTowerButton.haveBuildTower();
 		}
+		
+		disablePreview();
 	}
 
 	public void updateVisualCanBuy()
