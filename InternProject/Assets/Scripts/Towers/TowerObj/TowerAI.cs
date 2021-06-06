@@ -71,6 +71,9 @@ public class TowerAI : MonoBehaviour
         }
 
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
+
+        
+
         foreach (Collider2D collider in colliderArray)
         {
             if (collider.TryGetComponent(out Enemy enemy))
@@ -104,6 +107,12 @@ public class TowerAI : MonoBehaviour
     private void ResetShootTimer()
     {
         timeAfterShot = 0f;
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
+        Gizmos.DrawWireSphere (transform.position, range);
     }
 
     public Enemy GetTarget() => target;
