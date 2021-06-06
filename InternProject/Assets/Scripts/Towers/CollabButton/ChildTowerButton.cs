@@ -67,7 +67,7 @@ public class ChildTowerButton : MonoBehaviour
 	public void buyTower()
 	{
 		// check if player already buy tower
-		if (towerBuyTransform.childCount == 1)
+		if (towerBuyTransform.childCount == 0)
 		{
 			towerBuyTransform.gameObject.SetActive(true);
 			PlayerStats.Instance.SpendGold(towerObject.GetUpgradeCost()[0]);

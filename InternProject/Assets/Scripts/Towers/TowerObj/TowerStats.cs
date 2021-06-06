@@ -19,6 +19,7 @@ public class TowerStats : MonoBehaviour
     private float bulletSpeed;
     private float bulletLifetime;
     private Sprite bulletSprite;
+    private int price;
 
     private void Start()
     {
@@ -50,7 +51,17 @@ public class TowerStats : MonoBehaviour
         bulletSpeed = tower.GetProjectileSpeed();
         bulletLifetime = tower.GetProjectileLifeTime();
         bulletSprite = tower.GetProjectileSprite();
+        price = tower.GetUpgradeCost()[towerLevel];
         RefreshTowerVisualRange();
+    }
+
+    public void LevelUp()
+    {
+        if(towerLevel < 2)
+        {
+            towerLevel++;
+            GetAllStats();
+        }
     }
 
     public void SetTowerType(ObjTower tower)
@@ -77,4 +88,5 @@ public class TowerStats : MonoBehaviour
     public float GetBulletSpeed() => bulletSpeed;
     public float GetBulletLifetime() => bulletLifetime;
     public Sprite GetBulletSprite() => bulletSprite;
+    public int GetPrice() => price;
 }

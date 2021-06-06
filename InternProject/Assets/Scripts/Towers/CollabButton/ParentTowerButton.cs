@@ -41,6 +41,7 @@ public class ParentTowerButton : MonoBehaviour
     [SerializeField] Material glowMat;
 	[SerializeField] Material haveTower;
 	[SerializeField] GameObject upgradeParent;
+	[SerializeField] ParticleSystem buildEffect;
 
 	//is menu opened or not
 	bool isExpanded = false;
@@ -48,6 +49,8 @@ public class ParentTowerButton : MonoBehaviour
 
 	Vector2 mainButtonPosition;
 	int itemsCount;
+
+	[SerializeField] Transform previewTower;
 
 
 	void Start ()
@@ -69,12 +72,22 @@ public class ParentTowerButton : MonoBehaviour
         }
 	}
 
+	void deletePreview()
+	{
+		previewTower.gameObject.SetActive(false);
+	}
+
 
 	public void haveBuildTower()
 	{
+		buildEffect.Play();
+		deletePreview();
 		alreadyHaveTower = true;
 		UpdateMaterial();
 		upgradeParent.SetActive(true);
+		upgradeParent.GetComponent<ParentUpgradeButton>().DisableObjectInstant();
+		
+		
 	}
 
 	void setupChild()
@@ -140,13 +153,15 @@ public class ParentTowerButton : MonoBehaviour
 
 		} else {
 			//menu closed
-			for (int i = 0; i < itemsCount; i++) {
+			for (int i = 0; i < itemsCount; i++) 
+			{
 				menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
 				//Fade to alpha=0
 				// menuItems [i].img.DOFade (0f, collapseFadeDuration);   *****
 			}
 			RotateMainButton(0, 180);
 			StartCoroutine(DisableObject());
+			deletePreview();
 		}
 	}
 
@@ -157,6 +172,7 @@ public class ParentTowerButton : MonoBehaviour
 		for (int i = 0; i < itemsCount; i++) {
 			menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
 		}
+		deletePreview();
 		RotateMainButton(0, 180);
 		StartCoroutine(DisableObject());
 	}

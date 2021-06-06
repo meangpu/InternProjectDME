@@ -31,6 +31,14 @@ public class ParentUpgradeButton : MonoBehaviour
 	[SerializeField] float collapseDuration;
 	[SerializeField] Ease expandEase;
 	[SerializeField] Ease collapseEase;
+	[SerializeField] float disableChildTimer;
+
+	
+	[Space]
+	[Header ("Material")]
+	[SerializeField] Image changeMat;
+	[SerializeField] Material notGlowMat;
+	[SerializeField] Material glowMat;
 
 
 	ChildTowerButton[] menuItems;
@@ -43,9 +51,22 @@ public class ParentUpgradeButton : MonoBehaviour
 	int itemsCount;
 
 	[SerializeField] GameObject mainButton;
+
+	[Header ("main tower")]
+	[SerializeField] Transform parentOfTower;
+	TowerStats mainTower;
+	bool canUpgrade;
+
+	[Header ("Effect")]
+	[SerializeField] ParticleSystem upgradeEffect;
+	[SerializeField] ParticleSystem sellEffect;
+
+	
+
  
 	private void Start() 
 	{
+		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
 		setupChild();
 	}
 
@@ -60,6 +81,22 @@ public class ParentUpgradeButton : MonoBehaviour
 		ResetPositions ();
 	}
 
+	void UpdateMaterial()
+	{
+		if (GameManager.Instance.isBuying)
+		{
+			mainButton.GetComponent<Button>().interactable = false;
+			changeMat.material = notGlowMat;
+			if (isExpanded)
+			{
+				ToggleMenu();
+			}
+		}
+		else
+		{
+			mainButton.GetComponent<Button>().interactable = true;
+		}
+	}
 
 	void ResetPositions ()
 	{
@@ -74,6 +111,7 @@ public class ParentUpgradeButton : MonoBehaviour
 		
 		if (isExpanded) {
 			//menu opened
+			EnableObject();
 			for (int i = 0; i < allButtonList.Length; i++) {
 				allButtonList[i].button.transform.DOMove(allButtonList[i].wantedLocation.position, expandDuration).SetEase (expandEase);
 			}
@@ -86,10 +124,48 @@ public class ParentUpgradeButton : MonoBehaviour
 				allButtonList[i].button.transform.DOMove(mainButtonPosition, collapseDuration).SetEase (collapseEase);
 			}
 			RotateMainButton(0, 180);
+			StartCoroutine(DisableObject());
+		}
+	}
+
+	public void closeToggle()
+	{
+		isExpanded = false;
+		for (int i = 0; i < allButtonList.Length; i++) 
+		{
+			allButtonList[i].button.transform.DOMove(mainButtonPosition, collapseDuration).SetEase (collapseEase);
+		}
+		RotateMainButton(0, 180);
+		StartCoroutine(DisableObject());
+	}
+
+
+
+	IEnumerator DisableObject()
+	{
+		yield return new WaitForSeconds(disableChildTimer);
+		int childCount = transform.childCount;
+		for (int i = 0; i < childCount-1; i++) {
+			transform.GetChild(i).gameObject.SetActive(false);
+		}
+	}
+
+	public void DisableObjectInstant()
+	{
+		int childCount = transform.childCount;
+		for (int i = 0; i < childCount-1; i++) {
+			transform.GetChild(i).gameObject.SetActive(false);
 		}
 	}
 
 
+	void EnableObject()
+	{
+		int childEnableCount = transform.childCount;
+		for (int i = 0; i < childEnableCount; i++) {
+			transform.GetChild (i).gameObject.SetActive(true);
+		}
+	}
 
 	void RotateMainButton(float angle, float startAngel)
 	{
@@ -97,6 +173,39 @@ public class ParentUpgradeButton : MonoBehaviour
 		.DORotate (Vector3.forward * angle, rotationDuration)
 		.From (Vector3.zero + new Vector3(0, 0, startAngel))
 		.SetEase (rotationEase);
+	}
+
+	public void upgradeTower()
+	{
+		upgradeEffect.Play();
+		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
+		Debug.Log(mainTower);
+		chekIfCanUpgrade();
+		if (canUpgrade)
+		{
+			PlayerStats.Instance.SpendGold(mainTower.GetPrice());
+			mainTower.LevelUp();
+		}
+
+	}
+
+	public void chekIfCanUpgrade()
+	{
+		if (PlayerStats.Instance.GetGoldSystem().GetGold() >= mainTower.GetPrice())
+		{
+			canUpgrade = true;
+		}
+		else
+		{
+			canUpgrade = false;
+		}
+
+		// updateVisualCanBuy();
+	}
+
+	public void fortest()
+	{
+		Debug.Log("asdasdasddasdasda");
 	}
 
 
