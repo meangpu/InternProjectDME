@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 4311762890589491711}
   - component: {fileID: 4311762890589491697}
   - component: {fileID: 8879223242420276883}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Base
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 6791109871296851732}
   - component: {fileID: 6858760938998999887}
   - component: {fileID: 3474997122130577124}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 1229373768006633455}
   - component: {fileID: 8100494078331570816}
   - component: {fileID: 4728448768279290809}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 4967925721649753681}
   - component: {fileID: 8723502886920429087}
   - component: {fileID: 6608464115503124760}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextHp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

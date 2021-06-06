@@ -72,8 +72,6 @@ public class TowerAI : MonoBehaviour
 
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
 
-        
-
         foreach (Collider2D collider in colliderArray)
         {
             if (collider.TryGetComponent(out Enemy enemy))
