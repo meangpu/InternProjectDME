@@ -5,15 +5,25 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
+
+[System.Serializable]
+public class upgradeButton
+{
+    public GameObject button;
+    public Transform wantedLocation;
+}
+
+
+
 public class ParentUpgradeButton : MonoBehaviour
 {
-	[Header ("space between menu items")]
-	[SerializeField] Vector2 spacing;
-
 	[Space]
 	[Header ("Main button rotation")]
 	[SerializeField] float rotationDuration;
 	[SerializeField] Ease rotationEase;
+
+	[Header("allButton")]
+	[SerializeField] upgradeButton[] allButtonList;
 
 	[Space]
 	[Header ("Animation")]
@@ -22,72 +32,26 @@ public class ParentUpgradeButton : MonoBehaviour
 	[SerializeField] Ease expandEase;
 	[SerializeField] Ease collapseEase;
 
-	// [Space]
-	// [Header ("Fading")]
-	// [SerializeField] float expandFadeDuration;
-	// [SerializeField] float collapseFadeDuration;
 
-	[Space]
-	[Header ("TowerData")]
-	[SerializeField] ObjTower[] towerToChoose;
-	[SerializeField] GameObject childBuyTower;
-	[SerializeField] float disableChildTimer = 0.3f;
-
-	// mainChildButton mainButton;
-	Button mainButton;
 	ChildTowerButton[] menuItems;
-	[SerializeField] Image changeMat;
-    [SerializeField] Material notGlowMat;
-    [SerializeField] Material glowMat;
-	[SerializeField] Material haveTower;
+
 
 	//is menu opened or not
 	bool isExpanded = false;
-	bool alreadyHaveTower;
 
 	Vector2 mainButtonPosition;
 	int itemsCount;
 
-
-	void Start ()
+	[SerializeField] GameObject mainButton;
+ 
+	private void Start() 
 	{
-		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
-		spawnChild();
 		setupChild();
 	}
 
-	void spawnChild()
-	{
-        foreach (var tower in towerToChoose)
-        {
-            GameObject newTowerButton = Instantiate(childBuyTower, gameObject.transform);
-			newTowerButton.GetComponent<ChildTowerButton>().towerObject = tower;
-			newTowerButton.SetActive(false);
-			var imageSetter = newTowerButton.transform.GetChild(0);
-            imageSetter.GetComponent<TowerChildDisplay>().displayImg(tower); 
-        }
-	}
-
-
-	public void haveBuildTower()
-	{
-		alreadyHaveTower = true;
-		UpdateMaterial();
-	}
 
 	void setupChild()
 	{
-		//add all the items to the menuItems array
-		itemsCount = transform.childCount - 1;
-		menuItems = new ChildTowerButton[itemsCount];
-		for (int i = 0; i < itemsCount; i++) {
-			// +1 to ignore the main button
-			menuItems[i] = transform.GetChild (i + 1).GetComponent<ChildTowerButton>();
-		}
-
-		mainButton = transform.GetChild(0).GetComponent<Button>();
-		// mainButton.OnPointerClick.AddListener(ToggleMenu);
-
 		//SetAsLastSibling () to make sure that the main button will be always at the top layer
 		mainButton.transform.SetAsLastSibling();
 		mainButtonPosition = mainButton.transform.position;
@@ -96,57 +60,37 @@ public class ParentUpgradeButton : MonoBehaviour
 		ResetPositions ();
 	}
 
-	void EnableObject()
-	{
-		int childEnableCount = transform.childCount;
-		for (int i = 0; i < childEnableCount; i++) {
-			transform.GetChild (i).gameObject.SetActive(true);
-		}
-	}
-
-
-	IEnumerator DisableObject()
-	{
-		yield return new WaitForSeconds(disableChildTimer);
-		int childCount = transform.childCount;
-		for (int i = 0; i < childCount-1; i++) {
-			transform.GetChild(i).gameObject.SetActive(false);
-		}
-	}
 
 	void ResetPositions ()
 	{
-		for (int i = 0; i < itemsCount; i++) {
-			menuItems[i].trans.position = mainButtonPosition;
+		for (int i = 0; i < allButtonList.Length; i++) {
+			allButtonList[i].button.transform.position = mainButtonPosition;
 		}
 	}
 
-	public void ToggleMenu ()
+	public void ToggleMenu()
 	{
 		isExpanded = !isExpanded;
-
+		
 		if (isExpanded) {
 			//menu opened
-			EnableObject();
-			for (int i = 0; i < itemsCount; i++) {
-				menuItems [i].trans.DOMove (mainButtonPosition + spacing * (i + 1), expandDuration).SetEase (expandEase);
-				//Fade to alpha=1 starting from alpha=0 immediately
-				// menuItems [i].img.DOFade (1f, expandFadeDuration).From (0f);   ******
+			for (int i = 0; i < allButtonList.Length; i++) {
+				
+				allButtonList[i].button.transform.DOMove(allButtonList[i].wantedLocation.position, expandDuration).SetEase (expandEase);
 			}
 			RotateMainButton(180, 0);
 
 
 		} else {
 			//menu closed
-			for (int i = 0; i < itemsCount; i++) {
-				menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
-				//Fade to alpha=0
-				// menuItems [i].img.DOFade (0f, collapseFadeDuration);   *****
+			for (int i = 0; i < allButtonList.Length; i++) {
+				allButtonList[i].button.transform.DOMove(mainButtonPosition, collapseDuration).SetEase (collapseEase);
 			}
 			RotateMainButton(0, 180);
-			StartCoroutine(DisableObject());
 		}
 	}
+
+
 
 	void RotateMainButton(float angle, float startAngel)
 	{
@@ -156,43 +100,5 @@ public class ParentUpgradeButton : MonoBehaviour
 		.SetEase (rotationEase);
 	}
 
-	public void UpdateMaterial()
-	{
-		if (!alreadyHaveTower)
-		{
-			if (GameManager.Instance.isBuying)
-			{
-				mainButton.interactable = false;
-				changeMat.material = notGlowMat;
-				if (isExpanded)
-				{
-					ToggleMenu();
-				}
-			}
-			else
-			{
-				changeMat.material = glowMat;		
-				mainButton.interactable = true;
-			}
-		}
-		else
-		{
-			mainButton.interactable = false;
-			changeMat.material = haveTower;
-			if (isExpanded)
-			{
-				ToggleMenu();
-			}
-		}
 
-		
-	}
-
-	void OnDestroy ()
-	{
-		//remove click listener to avoid memory leaks
-
-
-		// mainButton.onClick.RemoveListener (ToggleMenu);
-	}
 }

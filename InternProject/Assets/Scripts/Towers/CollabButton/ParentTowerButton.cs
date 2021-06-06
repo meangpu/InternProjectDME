@@ -40,6 +40,7 @@ public class ParentTowerButton : MonoBehaviour
     [SerializeField] Material notGlowMat;
     [SerializeField] Material glowMat;
 	[SerializeField] Material haveTower;
+	[SerializeField] GameObject upgradeParent;
 
 	//is menu opened or not
 	bool isExpanded = false;
@@ -73,6 +74,7 @@ public class ParentTowerButton : MonoBehaviour
 	{
 		alreadyHaveTower = true;
 		UpdateMaterial();
+		// upgradeParent.SetActive(true);
 	}
 
 	void setupChild()
@@ -146,6 +148,17 @@ public class ParentTowerButton : MonoBehaviour
 			RotateMainButton(0, 180);
 			StartCoroutine(DisableObject());
 		}
+	}
+
+
+	public void closeToggle()
+	{
+		isExpanded = false;
+		for (int i = 0; i < itemsCount; i++) {
+			menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
+		}
+		RotateMainButton(0, 180);
+		StartCoroutine(DisableObject());
 	}
 
 	void RotateMainButton(float angle, float startAngel)
