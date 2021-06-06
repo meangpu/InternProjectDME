@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private float pathScanInterval = 0.5f;
     [SerializeField] private float nextWayPointDistance = 1.2f;
+    [SerializeField] private LayerMask playerLayerMask;
 
     private Transform playerBase = null;
     private Transform player = null;
@@ -89,7 +90,17 @@ public class EnemyAI : MonoBehaviour
 
     private void FindPlayerInRange()
     {
-        if (Vector2.Distance(transform.position, player.position) < attackRange)
+        Collider2D target = Physics2D.OverlapCircle(transform.position, attackRange, playerLayerMask);
+
+        if (target == null)
+        {
+            if (state == EnemyState.TargetBase) { goto SkipToReturn; }
+            SetTargetAsBase();
+            SkipToReturn:
+            return;
+        }
+
+        if (target.TryGetComponent<Player>(out _))
         {
             if (state == EnemyState.TargetPlayer) { return; }
             currentTarget = player;
@@ -98,16 +109,26 @@ public class EnemyAI : MonoBehaviour
         else
         {
             if (state == EnemyState.TargetBase) { return; }
-            currentTarget = playerBase;
-            state = EnemyState.TargetBase;
+            SetTargetAsBase();
         }
     }
 
     private void Move()
     {
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        if (!isPassive)
+        {
+            if (Physics2D.OverlapCircle(transform.position, attackRange / 2, playerLayerMask) != null)
+            {
+                RotateTowardsTarget();
+                rb.velocity = Vector2.zero;
+                return;
+            }
+        }
+
         rb.velocity = transform.right * enemyDisplay.Speed;
 
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, direction);
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, enemyDisplay.Speed);
@@ -137,5 +158,20 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+
+    private void SetTargetAsBase()
+    {
+        currentTarget = playerBase;
+        state = EnemyState.TargetBase;
+    }
+
+    private void RotateTowardsTarget()
+    {
+        Vector3 lookDirection = currentTarget.position - transform.position;
+
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), 2f);
     }
 }
