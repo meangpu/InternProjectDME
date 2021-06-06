@@ -1,65 +1,100 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChildTowerButton : MonoBehaviour
 {
-	// [HideInInspector] public Image img;   ********
 	[HideInInspector] public Transform trans;
+	[SerializeField] Button buyButton;
 
 	//SettingsMenu reference
 	ParentTowerButton settingsMenu;
-
-	//item button
-	[SerializeField] Button button;
-
-	//index of the item in the hierarchy
-	int index;
-
-	Transform parentTrans;
+	Transform previewTranform;
+	Transform towerBuyTransform;
 
 	[SerializeField] GameObject towerPfb;
 	public ObjTower towerObject;
 
 	GameObject previewTower;
+	bool canBuy = true;
+
+	[Header("VisualRepresent")]
+	[SerializeField] Color32 cannotBuyColor;
+	[SerializeField] Image towerImage;
+	[SerializeField] TMP_Text pricetext;
+
 
 	void Awake ()
 	{
-		// img = GetComponent<Image> ();        ******
 		trans = transform;
-		parentTrans = transform.parent.parent.parent.GetChild(0);
-
-		settingsMenu = trans.parent.GetComponent <ParentTowerButton> ();
-
-		//-1 to ignore the main button
-		index = trans.GetSiblingIndex () - 1;
-
-		//add click listener
-		button.onClick.AddListener (OnItemClick);
+		GameManager.Instance.OnCheckWhatCanBuy += chekIfCanBuy;
+		// obj preview tower
+		previewTranform = transform.parent.parent.parent.GetChild(0);
+		towerBuyTransform = transform.parent.parent.parent.GetChild(1);
+		settingsMenu = transform.parent.GetComponent<ParentTowerButton>();
 	}
 
-	void OnItemClick ()
+	private void Start() 
 	{
-		settingsMenu.OnItemClick (index);
+		GameManager.Instance.checkWhatCanBuy();
 	}
 
-	void OnDestroy ()
-	{
-		// remove click listener to avoid memory leaks
-		button.onClick.RemoveListener (OnItemClick);
-	}
 
 	public void previewBuy()
 	{
-		previewTower = Instantiate(towerPfb, parentTrans.position, Quaternion.identity);
-		previewTower.GetComponent<TowerStats>().SetTowerType(towerObject);
-		previewTower.transform.parent = parentTrans;
+		if (canBuy)
+		{
+			previewTranform.gameObject.SetActive(true);
+			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerType(towerObject);
+		}
 	}
 
-	public void destroyPreview()
+	public void chekIfCanBuy()
 	{
-		if (previewTower != null)
+		if (PlayerStats.Instance.GetGoldSystem().GetGold() >= towerObject.GetUpgradeCost()[0])
 		{
-			Destroy(previewTower);
+			canBuy = true;
+			updateVisualCanBuy();
+			// PlayerStats.Instance.SpendGold(towerObject.GetUpgradeCost()[0]);
 		}
+		else
+		{
+			canBuy = false;
+			updateVisualCanBuy();
+		}
+
+	}
+
+	public void buyTower()
+	{
+		if (towerBuyTransform.childCount == 0)
+		{
+			PlayerStats.Instance.SpendGold(towerObject.GetUpgradeCost()[0]);
+			GameObject buildTower = Instantiate(towerPfb, towerBuyTransform.position, Quaternion.identity);
+			buildTower.GetComponent<TowerStats>().SetTowerType(towerObject);
+			buildTower.transform.parent = towerBuyTransform;
+			GameManager.Instance.checkWhatCanBuy();
+		}
+	}
+
+	public void updateVisualCanBuy()
+	{
+		if(canBuy)
+		{
+			pricetext.color =  new Color(1, 1, 1, 1);
+			towerImage.color = new Color(1, 1, 1, 1);
+			buyButton.interactable = true;
+		}
+		else
+		{
+			towerImage.color = new Color(1, 1, 1, 0.2f);
+			pricetext.color = cannotBuyColor;
+			buyButton.interactable = false;
+		}
+	}
+
+	public void disablePreview()
+	{
+		previewTranform.gameObject.SetActive(false);
 	}
 }

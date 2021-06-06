@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private BaseClass playerBase;
 
     public event Action onBuyModeTrigger;
+    public event Action OnCheckWhatCanBuy;
 
     private void Awake()
     {
@@ -65,6 +66,14 @@ public class GameManager : MonoBehaviour
 
         winPanel.SetActive(true);
         PauseGame();
+    }
+
+    public void checkWhatCanBuy()
+    {
+        if (OnCheckWhatCanBuy != null)
+        {
+            OnCheckWhatCanBuy();
+        }
     }
 
     public void BuyModeSwap()

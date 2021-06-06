@@ -45,8 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 0}
-  button: {fileID: 2490650062621981249}
+  buyButton: {fileID: 2490650062621981249}
   towerPfb: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
+  towerObject: {fileID: 0}
+  cannotBuyColor:
+    serializedVersion: 2
+    rgba: 4279835128
+  towerImage: {fileID: 4207375574765696876}
+  pricetext: {fileID: 6136062431621411182}
 --- !u!1 &2959325661137802340
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +517,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3355498527282606267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4642754802787722843}
+        m_TargetAssemblyTypeName: ChildTowerButton, Assembly-CSharp
+        m_MethodName: buyTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2555987487474708858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +565,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: -4642754802787722843}
           m_TargetAssemblyTypeName: ChildTowerButton, Assembly-CSharp
-          m_MethodName: destroyPreview
+          m_MethodName: disablePreview
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

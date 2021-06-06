@@ -237,7 +237,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.101960786}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.14901961}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -256,7 +256,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2792474499347827391}
-  - component: {fileID: 2792474499347827390}
   m_Layer: 0
   m_Name: TurretPivot
   m_TagString: Untagged
@@ -279,19 +278,6 @@ Transform:
   m_Father: {fileID: 2792474500436230540}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &2792474499347827390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2792474499347827384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120af7edc91d2a84b9b6e874375685b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AI: {fileID: 2792474500436230547}
 --- !u!1 &2792474500436230541
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,10 +287,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2792474500436230540}
-  - component: {fileID: 803605578437751490}
-  - component: {fileID: 2792474500436230547}
+  - component: {fileID: 3270763043493190107}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: previewTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +313,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &803605578437751490
+--- !u!114 &3270763043493190107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,7 +322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2792474500436230541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b751ad3334f46324199bd46c2841a837, type: 3}
+  m_Script: {fileID: 11500000, guid: fc5ccd7f1768f0a43a79ce09cb469360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerLevel: 0
@@ -345,25 +330,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a175a525b918b004bbc5cdb747b94687, type: 3}
   - {fileID: 21300000, guid: 2b6dba026db42214f87f1c81119fd378, type: 3}
   - {fileID: 21300000, guid: 4b4548269ee50574b83d87731e527162, type: 3}
-  tower: {fileID: 11400000, guid: 42a37942165809f44a38442935d6c11c, type: 2}
+  tower: {fileID: 0}
   towerBase: {fileID: 2792474500954561039}
   towerTurret: {fileID: 2792474501053865933}
   towerLevelDisplay: {fileID: 2461680222053046971}
   towerRangeDisplay: {fileID: 1620005729651842944}
---- !u!114 &2792474500436230547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2792474500436230541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8fc7b63e5a1d140a6423c210651d89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpawnPointTransform: {fileID: 2792474500679827443}
-  targetScanInterval: 0.1
 --- !u!1 &2792474500679827436
 GameObject:
   m_ObjectHideFlags: 0

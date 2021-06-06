@@ -81,8 +81,6 @@ public class ParentTowerButton : MonoBehaviour
 		mainButton = transform.GetChild(0).GetComponent<Button>();
 		// mainButton.OnPointerClick.AddListener(ToggleMenu);
 
-
-
 		//SetAsLastSibling () to make sure that the main button will be always at the top layer
 		mainButton.transform.SetAsLastSibling();
 		mainButtonPosition = mainButton.transform.position;
@@ -140,10 +138,7 @@ public class ParentTowerButton : MonoBehaviour
 			}
 			RotateMainButton(0, 180);
 			StartCoroutine(DisableObject());
-			
 		}
-
-		
 	}
 
 	void RotateMainButton(float angle, float startAngel)
@@ -152,25 +147,6 @@ public class ParentTowerButton : MonoBehaviour
 		.DORotate (Vector3.forward * angle, rotationDuration)
 		.From (Vector3.zero + new Vector3(0, 0, startAngel))
 		.SetEase (rotationEase);
-	}
-
-	public void OnItemClick (int index)
-	{
-		//here you can add you logic 
-		switch (index) {
-			case 0: 
-				//first button
-				Debug.Log ("Music");
-				break;
-			case 1: 
-				//second button
-				Debug.Log ("Sounds");
-				break;
-			case 2: 
-				//third button
-				Debug.Log ("Vibration");
-				break;
-		}
 	}
 
 	public void UpdateMaterial()
