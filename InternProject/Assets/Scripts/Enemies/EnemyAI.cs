@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float pathScanInterval = 0.5f;
     [SerializeField] private float nextWayPointDistance = 1.2f;
     [SerializeField] private LayerMask playerLayerMask;
+    [SerializeField] private EnemyShoot enemyShoot = null;
 
     private Transform playerBase = null;
     private Transform player = null;
@@ -120,8 +121,13 @@ public class EnemyAI : MonoBehaviour
             if (Physics2D.OverlapCircle(transform.position, attackRange / 2, playerLayerMask) != null)
             {
                 RotateTowardsTarget();
+                enemyShoot.StartShooting();
                 rb.velocity = Vector2.zero;
                 return;
+            }
+            else
+            {
+                enemyShoot.StopShooting();
             }
         }
 

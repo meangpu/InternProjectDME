@@ -5,37 +5,38 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float waitTime;
-    [SerializeField] private float startWaitTime = 2f;
     [SerializeField] private EnemyDisplay enemy = null;
 
-    private IEnumerator countFirebullet;
+    private float timeCounter = 0f;
+    private float waitTime;
+    private bool canShoot = false;
 
-    public void StartShoot()
+    private void OnEnable()
     {
-        waitTime = 1/enemy.AtkSpeed;
-        if (countFirebullet != null)
+        waitTime = 1 / enemy.AtkSpeed;
+    }
+
+    private void Update()
+    {
+        if (!canShoot) { return; }
+
+        timeCounter += Time.deltaTime;
+
+        if (timeCounter > waitTime)
         {
-            // this make sure that only one Coroutine count
-            StopCoroutine(countFirebullet);
+            PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+            timeCounter = 0f;
         }
-        // countFirebullet = FireBullet();
-        // StartCoroutine(countFirebullet);
-
-        StartCoroutine(FirstTimeWait());
     }
 
-    private IEnumerator FireBullet()
+    public void StartShooting()
     {
-        PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), 1, 1, enemy.BulletType);
-        yield return new WaitForSeconds(waitTime);
-        StartCoroutine(FireBullet());
+        canShoot = true;
     }
 
-    private IEnumerator FirstTimeWait()
+    public void StopShooting()
     {
-        yield return new WaitForSeconds(startWaitTime);
-        StartCoroutine(FireBullet());
+        canShoot = false;
     }
 
     private int DealDamage()

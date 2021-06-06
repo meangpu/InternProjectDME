@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
 
         playerStats.OnAmmoUpdated += UpdateAmmoUI;
         playerStats.OnTankLeveledUp += HandleTankLevelUp;
+        playerStats.OnGunLeveledUp += HandleGunLevelUp;
 
         UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
         UpdateTankAttribute();
@@ -76,6 +77,7 @@ public class UIManager : MonoBehaviour
     {
         playerStats.OnAmmoUpdated -= UpdateAmmoUI;
         playerStats.OnTankLeveledUp -= HandleTankLevelUp;
+        playerStats.OnGunLeveledUp -= HandleGunLevelUp;
     }
 
     public void OpenBuyMenu()

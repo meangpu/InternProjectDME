@@ -192,7 +192,7 @@ public class WaveManager : MonoBehaviour
         boss.transform.position = spawnPos.position;
         boss.transform.rotation = spawnPos.rotation;
 
-        boss.GetComponent<EnemyShoot>().StartShoot();
+        boss.GetComponent<EnemyShoot>().StartShooting();
         EnemyAlive.Add(boss.GetComponent<Enemy>());
         SetEnemyLeftText();
     }

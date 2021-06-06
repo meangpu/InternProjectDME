@@ -23,6 +23,8 @@ public class EnemyDisplay : MonoBehaviour
     private float atkSpeed;
     private float slowDuration;
     private float attackRange;
+    private float bulletSpeed;
+    private float bulletLifetime;
 
     private bool isPassive;
 
@@ -60,6 +62,8 @@ public class EnemyDisplay : MonoBehaviour
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
         attackRange = enemy.GetAttackRange();
+        bulletSpeed = enemy.GetBulletSpeed();
+        bulletLifetime = enemy.GetBulletLifetime();
     }
 
     public void Slow(float percentage, float duration)
@@ -115,4 +119,6 @@ public class EnemyDisplay : MonoBehaviour
     public ObjEnemyBullet BulletType { get { return bulletType; } }
     public float AtkSpeed { get { return atkSpeed; } }
     public float AttackRange { get { return attackRange; } }
+    public float BulletSpeed { get { return bulletSpeed; } }
+    public float BulletLifetime { get { return bulletLifetime; } }
 }
