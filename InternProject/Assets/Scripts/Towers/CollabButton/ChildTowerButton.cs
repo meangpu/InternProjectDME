@@ -54,14 +54,13 @@ public class ChildTowerButton : MonoBehaviour
 		if (PlayerStats.Instance.GetGoldSystem().GetGold() >= towerObject.GetUpgradeCost()[0])
 		{
 			canBuy = true;
-			updateVisualCanBuy();
-			// PlayerStats.Instance.SpendGold(towerObject.GetUpgradeCost()[0]);
 		}
 		else
 		{
 			canBuy = false;
-			updateVisualCanBuy();
 		}
+
+		updateVisualCanBuy();
 
 	}
 

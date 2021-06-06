@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ParentTowerButton : MonoBehaviour
+public class ParentUpgradeButton : MonoBehaviour
 {
 	[Header ("space between menu items")]
 	[SerializeField] Vector2 spacing;
@@ -86,6 +86,7 @@ public class ParentTowerButton : MonoBehaviour
 		}
 
 		mainButton = transform.GetChild(0).GetComponent<Button>();
+		// mainButton.OnPointerClick.AddListener(ToggleMenu);
 
 		//SetAsLastSibling () to make sure that the main button will be always at the top layer
 		mainButton.transform.SetAsLastSibling();
@@ -123,7 +124,6 @@ public class ParentTowerButton : MonoBehaviour
 	public void ToggleMenu ()
 	{
 		isExpanded = !isExpanded;
-		GameManager.Instance.checkWhatCanBuy();
 
 		if (isExpanded) {
 			//menu opened
@@ -184,6 +184,15 @@ public class ParentTowerButton : MonoBehaviour
 				ToggleMenu();
 			}
 		}
+
+		
 	}
 
+	void OnDestroy ()
+	{
+		//remove click listener to avoid memory leaks
+
+
+		// mainButton.onClick.RemoveListener (ToggleMenu);
+	}
 }
