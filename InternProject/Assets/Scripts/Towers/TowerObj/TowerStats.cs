@@ -10,6 +10,7 @@ public class TowerStats : MonoBehaviour
     [SerializeField] private SpriteRenderer towerBase = null;
     [SerializeField] private SpriteRenderer towerTurret = null;
     [SerializeField] private SpriteRenderer towerLevelDisplay = null;
+    [SerializeField] GameObject towerRangeDisplay;
 
     private int minDamage;
     private int maxDamage;
@@ -21,12 +22,20 @@ public class TowerStats : MonoBehaviour
 
     private void Start()
     {
-        GetAllStats();
+        if (tower != null)
+        {
+            GetAllStats();
+            RefreshTowerVisualRange();
+        }
     }
 
     private void OnEnable()
     {
-        GetAllStats();
+        if (tower != null)
+        {
+            GetAllStats();
+            GetAllStats();
+        }    
     }
 
     private void GetAllStats()
@@ -34,7 +43,6 @@ public class TowerStats : MonoBehaviour
         towerBase.sprite = tower.GetBaseSprite();
         towerTurret.sprite = tower.GetTowerSprite();
         towerLevelDisplay.sprite = levelDisplayIcon[towerLevel];
-
         minDamage = tower.GetMinDamage()[towerLevel];
         maxDamage = tower.GetMaxDamage()[towerLevel];
         range = tower.GetAttackRange()[towerLevel];
@@ -47,11 +55,17 @@ public class TowerStats : MonoBehaviour
     public void SetTowerType(ObjTower tower)
     {
         this.tower = tower;
+        GetAllStats();
     }
 
     public int DealDamage()
     {
         return Random.Range(minDamage, maxDamage + 1);
+    }
+
+    public void RefreshTowerVisualRange()
+    {
+        towerRangeDisplay.transform.localScale = Vector3.one * range;
     }
 
     public int GetMinDamage() => minDamage;

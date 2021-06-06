@@ -59,6 +59,7 @@ public class ParentTowerButton : MonoBehaviour
         foreach (var tower in towerToChoose)
         {
             GameObject newTowerButton = Instantiate(childBuyTower, gameObject.transform);
+			newTowerButton.GetComponent<ChildTowerButton>().towerObject = tower;
 			newTowerButton.SetActive(false);
 			var imageSetter = newTowerButton.transform.GetChild(0);
             imageSetter.GetComponent<TowerChildDisplay>().displayImg(tower); 

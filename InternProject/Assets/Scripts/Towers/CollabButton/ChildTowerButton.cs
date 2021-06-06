@@ -18,6 +18,7 @@ public class ChildTowerButton : MonoBehaviour
 	Transform parentTrans;
 
 	[SerializeField] GameObject towerPfb;
+	public ObjTower towerObject;
 
 	GameObject previewTower;
 
@@ -25,7 +26,7 @@ public class ChildTowerButton : MonoBehaviour
 	{
 		// img = GetComponent<Image> ();        ******
 		trans = transform;
-		parentTrans = transform.parent.parent;
+		parentTrans = transform.parent.parent.parent.GetChild(0);
 
 		settingsMenu = trans.parent.GetComponent <ParentTowerButton> ();
 
@@ -50,6 +51,8 @@ public class ChildTowerButton : MonoBehaviour
 	public void previewBuy()
 	{
 		previewTower = Instantiate(towerPfb, parentTrans.position, Quaternion.identity);
+		previewTower.GetComponent<TowerStats>().SetTowerType(towerObject);
+		previewTower.transform.parent = parentTrans;
 	}
 
 	public void destroyPreview()

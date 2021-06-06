@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 654460869193153665}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6212322, y: 0.6212322, z: 0.6212322}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children: []
   m_Father: {fileID: 4333367320719731737}
   m_RootOrder: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 830941769
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 51481cc726cb91248a623e86c808704f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72130f07b0096e74dace7024c3c3077f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4333367320719731737}
   - component: {fileID: 3830988552496196656}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 1620005729651842944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 138865325045888266}
   m_Father: {fileID: 2792474500436230540}
@@ -349,6 +349,7 @@ MonoBehaviour:
   towerBase: {fileID: 2792474500954561039}
   towerTurret: {fileID: 2792474501053865933}
   towerLevelDisplay: {fileID: 2461680222053046971}
+  towerRangeDisplay: {fileID: 1620005729651842944}
 --- !u!114 &2792474500436230547
 MonoBehaviour:
   m_ObjectHideFlags: 0
