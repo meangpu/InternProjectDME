@@ -24,7 +24,7 @@ public class EnemyShoot : MonoBehaviour
 
         if (timeCounter > waitTime)
         {
-            PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, DealDamage(), enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+            PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
             timeCounter = 0f;
         }
     }
@@ -37,10 +37,5 @@ public class EnemyShoot : MonoBehaviour
     public void StopShooting()
     {
         canShoot = false;
-    }
-
-    private int DealDamage()
-    {
-        return Random.Range(enemy.MinDamage, enemy.MaxDamage + 1);
     }
 }
