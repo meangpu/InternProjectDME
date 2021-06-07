@@ -16590,11 +16590,12 @@ MonoBehaviour:
   changeMat: {fileID: 6800233043690405092}
   upgradeMat: {fileID: 3062991942698296065}
   notUpgradeMat: {fileID: 2100000, guid: c30c0509b2890d148af8d8bfcef6608a, type: 2}
-  canUpgradeMat: {fileID: 2100000, guid: e56252ffdf0688645ac00b25ed088dc1, type: 2}
+  canUpgradeMat: {fileID: 2100000, guid: 0bb2feb916daf9a489a8e0553309082c, type: 2}
   notGlowMat: {fileID: 2100000, guid: c30c0509b2890d148af8d8bfcef6608a, type: 2}
   mainButton: {fileID: 5631330065567692687}
   parentOfTower: {fileID: 291334242632980746}
   upgradeButton: {fileID: 2374189666341405844}
+  mainUpgradeButton: {fileID: 8696899801188656782}
   buyTower: {fileID: 2827536425033063040}
   upgradeEffect: {fileID: 2944782012287437832}
   sellEffect: {fileID: 528297999724012094}
