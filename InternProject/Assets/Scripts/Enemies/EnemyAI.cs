@@ -91,17 +91,19 @@ public class EnemyAI : MonoBehaviour
 
     private void FindPlayerInRange()
     {
-        Collider2D target = Physics2D.OverlapCircle(transform.position, attackRange, playerLayerMask);
+        //Collider2D target = Physics2D.OverlapCircle(transform.position, attackRange, playerLayerMask);
 
-        if (target == null)
+        /*if (target == null)
         {
             if (state == EnemyState.TargetBase) { goto SkipToReturn; }
             SetTargetAsBase();
             SkipToReturn:
             return;
-        }
+        }*/
 
-        if (target.TryGetComponent<Player>(out _))
+        //if (target.TryGetComponent<Player>(out _))
+
+        if (Vector2.Distance(transform.position, player.position) < attackRange)
         {
             if (state == EnemyState.TargetPlayer) { return; }
             currentTarget = player;

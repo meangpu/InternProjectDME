@@ -158,6 +158,8 @@ public class PlayerAbilities : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         OnFinishedDashing?.Invoke();
 
+        rb.angularVelocity = 0;
+
         if (comboType != ComboType.EnergyDash) { yield break; }
 
         playerStats.SetIsImmuned(false);

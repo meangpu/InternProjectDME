@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         GetTankAttributes();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         ReadInputValues();
     }

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         playerAbilities.OnFinishedDashing += HandleAfterDashed;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isDashing) { return; }
  

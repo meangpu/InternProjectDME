@@ -40893,7 +40893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78492505}
   m_LocalRotation: {x: 1.110223e-16, y: -5.557487e-35, z: -3.3676447e-26, w: 1}
-  m_LocalPosition: {x: 0.17000002, y: 0, z: -10}
+  m_LocalPosition: {x: 0.17000002, y: 3.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 59636834}
@@ -72172,37 +72172,31 @@ MonoBehaviour:
   useRandom: 0
   timeBeforeNextWave: 5
   EnemyWaves:
-  - EC: 100
-    spawnRate: 0.3
+  - spawnRate: 0.3
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 3969db4a1304d684c8253efb016a8869, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
-        prob: 0.4
       - enemy: {fileID: 11400000, guid: ac54ff6b0c93a83499d0b43372b9588c, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
-        prob: 0.4
       spawnPoint: {fileID: 1194388671}
     - EnemyList:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
-        prob: 0.4
       spawnPoint: {fileID: 1194388671}
-  - EC: 40
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
         enemyPfb: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
         isBoss: 1
         count: 1
-        prob: 1
       spawnPoint: {fileID: 716646180}
 --- !u!1 &1975830186
 GameObject:
