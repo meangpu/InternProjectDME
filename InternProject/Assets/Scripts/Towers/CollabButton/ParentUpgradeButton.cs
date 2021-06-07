@@ -246,7 +246,6 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	public void updateVisualCanUpgrade()
 	{
-		Debug.Log(canUpgrade);
 		if (canUpgrade)
 		{
 			upgradeMat.material = canUpgradeMat;

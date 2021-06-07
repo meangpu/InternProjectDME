@@ -57,6 +57,8 @@ public class ParentTowerButton : MonoBehaviour
 	void Start ()
 	{
 		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
+		GameManager.Instance.onBuyModeTrigger += deletePreview;
+		deletePreview();
 		spawnChild();
 		setupChild();
 	}
@@ -76,6 +78,13 @@ public class ParentTowerButton : MonoBehaviour
 	void deletePreview()
 	{
 		previewTower.gameObject.SetActive(false);
+	}
+
+
+	IEnumerator deletePreviewCD(float _waitTime)
+	{
+		yield return new WaitForSeconds(_waitTime);
+		deletePreview();
 	}
 
 
@@ -139,6 +148,7 @@ public class ParentTowerButton : MonoBehaviour
 		}
 	}
 
+
 	void ResetPositions ()
 	{
 		for (int i = 0; i < itemsCount; i++) {
@@ -172,6 +182,12 @@ public class ParentTowerButton : MonoBehaviour
 			StartCoroutine(DisableObject());
 		}
 		deletePreview();
+		StartCoroutine(deletePreviewCD(0.3f));
+		StartCoroutine(deletePreviewCD(0.5f));
+		StartCoroutine(deletePreviewCD(0.8f));
+		StartCoroutine(deletePreviewCD(1.2f));
+		StartCoroutine(deletePreviewCD(1.5f));
+
 	}
 
 

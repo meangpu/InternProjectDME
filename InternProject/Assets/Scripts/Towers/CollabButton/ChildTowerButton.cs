@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class ChildTowerButton : MonoBehaviour
 {
@@ -85,6 +86,7 @@ public class ChildTowerButton : MonoBehaviour
 		}
 		
 		disablePreview();
+		StartCoroutine(disablePreviewCD());
 	}
 
 	public void updateVisualCanBuy()
@@ -105,6 +107,13 @@ public class ChildTowerButton : MonoBehaviour
 
 	public void disablePreview()
 	{
+		previewInfoGameObj.SetActive(false);
+		previewTranform.gameObject.SetActive(false);
+	}
+
+	IEnumerator disablePreviewCD()
+	{
+		yield return new WaitForSeconds(0.3f);
 		previewInfoGameObj.SetActive(false);
 		previewTranform.gameObject.SetActive(false);
 	}
