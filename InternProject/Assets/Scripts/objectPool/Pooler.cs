@@ -113,6 +113,14 @@ public class Pooler : MonoBehaviour
         WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
     }
 
+    public void SpawnEnemyDeathPar(Vector3 position, Quaternion rotation)
+    {
+        GameObject deathPar = SpawnObject();
+        SetupObject(deathPar, position, rotation);
+        deathPar.GetComponent<ParticleSystem>().Play();
+    }
+
+
     public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, ObjEnemyBullet _objBullet)
     {
         GameObject bullet = SpawnObject();

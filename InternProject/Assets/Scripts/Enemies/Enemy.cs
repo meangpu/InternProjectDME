@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     [SerializeField] bool isBoss;
     [SerializeField] Boss1 bossScript;
     [SerializeField] Animator anim;
-    [SerializeField] ParticleSystem parDeath;
+
 
     bool Immortal = false;
 
@@ -64,12 +64,9 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         Immortal = false;
     }
 
-    [ContextMenu("waa")]
     private void EnemyDie()
     {
-        parDeath.Play();  
-        parDeath.transform.parent = null;
-        parDeath.transform.position = gameObject.transform.position;
+        PoolingSingleton.Instance.ParEnemyDeath.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);

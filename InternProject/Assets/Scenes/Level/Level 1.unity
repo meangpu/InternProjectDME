@@ -65340,6 +65340,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146535160}
   m_CullTransparentMesh: 1
+--- !u!1 &1164155058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1164155059}
+  - component: {fileID: 1164155060}
+  m_Layer: 0
+  m_Name: EnemyDeathPar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1164155059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164155058}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.19892895, y: 1.0721796, z: 25.847576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459647321}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164155060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164155058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c26d1abc72a25408b270d5405b81b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 7606549492098215564, guid: df25f664f8ab708448c353ece46e267f, type: 3}
+  poolSize: 120
+  expandAble: 1
+  isRectTrans: 0
 --- !u!1 &1165103151
 GameObject:
   m_ObjectHideFlags: 0
@@ -87371,7 +87418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1459647321}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1286043470
 MonoBehaviour:
@@ -87392,6 +87439,7 @@ MonoBehaviour:
   popUpPool: {fileID: 652422169}
   goldPool: {fileID: 123124304}
   homingMissilePool: {fileID: 1618202023}
+  enemyDeathPar: {fileID: 1164155060}
 --- !u!1 &1291522958
 GameObject:
   m_ObjectHideFlags: 0
@@ -88343,7 +88391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459647320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19892895, y: -1.0721796, z: -25.847576}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1445214387}
@@ -88353,6 +88401,7 @@ Transform:
   - {fileID: 1264661256}
   - {fileID: 1273476525}
   - {fileID: 1618202022}
+  - {fileID: 1164155059}
   - {fileID: 1286043469}
   m_Father: {fileID: 0}
   m_RootOrder: 6
