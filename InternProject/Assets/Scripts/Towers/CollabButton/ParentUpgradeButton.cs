@@ -190,7 +190,7 @@ public class ParentUpgradeButton : MonoBehaviour
 	public void sellTower()
 	{
 		sellEffect.Play();
-		// mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
+		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
 		// Debug.Log(mainTower);
 		// chekIfCanUpgrade();
 		// if (canUpgrade)
@@ -202,7 +202,7 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	public void checkSellPrice()
 	{
-		
+
 	}
 
 

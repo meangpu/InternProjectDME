@@ -55,6 +55,18 @@ public class TowerStats : MonoBehaviour
         RefreshTowerVisualRange();
     }
 
+    public int getSellPrice()
+    {
+        int _sellPrice = 0;
+
+        for (int i = 0; i < towerLevel; i++)
+        {
+            _sellPrice += tower.GetUpgradeCost()[i];
+        }
+
+        return _sellPrice;
+    }
+
     public void LevelUp()
     {
         if(towerLevel < 2)
