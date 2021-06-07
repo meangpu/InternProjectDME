@@ -120,7 +120,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (Physics2D.OverlapCircle(transform.position, attackRange / 2, playerLayerMask) != null)
             {
-                RotateTowardsTarget();
+                RotateTowardsTarget(currentTarget.position);
                 enemyShoot.StartShooting();
                 rb.velocity = Vector2.zero;
                 return;
@@ -133,13 +133,11 @@ public class EnemyAI : MonoBehaviour
 
         rb.velocity = transform.right * enemyDisplay.Speed;
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        
-        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, direction);
+        Vector3 currentWaypointPosition = path.vectorPath[currentWaypoint];
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, enemyDisplay.Speed);
+        RotateTowardsTarget(currentWaypointPosition);
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(rb.position, currentWaypointPosition);
 
         if (distance < nextWayPointDistance)
         {
@@ -172,12 +170,12 @@ public class EnemyAI : MonoBehaviour
         state = EnemyState.TargetBase;
     }
 
-    private void RotateTowardsTarget()
+    private void RotateTowardsTarget(Vector3 targetPosition) //currentTarget.position
     {
-        Vector3 lookDirection = currentTarget.position - transform.position;
+        Vector3 lookDirection = targetPosition - transform.position;
 
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), 2f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), enemyDisplay.Speed);
     }
 }

@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 12a1e2bb3260913439a1530cfb25fde5, type: 3}
   hp: 80
   moveSpeed: 0.7
-  minDamage: 40
-  maxDamage: 40
+  minDamage: 80
+  maxDamage: 80
   EC: 4
   isPassive: 1
   attackRange: 0

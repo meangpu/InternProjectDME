@@ -22,7 +22,7 @@ MonoBehaviour:
   maxDamage: 6
   EC: 5
   isPassive: 0
-  attackRange: 4
+  attackRange: 5
   atkSpeed: 1.5
   bulletSpeed: 8
   bulletLifetime: 0.8
