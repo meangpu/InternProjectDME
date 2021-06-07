@@ -57,8 +57,11 @@ public class ParentUpgradeButton : MonoBehaviour
 	[Header ("main tower")]
 	[SerializeField] Transform parentOfTower;
 	[SerializeField] Button upgradeButton;
+	[SerializeField] GameObject mainUpgradeButton;
 	TowerStats mainTower;
 	bool canUpgrade;
+	bool towerMaxLevel;
+	
 
 	[Header ("GoBack")]
 	[SerializeField] ParentTowerButton buyTower;
@@ -116,6 +119,8 @@ public class ParentUpgradeButton : MonoBehaviour
 	public void ToggleMenu()
 	{
 		isExpanded = !isExpanded;
+		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
+		chekIfCanUpgrade();
 		
 		if (isExpanded) {
 			//menu opened
@@ -170,8 +175,13 @@ public class ParentUpgradeButton : MonoBehaviour
 	void EnableObject()
 	{
 		int childEnableCount = transform.childCount;
-		for (int i = 0; i < childEnableCount; i++) {
-			transform.GetChild (i).gameObject.SetActive(true);
+		for (int i = 0; i < childEnableCount; i++) 
+		{
+			transform.GetChild(i).gameObject.SetActive(true);
+		}
+		if (towerMaxLevel)
+		{
+			mainUpgradeButton.SetActive(false);
 		}
 	}
 
@@ -204,11 +214,13 @@ public class ParentUpgradeButton : MonoBehaviour
 		PlayerStats.Instance.AddGold(_getCoin);
 		Destroy(parentOfTower.GetChild(0).gameObject);
 		buyTower.haveSellTower();
+		canUpgrade = true;
+		towerMaxLevel = false;
 	}
 
 	public void chekIfCanUpgrade()
 	{
-		if (mainTower.GetTowerLevel() < 1)
+		if (mainTower.GetTowerLevel() <= 1)
 		{
 
 			if (PlayerStats.Instance.GetGoldSystem().GetGold() >= mainTower.GetPrice())
@@ -223,6 +235,7 @@ public class ParentUpgradeButton : MonoBehaviour
 		}
 		else
 		{
+			towerMaxLevel = true;
 			canUpgrade = false;
 			updateVisualCanUpgrade();
 			
@@ -233,6 +246,7 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	public void updateVisualCanUpgrade()
 	{
+		Debug.Log(canUpgrade);
 		if (canUpgrade)
 		{
 			upgradeMat.material = canUpgradeMat;

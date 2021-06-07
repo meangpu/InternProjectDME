@@ -24,9 +24,10 @@ public class PreviewUpgradeTower : MonoBehaviour
     public void previewUpgrade()
     {
         TowerStats _stat = towerParent.GetChild(0).GetComponent<TowerStats>();
+        int towerLevel = _stat.GetTowerLevel()+1;
         priceText.text = _stat.GetPrice().ToString();
 
-        upgradeName.text = $"level{_stat.GetTowerLevel().ToString()}";
+        upgradeName.text = $"level{towerLevel.ToString()}";
 
         textDmg.text = _stat.NextLVDmg().ToString();
         textRange.text = _stat.NextLVRange().ToString();
