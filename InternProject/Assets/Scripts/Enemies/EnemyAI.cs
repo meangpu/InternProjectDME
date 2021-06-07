@@ -87,6 +87,10 @@ public class EnemyAI : MonoBehaviour
         {
             state = EnemyState.Passive;
         }
+        else
+        {
+            state = EnemyState.TargetBase;
+        }
     }
 
     private void FindPlayerInRange()
