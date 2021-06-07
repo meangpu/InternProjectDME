@@ -23,6 +23,10 @@ public class ChildTowerButton : MonoBehaviour
 	[SerializeField] Image towerImage;
 	[SerializeField] TMP_Text pricetext;
 
+	[Header("TowerInfo")]
+	[SerializeField] GameObject previewInfoGameObj;
+	[SerializeField] previewCanvas previewInfoPanel;
+
 
 	void Awake ()
 	{
@@ -45,7 +49,9 @@ public class ChildTowerButton : MonoBehaviour
 		if (canBuy)
 		{
 			previewTranform.gameObject.SetActive(true);
+			previewInfoGameObj.SetActive(true);
 			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerType(towerObject);
+			previewInfoPanel.setPreview(towerObject);
 		}
 	}
 
@@ -99,6 +105,7 @@ public class ChildTowerButton : MonoBehaviour
 
 	public void disablePreview()
 	{
+		previewInfoGameObj.SetActive(false);
 		previewTranform.gameObject.SetActive(false);
 	}
 }

@@ -51,6 +51,7 @@ public class ParentTowerButton : MonoBehaviour
 	int itemsCount;
 
 	[SerializeField] Transform previewTower;
+	public GameObject infoPanel;
 
 
 	void Start ()
@@ -83,6 +84,7 @@ public class ParentTowerButton : MonoBehaviour
 		buildEffect.Play();
 		deletePreview();
 		alreadyHaveTower = true;
+		mainButton.gameObject.SetActive(false);
 		UpdateMaterial();
 		upgradeParent.SetActive(true);
 		upgradeParent.GetComponent<ParentUpgradeButton>().DisableObjectInstant();

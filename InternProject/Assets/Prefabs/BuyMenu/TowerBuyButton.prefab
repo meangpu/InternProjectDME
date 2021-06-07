@@ -5070,7 +5070,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1006633239
   m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &4049833124620527521
@@ -15576,7 +15576,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 256895454177370727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3497090595130530233}
+        m_TargetAssemblyTypeName: ParentUpgradeButton, Assembly-CSharp
+        m_MethodName: sellTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8888638450788591621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15929,6 +15941,7 @@ MonoBehaviour:
   upgradeParent: {fileID: 8668809168456348871}
   buildEffect: {fileID: 2348159635313618094}
   previewTower: {fileID: 7602010611607316277}
+  infoPanel: {fileID: 0}
 --- !u!1001 &5059156814835215287
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -179,15 +179,32 @@ public class ParentUpgradeButton : MonoBehaviour
 	{
 		upgradeEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
-		Debug.Log(mainTower);
 		chekIfCanUpgrade();
 		if (canUpgrade)
 		{
 			PlayerStats.Instance.SpendGold(mainTower.GetPrice());
 			mainTower.LevelUp();
 		}
-
 	}
+
+	public void sellTower()
+	{
+		sellEffect.Play();
+		// mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
+		// Debug.Log(mainTower);
+		// chekIfCanUpgrade();
+		// if (canUpgrade)
+		// {
+		// 	PlayerStats.Instance.SpendGold(mainTower.GetPrice());
+		// 	mainTower.LevelUp();
+		// }
+	}
+
+	public void checkSellPrice()
+	{
+		
+	}
+
 
 	public void chekIfCanUpgrade()
 	{
@@ -201,11 +218,6 @@ public class ParentUpgradeButton : MonoBehaviour
 		}
 
 		// updateVisualCanBuy();
-	}
-
-	public void fortest()
-	{
-		Debug.Log("asdasdasddasdasda");
 	}
 
 
