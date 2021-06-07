@@ -7,7 +7,6 @@ public class EnemyProbObj
     public GameObject enemyPfb;
     public bool isBoss;
     public int count;
-    public float prob;  // 0 - 1 
 }
 
 [System.Serializable]
@@ -20,7 +19,6 @@ public class EnemyAndPoint
 [System.Serializable]    
 public class EnemyWave
 {
-    public int EC;
     public float spawnRate;
     public EnemyAndPoint[] EnemyAndPoint;
 }

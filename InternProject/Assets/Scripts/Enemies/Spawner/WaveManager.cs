@@ -28,6 +28,7 @@ public class WaveManager : MonoBehaviour
     public static List<Enemy> EnemyAlive = new List<Enemy>();
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
+    int thisWaveCount;
 
     private void Awake()
     {
@@ -103,74 +104,57 @@ public class WaveManager : MonoBehaviour
 		}
 
         countDown -= Time.deltaTime;
-
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
         
+    }
+
+    int countAllEnemyInWave()
+    {
+        int _thisWaveCount = 0;
+        EnemyWave wave = EnemyWaves[waveindex];
+        foreach (var pointToSpawn in wave.EnemyAndPoint) 
+        {
+            foreach (var enemy in pointToSpawn.EnemyList)
+            {
+                Debug.Log(enemy.count);
+                _thisWaveCount += enemy.count;
+            }
+        }
+
+        thisWaveCount = _thisWaveCount;
+        Debug.Log(thisWaveCount);
+
+        return _thisWaveCount;
     }
 
     private IEnumerator SpawnWave()
     {
         EnemyWave wave = EnemyWaves[waveindex];
-        SetUp_MinSlider(wave.EC);
         Set_MaxSlider(EnemyWaves.Length - (waveindex+1));
+        SetUp_MinSlider(countAllEnemyInWave());
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
-            if (useRandom)
+            foreach (var enemy in pointToSpawn.EnemyList)
             {
-                float rand = Random.value; // random number between 0 and 1
-                while (wave.EC > 0)
+                
+                for (int i = 0; i < enemy.count; i++)
                 {
-                    foreach (var enemy in pointToSpawn.EnemyList)
+                    if (enemy.isBoss)
                     {
-                        if(enemy.prob > rand) // if random number less than probobility
-                        {
-                            if (wave.EC - enemy.enemy.GetEC() >= 0)  // spawn when wave have enough ec
-                            {
-                                SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-                                wave.EC -= enemy.enemy.GetEC();
-
-                                Set_MinSlider(wave.EC);
-                                yield return new WaitForSeconds(wave.spawnRate);
-                            }
-                        }
-                        else
-                        {
-                            rand = Random.value;
-                        }
+                        SpawnBoss(enemy.enemyPfb, pointToSpawn.spawnPoint, enemy.enemy);
+                        yield return new WaitForSeconds(wave.spawnRate);
                     }
+                    else
+                    {
+                        SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                        yield return new WaitForSeconds(wave.spawnRate);
+                    }
+                    thisWaveCount--;
+                    Set_MinSlider(thisWaveCount);
 
                 }
             }
-            else
-            {
-                //////////////////// -- STABLE --/////////////////////////////
-                foreach (var enemy in pointToSpawn.EnemyList)
-                {
-                    
-                    for (int i = 0; i < enemy.count; i++)
-                    {
-                        if (enemy.isBoss)
-                        {
-                            SpawnBoss(enemy.enemyPfb, pointToSpawn.spawnPoint, enemy.enemy);
-                            yield return new WaitForSeconds(wave.spawnRate);
-                        }
-                        else
-                        {
-                            if (wave.EC - enemy.enemy.GetEC() >= 0)
-                            {
-                                SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-                                wave.EC -= enemy.enemy.GetEC();
-                                Set_MinSlider(wave.EC);
-                                yield return new WaitForSeconds(wave.spawnRate);
-                            }
-                        }
-                    }
-                }
-                //////////////////// -- STABLE --/////////////////////////////
-            }
-            
-   
         } 
         waveindex++;
 
