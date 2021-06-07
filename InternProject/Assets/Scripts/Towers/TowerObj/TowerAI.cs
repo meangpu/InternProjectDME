@@ -1,25 +1,28 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerAI : MonoBehaviour
 {
-    [SerializeField] private Transform projectileSpawnPointTransform = null;
     [SerializeField] private float targetScanInterval = 0.1f;
 
-    private Vector3 projectileSpawnPoint;
-    private Quaternion projectileRotation;
     private float timeScanPassed;
     private float timeAfterShot;
     private float shootInterval;
     private float range;
+    private bool isLaserType;
 
     private TowerStats towerStats;
     private Enemy target;
+    private ITower towerShoot;
+
+    public Action OnNoTargetFoundForLaser;
+    public Action OnLaserDamageDealt;
 
     private void Awake()
     {
         towerStats = GetComponent<TowerStats>();
+        towerShoot = GetComponent<ITower>();
     }
 
     private void Start()
@@ -36,31 +39,49 @@ public class TowerAI : MonoBehaviour
     {
         CountTimer();
 
-        if (target != null && (timeAfterShot >= shootInterval))
-        {
-            Shoot();
-            ResetShootTimer();
-        }
-
         if (timeScanPassed >= targetScanInterval)
         {
             FindTarget();
             ResetScanTimer();
-        } 
+        }
+
+        if (isLaserType)
+        {
+            if (target != null)
+            {
+                ShootEnemy();
+
+                if (timeAfterShot >= shootInterval)
+                {
+                    OnLaserDamageDealt?.Invoke();
+                    ResetShootTimer();
+                }
+            }
+            else
+            {
+                OnNoTargetFoundForLaser?.Invoke();
+            }
+
+            return;
+        }
+
+        if (target != null && (timeAfterShot >= shootInterval))
+        {
+            ShootEnemy();
+            ResetShootTimer();
+        }
     }
 
-    private void Shoot()
+    private void ShootEnemy()
     {
-        projectileSpawnPoint = projectileSpawnPointTransform.position;
-        projectileRotation = projectileSpawnPointTransform.rotation;
-
-        PoolingSingleton.Instance.TowerBulletPool.SpawnTowerBullet(projectileSpawnPoint, projectileRotation, towerStats.DealDamage(), towerStats.GetBulletSpeed(), towerStats.GetBulletLifetime());
+        towerShoot.Shoot();
     }
 
     private void SetupTower()
     {
         range = towerStats.GetAttackRange();
         shootInterval = towerStats.GetRateOfFire();
+        isLaserType = towerStats.GetIsLaserType();
     }
 
     private void FindTarget()
@@ -76,9 +97,11 @@ public class TowerAI : MonoBehaviour
         {
             if (collider.TryGetComponent(out Enemy enemy))
             {
+                ResetShootTimer();
                 SetTarget(enemy);
-                break;
-            } else
+                return;
+            } 
+            else
             {
                 SetTarget(null);
             }

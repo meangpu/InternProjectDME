@@ -58,6 +58,9 @@ TagManager:
   - name: Tower
     uniqueID: 830941769
     locked: 0
+  - name: Particles & Effects
+    uniqueID: 1157871305
+    locked: 0
   - name: UI
     uniqueID: 3288334057
     locked: 0

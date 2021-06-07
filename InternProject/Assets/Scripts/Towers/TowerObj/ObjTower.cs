@@ -30,6 +30,6 @@ public class ObjTower : ScriptableObject
     public float GetProjectileLifeTime() => projectileLifetime;
     public float GetProjectileSpeed() => projectileSpeed;
     public float GetAreaOfDamage() => areaOfDamage;
-    public bool IsLaserType() => laserType;
+    public bool GetIsLaserType() => laserType;
     public int[] GetUpgradeCost() => upgradeCost;
 }

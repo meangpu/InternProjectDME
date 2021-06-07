@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068795631304211354}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.056, y: 0.518, z: -0.39004114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.008, y: 0.388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6858803811219799124}
   m_Father: {fileID: 8894897481918443344}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5461371297272148316
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,13 +138,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995625958867142492}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.132, y: -0.049, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3944790694065222663}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!120 &8785360976933715652
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -182,12 +182,12 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1157871305
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 6.54, y: 0, z: 1}
+  - {x: 4.86, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.4
@@ -241,7 +241,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &6099217858543473245
 GameObject:
@@ -589,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8894897481430839571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.04, z: 0}
+  m_LocalPosition: {x: -0, y: 0.218, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 8894897481071857967}
@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 8894897481918443344}
   - component: {fileID: 6239493083488623646}
   - component: {fileID: 8894897481918443343}
+  - component: {fileID: 5328308236337216640}
   m_Layer: 0
   m_Name: Laser Tower
   m_TagString: Untagged
@@ -718,5 +719,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8fc7b63e5a1d140a6423c210651d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpawnPointTransform: {fileID: 8894897481071857967}
   targetScanInterval: 0.1
+--- !u!114 &5328308236337216640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894897481918443345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c99498a6bcf964b80acb149fb45745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerStats: {fileID: 6239493083488623646}
+  lineRenderer: {fileID: 8785360976933715652}
+  towerAI: {fileID: 8894897481918443343}
+  laserSpawnPoint: {fileID: 8894897481071857967}
