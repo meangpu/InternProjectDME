@@ -11,6 +11,7 @@ public class TowerPreview : MonoBehaviour
     [SerializeField] private SpriteRenderer towerTurret = null;
     [SerializeField] private SpriteRenderer towerLevelDisplay = null;
     [SerializeField] GameObject towerRangeDisplay;
+    [SerializeField] GameObject NewTowerRangeDisplay;
 
     private int minDamage;
     private int maxDamage;
@@ -32,6 +33,7 @@ public class TowerPreview : MonoBehaviour
         bulletSpeed = tower.GetProjectileSpeed();
         bulletLifetime = tower.GetProjectileLifeTime();
         bulletSprite = tower.GetProjectileSprite();
+        NewTowerRangeDisplay.SetActive(false);
         RefreshTowerVisualRange();
     }
 
@@ -41,11 +43,53 @@ public class TowerPreview : MonoBehaviour
         GetAllStats();
     }
 
+    public void LevelUp()
+    {
+        if(towerLevel < 2)
+        {
+            towerLevel++;
+            GetAllStats();
+        }
+    }
 
     public void RefreshTowerVisualRange()
     {
         // for some reason rane is 2 times bigger
         towerRangeDisplay.transform.localScale = Vector3.one * range *2;
     }
+
+    public void showNextLevelRange()
+    {
+        NewTowerRangeDisplay.SetActive(true);
+        if (towerLevel <= 1)
+        {
+            NewTowerRangeDisplay.transform.localScale = Vector3.one * tower.GetAttackRange()[towerLevel+1] *2;
+        }
+    }
+
+    public void ShowOnlyRange()
+    {
+        Transform parent = gameObject.transform.parent;
+        parent.gameObject.SetActive(true);
+        gameObject.SetActive(true);
+        NewTowerRangeDisplay.SetActive(false);
+        disableTowerImage();
+        towerRangeDisplay.SetActive(true);
+    }
+
+    public void showTowerImage()
+    {
+        towerBase.gameObject.SetActive(true);
+        towerTurret.gameObject.SetActive(true);
+        towerLevelDisplay.gameObject.SetActive(true);
+    }
+
+    public void disableTowerImage()
+    {
+        towerBase.gameObject.SetActive(false);
+        towerTurret.gameObject.SetActive(false);
+        towerLevelDisplay.gameObject.SetActive(false);
+    }
+
 
 }

@@ -21,6 +21,9 @@ public class PreviewUpgradeTower : MonoBehaviour
     [SerializeField] float maxRange;
     [SerializeField] int AtkSpeed;
 
+    [SerializeField] Transform previewTower;
+    [SerializeField] GameObject parentPreviewTower;
+
     public void previewUpgrade()
     {
         TowerStats _stat = towerParent.GetChild(0).GetComponent<TowerStats>();
@@ -37,12 +40,17 @@ public class PreviewUpgradeTower : MonoBehaviour
         sliderRange.value = (_stat.NextLVRange()/maxRange);
         sliderAtkSpeed.value = (_stat.GetRateOfFire()/AtkSpeed);
 
-
         previewPanel.SetActive(true);
+
+        parentPreviewTower.SetActive(true);
+        previewTower.gameObject.SetActive(true);
+        previewTower.GetComponent<TowerPreview>().showNextLevelRange();
     }
 
     public void closePreviewUpgrade()
     {
+        parentPreviewTower.SetActive(false);
+        previewTower.gameObject.SetActive(false);
         previewPanel.SetActive(false);
     }
 }

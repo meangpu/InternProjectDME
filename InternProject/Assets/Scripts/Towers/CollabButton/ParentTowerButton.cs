@@ -22,11 +22,6 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] Ease expandEase;
 	[SerializeField] Ease collapseEase;
 
-	// [Space]
-	// [Header ("Fading")]
-	// [SerializeField] float expandFadeDuration;
-	// [SerializeField] float collapseFadeDuration;
-
 	[Space]
 	[Header ("TowerData")]
 	[SerializeField] ObjTower[] towerToChoose;
@@ -51,7 +46,6 @@ public class ParentTowerButton : MonoBehaviour
 	int itemsCount;
 
 	[SerializeField] Transform previewTower;
-	public GameObject infoPanel;
 
 
 	void Start ()
@@ -182,7 +176,6 @@ public class ParentTowerButton : MonoBehaviour
 			StartCoroutine(DisableObject());
 		}
 		deletePreview();
-		StartCoroutine(deletePreviewCD(0.3f));
 		StartCoroutine(deletePreviewCD(0.5f));
 		StartCoroutine(deletePreviewCD(0.8f));
 		StartCoroutine(deletePreviewCD(1.2f));

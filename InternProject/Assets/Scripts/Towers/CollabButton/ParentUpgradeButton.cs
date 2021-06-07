@@ -59,6 +59,7 @@ public class ParentUpgradeButton : MonoBehaviour
 	[SerializeField] Button upgradeButton;
 	[SerializeField] GameObject mainUpgradeButton;
 	TowerStats mainTower;
+	[SerializeField] TowerPreview towerPreviewScript;
 	bool canUpgrade;
 	bool towerMaxLevel;
 	
@@ -67,13 +68,13 @@ public class ParentUpgradeButton : MonoBehaviour
 	[SerializeField] ParentTowerButton buyTower;
 
 
-
 	[Header ("Effect")]
 	[SerializeField] ParticleSystem upgradeEffect;
 	[SerializeField] ParticleSystem sellEffect;
 
-	
-
+	[SerializeField] GameObject parentPreview;
+	[SerializeField] GameObject mainTowerPreview;
+	[SerializeField] GameObject newRangePreview;
  
 	private void Start() 
 	{
@@ -195,6 +196,7 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	public void upgradeTower()
 	{
+		DisableUpgradePreview();
 		upgradeEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
 		chekIfCanUpgrade();
@@ -202,11 +204,14 @@ public class ParentUpgradeButton : MonoBehaviour
 		{
 			PlayerStats.Instance.SpendGold(mainTower.GetPrice());
 			mainTower.LevelUp();
+			towerPreviewScript.LevelUp();
+			towerPreviewScript.disableTowerImage();
 		}
 	}
 
 	public void sellTower()
 	{
+		DisableUpgradePreview();
 		int _getCoin;
 		sellEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
@@ -214,6 +219,7 @@ public class ParentUpgradeButton : MonoBehaviour
 		PlayerStats.Instance.AddGold(_getCoin);
 		Destroy(parentOfTower.GetChild(0).gameObject);
 		buyTower.haveSellTower();
+		towerPreviewScript.showTowerImage();
 		canUpgrade = true;
 		towerMaxLevel = false;
 	}
@@ -240,8 +246,6 @@ public class ParentUpgradeButton : MonoBehaviour
 			updateVisualCanUpgrade();
 			
 		}
-
-		
 	}
 
 	public void updateVisualCanUpgrade()
@@ -257,6 +261,13 @@ public class ParentUpgradeButton : MonoBehaviour
 			upgradeButton.interactable = false;
 		}
 
+	}
+
+	public void DisableUpgradePreview()
+	{
+		parentPreview.SetActive(false);
+		mainTowerPreview.SetActive(false);
+		newRangePreview.SetActive(false);
 	}
 
 
