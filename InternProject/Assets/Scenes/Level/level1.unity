@@ -41008,6 +41008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3812315433506309224, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4565875496454029173, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: ObjGold
       value: 
@@ -41018,11 +41022,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.37
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.9799995
+      value: 5.17
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62867,6 +62871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3812315433506309224, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4565875496454029173, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: ObjGold
       value: 
@@ -62877,11 +62885,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.9
+      value: 3.2599998
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.9799995
+      value: 5.17
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64208,11 +64216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.68
+      value: -5.45
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.97
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66625,6 +66633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3812315433506309224, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4565875496454029173, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: ObjGold
       value: 
@@ -66635,11 +66647,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.639999
+      value: 1.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.9799995
+      value: 5.17
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88242,6 +88254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3812315433506309224, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4565875496454029173, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: ObjGold
       value: 
@@ -88252,11 +88268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.21
+      value: 4.57
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.04
+      value: 5.1099997
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88878,11 +88894,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.24
+      value: -12.95
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.02
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -89110,11 +89126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.92
+      value: 17.42
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.13
+      value: -5.32
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -91026,6 +91042,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2827536425033063040, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: towerToChoose.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827536425033063040, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: towerToChoose.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 42a37942165809f44a38442935d6c11c, type: 2}
+    - target: {fileID: 2827536425033063040, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: towerToChoose.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 42a37942165809f44a38442935d6c11c, type: 2}
     - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_Name
       value: TowerBuyButton (2)
@@ -91036,11 +91064,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.78
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.95
+      value: 5.31
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -92773,89 +92801,73 @@ MonoBehaviour:
   useRandom: 0
   timeBeforeNextWave: 5
   EnemyWaves:
-  - EC: 100
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
-        prob: 0.4
       spawnPoint: {fileID: 1194388671}
-  - EC: 100
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 8
-        prob: 0.4
       spawnPoint: {fileID: 1274255943}
-  - EC: 100
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 4
-        prob: 0.4
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 2
-        prob: 0.4
       spawnPoint: {fileID: 895374816}
-  - EC: 100
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
-        prob: 0.4
       - enemy: {fileID: 11400000, guid: 908b24406de87154dba4fbbdb27ca104, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 3
-        prob: 0.4
       spawnPoint: {fileID: 716646180}
-  - EC: 100
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 10
-        prob: 0.4
       spawnPoint: {fileID: 1194388671}
     - EnemyList:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 3
-        prob: 0.4
       spawnPoint: {fileID: 1274255943}
-  - EC: 100
-    spawnRate: 0.1
+  - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 8
-        prob: 0.4
       spawnPoint: {fileID: 895374816}
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 3969db4a1304d684c8253efb016a8869, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 4
-        prob: 0.4
       spawnPoint: {fileID: 716646180}
 --- !u!1 &1975830186
 GameObject:
@@ -93589,11 +93601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19
+      value: -22.24
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.1
+      value: -7.22
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_LocalPosition.z

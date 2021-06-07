@@ -37,8 +37,10 @@ public class ParentUpgradeButton : MonoBehaviour
 	[Space]
 	[Header ("Material")]
 	[SerializeField] Image changeMat;
+	[SerializeField] Image upgradeMat;
+	[SerializeField] Material notUpgradeMat;
+	[SerializeField] Material canUpgradeMat;
 	[SerializeField] Material notGlowMat;
-	[SerializeField] Material glowMat;
 
 
 	ChildTowerButton[] menuItems;
@@ -54,8 +56,14 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	[Header ("main tower")]
 	[SerializeField] Transform parentOfTower;
+	[SerializeField] Button upgradeButton;
 	TowerStats mainTower;
 	bool canUpgrade;
+
+	[Header ("GoBack")]
+	[SerializeField] ParentTowerButton buyTower;
+
+
 
 	[Header ("Effect")]
 	[SerializeField] ParticleSystem upgradeEffect;
@@ -189,36 +197,55 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	public void sellTower()
 	{
+		int _getCoin;
 		sellEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
-		// Debug.Log(mainTower);
-		// chekIfCanUpgrade();
-		// if (canUpgrade)
-		// {
-		// 	PlayerStats.Instance.SpendGold(mainTower.GetPrice());
-		// 	mainTower.LevelUp();
-		// }
+		_getCoin = mainTower.getSellPrice();
+		PlayerStats.Instance.AddGold(_getCoin);
+		Destroy(parentOfTower.GetChild(0).gameObject);
+		buyTower.haveSellTower();
 	}
-
-	public void checkSellPrice()
-	{
-
-	}
-
 
 	public void chekIfCanUpgrade()
 	{
-		if (PlayerStats.Instance.GetGoldSystem().GetGold() >= mainTower.GetPrice())
+		if (mainTower.GetTowerLevel() < 1)
 		{
-			canUpgrade = true;
+
+			if (PlayerStats.Instance.GetGoldSystem().GetGold() >= mainTower.GetPrice())
+			{
+				canUpgrade = true;
+			}
+			else
+			{
+				canUpgrade = false;
+			}
+			updateVisualCanUpgrade();
 		}
 		else
 		{
 			canUpgrade = false;
+			updateVisualCanUpgrade();
+			
 		}
 
-		// updateVisualCanBuy();
+		
 	}
+
+	public void updateVisualCanUpgrade()
+	{
+		if (canUpgrade)
+		{
+			upgradeMat.material = canUpgradeMat;
+			upgradeButton.interactable = true;
+		}
+		else
+		{
+			upgradeMat.material = notUpgradeMat;
+			upgradeButton.interactable = false;
+		}
+
+	}
+
 
 
 }

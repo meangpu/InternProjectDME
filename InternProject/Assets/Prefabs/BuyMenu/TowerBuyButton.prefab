@@ -284,10 +284,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7868909131134507388}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 3313387527731682348}
+          m_TargetAssemblyTypeName: PreviewUpgradeTower, Assembly-CSharp
+          m_MethodName: previewUpgrade
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -300,10 +300,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7868909131134507388}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 3313387527731682348}
+          m_TargetAssemblyTypeName: PreviewUpgradeTower, Assembly-CSharp
+          m_MethodName: closePreviewUpgrade
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10807,6 +10807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5744995607199783538}
+  - component: {fileID: 2623167568364893172}
   m_Layer: 0
   m_Name: Sell
   m_TagString: Untagged
@@ -10831,6 +10832,21 @@ Transform:
   m_Father: {fileID: 9188499960628366894}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2623167568364893172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344474189738247893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305a76fb824d98146a5bb20b65217420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewPanel: {fileID: 1060878365533019903}
+  priceText: {fileID: 4150545681414107612}
+  towerParent: {fileID: 291334242632980746}
 --- !u!1 &4358613790985441714
 GameObject:
   m_ObjectHideFlags: 0
@@ -16399,26 +16415,26 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1060878365533019903}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 2623167568364893172}
+          m_TargetAssemblyTypeName: PreviewSellTower, Assembly-CSharp
+          m_MethodName: previewSell
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1060878365533019903}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 2623167568364893172}
+          m_TargetAssemblyTypeName: PreviewSellTower, Assembly-CSharp
+          m_MethodName: closePreviewSell
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16572,10 +16588,14 @@ MonoBehaviour:
   collapseEase: 31
   disableChildTimer: 0.3
   changeMat: {fileID: 6800233043690405092}
-  notGlowMat: {fileID: 0}
-  glowMat: {fileID: 0}
+  upgradeMat: {fileID: 3062991942698296065}
+  notUpgradeMat: {fileID: 2100000, guid: c30c0509b2890d148af8d8bfcef6608a, type: 2}
+  canUpgradeMat: {fileID: 2100000, guid: e56252ffdf0688645ac00b25ed088dc1, type: 2}
+  notGlowMat: {fileID: 2100000, guid: c30c0509b2890d148af8d8bfcef6608a, type: 2}
   mainButton: {fileID: 5631330065567692687}
   parentOfTower: {fileID: 291334242632980746}
+  upgradeButton: {fileID: 2374189666341405844}
+  buyTower: {fileID: 2827536425033063040}
   upgradeEffect: {fileID: 2944782012287437832}
   sellEffect: {fileID: 528297999724012094}
 --- !u!1 &8696899801188656782
@@ -16587,6 +16607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441047365922848522}
+  - component: {fileID: 3313387527731682348}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -16611,6 +16632,31 @@ Transform:
   m_Father: {fileID: 9188499960628366894}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3313387527731682348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696899801188656782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793e1e5ed4526714ab1a2ece866d69fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewPanel: {fileID: 7868909131134507388}
+  priceText: {fileID: 9176458860527129977}
+  towerParent: {fileID: 291334242632980746}
+  upgradeName: {fileID: 5705190461151061365}
+  textDmg: {fileID: 1055438009401171756}
+  textRange: {fileID: 4735679991673713024}
+  textAtkSpeed: {fileID: 662781802917518488}
+  sliderDmg: {fileID: 1876952593987542434}
+  sliderRange: {fileID: 6568200509666289882}
+  sliderAtkSpeed: {fileID: 9083354165748108300}
+  maxDmg: 30
+  maxRange: 8
+  AtkSpeed: 6
 --- !u!1 &8719003116870223163
 GameObject:
   m_ObjectHideFlags: 0
@@ -17295,6 +17341,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+--- !u!114 &662781802917518488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8568085046282824958, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9083354165748108300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 133930416179575914, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4735679991673713024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4498494188653445606, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6568200509666289882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2662666339399309500, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1055438009401171756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8174301857443131210, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1876952593987542434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7338924613073366468, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5705190461151061365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3529053005722735891, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}
+  m_PrefabInstance: {fileID: 9211373607416754278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6638961799167969516 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2591553206327736458, guid: b283a4cd9f45ac4489709fe870c2daf7, type: 3}

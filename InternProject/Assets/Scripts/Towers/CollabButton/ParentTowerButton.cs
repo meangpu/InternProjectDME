@@ -88,9 +88,18 @@ public class ParentTowerButton : MonoBehaviour
 		UpdateMaterial();
 		upgradeParent.SetActive(true);
 		upgradeParent.GetComponent<ParentUpgradeButton>().DisableObjectInstant();
-		
-		
 	}
+
+	public void haveSellTower()
+	{
+		alreadyHaveTower = false;
+		mainButton.gameObject.SetActive(true);
+		upgradeParent.SetActive(false);
+		UpdateMaterial();
+		changeMat.material = glowMat;		
+		mainButton.interactable = true;
+	}
+	
 
 	void setupChild()
 	{
@@ -147,24 +156,22 @@ public class ParentTowerButton : MonoBehaviour
 			EnableObject();
 			for (int i = 0; i < itemsCount; i++) {
 				menuItems [i].trans.DOMove (mainButtonPosition + spacing * (i + 1), expandDuration).SetEase (expandEase);
-				//Fade to alpha=1 starting from alpha=0 immediately
-				// menuItems [i].img.DOFade (1f, expandFadeDuration).From (0f);   ******
 			}
 			RotateMainButton(180, 0);
 
 
-		} else {
+		} 
+		else 
+		{
 			//menu closed
 			for (int i = 0; i < itemsCount; i++) 
 			{
 				menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
-				//Fade to alpha=0
-				// menuItems [i].img.DOFade (0f, collapseFadeDuration);   *****
 			}
 			RotateMainButton(0, 180);
 			StartCoroutine(DisableObject());
-			deletePreview();
 		}
+		deletePreview();
 	}
 
 

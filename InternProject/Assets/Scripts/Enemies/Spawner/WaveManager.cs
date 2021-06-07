@@ -116,14 +116,11 @@ public class WaveManager : MonoBehaviour
         {
             foreach (var enemy in pointToSpawn.EnemyList)
             {
-                Debug.Log(enemy.count);
                 _thisWaveCount += enemy.count;
             }
         }
 
         thisWaveCount = _thisWaveCount;
-        Debug.Log(thisWaveCount);
-
         return _thisWaveCount;
     }
 

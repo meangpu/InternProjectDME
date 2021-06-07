@@ -57,13 +57,15 @@ public class TowerStats : MonoBehaviour
 
     public int getSellPrice()
     {
+        float sellFactor = 0.7f;
         int _sellPrice = 0;
 
-        for (int i = 0; i < towerLevel; i++)
+        for (int i = 0; i < towerLevel+1; i++)
         {
             _sellPrice += tower.GetUpgradeCost()[i];
         }
 
+        _sellPrice = Mathf.RoundToInt(_sellPrice*sellFactor);
         return _sellPrice;
     }
 
@@ -101,4 +103,25 @@ public class TowerStats : MonoBehaviour
     public float GetBulletLifetime() => bulletLifetime;
     public Sprite GetBulletSprite() => bulletSprite;
     public int GetPrice() => price;
+    public int GetTowerLevel() => towerLevel;
+
+    public int NextLVDmg()
+    {
+        if (towerLevel < 2)
+        {
+            return tower.GetMaxDamage()[towerLevel+1];
+        }
+        return tower.GetMaxDamage()[towerLevel];
+        
+    }
+
+    public float NextLVRange()
+    {
+        if (towerLevel < 2)
+        {
+            return tower.GetAttackRange()[towerLevel+1];
+        }
+        return tower.GetAttackRange()[towerLevel];
+    }
+
 }
