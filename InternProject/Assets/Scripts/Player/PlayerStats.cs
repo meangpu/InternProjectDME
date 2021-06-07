@@ -224,10 +224,7 @@ public class PlayerStats : MonoBehaviour
 
     public void SpendGold(int goldUsed)
     {
-        if (goldSystem.TrySpendGold(goldUsed))
-        {
-            Debug.Log("ObjGold spent!");
-        }
+        goldSystem.TrySpendGold(goldUsed);
     }
 
     public int DealDamage()

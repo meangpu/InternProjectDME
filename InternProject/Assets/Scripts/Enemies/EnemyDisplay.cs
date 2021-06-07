@@ -112,8 +112,7 @@ public class EnemyDisplay : MonoBehaviour
     public int MaxHealth { get { return maxhp; } }
     public Image CircleHP { get { return circleHp; } }
     public GameObject ParentHP { get { return parentHp; } }
-    public int MinDamage { get { return minDamage; } }
-    public int MaxDamage { get { return maxDamage; } }
+    public int Damage { get { return Random.Range(minDamage, maxDamage + 1); } }
     public bool IsPassive { get { return isPassive; } }
     public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
     public ObjEnemyBullet BulletType { get { return bulletType; } }

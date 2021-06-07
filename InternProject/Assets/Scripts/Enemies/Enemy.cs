@@ -106,4 +106,15 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     {
         enemyDisplay.Slow(percentage, duration);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!enemyDisplay.IsPassive) { return; }
+
+        if (collision.gameObject.TryGetComponent(out IOwnedByPlayer player))
+        {
+            player.TakeDamage(enemyDisplay.Damage);
+            EnemyDie();
+        }
+    }
 }
