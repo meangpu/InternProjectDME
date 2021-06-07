@@ -35,7 +35,6 @@ public class TowerStats : MonoBehaviour
         if (tower != null)
         {
             GetAllStats();
-            GetAllStats();
         }    
     }
 

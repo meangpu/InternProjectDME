@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Laser Tower
   sprite: {fileID: 21300000, guid: 1898fca2246b77547ab3875498455dfb, type: 3}
-  towerBaseSprite: {fileID: 21300000, guid: 8f20e8e9a6eae664cba0505a46690b79, type: 3}
+  towerBaseSprite: {fileID: 21300000, guid: da092e217e71b7441b3708b052d13a2f, type: 3}
   projectileSprite: {fileID: 4960783951515338031, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
   minDamage: 020000000400000007000000
   maxDamage: 030000000500000008000000
