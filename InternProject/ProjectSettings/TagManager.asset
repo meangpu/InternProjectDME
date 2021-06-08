@@ -52,13 +52,16 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: PlayerAndEnemies
     uniqueID: 3668922967
+    locked: 0
+  - name: TowerProjectile
+    uniqueID: 4002762761
     locked: 0
   - name: Tower
     uniqueID: 830941769
     locked: 0
-  - name: Particles & Effects
+  - name: Particles Effects
     uniqueID: 1157871305
     locked: 0
   - name: UI

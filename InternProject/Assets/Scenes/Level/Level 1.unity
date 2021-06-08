@@ -92693,6 +92693,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2145647220626550711, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112005515888919817, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812887740802064606, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8894897481918443344, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
       propertyPath: m_RootOrder
       value: 1
