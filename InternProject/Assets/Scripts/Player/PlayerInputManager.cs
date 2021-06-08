@@ -24,26 +24,24 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => playerAbilities.Skill1Activate();
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
-        playerControls.BuyMenu.BuyMode.performed += _ => GameManager.Instance.BuyModeSwap();
+        // playerControls.BuyMenu.BuyMode.performed += _ => GameManager.Instance.BuyModeSwap();
 
-        GameManager.Instance.onBuyModeTrigger += BuyModehandler;
+        GameManager.Instance.OnBuyModeTrigger += BuyModeHandler;
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        DisableTankControls();
     }
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        EnableTankControls();
     }
 
     public float GetMoveValue() => playerControls.Tank.Move.ReadValue<float>();
     public float GetRotationValue() => playerControls.Tank.Rotate.ReadValue<float>();
     public Vector2 GetMousePosition() => playerControls.Tank.LookAt.ReadValue<Vector2>();
-
-    // public Vector2 GetMousePositionInBuyMode() => playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
 
     public void DisableTankControls()
     {
@@ -55,16 +53,20 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Enable();
     }
 
-    public void BuyModehandler()
+    public void BuyModeHandler(bool isBuying)
     {
-		if (GameManager.Instance.isBuying)
-		{
-            EnableTankControls();
-		}
-		else
-		{
+        if (isBuying)
+        {
             DisableTankControls();
-		}
+        }
+        else
+        {
+            EnableTankControls();
+        }
+    }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnBuyModeTrigger -= BuyModeHandler;
     }
 }

@@ -9,8 +9,9 @@ using Cinemachine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     [SerializeField] CinemachineVirtualCamera buyModeCam;
-    public bool isBuying;
+    public bool isBuying = false;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
@@ -20,7 +21,9 @@ public class GameManager : MonoBehaviour
     private PlayerGetHit player;
     private BaseClass playerBase;
 
-    public event Action onBuyModeTrigger;
+    private PlayerControls playerControls;
+
+    public event Action<bool> OnBuyModeTrigger;
     public event Action OnCheckWhatCanBuy;
 
     private void Awake()
@@ -36,11 +39,15 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGetHit>();
         playerBase = GameObject.FindGameObjectWithTag("Base").GetComponent<BaseClass>();
+
+        playerControls = new PlayerControls();
     }
 
     private void Start()
     {
         ResumeGame();
+
+        playerControls.BuyMenu.BuyMode.performed += _ => BuyModeSwap();
     }
 
 
@@ -68,20 +75,15 @@ public class GameManager : MonoBehaviour
         PauseGame();
     }
 
-    public void checkWhatCanBuy()
+    public void CheckWhatCanBuy()
     {
-        if (OnCheckWhatCanBuy != null)
-        {
-            OnCheckWhatCanBuy();
-        }
+        OnCheckWhatCanBuy?.Invoke();
     }
 
     public void BuyModeSwap()
     {
-        if (onBuyModeTrigger != null)
-        {
-            onBuyModeTrigger();
-        }
+        Debug.Log("TAB");
+
         if (isBuying)
         {
             isBuying = false;
@@ -94,6 +96,8 @@ public class GameManager : MonoBehaviour
             isBuying = true;
             UIManager.Instance.OpenBuyMenu();
         }
+
+        OnBuyModeTrigger?.Invoke(isBuying);
     }
 
 
