@@ -6,6 +6,6 @@ public class ParticlePooling : MonoBehaviour
 {
     public void OnParticleSystemStopped()
     {
-        PoolingSingleton.Instance.ParEnemyDeath.ReturnObject(gameObject);
+        PoolingSingleton.Instance.ParticlesHumanDeathPool.ReturnObject(gameObject);
     }
 }

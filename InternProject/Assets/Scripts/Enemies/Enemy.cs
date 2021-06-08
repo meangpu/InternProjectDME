@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
     private void EnemyDie()
     {
-        PoolingSingleton.Instance.ParEnemyDeath.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
+        PoolingSingleton.Instance.ParticlesHumanDeathPool.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
         circleHp.fillAmount = 0;
         PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
         WaveManager.EnemyAlive.Remove(this);

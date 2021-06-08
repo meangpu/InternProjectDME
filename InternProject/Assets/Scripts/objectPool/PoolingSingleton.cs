@@ -15,6 +15,7 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler goldPool = null;
     [SerializeField] private Pooler homingMissilePool = null;
     [SerializeField] private Pooler enemyDeathPar = null;
+    [SerializeField] private Pooler towerMissilePool = null;
 
 
     public Pooler EnemyBulletPool 
@@ -52,12 +53,15 @@ public class PoolingSingleton : MonoBehaviour
         get { return homingMissilePool; }
     }
 
-    public Pooler ParEnemyDeath
+    public Pooler ParticlesHumanDeathPool
     {
         get { return enemyDeathPar; }
     }
 
-
+    public Pooler TowerMissilePool
+    {
+        get { return towerMissilePool; }
+    }
     
 
     private void Awake()

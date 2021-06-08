@@ -9,6 +9,12 @@ public class MissileTower : MonoBehaviour, ITower
 
     public void Shoot()
     {
-        throw new System.NotImplementedException();
+        PoolingSingleton.Instance.TowerMissilePool.SpawnTowerMissile(
+            projectileSpawnPoint.position, 
+            projectileSpawnPoint.rotation, 
+            towerStats.DealDamage(), 
+            towerStats.GetBulletSpeed(), 
+            towerStats.GetAreaOfDamage(), 
+            towerStats.GetBulletLifetime());
     }
 }

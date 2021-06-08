@@ -19,10 +19,10 @@ public class TowerStats : MonoBehaviour
     private float rateOfFire;
     private float bulletSpeed;
     private float bulletLifetime;
+    private float areaOfDamage;
     private Sprite bulletSprite;
     private int price;
     private bool isLaserType = false;
-
 
     private void Start()
     {
@@ -54,6 +54,7 @@ public class TowerStats : MonoBehaviour
         bulletLifetime = tower.GetProjectileLifeTime();
         bulletSprite = tower.GetProjectileSprite();
         price = tower.GetUpgradeCost()[towerLevel];
+        areaOfDamage = tower.GetAreaOfDamage();
         isLaserType = tower.GetIsLaserType();
         RefreshTowerVisualRange();
     }
@@ -109,6 +110,7 @@ public class TowerStats : MonoBehaviour
     public int GetPrice() => price;
     public int GetTowerLevel() => towerLevel;
     public bool GetIsLaserType() => isLaserType;
+    public float GetAreaOfDamage() => areaOfDamage;
 
     public int NextLVDmg()
     {
