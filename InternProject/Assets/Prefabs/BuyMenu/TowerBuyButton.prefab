@@ -16927,7 +16927,6 @@ MonoBehaviour:
   upgradeParent: {fileID: 8668809168456348871}
   buildEffect: {fileID: 2348159635313618094}
   previewTower: {fileID: 7602010611607316277}
-  infoPanel: {fileID: 0}
 --- !u!1001 &5059156814835215287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16995,6 +16994,14 @@ PrefabInstance:
       propertyPath: NewTowerRangeDisplay
       value: 
       objectReference: {fileID: 4536145505887868963}
+    - target: {fileID: 4333367320719731737, guid: 921591f4da178e249a89bed87ecb427e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333367320719731737, guid: 921591f4da178e249a89bed87ecb427e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2792474499347827390, guid: 921591f4da178e249a89bed87ecb427e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 921591f4da178e249a89bed87ecb427e, type: 3}

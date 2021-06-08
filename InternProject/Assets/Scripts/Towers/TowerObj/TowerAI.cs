@@ -77,7 +77,7 @@ public class TowerAI : MonoBehaviour
         towerShoot.Shoot();
     }
 
-    private void SetupTower()
+    public void SetupTower()
     {
         range = towerStats.GetAttackRange();
         shootInterval = towerStats.GetRateOfFire();

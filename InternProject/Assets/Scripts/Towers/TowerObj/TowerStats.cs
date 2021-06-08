@@ -11,6 +11,7 @@ public class TowerStats : MonoBehaviour
     [SerializeField] private SpriteRenderer towerTurret = null;
     [SerializeField] private SpriteRenderer towerLevelDisplay = null;
     [SerializeField] GameObject towerRangeDisplay;
+    [SerializeField] TowerAI towerAiScript;
 
     private int minDamage;
     private int maxDamage;
@@ -21,6 +22,7 @@ public class TowerStats : MonoBehaviour
     private Sprite bulletSprite;
     private int price;
     private bool isLaserType = false;
+
 
     private void Start()
     {
@@ -76,6 +78,7 @@ public class TowerStats : MonoBehaviour
         {
             towerLevel++;
             GetAllStats();
+            towerAiScript.SetupTower();
         }
     }
 

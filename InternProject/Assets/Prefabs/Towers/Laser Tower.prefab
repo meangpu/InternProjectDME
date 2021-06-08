@@ -19989,6 +19989,7 @@ MonoBehaviour:
   towerTurret: {fileID: 8894897481430839569}
   towerLevelDisplay: {fileID: 9194239360449836135}
   towerRangeDisplay: {fileID: 5461371297272148316}
+  towerAiScript: {fileID: 8894897481918443343}
 --- !u!114 &8894897481918443343
 MonoBehaviour:
   m_ObjectHideFlags: 0
