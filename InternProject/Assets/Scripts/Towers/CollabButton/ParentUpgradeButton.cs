@@ -78,7 +78,7 @@ public class ParentUpgradeButton : MonoBehaviour
  
 	private void Start() 
 	{
-		GameManager.Instance.OnBuyModeTrigger += UpdateMaterial;
+		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
 		setupChild();
 	}
 
@@ -93,13 +93,9 @@ public class ParentUpgradeButton : MonoBehaviour
 		ResetPositions ();
 	}
 
-	void UpdateMaterial(bool isBuying)
+	void UpdateMaterial()
 	{
-		if (isBuying)
-		{
-			mainButton.GetComponent<Button>().interactable = true;
-		}
-		else
+		if (GameManager.Instance.isBuying)
 		{
 			mainButton.GetComponent<Button>().interactable = false;
 			changeMat.material = notGlowMat;
@@ -107,6 +103,10 @@ public class ParentUpgradeButton : MonoBehaviour
 			{
 				ToggleMenu();
 			}
+		}
+		else
+		{
+			mainButton.GetComponent<Button>().interactable = true;
 		}
 	}
 
