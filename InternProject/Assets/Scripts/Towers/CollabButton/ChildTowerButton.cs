@@ -13,7 +13,8 @@ public class ChildTowerButton : MonoBehaviour
 	Transform previewTranform;
 	Transform towerBuyTransform;
 
-	[SerializeField] GameObject towerPfb;
+	[SerializeField] GameObject BasicTowerPfb;
+	[SerializeField] GameObject LaserTowerPfb;
 	public ObjTower towerObject;
 
 	GameObject previewTower;
@@ -78,7 +79,9 @@ public class ChildTowerButton : MonoBehaviour
 		{
 			towerBuyTransform.gameObject.SetActive(true);
 			PlayerStats.Instance.SpendGold(towerObject.GetUpgradeCost()[0]);
-			GameObject buildTower = Instantiate(towerPfb, towerBuyTransform.position, Quaternion.identity);
+			GameObject _towerPrefab = checkTowerPrefab();
+
+			GameObject buildTower = Instantiate(_towerPrefab, towerBuyTransform.position, Quaternion.identity);
 			buildTower.GetComponent<TowerStats>().SetTowerType(towerObject);
 			buildTower.transform.parent = towerBuyTransform;
 			GameManager.Instance.checkWhatCanBuy();
@@ -87,6 +90,24 @@ public class ChildTowerButton : MonoBehaviour
 		
 		disablePreview();
 		StartCoroutine(disablePreviewCD());
+	}
+
+	public GameObject checkTowerPrefab()
+	{
+		string _name = towerObject.GetName();
+		if (_name == "Perimeter Defense Tower")
+		{
+			return BasicTowerPfb;
+		}
+		else if (_name == "Laser Tower")
+		{
+			return LaserTowerPfb;
+		}
+		else
+		{
+			////// missile tower
+			return BasicTowerPfb;
+		}
 	}
 
 	public void updateVisualCanBuy()

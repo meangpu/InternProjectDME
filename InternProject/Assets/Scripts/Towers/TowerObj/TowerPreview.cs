@@ -73,8 +73,8 @@ public class TowerPreview : MonoBehaviour
         parent.gameObject.SetActive(true);
         gameObject.SetActive(true);
         NewTowerRangeDisplay.SetActive(false);
-        disableTowerImage();
         towerRangeDisplay.SetActive(true);
+        disableTowerImage();
     }
 
     public void showTowerImage()
