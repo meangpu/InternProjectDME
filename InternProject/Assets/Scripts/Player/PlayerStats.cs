@@ -202,6 +202,12 @@ public class PlayerStats : MonoBehaviour
                 HandleToggleEnergyShield();
             }
         }
+
+        if (healthSystem.GetAmount() > 0) { return; }
+
+        // Set cooldown to respawn
+        GameManager.Instance.BuyModeSwap();
+        gameObject.SetActive(false);
     }
 
     public bool TrySpendEnergy(int energy)
