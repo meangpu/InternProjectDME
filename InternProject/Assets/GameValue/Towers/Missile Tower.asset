@@ -19,12 +19,12 @@ MonoBehaviour:
   minDamage: 030000000500000009000000
   maxDamage: 050000000c00000015000000
   attackRange:
-  - 4
   - 4.5
   - 5
+  - 5.5
   rateOfFire: 0.33
   projectileLifetime: 0.7
-  projectileSpeed: 2
+  projectileSpeed: 8
   areaOfDamage: 1.5
   upgradeCost: 78000000b400000004010000
   laserType: 0
