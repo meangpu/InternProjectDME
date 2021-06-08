@@ -216,10 +216,13 @@ public class ParentUpgradeButton : MonoBehaviour
 		sellEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
 		_getCoin = mainTower.getSellPrice();
+
 		PlayerStats.Instance.AddGold(_getCoin);
 		Destroy(parentOfTower.GetChild(0).gameObject);
+
 		buyTower.haveSellTower();
 		towerPreviewScript.showTowerImage();
+		towerPreviewScript.resetLevel();
 		canUpgrade = true;
 		towerMaxLevel = false;
 	}

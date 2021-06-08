@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance { get { return instance; } }
 
     // Player Stats
-    private readonly int startingGold = 500;
+    private readonly int startingGold = 2000;
     private int tankLevel = 1;
     private int gunLevel = 1;
 

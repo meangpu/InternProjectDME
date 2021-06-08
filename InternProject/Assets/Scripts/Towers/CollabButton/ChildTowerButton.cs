@@ -83,9 +83,14 @@ public class ChildTowerButton : MonoBehaviour
 
 			GameObject buildTower = Instantiate(_towerPrefab, towerBuyTransform.position, Quaternion.identity);
 			buildTower.GetComponent<TowerStats>().SetTowerType(towerObject);
+			
 			buildTower.transform.parent = towerBuyTransform;
 			GameManager.Instance.checkWhatCanBuy();
 			parentTowerButton.haveBuildTower();
+
+			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerType(towerObject);
+			previewInfoPanel.setPreview(towerObject);
+
 		}
 		
 		disablePreview();

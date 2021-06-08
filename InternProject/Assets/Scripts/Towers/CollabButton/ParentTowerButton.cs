@@ -176,10 +176,10 @@ public class ParentTowerButton : MonoBehaviour
 			StartCoroutine(DisableObject());
 		}
 		deletePreview();
-		StartCoroutine(deletePreviewCD(0.5f));
-		StartCoroutine(deletePreviewCD(0.8f));
-		StartCoroutine(deletePreviewCD(1.2f));
-		StartCoroutine(deletePreviewCD(1.5f));
+		// StartCoroutine(deletePreviewCD(0.5f));
+		// StartCoroutine(deletePreviewCD(0.8f));
+		// StartCoroutine(deletePreviewCD(1.2f));
+		// StartCoroutine(deletePreviewCD(1.5f));
 
 	}
 

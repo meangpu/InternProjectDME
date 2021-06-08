@@ -52,6 +52,11 @@ public class TowerPreview : MonoBehaviour
         }
     }
 
+    public void resetLevel()
+    {
+        towerLevel = 0;
+    }
+
     public void RefreshTowerVisualRange()
     {
         // for some reason rane is 2 times bigger
