@@ -48,16 +48,16 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] Transform previewTower;
 
 
-	void Start ()
+	private void Start ()
 	{
-		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
-		GameManager.Instance.onBuyModeTrigger += deletePreview;
-		deletePreview();
-		spawnChild();
+		GameManager.Instance.OnBuyModeTrigger += UpdateMaterial;
+		GameManager.Instance.OnBuyModeTrigger += DeletePreview;
+		DeletePreview(GameManager.Instance.isBuying);
+		SpawnChild();
 		setupChild();
 	}
 
-	void spawnChild()
+	private void SpawnChild()
 	{
         foreach (var tower in towerToChoose)
         {
@@ -69,7 +69,7 @@ public class ParentTowerButton : MonoBehaviour
         }
 	}
 
-	void deletePreview()
+	private void DeletePreview(bool isBuying)
 	{
 		previewTower.gameObject.SetActive(false);
 	}
@@ -78,17 +78,17 @@ public class ParentTowerButton : MonoBehaviour
 	IEnumerator deletePreviewCD(float _waitTime)
 	{
 		yield return new WaitForSeconds(_waitTime);
-		deletePreview();
+		DeletePreview(GameManager.Instance.isBuying);
 	}
 
 
 	public void haveBuildTower()
 	{
 		buildEffect.Play();
-		deletePreview();
+		DeletePreview(GameManager.Instance.isBuying);
 		alreadyHaveTower = true;
 		mainButton.gameObject.SetActive(false);
-		UpdateMaterial();
+		UpdateMaterial(GameManager.Instance.isBuying);
 		upgradeParent.SetActive(true);
 		upgradeParent.GetComponent<ParentUpgradeButton>().DisableObjectInstant();
 	}
@@ -98,7 +98,7 @@ public class ParentTowerButton : MonoBehaviour
 		alreadyHaveTower = false;
 		mainButton.gameObject.SetActive(true);
 		upgradeParent.SetActive(false);
-		UpdateMaterial();
+		UpdateMaterial(GameManager.Instance.isBuying);
 		changeMat.material = glowMat;		
 		mainButton.interactable = true;
 	}
@@ -153,7 +153,7 @@ public class ParentTowerButton : MonoBehaviour
 	public void ToggleMenu ()
 	{
 		isExpanded = !isExpanded;
-		GameManager.Instance.checkWhatCanBuy();
+		GameManager.Instance.CheckWhatCanBuy();
 
 		if (isExpanded) {
 			//menu opened
@@ -175,12 +175,11 @@ public class ParentTowerButton : MonoBehaviour
 			RotateMainButton(0, 180);
 			StartCoroutine(DisableObject());
 		}
-		deletePreview();
+		DeletePreview(GameManager.Instance.isBuying);
 		StartCoroutine(deletePreviewCD(0.5f));
 		StartCoroutine(deletePreviewCD(0.8f));
 		StartCoroutine(deletePreviewCD(1.2f));
 		StartCoroutine(deletePreviewCD(1.5f));
-
 	}
 
 
@@ -190,7 +189,7 @@ public class ParentTowerButton : MonoBehaviour
 		for (int i = 0; i < itemsCount; i++) {
 			menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
 		}
-		deletePreview();
+		DeletePreview(GameManager.Instance.isBuying);
 		RotateMainButton(0, 180);
 		StartCoroutine(DisableObject());
 	}
@@ -203,11 +202,16 @@ public class ParentTowerButton : MonoBehaviour
 		.SetEase (rotationEase);
 	}
 
-	public void UpdateMaterial()
+	public void UpdateMaterial(bool isBuying)
 	{
 		if (!alreadyHaveTower)
 		{
-			if (GameManager.Instance.isBuying)
+			if (isBuying)
+			{
+				changeMat.material = glowMat;		
+				mainButton.interactable = true;
+			}
+			else
 			{
 				mainButton.interactable = false;
 				changeMat.material = notGlowMat;
@@ -215,11 +219,6 @@ public class ParentTowerButton : MonoBehaviour
 				{
 					ToggleMenu();
 				}
-			}
-			else
-			{
-				changeMat.material = glowMat;		
-				mainButton.interactable = true;
 			}
 		}
 		else

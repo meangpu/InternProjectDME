@@ -55,13 +55,16 @@ public class PlayerStats : MonoBehaviour
     public event Action<int> OnTankLeveledUp;
     public event Action<int> OnGunLeveledUp;
     public event Action OnEnergyShieldDisabled;
-    
+
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
     private bool isImmuned = false;
     private bool incendiaryAmmoEnabled = false;
     private float damageBoostDuration = 0;
+
+    // States
+    private bool isAlive = true;
 
     private void Awake()
     {
@@ -124,6 +127,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
+        if (!isAlive) { return; }
+
         float deltaTime = Time.deltaTime;
 
         RegenerateHealth(deltaTime);
@@ -169,17 +174,17 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isImmuned) 
-        {   
+        if (isImmuned)
+        {
             DamagePopup.Create(transform.position, 0, DamagePopup.DamageType.Player);
-            return; 
+            return;
         }
 
         DamagePopup.Create(transform.position, damage, DamagePopup.DamageType.Player);
         if (!energyShieldEnabled)
         {
             healthSystem.Damage(damage);
-        } 
+        }
         else
         {
             int leftoverDamage = damage;
@@ -202,6 +207,11 @@ public class PlayerStats : MonoBehaviour
                 HandleToggleEnergyShield();
             }
         }
+
+        if (healthSystem.GetAmount() > 0) { return; }
+
+        isAlive = false;
+        gameObject.SetActive(false);
     }
 
     public bool TrySpendEnergy(int energy)
@@ -333,6 +343,8 @@ public class PlayerStats : MonoBehaviour
     public float GetKnockbackValue() => bulletKnockback;
 
     public ObjPlayerBullet GetBulletType() => objBullet;
+
+    public bool IsAlive { get { return isAlive; } }
 
     #endregion
 }
