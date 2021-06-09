@@ -50,8 +50,8 @@ public class ParentTowerButton : MonoBehaviour
 
 	void Start ()
 	{
-		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
-		GameManager.Instance.onBuyModeTrigger += deletePreview;
+		GameManager.Instance.OnBuyModeTrigger += UpdateMaterial;
+		GameManager.Instance.OnBuyModeTrigger += deletePreview;
 		deletePreview();
 		spawnChild();
 		setupChild();
@@ -153,7 +153,7 @@ public class ParentTowerButton : MonoBehaviour
 	public void ToggleMenu ()
 	{
 		isExpanded = !isExpanded;
-		GameManager.Instance.checkWhatCanBuy();
+		GameManager.Instance.CheckWhatCanBuy();
 
 		if (isExpanded) {
 			//menu opened

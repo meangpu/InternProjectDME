@@ -42,7 +42,7 @@ public class ChildTowerButton : MonoBehaviour
 
 	private void Start() 
 	{
-		GameManager.Instance.checkWhatCanBuy();
+		GameManager.Instance.CheckWhatCanBuy();
 	}
 
 
@@ -85,7 +85,7 @@ public class ChildTowerButton : MonoBehaviour
 			buildTower.GetComponent<TowerStats>().SetTowerType(towerObject);
 			
 			buildTower.transform.parent = towerBuyTransform;
-			GameManager.Instance.checkWhatCanBuy();
+			GameManager.Instance.CheckWhatCanBuy();
 			parentTowerButton.haveBuildTower();
 
 			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerType(towerObject);

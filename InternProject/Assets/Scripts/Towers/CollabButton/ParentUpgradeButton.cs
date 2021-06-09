@@ -78,7 +78,7 @@ public class ParentUpgradeButton : MonoBehaviour
  
 	private void Start() 
 	{
-		GameManager.Instance.onBuyModeTrigger += UpdateMaterial;
+		GameManager.Instance.OnBuyModeTrigger += UpdateMaterial;
 		setupChild();
 	}
 

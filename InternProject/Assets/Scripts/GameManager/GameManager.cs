@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private PlayerGetHit player;
     private BaseClass playerBase;
 
-    public event Action onBuyModeTrigger;
+    public event Action OnBuyModeTrigger;
     public event Action OnCheckWhatCanBuy;
 
     private void Awake()
@@ -68,20 +68,15 @@ public class GameManager : MonoBehaviour
         PauseGame();
     }
 
-    public void checkWhatCanBuy()
+    public void CheckWhatCanBuy()
     {
-        if (OnCheckWhatCanBuy != null)
-        {
-            OnCheckWhatCanBuy();
-        }
+        OnCheckWhatCanBuy?.Invoke();
     }
 
     public void BuyModeSwap()
     {
-        if (onBuyModeTrigger != null)
-        {
-            onBuyModeTrigger();
-        }
+        OnBuyModeTrigger?.Invoke();
+
         if (isBuying)
         {
             isBuying = false;

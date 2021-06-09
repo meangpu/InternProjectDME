@@ -26,7 +26,7 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
         playerControls.BuyMenu.BuyMode.performed += _ => GameManager.Instance.BuyModeSwap();
 
-        GameManager.Instance.onBuyModeTrigger += BuyModehandler;
+        GameManager.Instance.OnBuyModeTrigger += BuyModehandler;
     }
 
     private void OnDisable()
