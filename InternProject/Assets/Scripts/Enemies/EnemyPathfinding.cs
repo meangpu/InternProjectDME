@@ -54,6 +54,8 @@ public class EnemyPathfinding : MonoBehaviour
 
     public void IncrementWaypoint()
     {
+        if (path.vectorPath.Count == currentWaypoint + 1) { return; }
+
         currentWaypoint++;
     }
 

@@ -91350,6 +91350,12 @@ MonoBehaviour:
         isBoss: 0
         count: 5
       spawnPoint: {fileID: 1194388671}
+    - EnemyList:
+      - enemy: {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
+        enemyPfb: {fileID: 895374815}
+        isBoss: 0
+        count: 5
+      spawnPoint: {fileID: 895374816}
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
