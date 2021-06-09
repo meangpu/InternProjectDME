@@ -6,6 +6,7 @@ public class AssignGold : MonoBehaviour
 {
     [SerializeField] private ObjGold ObjGold = null;
     [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] ParticleSystemRenderer parEffect;
 
     private int value;
 
@@ -32,6 +33,7 @@ public class AssignGold : MonoBehaviour
         ObjGold = _newGold;
         spriteRenderer.sprite = ObjGold.GetSprite();
         spriteRenderer.material = ObjGold.GetMaterial();
+        parEffect.material = ObjGold.GetParMaterial();
         value = ObjGold.GetValue();
     }
 }

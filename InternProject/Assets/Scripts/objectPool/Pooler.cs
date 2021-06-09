@@ -186,10 +186,11 @@ public class Pooler : MonoBehaviour
         SetupObject(popup, position, rotation);
     }
 
-    public void SpawnGold(Vector3 position, Quaternion rotation, ObjGold ObjGold)
+    public void SpawnGold(Vector3 position, Quaternion rotation, ObjGold ObjGold, Vector3 _direction)
     {
         GameObject goldItem = SpawnObject();
         goldItem.GetComponent<AssignGold>().SetGold(ObjGold);
         SetupObject(goldItem, position, rotation);
+        goldItem.GetComponent<Rigidbody2D>().AddForce(_direction * 0.0015f, ForceMode2D.Impulse);
     }
 }

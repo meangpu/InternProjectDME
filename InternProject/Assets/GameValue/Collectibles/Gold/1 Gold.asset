@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a175a525b918b004bbc5cdb747b94687, type: 3}
   value: 1
   material: {fileID: 2100000, guid: 1d76d4f4a5db90448b5eb5640ee9719d, type: 2}
+  parMaterial: {fileID: 2100000, guid: 6bdbff0ffa55a744e8df7a246123d812, type: 2}

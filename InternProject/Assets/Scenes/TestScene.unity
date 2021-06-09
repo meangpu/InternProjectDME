@@ -64918,7 +64918,7 @@ MonoBehaviour:
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 5cc102c54a1b1894cab0d6e975e1920d, type: 2}
+      - enemy: {fileID: 11400000, guid: b44118657b0458d429543e2a9d705410, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
