@@ -222,7 +222,7 @@ public class ParentUpgradeButton : MonoBehaviour
 		int _getCoin;
 		sellEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
-		_getCoin = mainTower.getSellPrice();
+		_getCoin = mainTower.GetSellPrice();
 
 		PlayerStats.Instance.AddGold(_getCoin);
 		Destroy(parentOfTower.GetChild(0).gameObject);

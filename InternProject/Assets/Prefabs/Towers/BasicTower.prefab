@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120af7edc91d2a84b9b6e874375685b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AI: {fileID: 2792474500436230547}
 --- !u!1 &2792474500436230541
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScanInterval: 0.1
+  towerRotation: {fileID: 2792474499347827390}
 --- !u!114 &-1044390661037131442
 MonoBehaviour:
   m_ObjectHideFlags: 0

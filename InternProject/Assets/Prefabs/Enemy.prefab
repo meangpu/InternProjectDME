@@ -202,8 +202,8 @@ GameObject:
   - component: {fileID: 357646261448459992}
   - component: {fileID: -1578501315532656302}
   - component: {fileID: -5061090753679612593}
-  - component: {fileID: 8266638017164180185}
   - component: {fileID: 8854143676388831109}
+  - component: {fileID: 1455225754332492751}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -372,15 +372,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ca1ecd4f98faf439f4c3df60ca2254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeker: {fileID: -1578501315532656302}
   enemyDisplay: {fileID: 5298252096397123446}
   rb: {fileID: 5298252096397123441}
-  pathScanInterval: 0.5
   nextWayPointDistance: 1
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 8
   enemyShoot: {fileID: 8854143676388831109}
+  pathfinding: {fileID: 1455225754332492751}
 --- !u!114 &-1578501315532656302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,21 +424,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.245
---- !u!114 &8266638017164180185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5298252096397123443}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  unwrap: 1
-  splitAtEveryPortal: 0
 --- !u!114 &8854143676388831109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +438,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5298252095771945956}
   enemy: {fileID: 5298252096397123446}
+--- !u!114 &1455225754332492751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5298252096397123443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06fec758704d1c4b96d39c0f23613b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeker: {fileID: -1578501315532656302}
+  pathScanInterval: 0.5
 --- !u!1 &5298252096645341659
 GameObject:
   m_ObjectHideFlags: 0

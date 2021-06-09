@@ -14,7 +14,7 @@ public class PreviewSellTower : MonoBehaviour
     public void previewSell()
     {
         TowerStats _stat = towerParent.GetChild(0).GetComponent<TowerStats>();
-        priceText.text = _stat.getSellPrice().ToString();
+        priceText.text = _stat.GetSellPrice().ToString();
         previewPanel.SetActive(true);
     }
 

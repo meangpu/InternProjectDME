@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerAI : MonoBehaviour
 {
     [SerializeField] private float targetScanInterval = 0.1f;
+    [SerializeField] private TowerRotation towerRotation = null;
 
     private float timeScanPassed;
     private float timeAfterShot;
@@ -44,6 +45,8 @@ public class TowerAI : MonoBehaviour
             FindTarget();
             ResetScanTimer();
         }
+
+        towerRotation.RotateTurret(target);
 
         if (isLaserType)
         {
@@ -97,7 +100,6 @@ public class TowerAI : MonoBehaviour
         {
             if (collider.TryGetComponent(out Enemy enemy))
             {
-                ResetShootTimer();
                 SetTarget(enemy);
                 return;
             } 

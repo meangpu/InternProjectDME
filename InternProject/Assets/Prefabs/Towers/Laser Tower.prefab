@@ -19733,7 +19733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120af7edc91d2a84b9b6e874375685b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AI: {fileID: 8894897481918443343}
 --- !u!1 &8894897481071857968
 GameObject:
   m_ObjectHideFlags: 0
@@ -20003,6 +20002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScanInterval: 0.1
+  towerRotation: {fileID: 8894897480796447842}
 --- !u!114 &5328308236337216640
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,26 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private Seeker seeker = null;
     [SerializeField] private EnemyDisplay enemyDisplay = null;
     [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private float pathScanInterval = 0.5f;
     [SerializeField] private float nextWayPointDistance = 1.2f;
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private EnemyShoot enemyShoot = null;
+    [SerializeField] private EnemyPathfinding pathfinding = null;
 
     private Transform playerBase = null;
     private Transform player = null;
 
     private Transform currentTarget = null;
-    private Path path;
-    private float currentTime = 1f;
-    private int currentWaypoint = 0;
-    private bool isEnded = false;
 
     private bool isPassive;
     private float attackRange;
@@ -43,25 +37,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        TryGetNewPath(Time.deltaTime);
+        pathfinding.TryGetNewPath(Time.deltaTime, currentTarget);
 
-        if (path == null) { return; }
+        if (pathfinding.Path == null) { return; }
 
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            if (isEnded) { goto Skip1; } 
-            isEnded = true;
-            Skip1:
-            return;
-        }
-        else
-        {
-            if (!isEnded) { goto Skip2; }
-            isEnded = false;
-        }
-
-        Skip2:
-        
         switch (state)
         {
             default:
@@ -135,7 +114,7 @@ public class EnemyAI : MonoBehaviour
 
         rb.velocity = transform.right * enemyDisplay.Speed;
 
-        Vector3 currentWaypointPosition = path.vectorPath[currentWaypoint];
+        Vector3 currentWaypointPosition = pathfinding.GetCurrentWaypoint();
 
         RotateTowardsTarget(currentWaypointPosition);
 
@@ -143,26 +122,7 @@ public class EnemyAI : MonoBehaviour
 
         if (distance < nextWayPointDistance)
         {
-            currentWaypoint++;
-        }
-    }
-
-    private void TryGetNewPath(float deltaTime)
-    {
-        currentTime += deltaTime;
-
-        if (currentTime < pathScanInterval) { return; }
-
-        seeker.StartPath(rb.position, currentTarget.position, OnPathComplete);
-        currentTime = 0f; 
-    }
-
-    private void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
-            path = p;
-            currentWaypoint = 0;
+            pathfinding.IncrementWaypoint();
         }
     }
 
