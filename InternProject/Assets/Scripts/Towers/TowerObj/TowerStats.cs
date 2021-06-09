@@ -59,7 +59,7 @@ public class TowerStats : MonoBehaviour
         RefreshTowerVisualRange();
     }
 
-    public int getSellPrice()
+    public int GetSellPrice()
     {
         float sellFactor = 0.7f;
         int _sellPrice = 0;

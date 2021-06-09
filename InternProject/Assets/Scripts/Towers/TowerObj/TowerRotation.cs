@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class TowerRotation : MonoBehaviour
 {
-    [SerializeField] private TowerAI AI = null;
-
-    private Enemy target;
-
-    private void Update()
+    public void RotateTurret(Enemy target)
     {
-        RotateTurret();
-    }
+        if (target == null) { return; }
 
-    private void RotateTurret()
-    {
-        target = AI.GetTarget();
+        Vector3 turretDirection = target.transform.position - transform.position;
 
-        if (target != null)
-        {
-            Vector3 turretDirection = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(turretDirection.y, turretDirection.x) * Mathf.Rad2Deg;
 
-            float angle = Mathf.Atan2(turretDirection.y, turretDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle - 90), Mathf.Infinity);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle - 90), Mathf.Infinity);
-        }
     }
 }
