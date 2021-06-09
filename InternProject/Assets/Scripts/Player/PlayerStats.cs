@@ -175,8 +175,8 @@ public class PlayerStats : MonoBehaviour
         Transform playerTank = gameObject.transform;
         playerTank.SetPositionAndRotation(respawnPoint.position, respawnPoint.rotation);
 
-        healthSystem.SetAmount(100);
-        energySystem.SetAmount(50);
+        healthSystem.Heal(100, HealthOrManaSystem.HealingType.Percentage);
+        energySystem.SetAmount(20);
 
         currentAmmoCount = maxAmmoCount;
         UpdateAmmoUI();
