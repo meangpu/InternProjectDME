@@ -48,6 +48,7 @@ MonoBehaviour:
   buyButton: {fileID: 2490650062621981249}
   BasicTowerPfb: {fileID: 2792474500436230541, guid: 165b776e115499a4489f33456adc3973, type: 3}
   LaserTowerPfb: {fileID: 8894897481918443345, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
+  MissileTowerPfb: {fileID: 5084766386457998052, guid: f55e259f20ffd2549b87a5f9057a98d6, type: 3}
   towerObject: {fileID: 0}
   cannotBuyColor:
     serializedVersion: 2

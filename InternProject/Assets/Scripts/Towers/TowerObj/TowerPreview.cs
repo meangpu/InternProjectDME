@@ -12,6 +12,7 @@ public class TowerPreview : MonoBehaviour
     [SerializeField] private SpriteRenderer towerLevelDisplay = null;
     [SerializeField] GameObject towerRangeDisplay;
     [SerializeField] GameObject NewTowerRangeDisplay;
+    [SerializeField] Transform mainTowerTrans;
 
     private int minDamage;
     private int maxDamage;
@@ -41,6 +42,12 @@ public class TowerPreview : MonoBehaviour
     {
         this.tower = tower;
         GetAllStats();
+    }
+
+    public void SetTowerTypeToMainTower()
+    {
+        ObjTower _mainTowerObj = mainTowerTrans.GetChild(0).GetComponent<TowerStats>().GetTowerType();
+        SetTowerType(_mainTowerObj);
     }
 
     public void LevelUp()
@@ -74,8 +81,6 @@ public class TowerPreview : MonoBehaviour
 
     public void ShowOnlyRange()
     {
-        Transform parent = gameObject.transform.parent;
-        parent.gameObject.SetActive(true);
         gameObject.SetActive(true);
         NewTowerRangeDisplay.SetActive(false);
         towerRangeDisplay.SetActive(true);

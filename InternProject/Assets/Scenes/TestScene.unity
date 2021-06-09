@@ -64820,6 +64820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerBuyButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -68062,6 +68066,7 @@ MonoBehaviour:
   goldPool: {fileID: 123124304}
   homingMissilePool: {fileID: 1618202023}
   enemyDeathPar: {fileID: 1792384622}
+  towerMissilePool: {fileID: 0}
 --- !u!1 &1291522958
 GameObject:
   m_ObjectHideFlags: 0
@@ -68503,6 +68508,10 @@ PrefabInstance:
     - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_Name
       value: TowerBuyButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_RootOrder
@@ -70430,6 +70439,10 @@ PrefabInstance:
     - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_Name
       value: TowerBuyButton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_RootOrder
@@ -72972,6 +72985,10 @@ PrefabInstance:
     - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_Name
       value: TowerBuyButton (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538386428586716082, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6327773615656182025, guid: 0b7dd4d2c41681f4a8cb0f8356203d53, type: 3}
       propertyPath: m_RootOrder

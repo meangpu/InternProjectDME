@@ -82,6 +82,12 @@ public class ParentUpgradeButton : MonoBehaviour
 		setupChild();
 	}
 
+	public void setPreviewToMainTower()
+	{
+		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
+		ObjTower _towerObj = mainTower.GetTowerType();
+		towerPreviewScript.SetTowerType(_towerObj);
+	}
 
 	void setupChild()
 	{
@@ -107,6 +113,7 @@ public class ParentUpgradeButton : MonoBehaviour
 		else
 		{
 			mainButton.GetComponent<Button>().interactable = true;
+			parentPreview.SetActive(true);
 		}
 	}
 
@@ -123,16 +130,17 @@ public class ParentUpgradeButton : MonoBehaviour
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
 		chekIfCanUpgrade();
 		
-		if (isExpanded) {
+		if (isExpanded) 
+		{
 			//menu opened
 			EnableObject();
 			for (int i = 0; i < allButtonList.Length; i++) {
 				allButtonList[i].button.transform.DOMove(allButtonList[i].wantedLocation.position, expandDuration).SetEase (expandEase);
 			}
 			RotateMainButton(180, 0);
-
-
-		} else {
+		} 
+		else 
+		{
 			//menu closed
 			for (int i = 0; i < allButtonList.Length; i++) {
 				allButtonList[i].button.transform.DOMove(mainButtonPosition, collapseDuration).SetEase (collapseEase);
@@ -144,6 +152,7 @@ public class ParentUpgradeButton : MonoBehaviour
 
 	public void closeToggle()
 	{
+		parentPreview.SetActive(false);
 		isExpanded = false;
 		for (int i = 0; i < allButtonList.Length; i++) 
 		{
@@ -152,8 +161,6 @@ public class ParentUpgradeButton : MonoBehaviour
 		RotateMainButton(0, 180);
 		StartCoroutine(DisableObject());
 	}
-
-
 
 	IEnumerator DisableObject()
 	{
@@ -171,7 +178,6 @@ public class ParentUpgradeButton : MonoBehaviour
 			transform.GetChild(i).gameObject.SetActive(false);
 		}
 	}
-
 
 	void EnableObject()
 	{
@@ -197,6 +203,7 @@ public class ParentUpgradeButton : MonoBehaviour
 	public void upgradeTower()
 	{
 		DisableUpgradePreview();
+		parentPreview.gameObject.SetActive(true);
 		upgradeEffect.Play();
 		mainTower = parentOfTower.GetChild(0).GetComponent<TowerStats>();
 		chekIfCanUpgrade();
@@ -225,6 +232,8 @@ public class ParentUpgradeButton : MonoBehaviour
 		towerPreviewScript.resetLevel();
 		canUpgrade = true;
 		towerMaxLevel = false;
+
+		parentPreview.transform.GetChild(0).gameObject.SetActive(true);
 	}
 
 	public void chekIfCanUpgrade()
@@ -263,12 +272,11 @@ public class ParentUpgradeButton : MonoBehaviour
 			upgradeMat.material = notUpgradeMat;
 			upgradeButton.interactable = false;
 		}
-
 	}
 
 	public void DisableUpgradePreview()
 	{
-		parentPreview.SetActive(false);
+		// parentPreview.SetActive(false);
 		mainTowerPreview.SetActive(false);
 		newRangePreview.SetActive(false);
 	}

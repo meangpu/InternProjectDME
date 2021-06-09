@@ -15,6 +15,8 @@ public class ChildTowerButton : MonoBehaviour
 
 	[SerializeField] GameObject BasicTowerPfb;
 	[SerializeField] GameObject LaserTowerPfb;
+	[SerializeField] GameObject MissileTowerPfb;
+	[HideInInspector]
 	public ObjTower towerObject;
 
 	GameObject previewTower;
@@ -28,7 +30,6 @@ public class ChildTowerButton : MonoBehaviour
 	[Header("TowerInfo")]
 	[SerializeField] GameObject previewInfoGameObj;
 	[SerializeField] previewCanvas previewInfoPanel;
-
 
 	void Awake ()
 	{
@@ -45,10 +46,9 @@ public class ChildTowerButton : MonoBehaviour
 		GameManager.Instance.CheckWhatCanBuy();
 	}
 
-
 	public void previewBuy()
 	{
-		if (canBuy)
+		if (canBuy && !parentTowerButton.alreadyHaveTower)
 		{
 			previewTranform.gameObject.SetActive(true);
 			previewInfoGameObj.SetActive(true);
@@ -88,13 +88,12 @@ public class ChildTowerButton : MonoBehaviour
 			GameManager.Instance.CheckWhatCanBuy();
 			parentTowerButton.haveBuildTower();
 
-			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerType(towerObject);
+			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerTypeToMainTower();
 			previewInfoPanel.setPreview(towerObject);
 
+			previewTranform.gameObject.SetActive(true);
 		}
 		
-		disablePreview();
-		StartCoroutine(disablePreviewCD());
 	}
 
 	public GameObject checkTowerPrefab()
@@ -110,8 +109,7 @@ public class ChildTowerButton : MonoBehaviour
 		}
 		else
 		{
-			////// missile tower
-			return BasicTowerPfb;
+			return MissileTowerPfb;
 		}
 	}
 
@@ -137,10 +135,4 @@ public class ChildTowerButton : MonoBehaviour
 		previewTranform.gameObject.SetActive(false);
 	}
 
-	IEnumerator disablePreviewCD()
-	{
-		yield return new WaitForSeconds(0.3f);
-		previewInfoGameObj.SetActive(false);
-		previewTranform.gameObject.SetActive(false);
-	}
 }

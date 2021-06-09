@@ -40,7 +40,7 @@ public class ParentTowerButton : MonoBehaviour
 
 	//is menu opened or not
 	bool isExpanded = false;
-	bool alreadyHaveTower;
+	public bool alreadyHaveTower;
 
 	Vector2 mainButtonPosition;
 	int itemsCount;
@@ -74,7 +74,6 @@ public class ParentTowerButton : MonoBehaviour
 		previewTower.gameObject.SetActive(false);
 	}
 
-
 	IEnumerator deletePreviewCD(float _waitTime)
 	{
 		yield return new WaitForSeconds(_waitTime);
@@ -85,12 +84,13 @@ public class ParentTowerButton : MonoBehaviour
 	public void haveBuildTower()
 	{
 		buildEffect.Play();
-		deletePreview();
 		alreadyHaveTower = true;
 		mainButton.gameObject.SetActive(false);
 		UpdateMaterial();
 		upgradeParent.SetActive(true);
 		upgradeParent.GetComponent<ParentUpgradeButton>().DisableObjectInstant();
+		previewTower.gameObject.SetActive(true);
+		previewTower.GetChild(0).gameObject.SetActive(false);
 	}
 
 	public void haveSellTower()
@@ -162,8 +162,6 @@ public class ParentTowerButton : MonoBehaviour
 				menuItems [i].trans.DOMove (mainButtonPosition + spacing * (i + 1), expandDuration).SetEase (expandEase);
 			}
 			RotateMainButton(180, 0);
-
-
 		} 
 		else 
 		{

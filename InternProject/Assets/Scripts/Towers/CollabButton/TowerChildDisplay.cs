@@ -13,7 +13,6 @@ public class TowerChildDisplay : MonoBehaviour
     {
         towerimage.sprite = _tower.GetTowerSprite();
         priceText.text = _tower.GetUpgradeCost()[0].ToString();
-
     }
 
 }
