@@ -74,17 +74,23 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         enabled = false;  
 
         List<ObjGold> coinToSpawn = CoinSpawnCalculator(enemyDisplay.DropGold);
+
+        for (int i = 0; i < coinToSpawn.Count; i++)
+        {
+            Debug.Log(i);
+        }
         
         foreach (var coin in coinToSpawn)
         {
             PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, coin);
         }
 
+
+
     }
 
     private List<ObjGold> CoinSpawnCalculator(int _value)
     {
-
         int leftValue = _value; // 53
         List<ObjGold> result = new List<ObjGold>() ;
 
