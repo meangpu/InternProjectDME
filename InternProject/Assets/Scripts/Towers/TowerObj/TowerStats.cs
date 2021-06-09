@@ -111,6 +111,7 @@ public class TowerStats : MonoBehaviour
     public int GetTowerLevel() => towerLevel;
     public bool GetIsLaserType() => isLaserType;
     public float GetAreaOfDamage() => areaOfDamage;
+    public ObjTower GetTowerType() => tower;
 
     public int NextLVDmg()
     {
