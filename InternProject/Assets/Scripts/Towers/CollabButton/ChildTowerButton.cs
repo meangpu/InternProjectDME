@@ -51,6 +51,7 @@ public class ChildTowerButton : MonoBehaviour
 		if (canBuy && !parentTowerButton.alreadyHaveTower)
 		{
 			previewTranform.gameObject.SetActive(true);
+			previewTranform.GetChild(0).gameObject.SetActive(true);
 			previewInfoGameObj.SetActive(true);
 			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerType(towerObject);
 			previewInfoPanel.setPreview(towerObject);

@@ -72,6 +72,7 @@ public class ParentTowerButton : MonoBehaviour
 	void deletePreview()
 	{
 		previewTower.gameObject.SetActive(false);
+		previewTower.GetChild(0).gameObject.SetActive(false);
 	}
 
 	IEnumerator deletePreviewCD(float _waitTime)
