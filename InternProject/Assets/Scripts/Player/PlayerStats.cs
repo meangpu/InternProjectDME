@@ -205,8 +205,7 @@ public class PlayerStats : MonoBehaviour
 
         if (healthSystem.GetAmount() > 0) { return; }
 
-        // Set cooldown to respawn
-        GameManager.Instance.BuyModeSwap();
+        GameManager.Instance.HandlePlayerDeath();
         gameObject.SetActive(false);
     }
 

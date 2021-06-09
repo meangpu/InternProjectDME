@@ -469,7 +469,6 @@ GameObject:
   - component: {fileID: 7553780951413289878}
   - component: {fileID: 6596479384599892429}
   - component: {fileID: 1352913647339779572}
-  - component: {fileID: 7474375946340464500}
   - component: {fileID: 3061819531511047170}
   - component: {fileID: 5935434833198695600}
   - component: {fileID: 1583525037}
@@ -620,6 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptObjDataTankGun: {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
+  playerStats: {fileID: 3061819531511047170}
 --- !u!114 &7553780951413289878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,19 +664,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6839855375599364145}
---- !u!114 &7474375946340464500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5943029956014393994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094f32e884b3fdf4daf095ecfaed662d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 3061819531511047170}
 --- !u!114 &3061819531511047170
 MonoBehaviour:
   m_ObjectHideFlags: 0

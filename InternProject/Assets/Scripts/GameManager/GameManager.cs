@@ -9,19 +9,23 @@ using Cinemachine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     [SerializeField] CinemachineVirtualCamera buyModeCam;
     public bool isBuying;
+    [SerializeField] private float respawnTime = 15f;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject winPanel;
 
     // GameObject references
-    private PlayerGetHit player;
+    private Player player;
     private BaseClass playerBase;
 
     public event Action OnBuyModeTrigger;
     public event Action OnCheckWhatCanBuy;
+
+    private float respawnTimeRemaining = 0f;
 
     private void Awake()
     {
@@ -34,7 +38,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGetHit>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerBase = GameObject.FindGameObjectWithTag("Base").GetComponent<BaseClass>();
     }
 
@@ -43,6 +47,12 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
+    private void Update()
+    {
+        if (respawnTime == 0f) { return; }
+
+        respawnTimeRemaining -= Time.deltaTime;
+    }
 
     public void GameOver()
     {
@@ -91,7 +101,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HandlePlayerDeath()
+    {
+        respawnTimeRemaining = respawnTime;
+        BuyModeSwap();
+    }
 
-    public PlayerGetHit GetPlayer() => player;
+    public Player GetPlayer() => player;
     public BaseClass GetPlayerBase() => playerBase;
 }
