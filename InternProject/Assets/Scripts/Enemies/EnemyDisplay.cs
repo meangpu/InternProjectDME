@@ -14,7 +14,7 @@ public class EnemyDisplay : MonoBehaviour
     private float enemySpeed;
     private int hp;
     private int maxhp;
-    private ObjGold[] dropGoldSK;
+
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
     private int minDamage;
@@ -59,7 +59,6 @@ public class EnemyDisplay : MonoBehaviour
         circleHp.fillAmount = 1;
         parentHp.gameObject.SetActive(false);
         isPassive = enemy.GetIsPassive();
-        dropGoldSK = enemy.GetMoneyDropSK();
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
         attackRange = enemy.GetAttackRange();
@@ -116,7 +115,6 @@ public class EnemyDisplay : MonoBehaviour
     public GameObject ParentHP { get { return parentHp; } }
     public int Damage { get { return Random.Range(minDamage, maxDamage + 1); } }
     public bool IsPassive { get { return isPassive; } }
-    public ObjGold[] DropGoldSK { get { return dropGoldSK; } }
     public ObjEnemyBullet BulletType { get { return bulletType; } }
     public float AtkSpeed { get { return atkSpeed; } }
     public float AttackRange { get { return attackRange; } }

@@ -80,10 +80,6 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
             PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, coin);
         }
 
-        // foreach (ObjGold gold in enemyDisplay.DropGoldSK)
-        // {
-        //     PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, gold);
-        // }
     }
 
     private List<ObjGold> CoinSpawnCalculator(int _value)

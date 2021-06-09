@@ -22,7 +22,6 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float bulletLifetime;
     [SerializeField] ObjEnemyBullet bulletType;
-    [SerializeField] private ObjGold[] goldDropSK;
     [SerializeField] private int moneyDrop;
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private bool isFlying;
@@ -38,7 +37,6 @@ public class ObjEnemy : ScriptableObject
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
-    public ObjGold[] GetMoneyDropSK() => goldDropSK;
     public int GetMoneyDrop() => moneyDrop;
 
     public float GetBulletLifetime() => bulletLifetime;
@@ -46,4 +44,5 @@ public class ObjEnemy : ScriptableObject
     public ObjEnemyBullet GetBulletType() => bulletType;
     public EnemyType GetEnemyType() => enemyType;
     public bool GetIsFlying() => isFlying;
+
 }
