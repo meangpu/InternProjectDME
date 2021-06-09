@@ -62,15 +62,17 @@ public class AddonsDisplayIngame : MonoBehaviour
             rechargeBarQ.fillAmount = remainingPercentageQ;
             cooldownDurationQText.text = ((int)remainingCooldownQ).ToString();
 
-            if (cooldownDurationQText.gameObject.activeInHierarchy) { goto CheckE; }
+            if (cooldownDurationQText.gameObject.activeSelf) { goto CheckE; }
 
             cooldownDurationQText.gameObject.SetActive(true);
+            rechargeBarQ.enabled = true;
         } 
         else
         {
-            if (!cooldownDurationQText.gameObject.activeInHierarchy) { goto CheckE; }
+            if (!cooldownDurationQText.gameObject.activeSelf) { goto CheckE; }
 
             cooldownDurationQText.gameObject.SetActive(false);
+            rechargeBarQ.enabled = false;
         }
 
         CheckE:
@@ -79,18 +81,19 @@ public class AddonsDisplayIngame : MonoBehaviour
             rechargeBarE.fillAmount = remainingPercentageE;
             cooldownDurationEText.text = ((int)remainingCooldownE).ToString();
 
-            if (cooldownDurationEText.gameObject.activeInHierarchy) { return; }
+            if (cooldownDurationEText.gameObject.activeSelf) { return; }
 
             cooldownDurationEText.gameObject.SetActive(true);
+            rechargeBarE.enabled = true;
         }
         else
         {
-            if (!cooldownDurationEText.gameObject.activeInHierarchy) { return; }
+            if (!cooldownDurationEText.gameObject.activeSelf) { return; }
 
             cooldownDurationEText.gameObject.SetActive(false);
+            rechargeBarE.enabled = false;
         }
     }
-
 
     private void GetRemainingDuration()
     {
@@ -111,5 +114,8 @@ public class AddonsDisplayIngame : MonoBehaviour
 
         cooldownDurationQText.gameObject.SetActive(false);
         cooldownDurationEText.gameObject.SetActive(false);
+
+        rechargeBarQ.enabled = false;
+        rechargeBarE.enabled = false;
     }
 }

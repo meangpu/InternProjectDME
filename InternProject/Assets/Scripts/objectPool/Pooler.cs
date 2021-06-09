@@ -94,8 +94,7 @@ public class Pooler : MonoBehaviour
 
     private void SetupObject(GameObject gameObject, Vector3 position, Quaternion rotation) 
     {
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
+        gameObject.transform.SetPositionAndRotation(position, rotation);
         gameObject.SetActive(true);
     }
 

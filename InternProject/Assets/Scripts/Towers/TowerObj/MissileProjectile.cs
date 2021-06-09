@@ -26,7 +26,7 @@ public class MissileProjectile : MonoBehaviour, IAreaOfDamage
 
     public void DestroySelf()
     {
-        PoolingSingleton.Instance.TowerBulletPool.ReturnObject(gameObject);
+        PoolingSingleton.Instance.TowerMissilePool.ReturnObject(gameObject);
     }
 
     private IEnumerator DestroyOverTme()
