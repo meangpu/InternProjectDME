@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
+  m_Name: TestMenagpr
+  m_EditorClassIdentifier: 
+  enemyName: Zombie
+  des: 
+  artWork:
+  - {fileID: -6142324308395457208, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  - {fileID: -29939870544612685, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
+  hp: 2
+  moveSpeed: 0.5
+  minDamage: 0
+  maxDamage: 0
+  EC: 3
+  isPassive: 0
+  attackRange: 3
+  atkSpeed: 0.5
+  bulletSpeed: 5
+  bulletLifetime: 0.6
+  bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
+  moneyDrop: 149
+  enemyType: 0
+  isFlying: 0

@@ -77,16 +77,23 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
         for (int i = 0; i < coinToSpawn.Count; i++)
         {
-            Debug.Log(i);
+            SpawnInCircle(coinToSpawn.Count, i, coinToSpawn[i], 0.8f);
         }
         
-        foreach (var coin in coinToSpawn)
-        {
-            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, coin);
-        }
+        // foreach (var coin in coinToSpawn)
+        // {
+        //     PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, coin);
+        // }
+    }
 
-
-
+    void SpawnInCircle(int spawnCount, int _id, ObjGold coin, float randomMax)
+    {
+        int nowAngle = 360/spawnCount;
+        float radius = 0.45f;
+        Vector3 randomFactor = new Vector3(Random.Range(0, randomMax), Random.Range(0, randomMax), 0);
+        Vector3 direction = Quaternion.Euler(0, 0, nowAngle*_id) * Vector3.right;
+        Vector3 spawnPosition = transform.position + (direction * radius) + randomFactor;
+        PoolingSingleton.Instance.GoldPool.SpawnGold(spawnPosition, Quaternion.identity, coin);
     }
 
     private List<ObjGold> CoinSpawnCalculator(int _value)
