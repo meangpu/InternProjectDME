@@ -30,5 +30,6 @@ MonoBehaviour:
   bulletType: {fileID: 11400000, guid: 7aaa4c4a6cbf78e46aaeaf81c3cd99d9, type: 2}
   goldDropSK:
   - {fileID: 11400000, guid: 945f257d7c7f23b42afb92d5387e697f, type: 2}
+  moneyDrop: 50
   enemyType: 0
   isFlying: 0

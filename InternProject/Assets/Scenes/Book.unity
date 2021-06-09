@@ -1209,9 +1209,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLists:
   - {fileID: 11400000, guid: 908b24406de87154dba4fbbdb27ca104, type: 2}
+  - {fileID: 11400000, guid: 12560d5f3cb083240b45c4b008642a5d, type: 2}
+  - {fileID: 11400000, guid: de9647e8b0d893346bfee860bb6ebcea, type: 2}
+  - {fileID: 11400000, guid: 96b78bdf69ce758488bc07da148a0bbb, type: 2}
+  - {fileID: 11400000, guid: 49d94a8959505744789de28aa0732634, type: 2}
+  - {fileID: 11400000, guid: b44118657b0458d429543e2a9d705410, type: 2}
+  - {fileID: 11400000, guid: 387dd56f9e0d8ad408f49bd8f955e267, type: 2}
+  - {fileID: 11400000, guid: 7dc3b31103571c246b2b4c34238fb1bd, type: 2}
+  - {fileID: 11400000, guid: ac54ff6b0c93a83499d0b43372b9588c, type: 2}
+  - {fileID: 11400000, guid: 423aeb2caf946f740acb397057b80f00, type: 2}
   - {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
   - {fileID: 11400000, guid: 7cdc25476e62bc44a9c901cd496ad312, type: 2}
+  - {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
+  - {fileID: 11400000, guid: 3969db4a1304d684c8253efb016a8869, type: 2}
   - {fileID: 11400000, guid: 50906bd6ee63a7c4a8d9fe4484be329f, type: 2}
+  - {fileID: 11400000, guid: 6049b665939f50549b364dc68958aecc, type: 2}
   - {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
   EnemyImagePrefabs: {fileID: 4733284808967477883, guid: 23bc65386d9109148b0a75717a5bd1ae, type: 3}
 --- !u!114 &783032465

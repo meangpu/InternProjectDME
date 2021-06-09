@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     [SerializeField] private Image circleHp;
     [SerializeField] private GameObject parentHp;
     [SerializeField] private GameObject goldPfb;
-
+    [SerializeField] List<ObjGold> goldToCalculate = new List<ObjGold>();
     [SerializeField] bool isBoss;
     [SerializeField] Boss1 bossScript;
     [SerializeField] Animator anim;
@@ -73,10 +73,44 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         waveManager.SetEnemyLeftText();
         enabled = false;  
 
-        foreach (ObjGold gold in enemyDisplay.DropGoldSK)
+        List<ObjGold> coinToSpawn = CoinSpawnCalculator(enemyDisplay.DropGold);
+        
+        foreach (var coin in coinToSpawn)
         {
-            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, gold);
+            PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, coin);
         }
+
+        // foreach (ObjGold gold in enemyDisplay.DropGoldSK)
+        // {
+        //     PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, gold);
+        // }
+    }
+
+    private List<ObjGold> CoinSpawnCalculator(int _value)
+    {
+
+        int leftValue = _value; // 53
+        List<ObjGold> result = new List<ObjGold>() ;
+
+        foreach (var gold in goldToCalculate)  // 1, 5, 10, 50
+        {
+            if (leftValue > gold.GetValue())
+            {
+                int thisCoinCount = (int)leftValue/(int)gold.GetValue(); // 53 / 50 = 1
+                leftValue = leftValue%gold.GetValue();  // 53%50 = 3
+
+                for (int i = 0; i < thisCoinCount; i++)
+                {
+                    result.Add(gold);
+                }
+            }
+            else if (leftValue == gold.GetValue())
+            {
+                leftValue = 0;
+                result.Add(gold);
+            }
+        }
+        return result;
     }
 
     private void UpdateHpCircle(float _hp, float _maxHp)

@@ -16938,6 +16938,7 @@ MonoBehaviour:
   haveTower: {fileID: 2100000, guid: 61e45688c8e72a74ba631a0f00ec6495, type: 2}
   upgradeParent: {fileID: 8668809168456348871}
   buildEffect: {fileID: 2348159635313618094}
+  alreadyHaveTower: 0
   previewTower: {fileID: 7602010611607316277}
 --- !u!1001 &5059156814835215287
 PrefabInstance:

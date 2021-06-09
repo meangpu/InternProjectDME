@@ -28,5 +28,6 @@ MonoBehaviour:
   bulletLifetime: 1
   bulletType: {fileID: 0}
   goldDropSK: []
+  moneyDrop: 51
   enemyType: 2
   isFlying: 1

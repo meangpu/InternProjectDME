@@ -25,6 +25,7 @@ public class EnemyDisplay : MonoBehaviour
     private float attackRange;
     private float bulletSpeed;
     private float bulletLifetime;
+    private int goldDrop;
 
     private bool isPassive;
 
@@ -64,6 +65,7 @@ public class EnemyDisplay : MonoBehaviour
         attackRange = enemy.GetAttackRange();
         bulletSpeed = enemy.GetBulletSpeed();
         bulletLifetime = enemy.GetBulletLifetime();
+        goldDrop = enemy.GetMoneyDrop();
     }
 
     public void Slow(float percentage, float duration)
@@ -120,4 +122,5 @@ public class EnemyDisplay : MonoBehaviour
     public float AttackRange { get { return attackRange; } }
     public float BulletSpeed { get { return bulletSpeed; } }
     public float BulletLifetime { get { return bulletLifetime; } }
+    public int DropGold { get { return goldDrop; } }
 }
