@@ -62128,7 +62128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyModeCam: {fileID: 78492507}
   isBuying: 0
-  respawnTime: 15
+  respawnTime: 20
   gameOverPanel: {fileID: 1533023315}
   winPanel: {fileID: 1606726706}
 --- !u!4 &493555992
