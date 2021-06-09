@@ -8,6 +8,8 @@ public class PlayerStats : MonoBehaviour
     private static PlayerStats instance;
     public static PlayerStats Instance { get { return instance; } }
 
+    [SerializeField] private Transform respawnPoint = null;
+
     // Player Stats
     private readonly int startingGold = 2000;
     private int tankLevel = 1;
@@ -55,6 +57,7 @@ public class PlayerStats : MonoBehaviour
     public event Action<int> OnTankLeveledUp;
     public event Action<int> OnGunLeveledUp;
     public event Action OnEnergyShieldDisabled;
+    public event Action OnPlayerRespawned;
     
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
@@ -165,6 +168,20 @@ public class PlayerStats : MonoBehaviour
     private void UpdateStats()
     {
         // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
+    }
+
+    public void RespawnPlayer()
+    {
+        Transform playerTank = gameObject.transform;
+        playerTank.SetPositionAndRotation(respawnPoint.position, respawnPoint.rotation);
+
+        healthSystem.SetAmount(100);
+        energySystem.SetAmount(50);
+
+        currentAmmoCount = maxAmmoCount;
+        UpdateAmmoUI();
+
+        OnPlayerRespawned?.Invoke();
     }
 
     public void TakeDamage(int damage)

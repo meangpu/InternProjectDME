@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text tankLevelText = null;
     [SerializeField] private TMP_Text gunNameText = null;
     [SerializeField] private TMP_Text gunLevelText = null;
+    [SerializeField] private Image respawnBar = null;
     [Header("BuyModeDisable")]
     [SerializeField] GameObject addOnDisplay;
     [SerializeField] GameObject bulletDisplay;
@@ -38,6 +39,8 @@ public class UIManager : MonoBehaviour
     {
         playerStats = PlayerStats.Instance;
 
+        ResetRespawnBar();
+
         playerStats.OnAmmoUpdated += UpdateAmmoUI;
         playerStats.OnTankLeveledUp += HandleTankLevelUp;
         playerStats.OnGunLeveledUp += HandleGunLevelUp;
@@ -45,7 +48,16 @@ public class UIManager : MonoBehaviour
         UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
         UpdateTankAttribute();
     }
+    
+    public void UpdateRespawnBar(float percentage)
+    {
+        respawnBar.fillAmount = percentage;
+    }
 
+    public void ResetRespawnBar()
+    {
+        respawnBar.fillAmount = 0;
+    }
 
     private void UpdateTankAttribute()
     {
@@ -72,14 +84,6 @@ public class UIManager : MonoBehaviour
     {
         reloadBar.SetReloadTimer(reloadTime);
     }
-
-    private void OnDestroy()
-    {
-        playerStats.OnAmmoUpdated -= UpdateAmmoUI;
-        playerStats.OnTankLeveledUp -= HandleTankLevelUp;
-        playerStats.OnGunLeveledUp -= HandleGunLevelUp;
-    }
-
     public void OpenBuyMenu()
     {
         addOnDisplay.SetActive(false);
@@ -91,5 +95,11 @@ public class UIManager : MonoBehaviour
         addOnDisplay.SetActive(true);
         bulletDisplay.SetActive(true);
     }
-  
+
+    private void OnDestroy()
+    {
+        playerStats.OnAmmoUpdated -= UpdateAmmoUI;
+        playerStats.OnTankLeveledUp -= HandleTankLevelUp;
+        playerStats.OnGunLeveledUp -= HandleGunLevelUp;
+    }
 }

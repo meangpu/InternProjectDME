@@ -58,6 +58,8 @@ public class PlayerAbilities : MonoBehaviour
     {
         playerStats = PlayerStats.Instance;
 
+        playerStats.OnPlayerRespawned += HandleRespawn;
+
         if (!playerEquippedAddons.IsEnergyShieldEquipped()) { return; }
 
         playerStats.OnEnergyShieldDisabled += PutEnergyShieldOnCooldown;
@@ -118,14 +120,20 @@ public class PlayerAbilities : MonoBehaviour
         cooldownSystem.PutOnCooldown(energyShieldAddon);
     }
 
+    private void HandleRespawn()
+    {
+        cooldownSystem.PutOnCooldown(hotkeyAbilityList[0].addon);
+        cooldownSystem.PutOnCooldown(hotkeyAbilityList[1].addon);
+    }
+
     private void OnDestroy()
     {
+        playerStats.OnPlayerRespawned -= HandleRespawn;
+
         if (!playerEquippedAddons.IsEnergyShieldEquipped()) { return; }
 
         playerStats.OnEnergyShieldDisabled -= PutEnergyShieldOnCooldown;
     }
-
-    
 
     #region For Inputs
     public void Skill1Activate()

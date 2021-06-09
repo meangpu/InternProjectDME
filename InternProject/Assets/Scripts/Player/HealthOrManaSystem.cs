@@ -55,6 +55,12 @@ public class HealthOrManaSystem
         OnHealed?.Invoke(pointAmount, pointAmountMax);
     }
 
+    public void SetAmount(float percentage)
+    {
+        pointAmount = (int)(pointAmount * percentage / pointAmountMax);
+        OnHealed?.Invoke(pointAmount, pointAmountMax);
+    }
+
     public float GetPercentage()
     {
         return (float)pointAmount / pointAmountMax;

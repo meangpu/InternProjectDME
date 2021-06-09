@@ -49,9 +49,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (respawnTime == 0f) { return; }
+        if (respawnTimeRemaining == 0f) { return; }
 
-        respawnTimeRemaining -= Time.deltaTime;
+        respawnTimeRemaining = Mathf.Max(respawnTimeRemaining - Time.deltaTime, 0f);
+        UIManager.Instance.UpdateRespawnBar(respawnTimeRemaining / respawnTime);
+
+        if (respawnTimeRemaining == 0f)
+        {
+            player.gameObject.SetActive(true);
+            UIManager.Instance.ResetRespawnBar();
+            PlayerStats.Instance.RespawnPlayer();
+        }
     }
 
     public void GameOver()
