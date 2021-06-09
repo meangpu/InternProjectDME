@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITargetable, IOwnedByPlayer
 {
     [Header("Attributes")]
     [SerializeField] PlayerTankCustomization scriptObjDataTankGun;
-    
+    [SerializeField] private PlayerStats playerStats = null;
+
     // Misc
     private PlayerAbilities playerAbilities;
     private PlayerMovement playerMovement;
@@ -50,6 +51,12 @@ public class Player : MonoBehaviour
         isDashing = false;
     }
 
+    public void TakeDamage(int dmg)
+    {
+        playerStats.TakeDamage(dmg);
+    }
+
+    public Transform GetTransform() => transform;
     public ObjPlayerTank GetTank() => tank;
     public ObjTankTurret GetTurret() => turret;
 

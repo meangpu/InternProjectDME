@@ -71,7 +71,7 @@ public class HomingMissile : MonoBehaviour
         {
             case TargetType.Player:
                 GameManager gameManager = GameManager.Instance;
-                PlayerGetHit player = gameManager.GetPlayer();
+                Player player = gameManager.GetPlayer();
 
                 if (player.gameObject.activeSelf) // Player is alive <-- CHANGE LATER
                 {
@@ -95,9 +95,4 @@ public class HomingMissile : MonoBehaviour
 
         SetTarget(targetable.GetTransform());
     }
-
-    /*private void Move()
-    {
-        rb.velocity = (Vector2)transform.up * movementSpeed;
-    }*/
 }
