@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Tolusin Tank
   des: 
   artWork:
-  - {fileID: 5372019543797684615, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  - {fileID: -3326689779098419857, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: 225
   moveSpeed: 0.5
   minDamage: 12
@@ -27,12 +27,6 @@ MonoBehaviour:
   bulletSpeed: 9
   bulletLifetime: 0.8
   bulletType: {fileID: 0}
-  goldDropSK:
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
   moneyDrop: 32
   enemyType: 2
   isFlying: 0
