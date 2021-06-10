@@ -64918,10 +64918,16 @@ MonoBehaviour:
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
+      - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
+        enemyPfb: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+        isBoss: 1
+        count: 1
+      spawnPoint: {fileID: 852495286}
+    - EnemyList:
       - enemy: {fileID: 11400000, guid: b44118657b0458d429543e2a9d705410, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
-        count: 5
+        count: 1
       spawnPoint: {fileID: 852495286}
   - spawnRate: 0.1
     EnemyAndPoint:
@@ -64930,6 +64936,14 @@ MonoBehaviour:
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 8
+      spawnPoint: {fileID: 852495286}
+  - spawnRate: 0.1
+    EnemyAndPoint:
+    - EnemyList:
+      - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
+        enemyPfb: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+        isBoss: 1
+        count: 1
       spawnPoint: {fileID: 852495286}
 --- !u!1001 &745331418
 PrefabInstance:
@@ -67339,7 +67353,7 @@ PrefabInstance:
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2033386396}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: sliderHealth
       value: 

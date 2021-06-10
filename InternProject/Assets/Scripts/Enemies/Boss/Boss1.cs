@@ -62,7 +62,9 @@ public class Boss1 : MonoBehaviour
     private void FixedUpdate() 
     {
         if (!canDash) { return; }
-        warnBoss(gameObject);
+        // warnBoss(gameObject);
+
+        DashForward();
     }
 
     void Dash(Vector2 direction)
@@ -87,9 +89,19 @@ public class Boss1 : MonoBehaviour
         
         canDash = false;
         StartCoroutine(OnDashCooldown());
+    }
 
-        
-        
+    void DashForward()
+    {
+        if (!canDash) { return; }
+
+        // find dash direction
+
+        transform.position = transform.position + Vector3.down * dashSpeed;
+
+        animator.SetTrigger("Dash");
+        canDash = false;
+        StartCoroutine(OnDashCooldown());
     }
 
     public void ChangeForm()
