@@ -10,12 +10,5 @@ public class PlayerBulletDisplay : MonoBehaviour
     {
         _spriteRenderer.sprite = _bullet.GetArtWork();
         _spriteRenderer.material = _bullet.GetMaterial();
-        RefreshHitbox();
-    }
-
-    private void RefreshHitbox()
-    {
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
     }
 }
