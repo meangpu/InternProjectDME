@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private Transform turret = null;
     [SerializeField] private EnemyDisplay enemyDisplay = null;
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private float nextWayPointDistance = 1.2f;
@@ -15,9 +16,11 @@ public class EnemyAI : MonoBehaviour
     private Transform player = null;
 
     private Transform currentTarget = null;
+    private Transform lookatTarget = null; // For tanks
 
     private bool isPassive;
     private float attackRange;
+    private EnemyType enemyType;
     private EnemyState state;
 
     private enum EnemyState
@@ -53,6 +56,7 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.TargetPlayer:
                 Move();
                 FindPlayerInRange();
+                LookAtPlayer();
                 break;
         }
     }
@@ -61,6 +65,7 @@ public class EnemyAI : MonoBehaviour
     {
         isPassive = enemyDisplay.IsPassive;
         attackRange = enemyDisplay.AttackRange;
+        enemyType = enemyDisplay.EnemyType;
 
         if (isPassive)
         {
@@ -85,8 +90,16 @@ public class EnemyAI : MonoBehaviour
         if (Vector2.Distance(transform.position, player.position) < attackRange)
         {
             if (state == EnemyState.TargetPlayer) { return; }
-            currentTarget = player;
             state = EnemyState.TargetPlayer;
+
+            if (enemyType == EnemyType.Machine)
+            {
+                lookatTarget = player;
+                enemyShoot.StartShooting();
+                return;
+            }
+
+            currentTarget = player; 
         }
         else
         {
@@ -97,7 +110,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
-        if (!isPassive)
+        if (!isPassive && enemyType != EnemyType.Machine)
         {
             if (Physics2D.OverlapCircle(transform.position, attackRange / 2, playerLayerMask) != null)
             {
@@ -129,6 +142,8 @@ public class EnemyAI : MonoBehaviour
     private void SetTargetAsBase()
     {
         currentTarget = playerBase;
+        lookatTarget = null;
+        enemyShoot.StopShooting();
         state = EnemyState.TargetBase;
     }
 
@@ -139,5 +154,16 @@ public class EnemyAI : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), enemyDisplay.Speed);
+    }
+
+    private void LookAtPlayer()
+    {
+        if (lookatTarget == null) { return; }
+
+        Vector3 lookDirection = lookatTarget.position - turret.position;
+
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+
+        turret.rotation = Quaternion.RotateTowards(turret.rotation, Quaternion.Euler(0, 0, angle + 90), enemyDisplay.Speed);
     }
 }

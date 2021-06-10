@@ -108,7 +108,7 @@ public class WaveManager : MonoBehaviour
         
     }
 
-    int countAllEnemyInWave()
+    private int CountAllEnemyInWave()
     {
         int _thisWaveCount = 0;
         EnemyWave wave = EnemyWaves[waveindex];
@@ -128,7 +128,7 @@ public class WaveManager : MonoBehaviour
     {
         EnemyWave wave = EnemyWaves[waveindex];
         Set_MaxSlider(EnemyWaves.Length - (waveindex+1));
-        SetUp_MinSlider(countAllEnemyInWave());
+        SetUp_MinSlider(CountAllEnemyInWave());
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -159,8 +159,15 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
     {
-        PoolingSingleton.Instance.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-        
+        if (enemy.GetEnemyType() != EnemyType.Machine) 
+        { 
+            PoolingSingleton.Instance.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+        }
+        else
+        {
+            PoolingSingleton.Instance.EnemyBasicTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+        }
+  
         SetEnemyLeftText();
     }
 
@@ -170,8 +177,7 @@ public class WaveManager : MonoBehaviour
         
 
         boss.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
-        boss.transform.position = spawnPos.position;
-        boss.transform.rotation = spawnPos.rotation;
+        boss.transform.SetPositionAndRotation(spawnPos.position, spawnPos.rotation);
 
         boss.GetComponent<EnemyShoot>().StartShooting();
         EnemyAlive.Add(boss.GetComponent<Enemy>());

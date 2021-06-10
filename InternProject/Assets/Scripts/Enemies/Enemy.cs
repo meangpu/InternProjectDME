@@ -28,9 +28,9 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     public void TakeDamage(int damage)
     {
         if (Immortal) { return; }
-        if (!parentHp.gameObject.activeSelf)
+        if (!parentHp.activeSelf)
         {
-            parentHp.gameObject.SetActive(true);
+            parentHp.SetActive(true);
         }
         
         DamagePopup.Create(transform.position, damage, DamagePopup.DamageType.Enemy);
@@ -107,8 +107,8 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         {
             if (leftValue > gold.GetValue())
             {
-                int thisCoinCount = (int)leftValue/(int)gold.GetValue(); // 53 / 50 = 1
-                leftValue = leftValue%gold.GetValue();  // 53%50 = 3
+                int thisCoinCount = leftValue / gold.GetValue(); // 53 / 50 = 1
+                leftValue %= gold.GetValue();  // 53%50 = 3
 
                 for (int i = 0; i < thisCoinCount; i++)
                 {
