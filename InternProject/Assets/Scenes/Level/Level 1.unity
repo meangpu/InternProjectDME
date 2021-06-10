@@ -91351,8 +91351,8 @@ MonoBehaviour:
         count: 5
       spawnPoint: {fileID: 1194388671}
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 423aeb2caf946f740acb397057b80f00, type: 2}
-        enemyPfb: {fileID: 895374815}
+      - enemy: {fileID: 11400000, guid: 6049b665939f50549b364dc68958aecc, type: 2}
+        enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
       spawnPoint: {fileID: 895374816}

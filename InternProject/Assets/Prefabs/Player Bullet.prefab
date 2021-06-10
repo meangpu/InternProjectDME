@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7632373239638726006}
   - component: {fileID: 7632373239638726003}
   - component: {fileID: 7632373239638726000}
-  - component: {fileID: -7770153480288779455}
   - component: {fileID: 2944111410531438861}
+  - component: {fileID: 5473495720925436131}
   m_Layer: 0
   m_Name: Player Bullet
   m_TagString: PlayerBullet
@@ -120,8 +120,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7632373239638726003}
---- !u!60 &-7770153480288779455
-PolygonCollider2D:
+  dealsAOEDamage: 0
+--- !u!114 &2944111410531438861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632373239638726007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9298037b9b97043afe1997e033aaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 7632373239638726006}
+--- !u!61 &5473495720925436131
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,24 +157,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.0390625, y: 0.109375}
-      - {x: -0.0625, y: 0.0859375}
-      - {x: -0.0625, y: -0.109375}
-      - {x: 0.0625, y: -0.109375}
-      - {x: 0.0625, y: 0.09375}
-      - {x: 0.046875, y: 0.109375}
---- !u!114 &2944111410531438861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7632373239638726007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9298037b9b97043afe1997e033aaf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 7632373239638726006}
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.21875}
+  m_EdgeRadius: 0

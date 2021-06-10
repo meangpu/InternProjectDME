@@ -103,10 +103,10 @@ public class Pooler : MonoBehaviour
         GameObject enemy = SpawnObject();
         enemy.GetComponent<EnemyDisplay>().StartDisplay(objEnemy);
 
-        if (enemy.TryGetComponent(out EnemyShoot enemyShoot))
+        /*if (enemy.TryGetComponent(out EnemyShoot enemyShoot))
         {
             enemyShoot.StartShooting();
-        }
+        }*/
         
         SetupObject(enemy, position, rotation);
         WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
