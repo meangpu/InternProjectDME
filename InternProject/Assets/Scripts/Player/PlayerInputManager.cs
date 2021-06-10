@@ -10,7 +10,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Awake()
     {
-        playerControls = new PlayerControls();
+        playerControls = GameManager.Instance.GetPlayerControls();
 
         gun = GetComponentInChildren<PlayerGun>();
         playerAbilities = GetComponent<PlayerAbilities>();
@@ -43,8 +43,6 @@ public class PlayerInputManager : MonoBehaviour
     public float GetRotationValue() => playerControls.Tank.Rotate.ReadValue<float>();
     public Vector2 GetMousePosition() => playerControls.Tank.LookAt.ReadValue<Vector2>();
 
-    // public Vector2 GetMousePositionInBuyMode() => playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
-
     public void DisableTankControls()
     {
         playerControls.Tank.Disable();
@@ -65,6 +63,10 @@ public class PlayerInputManager : MonoBehaviour
 		{
             DisableTankControls();
 		}
+    }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnBuyModeTrigger -= BuyModehandler;
     }
 }

@@ -391,10 +391,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""MousePosition"",
+                    ""name"": ""Zoom"",
                     ""type"": ""Value"",
                     ""id"": ""2e5a9480-9b63-4d37-9daa-fc2bd04cb990"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -413,12 +413,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3e2fe369-636f-4f56-842d-52713bb89c22"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""fe7b5008-682b-4eb7-a597-3a62bab77e76"",
+                    ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MousePosition"",
+                    ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -458,7 +458,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // BuyMenu
         m_BuyMenu = asset.FindActionMap("BuyMenu", throwIfNotFound: true);
         m_BuyMenu_BuyMode = m_BuyMenu.FindAction("BuyMode", throwIfNotFound: true);
-        m_BuyMenu_MousePosition = m_BuyMenu.FindAction("MousePosition", throwIfNotFound: true);
+        m_BuyMenu_Zoom = m_BuyMenu.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -721,13 +721,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_BuyMenu;
     private IBuyMenuActions m_BuyMenuActionsCallbackInterface;
     private readonly InputAction m_BuyMenu_BuyMode;
-    private readonly InputAction m_BuyMenu_MousePosition;
+    private readonly InputAction m_BuyMenu_Zoom;
     public struct BuyMenuActions
     {
         private @PlayerControls m_Wrapper;
         public BuyMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @BuyMode => m_Wrapper.m_BuyMenu_BuyMode;
-        public InputAction @MousePosition => m_Wrapper.m_BuyMenu_MousePosition;
+        public InputAction @Zoom => m_Wrapper.m_BuyMenu_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_BuyMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -740,9 +740,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BuyMode.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
                 @BuyMode.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
                 @BuyMode.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnBuyMode;
-                @MousePosition.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
-                @MousePosition.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
-                @MousePosition.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
+                @Zoom.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnZoom;
+                @Zoom.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnZoom;
+                @Zoom.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnZoom;
             }
             m_Wrapper.m_BuyMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -750,9 +750,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BuyMode.started += instance.OnBuyMode;
                 @BuyMode.performed += instance.OnBuyMode;
                 @BuyMode.canceled += instance.OnBuyMode;
-                @MousePosition.started += instance.OnMousePosition;
-                @MousePosition.performed += instance.OnMousePosition;
-                @MousePosition.canceled += instance.OnMousePosition;
+                @Zoom.started += instance.OnZoom;
+                @Zoom.performed += instance.OnZoom;
+                @Zoom.canceled += instance.OnZoom;
             }
         }
     }
@@ -795,6 +795,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IBuyMenuActions
     {
         void OnBuyMode(InputAction.CallbackContext context);
-        void OnMousePosition(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
 }

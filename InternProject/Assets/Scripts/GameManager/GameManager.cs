@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     private float respawnTimeRemaining = 0f;
 
+    private PlayerControls playerControls;
+
     private void Awake()
     {
         if (Instance == null)
@@ -40,15 +42,20 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerBase = GameObject.FindGameObjectWithTag("Base").GetComponent<BaseClass>();
+
+        playerControls = new PlayerControls();
     }
 
     private void Start()
     {
+        DisableZoom();
         ResumeGame();
     }
 
     private void Update()
     {
+        // Perform zoomy zoomy
+
         if (respawnTimeRemaining == 0f) { return; }
 
         respawnTimeRemaining = Mathf.Max(respawnTimeRemaining - Time.deltaTime, 0f);
@@ -97,12 +104,14 @@ public class GameManager : MonoBehaviour
 
         if (isBuying)
         {
+            DisableZoom();
             isBuying = false;
             buyModeCam.m_Priority = 0;
             UIManager.Instance.CloseBuyMenu();
         }
         else
         {
+            EnableZoom();
             buyModeCam.m_Priority = 50;
             isBuying = true;
             UIManager.Instance.OpenBuyMenu();
@@ -115,6 +124,17 @@ public class GameManager : MonoBehaviour
         BuyModeSwap();
     }
 
+    private void DisableZoom()
+    {
+        playerControls.BuyMenu.Zoom.Disable();
+    }
+
+    private void EnableZoom()
+    {
+        playerControls.BuyMenu.Zoom.Enable();
+    }
+
     public Player GetPlayer() => player;
     public BaseClass GetPlayerBase() => playerBase;
+    public PlayerControls GetPlayerControls() => playerControls;
 }

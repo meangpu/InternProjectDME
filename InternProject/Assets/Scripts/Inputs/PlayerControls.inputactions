@@ -378,10 +378,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "MousePosition",
+                    "name": "Zoom",
                     "type": "Value",
                     "id": "2e5a9480-9b63-4d37-9daa-fc2bd04cb990",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 }
@@ -400,12 +400,12 @@
                 },
                 {
                     "name": "",
-                    "id": "3e2fe369-636f-4f56-842d-52713bb89c22",
-                    "path": "<Mouse>/position",
+                    "id": "fe7b5008-682b-4eb7-a597-3a62bab77e76",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MousePosition",
+                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
