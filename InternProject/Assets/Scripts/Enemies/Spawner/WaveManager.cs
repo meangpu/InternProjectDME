@@ -179,6 +179,7 @@ public class WaveManager : MonoBehaviour
                     pooler.EnemyArtilleryTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
                     break;
                 case EnemyId.DoomsdayTank:
+                    pooler.EnemyDoomsdayTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
                     break;
                 case EnemyId.SpyPlane:
                     break;

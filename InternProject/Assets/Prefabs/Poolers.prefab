@@ -499,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3170245626019568103}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3555647443470687239
 MonoBehaviour:
@@ -525,6 +525,7 @@ MonoBehaviour:
   enemyBasicTankPool: {fileID: 5704449856376668087}
   artilleryTankPool: {fileID: 4092430148379784453}
   enemyMissilePool: {fileID: 6640171317921084682}
+  doomsdayTankPool: {fileID: 4803977738254372306}
 --- !u!1 &3555647443801220844
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +573,53 @@ MonoBehaviour:
   poolSize: 5
   expandAble: 1
   isRectTrans: 0
+--- !u!1 &4496633448651350195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4560516831509112297}
+  - component: {fileID: 4803977738254372306}
+  m_Layer: 0
+  m_Name: DoomsdayTankPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4560516831509112297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496633448651350195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3170245626019568103}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4803977738254372306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496633448651350195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c26d1abc72a25408b270d5405b81b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 1680286329026153965, guid: ace1ec5031611424ab83e50de743826a, type: 3}
+  poolSize: 10
+  expandAble: 1
+  isRectTrans: 0
 --- !u!1 &5380028440969491425
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +659,7 @@ Transform:
   - {fileID: 7661147518895584587}
   - {fileID: 7379545772015161393}
   - {fileID: 2479249196066895831}
+  - {fileID: 4560516831509112297}
   - {fileID: 3555647443470687236}
   m_Father: {fileID: 0}
   m_RootOrder: 0

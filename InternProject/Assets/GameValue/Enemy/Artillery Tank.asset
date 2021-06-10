@@ -22,10 +22,10 @@ MonoBehaviour:
   maxDamage: 25
   EC: 25
   isPassive: 0
-  attackRange: 14
+  attackRange: 10
   atkSpeed: 0.1
   bulletSpeed: 6
-  bulletLifetime: 5
+  bulletLifetime: 8
   bulletType: {fileID: 0}
   moneyDrop: 53
   enemyType: 2
