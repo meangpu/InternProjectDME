@@ -155,6 +155,17 @@ public class Pooler : MonoBehaviour
         SetupObject(missile, position, rotation);
     }
 
+    public void SpawnEnemyMissile(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime)
+    {
+        GameObject missile = SpawnObject();
+        missile.GetComponent<HomingMissile>().Setup(HomingMissile.TargetType.Player);
+        IProjectile missileStats = missile.GetComponent<IProjectile>();
+        missileStats.Damage = damage;
+        missileStats.BulletSpeed = speed;
+        missileStats.Lifetime = lifetime;
+        SetupObject(missile, position, rotation);
+    }
+
     public void SpawnTowerBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime)
     {
         GameObject bullet = SpawnObject();

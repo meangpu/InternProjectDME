@@ -24,6 +24,7 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] ObjEnemyBullet bulletType;
     [SerializeField] private int moneyDrop;
     [SerializeField] private EnemyType enemyType;
+    [SerializeField] private EnemyId enemyId;
     [SerializeField] private bool isFlying;
     
     public string GetName() => enemyName;
@@ -38,11 +39,11 @@ public class ObjEnemy : ScriptableObject
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
     public int GetMoneyDrop() => moneyDrop;
-
     public float GetBulletLifetime() => bulletLifetime;
     public float GetBulletSpeed() => bulletSpeed;
     public ObjEnemyBullet GetBulletType() => bulletType;
     public EnemyType GetEnemyType() => enemyType;
+    public EnemyId GetEnemyId() => enemyId;
     public bool GetIsFlying() => isFlying;
 
 }

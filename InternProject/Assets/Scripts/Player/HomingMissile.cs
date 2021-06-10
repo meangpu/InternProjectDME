@@ -73,7 +73,7 @@ public class HomingMissile : MonoBehaviour
                 GameManager gameManager = GameManager.Instance;
                 Player player = gameManager.GetPlayer();
 
-                if (player.gameObject.activeSelf) // Player is alive <-- CHANGE LATER
+                if (player.gameObject.activeInHierarchy) // Player is alive <-- CHANGE LATER
                 {
                     targetable = player.GetComponent<ITargetable>();
                 }

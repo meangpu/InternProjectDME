@@ -17,6 +17,8 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler enemyDeathPar = null;
     [SerializeField] private Pooler towerMissilePool = null;
     [SerializeField] private Pooler enemyBasicTankPool = null;
+    [SerializeField] private Pooler artilleryTankPool = null;
+    [SerializeField] private Pooler enemyMissilePool = null;
 
 
     public Pooler EnemyBulletPool 
@@ -67,6 +69,16 @@ public class PoolingSingleton : MonoBehaviour
     public Pooler EnemyBasicTankPool
     {
         get { return enemyBasicTankPool; }
+    }
+
+    public Pooler EnemyArtilleryTankPool
+    {
+        get { return artilleryTankPool; }
+    }
+
+    public Pooler EnemyMissilePool
+    {
+        get { return enemyMissilePool; }
     }
     
 

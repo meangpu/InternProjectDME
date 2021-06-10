@@ -6,6 +6,7 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private EnemyDisplay enemy = null;
+    [SerializeField] private bool spawnHomingBullets = false;
 
     private float timeCounter = 0f;
     private float waitTime;
@@ -18,14 +19,22 @@ public class EnemyShoot : MonoBehaviour
 
     private void Update()
     {
+        timeCounter = Mathf.Min(timeCounter + Time.deltaTime, waitTime);
+
         if (!canShoot) { return; }
 
-        timeCounter += Time.deltaTime;
-
-        if (timeCounter > waitTime)
-        {
-            PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+        if (timeCounter == waitTime)
+        {   
             timeCounter = 0f;
+
+            if (spawnHomingBullets)
+            {
+                PoolingSingleton.Instance.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
+            }
+            else
+            {
+                PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+            }   
         }
     }
 
