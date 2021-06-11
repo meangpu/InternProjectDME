@@ -26,7 +26,7 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
         playerControls.BuyMenu.BuyMode.performed += _ => GameManager.Instance.BuyModeSwap();
 
-        GameManager.Instance.OnBuyModeTrigger += BuyModehandler;
+        GameManager.Instance.OnBuyModeTrigger += BuyModeHandler;
     }
 
     private void OnDisable()
@@ -53,7 +53,7 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Enable();
     }
 
-    public void BuyModehandler()
+    public void BuyModeHandler()
     {
 		if (GameManager.Instance.isBuying)
 		{
@@ -61,12 +61,13 @@ public class PlayerInputManager : MonoBehaviour
 		}
 		else
 		{
+            gun.ResetBooleans();
             DisableTankControls();
-		}
+        }
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnBuyModeTrigger -= BuyModehandler;
+        GameManager.Instance.OnBuyModeTrigger -= BuyModeHandler;
     }
 }

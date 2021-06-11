@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 312113585806215146}
+  isMissile: 1
+--- !u!114 &5903098643539567979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312113585806215145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734dc2931c92df44a8c7085428f80f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 2670464861504117937}
 --- !u!1001 &8533169333892152573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,9 +38,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Missile
       objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522024, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Size.y
+      value: 0.27335608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522024, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0008401498
+      objectReference: {fileID: 0}
     - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
       propertyPath: m_LocalPosition.x

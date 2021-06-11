@@ -22,16 +22,12 @@ MonoBehaviour:
   maxDamage: 25
   EC: 25
   isPassive: 0
-  attackRange: 14
+  attackRange: 10
   atkSpeed: 0.1
   bulletSpeed: 6
-  bulletLifetime: 5
+  bulletLifetime: 8
   bulletType: {fileID: 0}
-  goldDropSK:
-  - {fileID: 11400000, guid: 945f257d7c7f23b42afb92d5387e697f, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
   moneyDrop: 53
   enemyType: 2
+  enemyId: 2
   isFlying: 0

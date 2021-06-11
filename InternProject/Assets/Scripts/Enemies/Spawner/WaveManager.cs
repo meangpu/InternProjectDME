@@ -28,6 +28,7 @@ public class WaveManager : MonoBehaviour
     public static List<Enemy> EnemyAlive = new List<Enemy>();
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
+    private PoolingSingleton pooler;
     int thisWaveCount;
 
     private void Awake()
@@ -48,6 +49,8 @@ public class WaveManager : MonoBehaviour
         EnemyAlive.Clear();
         SetUp_MaxSlider(EnemyWaves.Length);
         countDown = 1;
+
+        pooler = PoolingSingleton.Instance;
     }
 
     public void Set_MinSlider(int _value)
@@ -161,11 +164,32 @@ public class WaveManager : MonoBehaviour
     {
         if (enemy.GetEnemyType() != EnemyType.Machine) 
         { 
-            PoolingSingleton.Instance.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+            pooler.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
         }
         else
         {
-            PoolingSingleton.Instance.EnemyBasicTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+            switch (enemy.GetEnemyId())
+            {
+                default:
+                    break;
+                case EnemyId.TolusinTank:
+                    pooler.EnemyBasicTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                    break;
+                case EnemyId.ArtilleryTank:
+                    pooler.EnemyArtilleryTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                    break;
+                case EnemyId.DoomsdayTank:
+                    pooler.EnemyDoomsdayTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                    break;
+                case EnemyId.SpyPlane:
+                    pooler.EnemySpyPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                    break;
+                case EnemyId.BomberPlane:
+                    pooler.EnemyBomberPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                    break;
+                case EnemyId.MWing:
+                    break;
+            }    
         }
   
         SetEnemyLeftText();

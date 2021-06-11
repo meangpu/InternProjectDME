@@ -22,9 +22,9 @@ TagManager:
   - Obstacles
   - GridBg
   - Energy Orb
-  - 
-  - 
-  - 
+  - AirUnits
+  - ShootOnlyGround
+  - Base
   - 
   - 
   - 
@@ -60,6 +60,9 @@ TagManager:
     locked: 0
   - name: Tower
     uniqueID: 830941769
+    locked: 0
+  - name: Flying Units
+    uniqueID: 2114481049
     locked: 0
   - name: Particles Effects
     uniqueID: 1157871305

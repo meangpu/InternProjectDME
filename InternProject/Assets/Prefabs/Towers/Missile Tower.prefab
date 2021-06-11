@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7743552332901089707}
   - component: {fileID: 5084766386457998074}
   - component: {fileID: 4715930496189621991}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Missile Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5084766386700487834}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084766386947665063}
   - component: {fileID: 5084766386947665060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084766386979465569}
   - component: {fileID: 5084766386979465574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084766387512850902}
   - component: {fileID: 5084766387512850903}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TurretPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 401395992155909106}
   - component: {fileID: 4790072757757536722}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LevelDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7042853092882171491}
   - component: {fileID: 4862679946059665481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6661758759052992368}
   - component: {fileID: 6159238873242525529}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

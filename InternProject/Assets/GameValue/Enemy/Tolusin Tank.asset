@@ -29,4 +29,5 @@ MonoBehaviour:
   bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
   moneyDrop: 32
   enemyType: 2
+  enemyId: 1
   isFlying: 0

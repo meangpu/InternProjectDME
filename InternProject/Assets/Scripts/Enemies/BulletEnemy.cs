@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour, IProjectile
 {
     [SerializeField] private Rigidbody2D rb = null;
+    [SerializeField] private bool isMissile = false;
 
     private float bulletSpeed;
     private int damage;
@@ -23,6 +24,13 @@ public class BulletEnemy : MonoBehaviour, IProjectile
         StartCoroutine(DestroyOverTme());
     }
 
+    private void Update()
+    {
+        if (!isMissile) { return; }
+
+        Move();
+    }
+
     private IEnumerator DestroyOverTme()
     {
         yield return new WaitForSeconds(lifeTime);
@@ -31,7 +39,14 @@ public class BulletEnemy : MonoBehaviour, IProjectile
 
     public void DestroySelf()
     {
-        PoolingSingleton.Instance.EnemyBulletPool.ReturnObject(gameObject);
+        if (isMissile)
+        {
+            PoolingSingleton.Instance.EnemyMissilePool.ReturnObject(gameObject);
+        }
+        else
+        {
+            PoolingSingleton.Instance.EnemyBulletPool.ReturnObject(gameObject);
+        }
     }
 
     private void Move()

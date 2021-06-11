@@ -89,4 +89,11 @@ public class PlayerGun : MonoBehaviour
         playerStats.ReloadAmmoCount();
         isReloading = false;
     }
+
+    public void ResetBooleans()
+    {
+        canShoot = true;
+        holdOnShoot = false;
+        isReloading = false;
+    }
 }

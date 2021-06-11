@@ -26,15 +26,8 @@ MonoBehaviour:
   atkSpeed: 0.25
   bulletSpeed: 12
   bulletLifetime: 0.5
-  bulletType: {fileID: 0}
-  goldDropSK:
-  - {fileID: 11400000, guid: 945f257d7c7f23b42afb92d5387e697f, type: 2}
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 552cf09bd1244444e9c72f358498dc16, type: 2}
-  - {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
+  bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
   moneyDrop: 96
   enemyType: 2
+  enemyId: 3
   isFlying: 0
