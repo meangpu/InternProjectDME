@@ -61,7 +61,6 @@ public class PlayerInputManager : MonoBehaviour
 		}
 		else
 		{
-            gun.ResetBooleans();
             DisableTankControls();
         }
     }

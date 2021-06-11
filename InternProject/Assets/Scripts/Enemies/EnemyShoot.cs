@@ -23,7 +23,7 @@ public class EnemyShoot : MonoBehaviour
 
         if (!canShoot) { return; }
 
-        if (timeCounter == waitTime)
+        if (timeCounter >= waitTime)
         {   
             timeCounter = 0f;
 

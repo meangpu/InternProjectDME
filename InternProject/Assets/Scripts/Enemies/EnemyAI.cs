@@ -52,9 +52,9 @@ public class EnemyAI : MonoBehaviour
                 FindPlayerInRange();
                 break;
             case EnemyState.TargetPlayer:
+                LookAtTarget(player);
                 Move();
                 FindPlayerInRange();
-                LookAtTarget(player);
                 break;
         }
     }
@@ -119,7 +119,6 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
-                        enemyShoot.StopShooting();
                         break;
                     }
 
@@ -134,7 +133,6 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
-                        enemyShoot.StopShooting();
                         break;
                     }
             }  

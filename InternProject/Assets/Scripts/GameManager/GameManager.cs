@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
     {
         respawnTimeRemaining = respawnTime;
         BuyModeSwap();
+        player.gameObject.SetActive(false);
     }
 
     private void DisableZoom()
