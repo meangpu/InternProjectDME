@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 'Imported from Australia, this turret has quite a kick to it.
 
 '
-  artworks: {fileID: -788753711389941659, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
+  artworks: {fileID: 3548006178179732893, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 0a0000000f00000014000000
   maxDamage: 140000001e00000028000000
   ammoCount: 030000000400000005000000
