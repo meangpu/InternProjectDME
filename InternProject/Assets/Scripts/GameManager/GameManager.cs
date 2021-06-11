@@ -54,13 +54,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Perform zoomy zoomy
+        CheckZoom();
 
         if (respawnTimeRemaining == 0f) { return; }
 
         respawnTimeRemaining = Mathf.Max(respawnTimeRemaining - Time.deltaTime, 0f);
         UIManager.Instance.UpdateRespawnBar(respawnTimeRemaining / respawnTime);
-        checkZoom();
+        
         if (respawnTimeRemaining == 0f)
         {
             player.gameObject.SetActive(true);
@@ -69,16 +69,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void checkZoom()
+    public void CheckZoom()
     {
         float direction = playerControls.BuyMenu.Zoom.ReadValue<float>();
         if (direction > 0)
         {
-            Debug.Log(direction);
+            Debug.Log("SCROLL UP");
         }
-        else
+        else if (direction < 0)
         {
-            Debug.Log("direction");
+            Debug.Log("SCROLL DOWN");
         }
     }
 
