@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -56,7 +54,7 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.TargetPlayer:
                 Move();
                 FindPlayerInRange();
-                LookAtPlayer();
+                LookAtTarget(player);
                 break;
         }
     }
@@ -67,14 +65,7 @@ public class EnemyAI : MonoBehaviour
         attackRange = enemyDisplay.AttackRange;
         enemyType = enemyDisplay.EnemyType;
 
-        if (isPassive)
-        {
-            state = EnemyState.Passive;
-        }
-        else
-        {
-            state = EnemyState.TargetBase;
-        }
+        state = isPassive ? EnemyState.Passive : EnemyState.TargetBase;
     }
 
     private void FindPlayerInRange()
@@ -92,14 +83,16 @@ public class EnemyAI : MonoBehaviour
             if (state == EnemyState.TargetPlayer) { return; }
             state = EnemyState.TargetPlayer;
 
-            if (enemyType == EnemyType.Machine)
+            switch (enemyType)
             {
-                lookatTarget = player;
-                enemyShoot.StartShooting();
-                return;
-            }
-
-            currentTarget = player; 
+                default:
+                    currentTarget = player;
+                    return;
+                case EnemyType.Machine:
+                    lookatTarget = player;
+                    enemyShoot.StartShooting();
+                    return;
+            }        
         }
         else
         {
@@ -110,23 +103,50 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
-        if (!isPassive && enemyType != EnemyType.Machine)
+        if (!isPassive)
         {
-            if (Physics2D.OverlapCircle(transform.position, attackRange / 2, playerLayerMask) != null)
+            float stopRange = enemyType == EnemyType.Machine ? attackRange : attackRange / 2;
+
+            switch (enemyType)
             {
-                RotateTowardsTarget(currentTarget.position);
-                enemyShoot.StartShooting();
-                rb.velocity = Vector2.zero;
-                return;
-            }
-            else
-            {
-                enemyShoot.StopShooting();
-            }
+                default:
+                    if (Physics2D.OverlapCircle(transform.position, stopRange, playerLayerMask) != null)
+                    {
+                        RotateTowardsTarget(currentTarget.position);
+                        enemyShoot.StartShooting();
+                        rb.velocity = Vector2.zero;
+                        return;
+                    }
+                    else
+                    {
+                        enemyShoot.StopShooting();
+                        break;
+                    }
+
+                case EnemyType.Machine:
+                    if (Physics2D.OverlapCircle(transform.position, stopRange, playerLayerMask) != null)
+                    {
+                        RotateTowardsTarget(currentTarget.position);
+                        LookAtTarget(currentTarget);
+                        enemyShoot.StartShooting();
+                        rb.velocity = Vector2.zero;
+                        return;
+                    }
+                    else
+                    {
+                        enemyShoot.StopShooting();
+                        break;
+                    }
+            }  
         }
 
         rb.velocity = transform.right * enemyDisplay.Speed;
 
+        TryGetNextWaypoint();
+    }
+
+    private void TryGetNextWaypoint()
+    {
         Vector3 currentWaypointPosition = pathfinding.GetCurrentWaypoint();
 
         RotateTowardsTarget(currentWaypointPosition);
@@ -156,11 +176,11 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), enemyDisplay.Speed);
     }
 
-    private void LookAtPlayer()
+    private void LookAtTarget(Transform target)
     {
-        if (lookatTarget == null) { return; }
+        if (target == null) { return; }
 
-        Vector3 lookDirection = lookatTarget.position - turret.position;
+        Vector3 lookDirection = target.position - turret.position;
 
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 

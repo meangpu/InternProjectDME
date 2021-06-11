@@ -20,71 +20,69 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler artilleryTankPool = null;
     [SerializeField] private Pooler enemyMissilePool = null;
     [SerializeField] private Pooler doomsdayTankPool = null;
+    [SerializeField] private Pooler spyPlanePool = null;
+    [SerializeField] private Pooler bomberPlanePool = null;
 
 
     public Pooler EnemyBulletPool 
     { 
         get { return enemyBulletPool; }
     }
-
     public Pooler PlayerBulletPool
     {
         get { return playerBulletPool; }
     }
-
     public Pooler TowerBulletPool
     {
         get { return towerBulletPool; }
     }
-
     public Pooler EnemyPool
     {
         get { return enemyPool; }
     }
-
     public Pooler PopUpPool
     {
         get { return popUpPool; }
     }
-
     public Pooler GoldPool
     {
         get { return goldPool; }
     }
-
     public Pooler HomingMissilePool
     {
         get { return homingMissilePool; }
     }
-
     public Pooler ParticlesHumanDeathPool
     {
         get { return enemyDeathPar; }
     }
-
     public Pooler TowerMissilePool
     {
         get { return towerMissilePool; }
     }
-
     public Pooler EnemyBasicTankPool
     {
         get { return enemyBasicTankPool; }
     }
-
     public Pooler EnemyArtilleryTankPool
     {
         get { return artilleryTankPool; }
     }
-
     public Pooler EnemyMissilePool
     {
         get { return enemyMissilePool; }
     }
-    
     public Pooler EnemyDoomsdayTankPool
     {
         get { return doomsdayTankPool; }
+    }
+    public Pooler EnemySpyPlanePool
+    {
+        get { return spyPlanePool; }
+    }
+    public Pooler EnemyBomberPlanePool
+    {
+        get { return bomberPlanePool; }
     }
 
     private void Awake()

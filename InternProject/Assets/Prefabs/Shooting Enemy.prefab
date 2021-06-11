@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
-  waitTime: 0
-  startWaitTime: 2
   enemy: {fileID: 0}
+  spawnHomingBullets: 0
 --- !u!1001 &4477719672482243860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,6 +22,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 357646261448459992, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: playerLayerMask.m_Bits
+      value: 2056
+      objectReference: {fileID: 0}
     - target: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_Name
       value: Shooting Enemy

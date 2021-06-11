@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: turret
       value: 
       objectReference: {fileID: 7612989957236823132}
+    - target: {fileID: 357646261448459992, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: playerLayerMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 3460679475454693043, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_SizeDelta.x
       value: 110
@@ -189,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_Name
-      value: Enemy Tank
+      value: Tolusin Tank
       objectReference: {fileID: 0}
     - target: {fileID: 5298252096397123444, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_Sprite

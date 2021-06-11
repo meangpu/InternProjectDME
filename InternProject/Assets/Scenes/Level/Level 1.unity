@@ -39869,7 +39869,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40016,7 +40016,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &348884503
 GameObject:
@@ -65432,7 +65432,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 616d84be40bed6548a3e3f52995da5b7, type: 2}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5823840751300576986, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -88171,7 +88171,7 @@ Transform:
   m_Children:
   - {fileID: 3555647442189806410}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1527041616
 GameObject:
@@ -91351,7 +91351,7 @@ MonoBehaviour:
         count: 5
       spawnPoint: {fileID: 1194388671}
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 49d94a8959505744789de28aa0732634, type: 2}
+      - enemy: {fileID: 11400000, guid: 12560d5f3cb083240b45c4b008642a5d, type: 2}
         enemyPfb: {fileID: 0}
         isBoss: 0
         count: 5
