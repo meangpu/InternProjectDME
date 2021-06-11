@@ -58,9 +58,6 @@ public class GameManager : MonoBehaviour
 
         if (respawnTimeRemaining == 0f) { return; }
 
-        
-
-
         respawnTimeRemaining = Mathf.Max(respawnTimeRemaining - Time.deltaTime, 0f);
         UIManager.Instance.UpdateRespawnBar(respawnTimeRemaining / respawnTime);
         checkZoom();
