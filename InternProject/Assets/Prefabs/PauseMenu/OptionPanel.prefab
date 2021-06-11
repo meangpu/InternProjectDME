@@ -279,7 +279,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: '100
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
   m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
@@ -512,7 +514,7 @@ MonoBehaviour:
   m_MinValue: 0.00000001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.00000001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -541,6 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+  numText: {fileID: 8157705423133783215}
 --- !u!1 &8157705421629211713
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +645,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: '100
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
   m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
@@ -1679,7 +1684,7 @@ MonoBehaviour:
   m_MinValue: 0.00000001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.00000001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1708,6 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+  numText: {fileID: 8157705421641622421}
 --- !u!1 &8157705422650302692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,7 +2477,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: '100
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
   m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
@@ -2761,7 +2769,7 @@ MonoBehaviour:
   m_MinValue: 0.00000001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.00000001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2790,6 +2798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+  numText: {fileID: 8157705421549279437}
 --- !u!1 &8157705423391340232
 GameObject:
   m_ObjectHideFlags: 0
