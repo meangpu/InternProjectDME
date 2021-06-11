@@ -292,7 +292,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ca1ecd4f98faf439f4c3df60ca2254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 0}
   enemyDisplay: {fileID: 5298252096397123446}
   rb: {fileID: 5298252096397123441}
   nextWayPointDistance: 1
@@ -438,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5298252095771945956}
   enemy: {fileID: 5298252096397123446}
+  spawnHomingBullets: 0
 --- !u!114 &1455225754332492751
 MonoBehaviour:
   m_ObjectHideFlags: 0

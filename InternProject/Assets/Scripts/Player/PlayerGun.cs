@@ -11,6 +11,11 @@ public class PlayerGun : MonoBehaviour
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
 
+    private void OnEnable()
+    {
+        ResetBooleans();
+    }
+
     private void Update()
     {
         if (holdOnShoot) { Shoot(); } // Shoot continuously while shoot button is held down.
