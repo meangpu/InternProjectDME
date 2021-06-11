@@ -38907,7 +38907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0.29000002, y: 2.1200001, z: -10}
+  m_FollowOffset: {x: 0, y: 0, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -39033,7 +39033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78492505}
   m_LocalRotation: {x: 1.110223e-16, y: -5.557487e-35, z: -3.3676447e-26, w: 1}
-  m_LocalPosition: {x: 0.17000002, y: 3.18, z: -10}
+  m_LocalPosition: {x: -0.12, y: 1.06, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 59636834}
@@ -61977,6 +61977,8 @@ MonoBehaviour:
   respawnTime: 20
   gameOverPanel: {fileID: 1533023315}
   winPanel: {fileID: 1606726706}
+  zoomInMax: 12
+  zoomOutMax: 28
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0

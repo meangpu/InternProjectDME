@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Cinemachine;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject winPanel;
+
+    [SerializeField] float zoomInMax;
+    [SerializeField] float zoomOutMax;
+    float NowZoomValue = 20;
 
     // GameObject references
     private Player player;
@@ -74,12 +79,27 @@ public class GameManager : MonoBehaviour
         float direction = playerControls.BuyMenu.Zoom.ReadValue<float>();
         if (direction > 0)
         {
-            Debug.Log("SCROLL UP");
+            
+            if (buyModeCam.m_Lens.OrthographicSize > zoomInMax)
+            {
+                // buyModeCam.m_Lens.OrthographicSize -= 0.6f;
+                NowZoomValue =  buyModeCam.m_Lens.OrthographicSize - 2f;
+                
+            }
         }
         else if (direction < 0)
         {
-            Debug.Log("SCROLL DOWN");
+            
+
+            if (buyModeCam.m_Lens.OrthographicSize < zoomOutMax)
+            {
+                // buyModeCam.m_Lens.OrthographicSize += 0.6f;
+                NowZoomValue =  buyModeCam.m_Lens.OrthographicSize + 2f;
+            }
+            
         }
+
+        buyModeCam.m_Lens.OrthographicSize = Mathf.Lerp(buyModeCam.m_Lens.OrthographicSize, NowZoomValue, Time.deltaTime *15f);
     }
 
     public void GameOver()

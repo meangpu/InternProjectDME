@@ -64,7 +64,7 @@ public class Boss1 : MonoBehaviour
         if (!canDash) { return; }
         // warnBoss(gameObject);
 
-        DashForward();
+        // DashForward();
     }
 
     void Dash(Vector2 direction)
