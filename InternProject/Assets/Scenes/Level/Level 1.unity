@@ -91332,10 +91332,10 @@ MonoBehaviour:
         count: 5
       spawnPoint: {fileID: 1194388671}
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
-        enemyPfb: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
-        isBoss: 1
-        count: 1
+      - enemy: {fileID: 11400000, guid: b44118657b0458d429543e2a9d705410, type: 2}
+        enemyPfb: {fileID: 0}
+        isBoss: 0
+        count: 5
       spawnPoint: {fileID: 895374816}
   - spawnRate: 0.1
     EnemyAndPoint:

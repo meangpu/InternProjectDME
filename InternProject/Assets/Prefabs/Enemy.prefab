@@ -378,7 +378,7 @@ MonoBehaviour:
   nextWayPointDistance: 1
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   enemyShoot: {fileID: 8854143676388831109}
   pathfinding: {fileID: 1455225754332492751}
 --- !u!114 &-1578501315532656302

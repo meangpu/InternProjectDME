@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     private Transform player = null;
 
     private Transform currentTarget = null;
-    private Transform lookatTarget = null; // For tanks
+    // private Transform lookatTarget = null; // For tanks
 
     private bool isPassive;
     private float attackRange;
@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
                 FindPlayerInRange();
                 break;
             case EnemyState.TargetPlayer:
-                LookAtTarget(player);
+                TryLookAtPlayer();
                 Move();
                 FindPlayerInRange();
                 break;
@@ -89,7 +89,7 @@ public class EnemyAI : MonoBehaviour
                     currentTarget = player;
                     return;
                 case EnemyType.Machine:
-                    lookatTarget = player;
+                    LookAtTarget(player);
                     enemyShoot.StartShooting();
                     return;
             }        
@@ -119,6 +119,7 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
+                        enemyShoot.StopShooting();
                         break;
                     }
 
@@ -133,6 +134,7 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
+                        enemyShoot.StopShooting();
                         break;
                     }
             }  
@@ -160,7 +162,7 @@ public class EnemyAI : MonoBehaviour
     private void SetTargetAsBase()
     {
         currentTarget = playerBase;
-        lookatTarget = null;
+        // lookatTarget = null;
         enemyShoot.StopShooting();
         state = EnemyState.TargetBase;
     }
@@ -183,5 +185,17 @@ public class EnemyAI : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         turret.rotation = Quaternion.RotateTowards(turret.rotation, Quaternion.Euler(0, 0, angle + 90), enemyDisplay.Speed);
+    }
+
+    private void TryLookAtPlayer()
+    {
+        switch (enemyType)
+        {
+            default:
+                return;
+            case EnemyType.Machine:
+                LookAtTarget(player);
+                return;
+        }
     }
 }
