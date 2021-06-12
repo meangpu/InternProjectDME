@@ -27,4 +27,15 @@ public class camTarget : MonoBehaviour
 
         this.transform.position = targetpos;
     }
+
+    public void playMode()
+    {
+        threshold = 2;
+    }
+
+    public void buyMode()
+    {
+        threshold = 9;
+    }
+
 }

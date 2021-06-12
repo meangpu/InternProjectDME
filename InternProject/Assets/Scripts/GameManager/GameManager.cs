@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] float zoomInMax;
     [SerializeField] float zoomOutMax;
+    [SerializeField] camTarget camTarScript;
     float NowZoomValue = 20;
 
     // GameObject references
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
             isBuying = false;
             buyModeCam.m_Priority = 0;
             UIManager.Instance.CloseBuyMenu();
+            camTarScript.playMode();
         }
         else
         {
@@ -149,6 +151,7 @@ public class GameManager : MonoBehaviour
             buyModeCam.m_Priority = 50;
             isBuying = true;
             UIManager.Instance.OpenBuyMenu();
+            camTarScript.buyMode();
         }
     }
 
