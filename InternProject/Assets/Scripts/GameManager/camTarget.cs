@@ -7,13 +7,18 @@ public class camTarget : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Transform player;
     [SerializeField] float threshold;
-    [SerializeField] PlayerInputManager input;
+    private PlayerControls playerControls;
     Vector2 mousePos;
 
 
+    private void Start() 
+    {
+        playerControls = GameManager.Instance.GetPlayerControls();
+    }
+
     void Update()
     {
-        mousePos = input.GetMousePosition();
+        mousePos = playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
         Vector2 cursorPosOnScreen = cam.ScreenToWorldPoint(mousePos);
         Vector2 targetpos = ((Vector2)player.position + cursorPosOnScreen) /2f;
 

@@ -39059,7 +39059,7 @@ MonoBehaviour:
   m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 2069175010}
+  m_Follow: {fileID: 164220142}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 20
@@ -91337,6 +91337,7 @@ MonoBehaviour:
         isBoss: 0
         count: 5
       spawnPoint: {fileID: 895374816}
+    TimeBeforeNextWave: 0
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -91345,6 +91346,7 @@ MonoBehaviour:
         isBoss: 0
         count: 8
       spawnPoint: {fileID: 1274255943}
+    TimeBeforeNextWave: 0
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -91357,6 +91359,7 @@ MonoBehaviour:
         isBoss: 0
         count: 2
       spawnPoint: {fileID: 895374816}
+    TimeBeforeNextWave: 0
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -91369,6 +91372,7 @@ MonoBehaviour:
         isBoss: 0
         count: 3
       spawnPoint: {fileID: 716646180}
+    TimeBeforeNextWave: 0
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -91383,6 +91387,7 @@ MonoBehaviour:
         isBoss: 0
         count: 3
       spawnPoint: {fileID: 1274255943}
+    TimeBeforeNextWave: 0
   - spawnRate: 0.1
     EnemyAndPoint:
     - EnemyList:
@@ -91397,6 +91402,7 @@ MonoBehaviour:
         isBoss: 0
         count: 4
       spawnPoint: {fileID: 716646180}
+    TimeBeforeNextWave: 0
 --- !u!1 &1975830186
 GameObject:
   m_ObjectHideFlags: 0
