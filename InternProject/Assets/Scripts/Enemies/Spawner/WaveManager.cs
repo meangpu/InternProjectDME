@@ -91,6 +91,10 @@ public class WaveManager : MonoBehaviour
 
 	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
 		{
+            if (EnemyAlive.Count > 0)
+            {
+                return;
+            }
             // happen when enemy reach 0 and there no next wave
 			enabled = false;
             StartCoroutine(gameManager.LevelWon(timeBeforeWinPanel));
