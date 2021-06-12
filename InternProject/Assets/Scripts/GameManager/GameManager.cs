@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
+
         CheckZoom();
 
         if (respawnTimeRemaining == 0f) { return; }
