@@ -222,6 +222,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8854143676388831109, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: ammoType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854143676388831109, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1680286330732427642}

@@ -6,7 +6,14 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private EnemyDisplay enemy = null;
-    [SerializeField] private bool spawnHomingBullets = false;
+    [SerializeField] private AmmoType ammoType = AmmoType.Default;
+
+    public enum AmmoType
+    {
+        Default,
+        HomingMissile,
+        Bomb
+    }
 
     private float timeCounter = 0f;
     private float waitTime;
@@ -27,14 +34,20 @@ public class EnemyShoot : MonoBehaviour
         {   
             timeCounter = 0f;
 
-            if (spawnHomingBullets)
+            switch (ammoType)
             {
-                PoolingSingleton.Instance.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
+                default:
+                    PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+                    return;
+
+                case AmmoType.HomingMissile:
+                    PoolingSingleton.Instance.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
+                    return;
+
+                case AmmoType.Bomb:
+                    Debug.Log("DROP BOMB");
+                    return;
             }
-            else
-            {
-                PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
-            }   
         }
     }
 
