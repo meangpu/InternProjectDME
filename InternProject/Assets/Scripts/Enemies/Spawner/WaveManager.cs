@@ -19,6 +19,7 @@ public class WaveManager : MonoBehaviour
     public Slider bigWaveSlider;
     public TMP_Text enemyLefttext;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] TMP_Text textTimeBeforeNextWave;
 
     [Header("WaveInfo")]
     [SerializeField] float timeBeforeWinPanel;
@@ -83,10 +84,10 @@ public class WaveManager : MonoBehaviour
     private void Update() 
     {
 
-        if (EnemyAlive.Count > 0)
-        {
-            return;
-        }
+        // if (EnemyAlive.Count > 0)
+        // {
+        //     return;
+        // }
 
 	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
 		{
@@ -99,14 +100,17 @@ public class WaveManager : MonoBehaviour
 		{
             if (waveindex < EnemyWaves.Length)
             {
+                
                 StartCoroutine(SpawnWave());
-                countDown = timeBeforeNextWave;
+                // countDown = timeBeforeNextWave;
+                countDown = EnemyWaves[waveindex].TimeBeforeNextWave;
                 return;
             }
 
 		}
 
         countDown -= Time.deltaTime;
+        textTimeBeforeNextWave.text = countDown.ToString("F0");
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
         
     }
@@ -201,8 +205,6 @@ public class WaveManager : MonoBehaviour
     private void SpawnBoss(GameObject bossPfb, Transform spawnPos, ObjEnemy enemy)
     {
         GameObject boss = Instantiate(bossPfb, spawnPos);
-        
-
         boss.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
         boss.transform.SetPositionAndRotation(spawnPos.position, spawnPos.rotation);
 
