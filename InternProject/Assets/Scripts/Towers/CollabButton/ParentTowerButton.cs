@@ -69,6 +69,12 @@ public class ParentTowerButton : MonoBehaviour
         }
 	}
 
+	private void OnDestroy() 
+	{
+		GameManager.Instance.OnBuyModeTrigger -= UpdateMaterial;
+		GameManager.Instance.OnBuyModeTrigger -= deletePreview;
+	}
+
 	void deletePreview()
 	{
 		previewTower.gameObject.SetActive(false);

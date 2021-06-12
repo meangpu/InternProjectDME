@@ -89,6 +89,11 @@ public class ParentUpgradeButton : MonoBehaviour
 		towerPreviewScript.SetTowerType(_towerObj);
 	}
 
+	private void OnDestroy() 
+	{
+		GameManager.Instance.OnBuyModeTrigger -= UpdateMaterial;
+	}
+
 	void setupChild()
 	{
 		//SetAsLastSibling () to make sure that the main button will be always at the top layer

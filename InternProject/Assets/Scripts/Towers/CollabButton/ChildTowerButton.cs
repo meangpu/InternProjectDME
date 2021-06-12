@@ -34,7 +34,7 @@ public class ChildTowerButton : MonoBehaviour
 	void Awake ()
 	{
 		trans = transform;
-		GameManager.Instance.OnCheckWhatCanBuy += chekIfCanBuy;
+		GameManager.Instance.OnCheckWhatCanBuy += checkIfCanBuy;
 		// obj preview tower
 		previewTranform = transform.parent.parent.parent.GetChild(0);
 		towerBuyTransform = transform.parent.parent.parent.GetChild(1);
@@ -58,7 +58,7 @@ public class ChildTowerButton : MonoBehaviour
 		}
 	}
 
-	public void chekIfCanBuy()
+	public void checkIfCanBuy()
 	{
 		if (PlayerStats.Instance.GetGoldSystem().GetGold() >= towerObject.GetUpgradeCost()[0])
 		{
@@ -134,6 +134,11 @@ public class ChildTowerButton : MonoBehaviour
 	{
 		previewInfoGameObj.SetActive(false);
 		previewTranform.gameObject.SetActive(false);
+	}
+
+	private void OnDestroy() 
+	{
+		GameManager.Instance.OnCheckWhatCanBuy -= checkIfCanBuy;
 	}
 
 }
