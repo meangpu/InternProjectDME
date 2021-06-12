@@ -28,6 +28,6 @@ MonoBehaviour:
   bulletLifetime: 0
   bulletType: {fileID: 0}
   moneyDrop: 22
-  enemyType: 2
+  enemyType: 3
   enemyId: 4
   isFlying: 1

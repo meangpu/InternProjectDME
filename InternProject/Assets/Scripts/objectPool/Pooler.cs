@@ -102,11 +102,6 @@ public class Pooler : MonoBehaviour
     {
         GameObject enemy = SpawnObject();
         enemy.GetComponent<EnemyDisplay>().StartDisplay(objEnemy);
-
-        /*if (enemy.TryGetComponent(out EnemyShoot enemyShoot))
-        {
-            enemyShoot.StartShooting();
-        }*/
         
         SetupObject(enemy, position, rotation);
         WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
@@ -166,6 +161,16 @@ public class Pooler : MonoBehaviour
         SetupObject(missile, position, rotation);
     }
 
+    public void SpawnEnemyBomb(Vector3 position, Quaternion rotation, int damage, float range, float lifetime)
+    {
+        GameObject bomb = SpawnObject();
+        IAreaOfDamage bombStats = bomb.GetComponent<IAreaOfDamage>();
+        bombStats.Damage = damage;
+        bombStats.AreaOfDamage = range;
+        bombStats.Lifetime = lifetime;
+        SetupObject(bomb, position, rotation);
+    }
+
     public void SpawnTowerBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime)
     {
         GameObject bullet = SpawnObject();
@@ -202,6 +207,6 @@ public class Pooler : MonoBehaviour
         GameObject goldItem = SpawnObject();
         goldItem.GetComponent<AssignGold>().SetGold(ObjGold);
         SetupObject(goldItem, position, rotation);
-        goldItem.GetComponent<Rigidbody2D>().AddForce(_direction * 0.0015f, ForceMode2D.Impulse);
+        goldItem.GetComponent<Rigidbody2D>().AddForce(_direction * Random.Range(0.0001f, 0.0015f), ForceMode2D.Impulse);
     }
 }

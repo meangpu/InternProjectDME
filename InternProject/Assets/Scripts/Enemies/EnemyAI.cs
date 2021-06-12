@@ -14,7 +14,6 @@ public class EnemyAI : MonoBehaviour
     private Transform player = null;
 
     private Transform currentTarget = null;
-    // private Transform lookatTarget = null; // For tanks
 
     private bool isPassive;
     private float attackRange;
@@ -92,6 +91,9 @@ public class EnemyAI : MonoBehaviour
                     LookAtTarget(player);
                     enemyShoot.StartShooting();
                     return;
+                case EnemyType.Plane:
+                    enemyShoot.StartShooting();
+                    return;
             }        
         }
         else
@@ -107,39 +109,27 @@ public class EnemyAI : MonoBehaviour
         {
             float stopRange = enemyType == EnemyType.Machine ? attackRange : attackRange / 2;
 
-            switch (enemyType)
+            if (Physics2D.OverlapCircle(transform.position, stopRange, playerLayerMask) != null)
             {
-                default:
-                    if (Physics2D.OverlapCircle(transform.position, stopRange, playerLayerMask) != null)
-                    {
-                        RotateTowardsTarget(currentTarget.position);
-                        enemyShoot.StartShooting();
-                        rb.velocity = Vector2.zero;
-                        return;
-                    }
-                    else
-                    {
-                        enemyShoot.StopShooting();
-                        break;
-                    }
+                enemyShoot.StartShooting();
+                rb.velocity = Vector2.zero;
+                RotateTowardsTarget(currentTarget.position);
 
-                case EnemyType.Machine:
-                    if (Physics2D.OverlapCircle(transform.position, stopRange, playerLayerMask) != null)
-                    {
-                        RotateTowardsTarget(currentTarget.position);
+                switch (enemyType)
+                {
+                    default:
+                        return;
+                    case EnemyType.Machine:
                         LookAtTarget(currentTarget);
-                        enemyShoot.StartShooting();
-                        rb.velocity = Vector2.zero;
-                        return;
-                    }
-                    else
-                    {
-                        enemyShoot.StopShooting();
-                        break;
-                    }
-            }  
+                        return; 
+                }
+            }
+            else
+            {
+                enemyShoot.StopShooting();
+            }
         }
-
+   
         rb.velocity = transform.right * enemyDisplay.Speed;
 
         TryGetNextWaypoint();
@@ -162,7 +152,6 @@ public class EnemyAI : MonoBehaviour
     private void SetTargetAsBase()
     {
         currentTarget = playerBase;
-        // lookatTarget = null;
         enemyShoot.StopShooting();
         state = EnemyState.TargetBase;
     }

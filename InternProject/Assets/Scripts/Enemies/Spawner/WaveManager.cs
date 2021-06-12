@@ -162,34 +162,37 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
     {
-        if (enemy.GetEnemyType() != EnemyType.Machine) 
-        { 
-            pooler.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-        }
-        else
+        switch (enemy.GetEnemyType())
         {
-            switch (enemy.GetEnemyId())
-            {
-                default:
-                    break;
-                case EnemyId.TolusinTank:
-                    pooler.EnemyBasicTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-                    break;
-                case EnemyId.ArtilleryTank:
-                    pooler.EnemyArtilleryTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-                    break;
-                case EnemyId.DoomsdayTank:
-                    pooler.EnemyDoomsdayTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-                    break;
-                case EnemyId.SpyPlane:
-                    pooler.EnemySpyPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-                    break;
-                case EnemyId.BomberPlane:
-                    pooler.EnemyBomberPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
-                    break;
-                case EnemyId.MWing:
-                    break;
-            }    
+            default:
+                pooler.EnemyPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                break;
+
+            case EnemyType.Machine:
+            case EnemyType.Plane:
+                switch (enemy.GetEnemyId())
+                {
+                    default:
+                        break;
+                    case EnemyId.TolusinTank:
+                        pooler.EnemyBasicTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                        break;
+                    case EnemyId.ArtilleryTank:
+                        pooler.EnemyArtilleryTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                        break;
+                    case EnemyId.DoomsdayTank:
+                        pooler.EnemyDoomsdayTankPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                        break;
+                    case EnemyId.SpyPlane:
+                        pooler.EnemySpyPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                        break;
+                    case EnemyId.BomberPlane:
+                        pooler.EnemyBomberPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
+                        break;
+                    case EnemyId.MWing:
+                        break;
+                }
+                break;
         }
   
         SetEnemyLeftText();

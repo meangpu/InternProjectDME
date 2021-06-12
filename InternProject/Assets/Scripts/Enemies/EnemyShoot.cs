@@ -8,6 +8,8 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private EnemyDisplay enemy = null;
     [SerializeField] private AmmoType ammoType = AmmoType.Default;
 
+    private PoolingSingleton pooler;
+
     public enum AmmoType
     {
         Default,
@@ -18,6 +20,11 @@ public class EnemyShoot : MonoBehaviour
     private float timeCounter = 0f;
     private float waitTime;
     private bool canShoot = false;
+
+    private void Start()
+    {
+        pooler = PoolingSingleton.Instance;
+    }
 
     private void OnEnable()
     {
@@ -37,15 +44,15 @@ public class EnemyShoot : MonoBehaviour
             switch (ammoType)
             {
                 default:
-                    PoolingSingleton.Instance.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+                    pooler.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
                     return;
 
                 case AmmoType.HomingMissile:
-                    PoolingSingleton.Instance.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
+                    pooler.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
                     return;
 
                 case AmmoType.Bomb:
-                    Debug.Log("DROP BOMB");
+                    pooler.EnemyBombPool.SpawnEnemyBomb(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.AttackRange, enemy.BulletLifetime);
                     return;
             }
         }
