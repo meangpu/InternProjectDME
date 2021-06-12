@@ -149,6 +149,8 @@ public class WaveManager : MonoBehaviour
         {
             foreach (var enemy in pointToSpawn.EnemyList)
             {
+                pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().nowEnemyObj = enemy.enemy;
+                pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().nowEnemyCount = enemy.count;
                 
                 for (int i = 0; i < enemy.count; i++)
                 {
