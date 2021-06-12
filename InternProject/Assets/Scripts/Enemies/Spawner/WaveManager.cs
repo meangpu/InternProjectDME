@@ -24,13 +24,14 @@ public class WaveManager : MonoBehaviour
     [Header("WaveInfo")]
     [SerializeField] float timeBeforeWinPanel;
     [SerializeField] bool useRandom;
-    [SerializeField] float timeBeforeNextWave;
     private float countDown;
     public static List<Enemy> EnemyAlive = new List<Enemy>();
     public EnemyWave[] EnemyWaves;
     private int waveindex = 0;
     private PoolingSingleton pooler;
     int thisWaveCount;
+
+    bool isFirstWave = true;
 
     private void Awake()
     {
@@ -49,7 +50,9 @@ public class WaveManager : MonoBehaviour
         // need to clear enemy data to prevent game not start on second time
         EnemyAlive.Clear();
         SetUp_MaxSlider(EnemyWaves.Length);
-        countDown = 1;
+
+        // first Time Count down
+        countDown = 5;
 
         pooler = PoolingSingleton.Instance;
     }
@@ -83,11 +86,14 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
-
-        // if (EnemyAlive.Count > 0)
-        // {
-        //     return;
-        // }
+        if (!isFirstWave)
+        {
+            if (EnemyAlive.Count <= 0)
+            {
+                // if enemy all die before next wave
+                countDown = 0;
+            }
+        }
 
 	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
 		{
@@ -104,18 +110,16 @@ public class WaveManager : MonoBehaviour
 		{
             if (waveindex < EnemyWaves.Length)
             {
-                
                 StartCoroutine(SpawnWave());
-                // countDown = timeBeforeNextWave;
                 countDown = EnemyWaves[waveindex].TimeBeforeNextWave;
+                isFirstWave = false;
                 return;
             }
-
 		}
 
         countDown -= Time.deltaTime;
-        textTimeBeforeNextWave.text = countDown.ToString("F0");
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+        textTimeBeforeNextWave.text = countDown.ToString("F0");
         
     }
 
@@ -148,19 +152,11 @@ public class WaveManager : MonoBehaviour
                 
                 for (int i = 0; i < enemy.count; i++)
                 {
-                    if (enemy.isBoss)
-                    {
-                        SpawnBoss(enemy.enemyPfb, pointToSpawn.spawnPoint, enemy.enemy);
-                        yield return new WaitForSeconds(wave.spawnRate);
-                    }
-                    else
-                    {
-                        SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
-                        yield return new WaitForSeconds(wave.spawnRate);
-                    }
+                    SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                    yield return new WaitForSeconds(wave.spawnRate);
+
                     thisWaveCount--;
                     Set_MinSlider(thisWaveCount);
-
                 }
             }
         } 

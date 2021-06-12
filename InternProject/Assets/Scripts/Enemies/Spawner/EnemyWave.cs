@@ -4,8 +4,6 @@ using UnityEngine;
 public class EnemyProbObj
 {
     public ObjEnemy enemy;
-    public GameObject enemyPfb;
-    public bool isBoss;
     public int count;
 }
 
@@ -19,9 +17,13 @@ public class EnemyAndPoint
 [System.Serializable]    
 public class EnemyWave
 {
+    [Header("Wave Constant")]
+    [Tooltip("Spawn time in second 1 mean spawn 1 every 1 seconds")]
     public float spawnRate;
-    public EnemyAndPoint[] EnemyAndPoint;
     public float TimeBeforeNextWave;
+    [Space]
+    [Space]
+    public EnemyAndPoint[] EnemyAndPoint;
 }
 
 

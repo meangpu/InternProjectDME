@@ -35,7 +35,7 @@ public class camTarget : MonoBehaviour
 
     public void buyMode()
     {
-        threshold = 9;
+        threshold = 8;
     }
 
 }

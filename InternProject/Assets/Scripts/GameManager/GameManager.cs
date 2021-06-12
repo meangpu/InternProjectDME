@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
             
             if (buyModeCam.m_Lens.OrthographicSize > zoomInMax)
             {
-                // buyModeCam.m_Lens.OrthographicSize -= 0.6f;
                 NowZoomValue =  buyModeCam.m_Lens.OrthographicSize - 2f;
                 
             }
@@ -95,7 +94,6 @@ public class GameManager : MonoBehaviour
 
             if (buyModeCam.m_Lens.OrthographicSize < zoomOutMax)
             {
-                // buyModeCam.m_Lens.OrthographicSize += 0.6f;
                 NowZoomValue =  buyModeCam.m_Lens.OrthographicSize + 2f;
             }
             
