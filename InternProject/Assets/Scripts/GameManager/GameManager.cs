@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Cinemachine;
-using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {

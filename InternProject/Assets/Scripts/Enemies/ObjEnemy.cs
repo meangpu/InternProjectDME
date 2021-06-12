@@ -26,6 +26,9 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private EnemyId enemyId;
     [SerializeField] private bool isFlying;
+    [SerializeField] Sound FireSound;
+    [SerializeField] Sound DeadSound;
+
     
     public string GetName() => enemyName;
     public string GetDescription() => des;
@@ -45,5 +48,7 @@ public class ObjEnemy : ScriptableObject
     public EnemyType GetEnemyType() => enemyType;
     public EnemyId GetEnemyId() => enemyId;
     public bool GetIsFlying() => isFlying;
+    public Sound GetFireSound() => FireSound;
+    public Sound GetDeadSound() => DeadSound;
 
 }
