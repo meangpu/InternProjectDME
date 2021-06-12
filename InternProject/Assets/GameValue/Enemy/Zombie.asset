@@ -30,4 +30,21 @@ MonoBehaviour:
   bulletType: {fileID: 11400000, guid: e767140ea01531e439a2bae59bee7446, type: 2}
   moneyDrop: 15
   enemyType: 0
+  enemyId: 0
   isFlying: 0
+  FireSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  DeadSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

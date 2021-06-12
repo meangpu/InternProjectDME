@@ -31,3 +31,19 @@ MonoBehaviour:
   enemyType: 2
   enemyId: 3
   isFlying: 0
+  FireSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  DeadSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

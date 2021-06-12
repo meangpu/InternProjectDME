@@ -11,7 +11,6 @@ public class camTarget : MonoBehaviour
     Vector2 mousePos;
 
 
-
     void Update()
     {
         mousePos = input.GetMousePosition();

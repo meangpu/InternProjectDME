@@ -29,10 +29,23 @@ MonoBehaviour:
   bulletSpeed: 0
   bulletLifetime: 0
   bulletType: {fileID: 0}
-  goldDropSK:
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
-  - {fileID: 11400000, guid: 567ea09eae643be40bb6359e7f9c3c75, type: 2}
   moneyDrop: 3
   enemyType: 0
+  enemyId: 0
   isFlying: 0
+  FireSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  DeadSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

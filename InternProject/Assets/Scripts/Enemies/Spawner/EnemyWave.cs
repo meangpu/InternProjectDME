@@ -21,6 +21,7 @@ public class EnemyWave
 {
     public float spawnRate;
     public EnemyAndPoint[] EnemyAndPoint;
+    public float TimeBeforeNextWave;
 }
 
 
