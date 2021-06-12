@@ -397,6 +397,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""71f2f14a-e6e9-434f-940f-c00dfda93b50"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -419,6 +427,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""388d3d28-558f-4251-8efb-0c9266ffc387"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -459,6 +478,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_BuyMenu = asset.FindActionMap("BuyMenu", throwIfNotFound: true);
         m_BuyMenu_BuyMode = m_BuyMenu.FindAction("BuyMode", throwIfNotFound: true);
         m_BuyMenu_Zoom = m_BuyMenu.FindAction("Zoom", throwIfNotFound: true);
+        m_BuyMenu_MousePosition = m_BuyMenu.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -722,12 +742,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IBuyMenuActions m_BuyMenuActionsCallbackInterface;
     private readonly InputAction m_BuyMenu_BuyMode;
     private readonly InputAction m_BuyMenu_Zoom;
+    private readonly InputAction m_BuyMenu_MousePosition;
     public struct BuyMenuActions
     {
         private @PlayerControls m_Wrapper;
         public BuyMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @BuyMode => m_Wrapper.m_BuyMenu_BuyMode;
         public InputAction @Zoom => m_Wrapper.m_BuyMenu_Zoom;
+        public InputAction @MousePosition => m_Wrapper.m_BuyMenu_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_BuyMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -743,6 +765,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Zoom.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnZoom;
                 @Zoom.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnZoom;
                 @Zoom.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnZoom;
+                @MousePosition.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_BuyMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -753,6 +778,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Zoom.started += instance.OnZoom;
                 @Zoom.performed += instance.OnZoom;
                 @Zoom.canceled += instance.OnZoom;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -796,5 +824,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnBuyMode(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }
