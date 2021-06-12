@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bffe6678e574b4ba70ef84fcdda1fe, type: 3}
   m_Name: M-Wing Laser
   m_EditorClassIdentifier: 
-  bulletName: 
-  artWork: {fileID: 0}
-  material: {fileID: 0}
+  bulletName: M-Wing Laser
+  artWork: {fileID: 2244685038557466302, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
+  material: {fileID: 2100000, guid: e00e717a00b9c90449aa5995c54d342c, type: 2}
