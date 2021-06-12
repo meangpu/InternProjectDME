@@ -43,6 +43,8 @@ public class PlayerStats : MonoBehaviour
     private float bulletLifetime;
     private float bulletSpeed;
     private float bulletKnockback;
+    private int tankUpgradeCost;
+    private int gunUpgradeCost;
     private ObjPlayerBullet objBullet;
 
     private float timeElapsedHealth;
@@ -87,37 +89,19 @@ public class PlayerStats : MonoBehaviour
         turret = player.GetTurret();
         tank = player.GetTank();
 
-        healthSystem = new HealthOrManaSystem(tank.GetHealth()[tankLevel - 1]);
-        energySystem = new HealthOrManaSystem(tank.GetEnergy()[tankLevel - 1]);
+        int level = tankLevel - 1;
+
+        healthSystem = new HealthOrManaSystem(tank.GetHealth()[level]);
+        energySystem = new HealthOrManaSystem(tank.GetEnergy()[level]);
 
         goldSystem = new GoldSystem(startingGold);
 
         tankName = tank.GetName();
         gunName = turret.GetName();
 
-        healthRegenRate = tank.GetHealthRegenRate()[tankLevel - 1];
-        timePerHealth = 1 / healthRegenRate;
+        UpdateGunStats();
+        UpdateTankStats();
 
-        energyRegenRate = tank.GetEnergyRegenRate()[tankLevel - 1];
-        timePerEnergy = 1 / energyRegenRate;
-
-        fireRate = turret.GetRateOfFire()[gunLevel - 1];
-        cooldownBetweenShots = 1 / fireRate;
-
-        maxAmmoCount = turret.GetAmmoCount()[gunLevel - 1];
-        currentAmmoCount = maxAmmoCount;
-
-        reloadTime = turret.GetReloadTime()[gunLevel - 1];
-
-        movementSpeed = tank.GetMovementSpeed()[tankLevel - 1];
-        rotationSpeed = tank.GetRotationSpeed()[tankLevel - 1];
-
-        baseMinDamage = turret.GetMinDamage()[gunLevel - 1];
-        baseMaxDamage = turret.GetMaxDamage()[gunLevel - 1];
-        minDamage = baseMinDamage;
-        maxDamage = baseMaxDamage;
-
-        bulletSpeed = turret.GetBulletSpeed()[gunLevel - 1];
         bulletLifetime = turret.GetLifetime();
         bulletKnockback = turret.GetKnockBack();
 
@@ -148,7 +132,7 @@ public class PlayerStats : MonoBehaviour
         if (timeElapsedHealth < timePerHealth) { return; }
 
         healthSystem.Heal(1);
-        timeElapsedHealth = 0;
+        timeElapsedHealth -= timePerHealth;
     }
 
     private void RegenerateEnergy(float deltaTime)
@@ -158,7 +142,7 @@ public class PlayerStats : MonoBehaviour
         if (timeElapsedEnergy < timePerEnergy) { return; }
 
         energySystem.Heal(1);
-        timeElapsedEnergy = 0;
+        timeElapsedEnergy -= timePerEnergy;
     }
 
     private void UpdateAmmoUI()
@@ -166,9 +150,45 @@ public class PlayerStats : MonoBehaviour
         OnAmmoUpdated?.Invoke(currentAmmoCount, maxAmmoCount);
     }
 
-    private void UpdateStats()
+    private void UpdateTankStats()
     {
-        // Update HP, Damage, Speed, etc. based on upgrades equipped. Run when confirming upgrades.
+        int level = tankLevel - 1;
+
+        healthSystem.SetNewMax(tank.GetHealth()[level]);
+        energySystem.SetNewMax(tank.GetHealth()[level]);
+
+        healthRegenRate = tank.GetHealthRegenRate()[level];
+        timePerHealth = 1 / healthRegenRate;
+
+        energyRegenRate = tank.GetEnergyRegenRate()[level];
+        timePerEnergy = 1 / energyRegenRate;
+
+        movementSpeed = tank.GetMovementSpeed()[level];
+        rotationSpeed = tank.GetRotationSpeed()[level];
+
+        tankUpgradeCost = tank.GetUpgradeCost()[level];
+    }
+
+    private void UpdateGunStats()
+    {
+        int level = gunLevel - 1;
+
+        fireRate = turret.GetRateOfFire()[level];
+        cooldownBetweenShots = 1 / fireRate;
+
+        maxAmmoCount = turret.GetAmmoCount()[level];
+        currentAmmoCount = maxAmmoCount;
+
+        reloadTime = turret.GetReloadTime()[level];
+
+        baseMinDamage = turret.GetMinDamage()[level];
+        baseMaxDamage = turret.GetMaxDamage()[level];
+        minDamage = baseMinDamage;
+        maxDamage = baseMaxDamage;
+
+        bulletSpeed = turret.GetBulletSpeed()[level];
+
+        gunUpgradeCost = turret.GetUpgradeCost()[level];
     }
 
     public void RespawnPlayer()
@@ -245,9 +265,9 @@ public class PlayerStats : MonoBehaviour
         goldSystem.AddGold(goldToAdd);
     }
 
-    public void SpendGold(int goldUsed)
+    public bool SpendGold(int goldUsed)
     {
-        goldSystem.TrySpendGold(goldUsed);
+        return goldSystem.TrySpendGold(goldUsed);
     }
 
     public int DealDamage()
@@ -284,7 +304,10 @@ public class PlayerStats : MonoBehaviour
     {
         if (tankLevel == TANK_MAX_LEVEL_LIMIT) { return; }
 
+        if (!SpendGold(tankUpgradeCost)) { return; }
+
         tankLevel++;
+        UpdateTankStats();
 
         OnTankLeveledUp?.Invoke(tankLevel);
     }
@@ -293,7 +316,10 @@ public class PlayerStats : MonoBehaviour
     {
         if (gunLevel == TANK_MAX_LEVEL_LIMIT) { return; }
 
+        if (!SpendGold(gunUpgradeCost)) { return; }
+
         gunLevel++;
+        UpdateGunStats();
 
         OnGunLeveledUp?.Invoke(gunLevel);
     }
@@ -318,6 +344,9 @@ public class PlayerStats : MonoBehaviour
 
     #region Stats Retrieving
 
+    public Sprite GetTankSprite() => tank.GetSprite();
+    public Sprite GetGunSprite() => turret.GetSprite();
+
     public HealthOrManaSystem GetHealthSystem() => healthSystem;
     public HealthOrManaSystem GetEnergySystem() => energySystem;
 
@@ -325,6 +354,10 @@ public class PlayerStats : MonoBehaviour
 
     public string GetTankName() => tankName;
     public string GetGunName() => gunName;
+
+    public int GetTankLevel() => tankLevel;
+    public int GetGunLevel() => gunLevel;
+
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
 
@@ -354,6 +387,9 @@ public class PlayerStats : MonoBehaviour
     public float GetBulletLifetime() => bulletLifetime;
     public float GetBulletSpeed() => bulletSpeed;
     public float GetKnockbackValue() => bulletKnockback;
+
+    public int GetTankUpgradeCost() => tankUpgradeCost;
+    public int GetGunUpgradeCost() => gunUpgradeCost;
 
     public ObjPlayerBullet GetBulletType() => objBullet;
 

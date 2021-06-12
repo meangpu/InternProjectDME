@@ -39496,6 +39496,13 @@ MonoBehaviour:
   respawnBar: {fileID: 2145430840}
   addOnDisplay: {fileID: 911333380}
   bulletDisplay: {fileID: 1000744267}
+  upgradePanel: {fileID: 1986735951}
+  tankImage: {fileID: 374354361}
+  gunImage: {fileID: 1974138308}
+  tankUpgradeLevelText: {fileID: 708488840}
+  gunUpgradeLevelText: {fileID: 118098700}
+  tankCostText: {fileID: 1541884464}
+  gunCostText: {fileID: 888551035}
 --- !u!114 &124237219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39798,7 +39805,7 @@ GameObject:
   - component: {fileID: 218644765}
   - component: {fileID: 218644764}
   m_Layer: 5
-  m_Name: Gun Sprite
+  m_Name: BG Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39930,6 +39937,7 @@ GameObject:
   - component: {fileID: 252515328}
   - component: {fileID: 252515330}
   - component: {fileID: 252515329}
+  - component: {fileID: 252515331}
   m_Layer: 5
   m_Name: Gun Upgrade Panel
   m_TagString: Untagged
@@ -39998,6 +40006,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252515327}
   m_CullTransparentMesh: 1
+--- !u!114 &252515331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252515327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b7b4ce02952334eb42c60cd8cb685c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 1
 --- !u!1 &312512232
 GameObject:
   m_ObjectHideFlags: 0
@@ -61419,7 +61440,7 @@ GameObject:
   - component: {fileID: 374354362}
   - component: {fileID: 374354361}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Tank Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62736,7 +62757,7 @@ GameObject:
   - component: {fileID: 598770188}
   - component: {fileID: 598770187}
   m_Layer: 5
-  m_Name: Tank Sprite
+  m_Name: BG Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87981,6 +88002,7 @@ GameObject:
   - component: {fileID: 1299402728}
   - component: {fileID: 1299402730}
   - component: {fileID: 1299402729}
+  - component: {fileID: 1299402731}
   m_Layer: 5
   m_Name: Tank Upgrade Panel
   m_TagString: Untagged
@@ -88049,6 +88071,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299402727}
   m_CullTransparentMesh: 1
+--- !u!114 &1299402731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299402727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b7b4ce02952334eb42c60cd8cb685c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 0
 --- !u!1001 &1329522219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91924,7 +91959,7 @@ GameObject:
   - component: {fileID: 1974138309}
   - component: {fileID: 1974138308}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Gun Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92042,7 +92077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1986735952
 RectTransform:
   m_ObjectHideFlags: 0
