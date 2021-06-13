@@ -58,11 +58,13 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void Setup(bool isPassive, float attackRange, EnemyType enemyType)
     {
-        isPassive = enemyDisplay.IsPassive;
-        attackRange = enemyDisplay.AttackRange;
-        enemyType = enemyDisplay.EnemyType;
+        this.isPassive = isPassive;
+        this.attackRange = attackRange;
+        this.enemyType = enemyType;
+
+        currentTarget = playerBase;
 
         state = isPassive ? EnemyState.Passive : EnemyState.TargetBase;
     }

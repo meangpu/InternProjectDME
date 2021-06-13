@@ -33,8 +33,6 @@ public class Pooler : MonoBehaviour
                 GenerateNewObject();
             }
         }
-
-
     }
 
     public GameObject GetObject()
@@ -57,7 +55,6 @@ public class Pooler : MonoBehaviour
         GameObject g = freeList[totalFree - 1];
         freeList.RemoveAt(totalFree - 1);
         usedList.Add(g);
-
 
         return g;
     }

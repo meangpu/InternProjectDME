@@ -11,10 +11,17 @@ public class TowerProjectile : MonoBehaviour, IProjectile
     private int damage;
     private bool isActivated = false;
 
+    private PoolingSingleton pooler;
+
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
+
+    private void Start()
+    {
+        pooler = PoolingSingleton.Instance;
+    }
 
     private void OnEnable()
     {
@@ -25,7 +32,8 @@ public class TowerProjectile : MonoBehaviour, IProjectile
 
     public void DestroySelf()
     {
-        PoolingSingleton.Instance.TowerBulletPool.ReturnObject(gameObject);
+        pooler.BulletExplosion.SpawnBasicObject(transform.position, transform.rotation);
+        pooler.TowerBulletPool.ReturnObject(gameObject);
     }
 
     private IEnumerator DestroyOverTme()

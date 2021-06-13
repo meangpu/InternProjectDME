@@ -12,10 +12,16 @@ public class MissileProjectile : MonoBehaviour, IAreaOfDamage
     private float range;
     private bool isActivated = false;
 
+    private PoolingSingleton pooler;
     public int Damage { get => damage; set => damage = value; }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
     public float AreaOfDamage { get => range; set => range = value; }
+
+    private void Start()
+    {
+        pooler = PoolingSingleton.Instance;
+    }
 
     private void OnEnable()
     {
@@ -26,7 +32,8 @@ public class MissileProjectile : MonoBehaviour, IAreaOfDamage
 
     public void DestroySelf()
     {
-        PoolingSingleton.Instance.TowerMissilePool.ReturnObject(gameObject);
+        pooler.BulletExplosion.SpawnBasicObject(transform.position, transform.rotation);
+        pooler.TowerMissilePool.ReturnObject(gameObject);
     }
 
     private IEnumerator DestroyOverTme()

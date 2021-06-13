@@ -8,6 +8,7 @@ public class EnemyDisplay : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer eneImage;
     [SerializeField] private float timeToRecoverFromStun = 5f;
+    [SerializeField] private EnemyAI enemyAI;
 
     // [SerializeField] ObjEnemy enemyScriptableObj;
     private float maxSpeed;
@@ -69,6 +70,9 @@ public class EnemyDisplay : MonoBehaviour
         goldDrop = enemy.GetMoneyDrop();
         enemyType = enemy.GetEnemyType();
         enemyId = enemy.GetEnemyId();
+
+        Debug.Log(isPassive, this);
+        enemyAI.Setup(isPassive, attackRange, enemyType);
     }
 
     public void Slow(float percentage, float duration)
