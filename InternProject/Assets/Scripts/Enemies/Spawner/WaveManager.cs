@@ -18,8 +18,8 @@ public class WaveManager : MonoBehaviour
     public Slider minWaveSlider;
     public Slider bigWaveSlider;
     public TMP_Text enemyLefttext;
-    [SerializeField] private GameManager gameManager;
     [SerializeField] TMP_Text textTimeBeforeNextWave;
+    [SerializeField] private GameManager gameManager;
 
     [Header("WaveInfo")]
     [SerializeField] callWaveEarly[] spawnPointList;
@@ -57,6 +57,8 @@ public class WaveManager : MonoBehaviour
         countDown = 2;
 
         pooler = PoolingSingleton.Instance;
+
+        
     }
 
     public void Set_MinSlider(int _value)
@@ -101,12 +103,15 @@ public class WaveManager : MonoBehaviour
 		{
             if (EnemyAlive.Count > 0)
             {
+                countDown = 0;
+                textTimeBeforeNextWave.text = countDown.ToString("F0");
+
                 CheckNextWave(0);
                 return;
             }
             
             // happen when enemy reach 0 and there no next wave
-			enabled = false;
+			this.enabled = false;
             StartCoroutine(gameManager.LevelWon(timeBeforeWinPanel));
 		}
 
@@ -114,18 +119,15 @@ public class WaveManager : MonoBehaviour
 		{
             if (waveindex < EnemyWaves.Length)
             {
+                clearAllOldData();
                 StartCoroutine(SpawnWave());
                 countDown = EnemyWaves[waveindex].TimeBeforeNextWave;
-                CheckNextWave();
                 isFirstWave = false;
+
                 return;
             }
 		}
 
-        if (isFirstWave)
-        {
-            CheckNextWave(0);
-        }
 
         countDown -= Time.deltaTime;
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
@@ -162,9 +164,14 @@ public class WaveManager : MonoBehaviour
                 {
                     SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
                     yield return new WaitForSeconds(wave.spawnRate);
-
+                    
                     thisWaveCount--;
                     Set_MinSlider(thisWaveCount);
+
+                    if (thisWaveCount <= 0)
+                    {
+                        CheckNextWave();
+                    }
                 }
             }
         } 
@@ -173,9 +180,15 @@ public class WaveManager : MonoBehaviour
 
     public void callNextWave()
     {
+        if (thisWaveCount > 0)
+        {
+            return;
+        }
+
         float _tempData = countDown;
         countDown -= _tempData;
-        Debug.Log(_tempData);
+        // Debug.Log(_tempData);
+        textTimeBeforeNextWave.text = countDown.ToString("F0");
     }
 
 
@@ -183,13 +196,11 @@ public class WaveManager : MonoBehaviour
     {
         if (waveindex+aheadNum == EnemyWaves.Length)  // when it going to go outside index range 
 		{
+            clearAllOldData();
             return;
         }
 
-        foreach (var spawnPoint in spawnPointList)
-        {
-            spawnPoint.ClearOldData();
-        }
+        clearAllOldData();
 
         EnemyWave wave = EnemyWaves[waveindex+aheadNum];
 
@@ -198,6 +209,14 @@ public class WaveManager : MonoBehaviour
             pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
             StartCoroutine(pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
         } 
+    }
+
+    private void clearAllOldData()
+    {
+        foreach (var spawnPoint in spawnPointList)
+        {
+            spawnPoint.ClearOldData();
+        }
     }
 
 

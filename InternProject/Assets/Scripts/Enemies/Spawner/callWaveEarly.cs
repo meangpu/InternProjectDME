@@ -26,7 +26,7 @@ public class callWaveEarly : MonoBehaviour
 
     public IEnumerator ShowDataForSec(float _wait)
     {
-        ShowDataMouse();
+        ShowDataNotMouse();
         yield return new WaitForSeconds(_wait);
         HideData();
   
@@ -39,6 +39,7 @@ public class callWaveEarly : MonoBehaviour
             if (i == 0) continue;  // ignor text 
             Destroy(parentInfoTransform.GetChild(i).gameObject);
         }
+        HideData();
     }
 
     public void HideData()
@@ -61,6 +62,16 @@ public class callWaveEarly : MonoBehaviour
         {
             mainButton.interactable = true;
             TextTellCallEarly.SetActive(true);
+            parentInfoTransform.gameObject.SetActive(true);
+        }
+    }
+
+    public void ShowDataNotMouse()
+    {
+        if (parentInfoTransform.childCount > 1)
+        {
+            mainButton.interactable = true;
+            TextTellCallEarly.SetActive(false);
             parentInfoTransform.gameObject.SetActive(true);
         }
     }

@@ -39189,7 +39189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78492505}
   m_LocalRotation: {x: 1.110223e-16, y: -5.557487e-35, z: -3.3676447e-26, w: 1}
-  m_LocalPosition: {x: -0.198928, y: 1.0721791, z: -30.19}
+  m_LocalPosition: {x: -0.19892848, y: 1.0721793, z: -30.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 59636834}
@@ -39218,7 +39218,7 @@ MonoBehaviour:
   m_Follow: {fileID: 164220142}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 20
+    OrthographicSize: 9
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -64058,33 +64058,9 @@ PrefabInstance:
       value: point1
       objectReference: {fileID: 0}
     - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1972452178}
-    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: callNextWave
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WaveManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
 --- !u!4 &760318818 stripped
@@ -66280,11 +66256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: hp
-      value: 500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: maxHp
-      value: 500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: gameManager
@@ -93319,8 +93295,8 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
-  gameManager: {fileID: 493555991}
   textTimeBeforeNextWave: {fileID: 874195697}
+  gameManager: {fileID: 493555991}
   spawnPointList:
   - {fileID: 1199460497}
   - {fileID: 748528716}
@@ -93328,24 +93304,22 @@ MonoBehaviour:
   timeBeforeWinPanel: 5
   useRandom: 0
   EnemyWaves:
-  - spawnRate: 0.1
-    TimeBeforeNextWave: 15
+  - spawnRate: 0.5
+    TimeBeforeNextWave: 30
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         count: 5
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 5
       spawnPoint: {fileID: 760318818}
-  - spawnRate: 0.1
-    TimeBeforeNextWave: 15
+  - spawnRate: 1
+    TimeBeforeNextWave: 30
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         count: 8
       spawnPoint: {fileID: 1364812169}
-  - spawnRate: 0.1
-    TimeBeforeNextWave: 20
+  - spawnRate: 1
+    TimeBeforeNextWave: 30
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
@@ -93353,8 +93327,8 @@ MonoBehaviour:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         count: 2
       spawnPoint: {fileID: 1364812169}
-  - spawnRate: 0.1
-    TimeBeforeNextWave: 25
+  - spawnRate: 1
+    TimeBeforeNextWave: 35
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
@@ -93362,8 +93336,8 @@ MonoBehaviour:
       - enemy: {fileID: 11400000, guid: 908b24406de87154dba4fbbdb27ca104, type: 2}
         count: 3
       spawnPoint: {fileID: 1364812169}
-  - spawnRate: 0.1
-    TimeBeforeNextWave: 30
+  - spawnRate: 1
+    TimeBeforeNextWave: 40
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
@@ -93373,8 +93347,8 @@ MonoBehaviour:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         count: 3
       spawnPoint: {fileID: 1364812169}
-  - spawnRate: 0.1
-    TimeBeforeNextWave: 35
+  - spawnRate: 1
+    TimeBeforeNextWave: 50
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
