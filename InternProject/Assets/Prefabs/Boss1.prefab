@@ -173,7 +173,7 @@ MonoBehaviour:
   dashSpeed: 3.14
   CoolDownBetweenDash: 2
   animator: {fileID: 1558775434}
-  spriteRenderer: {fileID: 2799973023831598552}
+  spriteRenderer: {fileID: 4353398214589128475}
   secondFormMat: {fileID: 2100000, guid: 346d6432f091e014a986dde6cc7addee, type: 2}
   secondFormDashCdMultiplyer: 0.6
   isSecondForm: 0
@@ -381,9 +381,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8295180279571951452}
     - target: {fileID: 5996204292388103607, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996204292388103607, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2d270476e645c9647b104938c8946288, type: 3}
+    - target: {fileID: 5996204292388103607, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996204292388103607, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996204292388103607, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6913785809025286437, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -408,13 +424,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5298252096397123445, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
   m_PrefabInstance: {fileID: 8024478389904652972}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &2799973023831598552 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5298252096397123444, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
-  m_PrefabInstance: {fileID: 8024478389904652972}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &2799973023831598557 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5298252096397123441, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
+  m_PrefabInstance: {fileID: 8024478389904652972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4353398214589128475 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5996204292388103607, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
   m_PrefabInstance: {fileID: 8024478389904652972}
   m_PrefabAsset: {fileID: 0}
