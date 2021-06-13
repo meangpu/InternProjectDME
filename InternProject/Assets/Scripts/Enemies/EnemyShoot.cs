@@ -5,16 +5,19 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform spawnPoint2;
     [SerializeField] private EnemyDisplay enemy = null;
     [SerializeField] private AmmoType ammoType = AmmoType.Default;
 
     private PoolingSingleton pooler;
+    private bool shootFirst = false;
 
     public enum AmmoType
     {
         Default,
         HomingMissile,
-        Bomb
+        Bomb,
+        Alternate
     }
 
     private float timeCounter = 0f;
@@ -24,11 +27,21 @@ public class EnemyShoot : MonoBehaviour
     private void Start()
     {
         pooler = PoolingSingleton.Instance;
+
+        switch (ammoType)
+        {
+            default:
+                return;
+            case AmmoType.Alternate:
+                canShoot = true;
+                return;
+        }
     }
 
     private void OnEnable()
     {
         waitTime = 1 / enemy.AtkSpeed;
+        timeCounter = 0f; 
     }
 
     private void Update()
@@ -37,25 +50,38 @@ public class EnemyShoot : MonoBehaviour
 
         if (!canShoot) { return; }
 
-        if (timeCounter >= waitTime)
-        {   
-            timeCounter = 0f;
+        if (timeCounter < waitTime) { return; }
 
-            switch (ammoType)
-            {
-                default:
-                    pooler.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
-                    return;
+        timeCounter -= waitTime;
 
-                case AmmoType.HomingMissile:
-                    pooler.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
-                    return;
+        switch (ammoType)
+        {
+            default:
+                pooler.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+                return;
 
-                case AmmoType.Bomb:
-                    pooler.EnemyBombPool.SpawnEnemyBomb(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.AttackRange, enemy.BulletLifetime);
-                    return;
-            }
+            case AmmoType.HomingMissile:
+                pooler.EnemyMissilePool.SpawnEnemyMissile(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime);
+                return;
+
+            case AmmoType.Bomb:
+                pooler.EnemyBombPool.SpawnEnemyBomb(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.AttackRange, enemy.BulletLifetime);
+                return;
+
+            case AmmoType.Alternate:
+                switch (shootFirst)
+                {
+                    case true:
+                        pooler.EnemyBulletPool.SpawnEnemyBullet(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+                        break;
+                    case false:
+                        pooler.EnemyBulletPool.SpawnEnemyBullet(spawnPoint2.position, spawnPoint2.rotation, enemy.Damage, enemy.BulletSpeed, enemy.BulletLifetime, enemy.BulletType);
+                        break;
+                }
+                shootFirst = !shootFirst;
+                return;
         }
+
     }
 
     public void StartShooting()
@@ -65,6 +91,13 @@ public class EnemyShoot : MonoBehaviour
 
     public void StopShooting()
     {
-        canShoot = false;
+        switch (ammoType)
+        {
+            default:
+                canShoot = false;
+                return;
+            case AmmoType.Alternate:
+                return;
+        } 
     }
 }

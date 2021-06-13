@@ -250,6 +250,7 @@ public class WaveManager : MonoBehaviour
                         pooler.EnemyBomberPlanePool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
                         break;
                     case EnemyId.MWing:
+                        pooler.MWingPool.SpawnEnemy(spawnPos.position, spawnPos.rotation, enemy);
                         break;
                 }
                 break;

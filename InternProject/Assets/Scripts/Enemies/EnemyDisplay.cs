@@ -27,6 +27,7 @@ public class EnemyDisplay : MonoBehaviour
     private float bulletLifetime;
     private int goldDrop;
     private EnemyType enemyType;
+    private EnemyId enemyId;
 
     private bool isPassive;
 
@@ -67,6 +68,7 @@ public class EnemyDisplay : MonoBehaviour
         bulletLifetime = enemy.GetBulletLifetime();
         goldDrop = enemy.GetMoneyDrop();
         enemyType = enemy.GetEnemyType();
+        enemyId = enemy.GetEnemyId();
     }
 
     public void Slow(float percentage, float duration)
@@ -124,4 +126,5 @@ public class EnemyDisplay : MonoBehaviour
     public float BulletLifetime { get { return bulletLifetime; } }
     public int DropGold { get { return goldDrop; } }
     public EnemyType EnemyType { get { return enemyType; } }
+    public EnemyId EnemyId { get { return enemyId; } }
 }

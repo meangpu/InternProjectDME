@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     bool Immortal = false;
 
     private WaveManager waveManager;
+    private PoolingSingleton pooler;
 
     private void Start()
     {
         waveManager = WaveManager.Instance;
+        pooler = PoolingSingleton.Instance;
     }
 
     public void TakeDamage(int damage)
@@ -66,12 +68,35 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
     private void EnemyDie()
     {
-        PoolingSingleton.Instance.ParticlesHumanDeathPool.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
+        pooler.ParticlesHumanDeathPool.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
         circleHp.fillAmount = 0;
-        PoolingSingleton.Instance.EnemyPool.ReturnObject(gameObject);
+        switch (enemyDisplay.EnemyId)
+        {
+            default:
+                pooler.EnemyPool.ReturnObject(gameObject);
+                break;
+            case EnemyId.TolusinTank:
+                pooler.EnemyBasicTankPool.ReturnObject(gameObject);
+                break;
+            case EnemyId.ArtilleryTank:
+                pooler.EnemyArtilleryTankPool.ReturnObject(gameObject);
+                break;
+            case EnemyId.BomberPlane:
+                pooler.EnemyBomberPlanePool.ReturnObject(gameObject);
+                break;
+            case EnemyId.DoomsdayTank:
+                pooler.EnemyDoomsdayTankPool.ReturnObject(gameObject);
+                break;
+            case EnemyId.MWing:
+                pooler.MWingPool.ReturnObject(gameObject);
+                break;
+            case EnemyId.SpyPlane:
+                pooler.EnemySpyPlanePool.ReturnObject(gameObject);
+                break;
+        }
+        
         WaveManager.EnemyAlive.Remove(this);
         waveManager.SetEnemyLeftText();
-        enabled = false;  
 
         List<ObjGold> coinToSpawn = CoinSpawnCalculator(enemyDisplay.DropGold);
 
@@ -79,11 +104,6 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         {
             SpawnInCircle(coinToSpawn.Count, i, coinToSpawn[i], 0.05f);
         }
-        
-        // foreach (var coin in coinToSpawn)
-        // {
-        //     PoolingSingleton.Instance.GoldPool.SpawnGold(transform.position, Quaternion.identity, coin);
-        // }
     }
 
     void SpawnInCircle(int spawnCount, int _id, ObjGold coin, float randomMax)
@@ -95,7 +115,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
         Vector3 spawnPosition = transform.position + (direction * radius) + randomFactor;
         
-        PoolingSingleton.Instance.GoldPool.SpawnGold(spawnPosition, Quaternion.identity, coin, direction);
+        pooler.GoldPool.SpawnGold(spawnPosition, Quaternion.identity, coin, direction);
     }
 
     private List<ObjGold> CoinSpawnCalculator(int _value)

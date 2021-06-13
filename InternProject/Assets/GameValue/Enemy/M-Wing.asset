@@ -17,16 +17,16 @@ MonoBehaviour:
   artWork:
   - {fileID: 21300000, guid: da3a59d6340e4724ab4235760726cd20, type: 3}
   hp: 250
-  moveSpeed: 1.5
+  moveSpeed: 1
   minDamage: 14
   maxDamage: 28
   EC: 20
   isPassive: 0
-  attackRange: 0
+  attackRange: 3
   atkSpeed: 0.5
   bulletSpeed: 7
   bulletLifetime: 0.8
-  bulletType: {fileID: 0}
+  bulletType: {fileID: 11400000, guid: 6548f086089c4e642a3a9cb0bb0d0963, type: 2}
   moneyDrop: 39
   enemyType: 3
   enemyId: 6

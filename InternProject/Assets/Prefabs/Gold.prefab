@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6704513725513649589}
   - component: {fileID: 7304233900967785951}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3859351538150300007}
   - component: {fileID: 8001690957397888113}
   - component: {fileID: 2465117618948061993}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CoinPar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 8536812857730845763}
   - component: {fileID: 5510649864922785665}
   - component: {fileID: 5007775808106470335}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
