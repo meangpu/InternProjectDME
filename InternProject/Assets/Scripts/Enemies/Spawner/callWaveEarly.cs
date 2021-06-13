@@ -29,7 +29,6 @@ public class callWaveEarly : MonoBehaviour
         ShowDataNotMouse();
         yield return new WaitForSeconds(_wait);
         HideData();
-  
     }
 
     public void ClearOldData()
