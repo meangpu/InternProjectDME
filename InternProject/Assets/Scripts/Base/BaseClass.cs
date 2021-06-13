@@ -7,17 +7,11 @@ using TMPro;
 
 public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
 {
-    [System.Serializable]
-    public class BaseGun
-    {
-        public GameObject gunObj;
-        public Transform gunPos;
-    }
 
     [Header("BaseInfo")]
     public int maxHp;
     public int hp;
-    public BaseGun[] guns;
+
     [Header("HP")]
     public Slider sliderHealth;
     public TMP_Text textHp;
@@ -41,16 +35,9 @@ public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
     private void Awake() 
     {
         SetMaxHealth();
-        SetGun();
     }
 
-    private void SetGun()
-    {
-        foreach (var gun in guns)
-        {
-            Instantiate(gun.gunObj, gun.gunPos.position, Quaternion.identity);
-        }
-    }
+
 
     public void TakeDamage(int damage)
     {
