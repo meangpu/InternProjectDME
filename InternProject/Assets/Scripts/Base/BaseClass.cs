@@ -18,7 +18,6 @@ public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
     [SerializeField] GameManager gameManager;
 
 
-
     public void SetHealth(int health)
     {
         sliderHealth.value = health;
@@ -35,6 +34,14 @@ public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
     private void Awake() 
     {
         SetMaxHealth();
+    }
+
+    public float getPercentHp()
+    {
+        Debug.Log(hp);
+        Debug.Log(maxHp);
+        Debug.Log((float)hp/maxHp);
+        return ((float)hp/maxHp)*100;
     }
 
 

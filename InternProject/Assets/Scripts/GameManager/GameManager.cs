@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] camTarget camTarScript;
     float NowZoomValue = 20;
 
+    [Header("Victory")]
+    [SerializeField] starSetter starScpt;
+    [SerializeField] BaseClass baseScpt;
+
     // GameObject references
     private Player player;
     private BaseClass playerBase;
@@ -122,8 +126,28 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_waitTime);
 
+        starScpt.getStar(checkStar());
+
         winPanel.SetActive(true);
         PauseGame();
+    }
+
+    public int checkStar()
+    {
+        float basePercent = baseScpt.getPercentHp();
+        Debug.Log(basePercent);
+        if (basePercent >= 90f)
+        {
+            return 3;
+        }
+        else if (basePercent >= 50f)
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
     }
 
     public void CheckWhatCanBuy()
