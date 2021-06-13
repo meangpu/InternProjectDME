@@ -75,22 +75,40 @@ public class UIManager : MonoBehaviour
         tankImage.sprite = playerStats.GetTankSprite();
         gunImage.sprite = playerStats.GetGunSprite();
 
-        HandleTankLevelUp(playerStats.GetTankLevel());
-        HandleGunLevelUp(playerStats.GetGunLevel());
+        HandleTankLevelUp(playerStats.GetTankLevel(), playerStats.GetMaxLevel());
+        HandleGunLevelUp(playerStats.GetGunLevel(), playerStats.GetMaxLevel());
     }
 
-    private void HandleTankLevelUp(int level)
+    private void HandleTankLevelUp(int level, int maxLevel)
     {
         tankLevelText.text = $"LEVEL {level}";
-        tankUpgradeLevelText.text = $"LEVEL {playerStats.GetTankLevel() + 1}";
-        tankCostText.text = playerStats.GetTankUpgradeCost().ToString();
+
+        if (level == maxLevel)
+        {
+            tankUpgradeLevelText.text = "MAXED";
+            tankCostText.text = "-";
+        }
+        else
+        {
+            tankUpgradeLevelText.text = $"LEVEL {playerStats.GetTankLevel() + 1}";
+            tankCostText.text = playerStats.GetTankUpgradeCost().ToString();
+        }
     }
 
-    private void HandleGunLevelUp(int level)
+    private void HandleGunLevelUp(int level, int maxLevel)
     {
         gunLevelText.text = $"LEVEL {level}";
-        gunUpgradeLevelText.text = $"LEVEL {playerStats.GetGunLevel() + 1}";
-        gunCostText.text = playerStats.GetGunUpgradeCost().ToString();
+
+        if (level == maxLevel)
+        {
+            gunUpgradeLevelText.text = "MAXED";
+            gunCostText.text = "-";
+        }
+        else
+        {
+            gunUpgradeLevelText.text = $"LEVEL {playerStats.GetGunLevel() + 1}";
+            gunCostText.text = playerStats.GetGunUpgradeCost().ToString();
+        }
     }
 
     public void UpdateAmmoUI(int currentAmmo, int maxAmmo)

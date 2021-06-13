@@ -57,8 +57,8 @@ public class PlayerStats : MonoBehaviour
 
     // Events
     public event Action<int, int> OnAmmoUpdated;
-    public event Action<int> OnTankLeveledUp;
-    public event Action<int> OnGunLeveledUp;
+    public event Action<int, int> OnTankLeveledUp;
+    public event Action<int, int> OnGunLeveledUp;
     public event Action OnEnergyShieldDisabled;
     public event Action OnPlayerRespawned;
     
@@ -166,6 +166,8 @@ public class PlayerStats : MonoBehaviour
         movementSpeed = tank.GetMovementSpeed()[level];
         rotationSpeed = tank.GetRotationSpeed()[level];
 
+        if (tankLevel == TANK_MAX_LEVEL_LIMIT) { return; }
+
         tankUpgradeCost = tank.GetUpgradeCost()[level];
     }
 
@@ -187,6 +189,8 @@ public class PlayerStats : MonoBehaviour
         maxDamage = baseMaxDamage;
 
         bulletSpeed = turret.GetBulletSpeed()[level];
+
+        if (gunLevel == TANK_MAX_LEVEL_LIMIT) { return; }
 
         gunUpgradeCost = turret.GetUpgradeCost()[level];
     }
@@ -309,7 +313,13 @@ public class PlayerStats : MonoBehaviour
         tankLevel++;
         UpdateTankStats();
 
-        OnTankLeveledUp?.Invoke(tankLevel);
+        if (gameObject.activeInHierarchy)
+        {
+            healthSystem.Heal(10, HealthOrManaSystem.HealingType.Percentage);
+            energySystem.Heal(10, HealthOrManaSystem.HealingType.Percentage);
+        }
+
+        OnTankLeveledUp?.Invoke(tankLevel, TANK_MAX_LEVEL_LIMIT);
     }
 
     public void GunLevelUp()
@@ -320,8 +330,9 @@ public class PlayerStats : MonoBehaviour
 
         gunLevel++;
         UpdateGunStats();
+        UpdateAmmoUI();
 
-        OnGunLeveledUp?.Invoke(gunLevel);
+        OnGunLeveledUp?.Invoke(gunLevel, TANK_MAX_LEVEL_LIMIT);
     }
 
     public void SetIsImmuned(bool value)
@@ -357,6 +368,7 @@ public class PlayerStats : MonoBehaviour
 
     public int GetTankLevel() => tankLevel;
     public int GetGunLevel() => gunLevel;
+    public int GetMaxLevel() => TANK_MAX_LEVEL_LIMIT;
 
     public int GetMaxAmmoCount() => maxAmmoCount;
     public int GetCurrentAmmoCount() => currentAmmoCount;
