@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
         if (randomNumber > dropPercentage) { return; }
 
-        pooler.CollectiblePool.SpawnCollectible(transform.position, transform.rotation);
+        pooler.CollectiblePool.SpawnCollectible(transform.position, Quaternion.identity);
     }
 
     void SpawnInCircle(int spawnCount, int _id, ObjGold coin, float randomMax)
