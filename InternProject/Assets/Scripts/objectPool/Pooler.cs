@@ -210,7 +210,7 @@ public class Pooler : MonoBehaviour
         goldItem.GetComponent<Rigidbody2D>().AddForce(_direction * Random.Range(0.0001f, 0.0015f), ForceMode2D.Impulse);
     }
 
-    public void SpawnCollectible(Vector3 position, Quaternion rotation)
+    public void SpawnBasicObject(Vector3 position, Quaternion rotation)
     {
         GameObject collectible = SpawnObject();
         SetupObject(collectible, position, rotation);

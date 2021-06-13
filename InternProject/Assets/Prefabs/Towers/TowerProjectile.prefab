@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1139181902996810874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 5227027435735704612}
   m_Father: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -292204535
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -7835889539401369330, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4449747468917953033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.105, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1402, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
   m_Children: []
   m_Father: {fileID: 1139181902996810872}
@@ -260,9 +260,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0.25
-      minScalar: 5
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -314,7 +314,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
+      scalar: 4
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -430,7 +430,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
