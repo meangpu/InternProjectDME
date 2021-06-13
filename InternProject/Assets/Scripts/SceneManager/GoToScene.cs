@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GoToScene : MonoBehaviour
 {
-    private enum SceneName
-    {
-        mainmenu,
-        testScene
-    }
+    public string destination;
 
     public void ToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void selfGoToLevel()
+    {
+        if (destination != null)
+        {
+            SceneManager.LoadScene($"Level/{destination}");
+            Debug.Log($"Level/{destination}");
+        }
+        
     }
 }
