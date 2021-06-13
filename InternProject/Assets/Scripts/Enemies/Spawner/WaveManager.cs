@@ -187,6 +187,8 @@ public class WaveManager : MonoBehaviour
         }
 
         int _tempData = (int)countDown;
+        int goldGain = _tempData*2;  // get gold = 2*time remain
+
         countDown -= _tempData;
         textTimeBeforeNextWave.text = countDown.ToString("F0");
         if (isFirstWave)
@@ -194,8 +196,8 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        PlayerStats.Instance.AddGold(_tempData);
-        DamagePopup.Create(playerTrans.position, _tempData, DamagePopup.DamageType.Gold);
+        PlayerStats.Instance.AddGold(goldGain);
+        DamagePopup.Create(playerTrans.position, goldGain, DamagePopup.DamageType.Gold);
     }
 
 
