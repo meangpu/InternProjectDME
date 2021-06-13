@@ -71,7 +71,6 @@ public class EnemyDisplay : MonoBehaviour
         enemyType = enemy.GetEnemyType();
         enemyId = enemy.GetEnemyId();
 
-        Debug.Log(isPassive, this);
         enemyAI.Setup(isPassive, attackRange, enemyType);
     }
 
