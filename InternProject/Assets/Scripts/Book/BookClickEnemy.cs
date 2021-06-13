@@ -12,6 +12,13 @@ public class BookClickEnemy : MonoBehaviour
     public Slider hp;
     public Slider speed;
 
+    public ObjEnemy startEnemy;
+
+    private void Start() 
+    {
+        updateData(startEnemy);
+    }
+
 
     public void updateData(ObjEnemy _data)
     {

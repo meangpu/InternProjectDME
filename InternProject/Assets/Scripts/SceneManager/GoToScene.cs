@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GoToScene : MonoBehaviour
 {
+    private enum SceneName
+    {
+        mainmenu,
+        testScene
+    }
+
     public void ToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
