@@ -30,7 +30,6 @@ public class callWaveEarly : MonoBehaviour
         for (int i = 0; i < parentInfoTransform.childCount; i++)
         {
             if (i == 0) continue;  // ignor text 
-           
             Destroy(parentInfoTransform.GetChild(i).gameObject);
         }
     }

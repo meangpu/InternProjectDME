@@ -52,7 +52,7 @@ public class WaveManager : MonoBehaviour
         SetUp_MaxSlider(EnemyWaves.Length);
 
         // first Time Count down
-        countDown = 5;
+        countDown = 2;
 
         pooler = PoolingSingleton.Instance;
     }
@@ -112,14 +112,15 @@ public class WaveManager : MonoBehaviour
             {
                 StartCoroutine(SpawnWave());
                 countDown = EnemyWaves[waveindex].TimeBeforeNextWave;
+                CheckNextWave();
                 isFirstWave = false;
                 return;
             }
 		}
 
-        if (countDown <= EnemyWaves[waveindex].TimeBeforeNextWave * 0.25)
+        if (isFirstWave)
         {
-            CheckNextWave();
+            CheckFirstWave();
         }
 
         countDown -= Time.deltaTime;
@@ -182,7 +183,23 @@ public class WaveManager : MonoBehaviour
             pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ClearOldData();
             pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowData(pointToSpawn.EnemyList);
         } 
-      
+    }
+
+
+    private void CheckFirstWave()
+    {
+
+        if (waveindex+1 == EnemyWaves.Length)  // when it going to go outside index range 
+		{
+            return;
+        }
+        EnemyWave wave = EnemyWaves[waveindex];
+
+        foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
+        {
+            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ClearOldData();
+            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowData(pointToSpawn.EnemyList);
+        } 
 
     }
 
