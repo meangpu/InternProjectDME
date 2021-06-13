@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] TMP_Text textTimeBeforeNextWave;
 
     [Header("WaveInfo")]
+    [SerializeField] float showInfoForSec;
     [SerializeField] float timeBeforeWinPanel;
     [SerializeField] bool useRandom;
     private float countDown;
@@ -120,7 +121,7 @@ public class WaveManager : MonoBehaviour
 
         if (isFirstWave)
         {
-            CheckFirstWave();
+            CheckNextWave(0);
         }
 
         countDown -= Time.deltaTime;
@@ -170,38 +171,22 @@ public class WaveManager : MonoBehaviour
     }
 
 
-    private void CheckNextWave()
+    private void CheckNextWave(int aheadNum=1)
     {
         if (waveindex+1 == EnemyWaves.Length)  // when it going to go outside index range 
 		{
             return;
         }
-        EnemyWave wave = EnemyWaves[waveindex+1];
+        EnemyWave wave = EnemyWaves[waveindex+aheadNum];
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
             pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ClearOldData();
-            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowData(pointToSpawn.EnemyList);
+            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
+            StartCoroutine(pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
         } 
     }
 
-
-    private void CheckFirstWave()
-    {
-
-        if (waveindex+1 == EnemyWaves.Length)  // when it going to go outside index range 
-		{
-            return;
-        }
-        EnemyWave wave = EnemyWaves[waveindex];
-
-        foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
-        {
-            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ClearOldData();
-            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowData(pointToSpawn.EnemyList);
-        } 
-
-    }
 
     private void SpawnEnemy(ObjEnemy enemy, Transform spawnPos)
     {

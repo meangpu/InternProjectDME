@@ -91657,6 +91657,7 @@ MonoBehaviour:
   enemyLefttext: {fileID: 845682432}
   gameManager: {fileID: 493555991}
   textTimeBeforeNextWave: {fileID: 874195697}
+  showInfoForSec: 2.5
   timeBeforeWinPanel: 5
   useRandom: 0
   EnemyWaves:
@@ -91666,8 +91667,6 @@ MonoBehaviour:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
         count: 5
-      spawnPoint: {fileID: 760318818}
-    - EnemyList:
       - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
         count: 5
       spawnPoint: {fileID: 760318818}

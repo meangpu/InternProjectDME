@@ -8,14 +8,12 @@ public class callWaveEarly : MonoBehaviour
 {
     [SerializeField] GameObject infoPfb;
     [SerializeField] Transform parentInfoTransform;
-
     [SerializeField] Button mainButton;
 
 
-    public void ShowData(EnemyProbObj[] listOfEnemy)
+    public void SetData(EnemyProbObj[] listOfEnemy)
     {
         mainButton.interactable = true;
-        parentInfoTransform.gameObject.SetActive(true);
         foreach (var enemy in listOfEnemy)
         {
             var nowInfo = Instantiate(infoPfb, parentInfoTransform);
@@ -23,6 +21,14 @@ public class callWaveEarly : MonoBehaviour
             nowInfo.GetComponent<InfoSetter>().ShowData(enemy.enemy, enemy.count);
             
         }
+    }
+
+    public IEnumerator ShowDataForSec(float _wait)
+    {
+        parentInfoTransform.gameObject.SetActive(true);
+        yield return new WaitForSeconds(_wait);
+        parentInfoTransform.gameObject.SetActive(false);
+  
     }
 
     public void ClearOldData()
