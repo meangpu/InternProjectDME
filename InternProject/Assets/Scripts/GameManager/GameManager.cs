@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float zoomInMax;
     [SerializeField] float zoomOutMax;
     [SerializeField] camTarget camTarScript;
-    float NowZoomValue = 20;
+    float NowZoomValue = 15;
 
     [Header("Victory")]
     [SerializeField] starSetter starScpt;

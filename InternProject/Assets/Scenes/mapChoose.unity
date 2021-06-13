@@ -8237,7 +8237,7 @@ MonoBehaviour:
     levelLayout: {fileID: 21300000, guid: 3be7d8143addeef43a475f386c142b06, type: 3}
     levelDescription: The first level of this game help you to learn about basic
       of this game
-    sceneIndex: 2
+    sceneIndex: 3
   levelPanel: {fileID: 339334594}
 --- !u!1 &774082736
 GameObject:
@@ -23866,7 +23866,7 @@ MonoBehaviour:
     levelName: Tutorial
     levelLayout: {fileID: 21300000, guid: d4728f74e2fb8164a92d4df999b58a84, type: 3}
     levelDescription: this is level will teach you how to play this game
-    sceneIndex: 0
+    sceneIndex: 2
   levelPanel: {fileID: 339334594}
 --- !u!1 &1557211263
 GameObject:
