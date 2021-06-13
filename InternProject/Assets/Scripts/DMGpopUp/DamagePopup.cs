@@ -18,7 +18,8 @@ public class DamagePopup : MonoBehaviour
     public enum DamageType
     {
         Player,
-        Enemy
+        Enemy,
+        Gold
     }
 
     private void Awake() 
@@ -27,17 +28,24 @@ public class DamagePopup : MonoBehaviour
     }
 
     public void Setup(int damageAmount, DamageType type) {
-        textMesh.SetText(damageAmount.ToString());
         if (type == DamageType.Player) 
         {
             Color red = new Color(1, 0.28f, 0.28f, 1);
             textMesh.fontSize = 3;
             textColor = red;
+            textMesh.SetText(damageAmount.ToString());
         }
         else if (type == DamageType.Enemy)
         {
             textMesh.fontSize = 2;
             textColor = Color.white;
+            textMesh.SetText(damageAmount.ToString());
+        }
+        else if (type == DamageType.Gold)
+        {
+            textMesh.fontSize = 6;
+            textColor = Color.yellow;
+            textMesh.SetText($"+{damageAmount.ToString()} Golds");
         }
 
         textMesh.color = textColor;

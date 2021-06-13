@@ -201,6 +201,7 @@ public class Pooler : MonoBehaviour
         SetupObject(popup, position, rotation);
     }
 
+
     public void SpawnGold(Vector3 position, Quaternion rotation, ObjGold ObjGold, Vector3 _direction)
     {
         GameObject goldItem = SpawnObject();

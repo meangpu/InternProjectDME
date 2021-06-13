@@ -20,12 +20,13 @@ public class WaveManager : MonoBehaviour
     public TMP_Text enemyLefttext;
     [SerializeField] TMP_Text textTimeBeforeNextWave;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] GameObject firstWaveText;
 
     [Header("WaveInfo")]
     [SerializeField] callWaveEarly[] spawnPointList;
     [SerializeField] float showInfoForSec;
     [SerializeField] float timeBeforeWinPanel;
-    [SerializeField] bool useRandom;
+    [SerializeField] Transform playerTrans;
     private float countDown;
     public static List<Enemy> EnemyAlive = new List<Enemy>();
     public EnemyWave[] EnemyWaves;
@@ -122,6 +123,7 @@ public class WaveManager : MonoBehaviour
                 StartCoroutine(SpawnWave());
                 countDown = EnemyWaves[waveindex].TimeBeforeNextWave;
                 isFirstWave = false;
+                firstWaveText.SetActive(false);
 
                 return;
             }
@@ -184,10 +186,16 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        float _tempData = countDown;
+        int _tempData = (int)countDown;
         countDown -= _tempData;
-        // Debug.Log(_tempData);
         textTimeBeforeNextWave.text = countDown.ToString("F0");
+        if (isFirstWave)
+        {
+            return;
+        }
+
+        PlayerStats.Instance.AddGold(_tempData);
+        DamagePopup.Create(playerTrans.position, _tempData, DamagePopup.DamageType.Gold);
     }
 
 
