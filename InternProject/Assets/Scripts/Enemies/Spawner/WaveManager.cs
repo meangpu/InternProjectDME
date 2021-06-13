@@ -101,8 +101,10 @@ public class WaveManager : MonoBehaviour
 		{
             if (EnemyAlive.Count > 0)
             {
+                CheckNextWave(0);
                 return;
             }
+            
             // happen when enemy reach 0 and there no next wave
 			enabled = false;
             StartCoroutine(gameManager.LevelWon(timeBeforeWinPanel));
@@ -179,7 +181,7 @@ public class WaveManager : MonoBehaviour
 
     private void CheckNextWave(int aheadNum=1)
     {
-        if (waveindex+1 == EnemyWaves.Length)  // when it going to go outside index range 
+        if (waveindex+aheadNum == EnemyWaves.Length)  // when it going to go outside index range 
 		{
             return;
         }

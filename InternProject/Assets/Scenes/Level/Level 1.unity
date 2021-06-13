@@ -63384,6 +63384,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: point1
       objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1972452178}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: callNextWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WaveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
 --- !u!4 &760318818 stripped
@@ -88007,11 +88035,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.97
+      value: 11.74
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88048,6 +88076,34 @@ PrefabInstance:
     - target: {fileID: 5596684687550121567, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_Name
       value: point2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1972452178}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: callNextWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WaveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
