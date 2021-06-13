@@ -341,6 +341,7 @@ MonoBehaviour:
   isBoss: 0
   bossScript: {fileID: 0}
   anim: {fileID: 5686767698138400423}
+  dropPercentage: 1
 --- !u!95 &5686767698138400423
 Animator:
   serializedVersion: 3
@@ -438,8 +439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5298252095771945956}
+  spawnPoint2: {fileID: 0}
   enemy: {fileID: 5298252096397123446}
-  spawnHomingBullets: 0
+  ammoType: 0
 --- !u!114 &1455225754332492751
 MonoBehaviour:
   m_ObjectHideFlags: 0
