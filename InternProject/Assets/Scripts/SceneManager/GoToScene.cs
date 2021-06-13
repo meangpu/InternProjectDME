@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GoToScene : MonoBehaviour
 {
+    [HideInInspector]
     public string destination;
+    [HideInInspector]
+    public int sceneIndex;
 
     public void ToScene(string sceneName)
     {
@@ -19,6 +22,10 @@ public class GoToScene : MonoBehaviour
             SceneManager.LoadScene($"Level/{destination}");
             Debug.Log($"Level/{destination}");
         }
-        
+    }
+
+    public void goLevelByIndex()
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

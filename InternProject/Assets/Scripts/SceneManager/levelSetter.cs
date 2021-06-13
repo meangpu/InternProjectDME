@@ -11,6 +11,7 @@ public class LevelInfo
     public Sprite levelLayout;
     [TextArea(15, 20)]
     public string levelDescription;
+    public int sceneIndex;
 }
 
 public class levelSetter : MonoBehaviour

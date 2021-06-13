@@ -15,10 +15,11 @@ public class levelInfoPanel : MonoBehaviour
     public void setLevel(LevelInfo _info)
     {
         levelName.text = _info.levelName;
-        changeSceneScpt.destination = _info.levelName;
         levelImage.sprite = _info.levelLayout;
         levelDescription.text = _info.levelDescription;
         
+        changeSceneScpt.destination = _info.levelName;
+        changeSceneScpt.sceneIndex = _info.sceneIndex;
     }
 
 
