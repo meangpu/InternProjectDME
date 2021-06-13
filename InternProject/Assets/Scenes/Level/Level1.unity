@@ -63143,6 +63143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587b3d282d895ff47aa3416ad86a48f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destination: 
+  sceneIndex: 0
 --- !u!1 &499250144
 GameObject:
   m_ObjectHideFlags: 0
@@ -94700,7 +94702,7 @@ MonoBehaviour:
     TimeBeforeNextWave: 30
     EnemyAndPoint:
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 387dd56f9e0d8ad408f49bd8f955e267, type: 2}
+      - enemy: {fileID: 11400000, guid: 49d94a8959505744789de28aa0732634, type: 2}
         count: 5
       spawnPoint: {fileID: 760318818}
   - spawnRate: 1

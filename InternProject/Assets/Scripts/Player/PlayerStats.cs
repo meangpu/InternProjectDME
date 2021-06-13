@@ -39,6 +39,7 @@ public class PlayerStats : MonoBehaviour
     private int currentAmmoCount;
     private float reloadTime;
     private float movementSpeed;
+    private float baseMovementSpeed;
     private float rotationSpeed;
     private float bulletLifetime;
     private float bulletSpeed;
@@ -61,6 +62,7 @@ public class PlayerStats : MonoBehaviour
     public event Action<int, int> OnGunLeveledUp;
     public event Action OnEnergyShieldDisabled;
     public event Action OnPlayerRespawned;
+    public event Action OnMovementStatsChanged;
     
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
@@ -68,6 +70,8 @@ public class PlayerStats : MonoBehaviour
     private bool isImmuned = false;
     private bool incendiaryAmmoEnabled = false;
     private float damageBoostDuration = 0;
+    private bool speedBoostEnabled = false;
+    private float speedBoostDuration = 0;
 
     private void Awake()
     {
@@ -116,6 +120,7 @@ public class PlayerStats : MonoBehaviour
 
         RegenerateHealth(deltaTime);
         HandleDamageBoost(deltaTime);
+        HandleSpeedBoost(deltaTime);
 
         if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
 
@@ -163,7 +168,8 @@ public class PlayerStats : MonoBehaviour
         energyRegenRate = tank.GetEnergyRegenRate()[level];
         timePerEnergy = 1 / energyRegenRate;
 
-        movementSpeed = tank.GetMovementSpeed()[level];
+        baseMovementSpeed = tank.GetMovementSpeed()[level];
+        movementSpeed = baseMovementSpeed;
         rotationSpeed = tank.GetRotationSpeed()[level];
 
         if (tankLevel == TANK_MAX_LEVEL_LIMIT) { return; }
@@ -194,8 +200,6 @@ public class PlayerStats : MonoBehaviour
 
         gunUpgradeCost = turret.GetUpgradeCost()[level];
     }
-
-
 
     public void RespawnPlayer()
     {
@@ -289,6 +293,30 @@ public class PlayerStats : MonoBehaviour
         TryRemoveDamageBoost();
     }
 
+    public void AddSpeedBoost(float amount, float duration)
+    {
+        movementSpeed += amount;
+        speedBoostDuration = duration;
+        speedBoostEnabled = true;
+        OnMovementStatsChanged?.Invoke();
+    }
+
+    private void HandleSpeedBoost(float deltaTime)
+    {
+        if (!speedBoostEnabled) { return; }
+
+        speedBoostDuration -= Mathf.Max(speedBoostDuration - deltaTime, 0f);
+        TryRemoveSpeedBoost();
+    }
+
+    private void TryRemoveSpeedBoost()
+    {
+        if (speedBoostDuration != 0f || !speedBoostEnabled) { return; }
+
+        movementSpeed = baseMovementSpeed;
+        speedBoostEnabled = false;
+    }
+
     public void AddDamageBoost(float percentage, float duration)
     {
         minDamage = (int)(minDamage * percentage);
@@ -321,6 +349,7 @@ public class PlayerStats : MonoBehaviour
             energySystem.Heal(10, HealthOrManaSystem.HealingType.Percentage);
         }
 
+        OnMovementStatsChanged?.Invoke();
         OnTankLeveledUp?.Invoke(tankLevel, TANK_MAX_LEVEL_LIMIT);
     }
 

@@ -24,6 +24,7 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler bomberPlanePool = null;
     [SerializeField] private Pooler bombDropPool = null;
     [SerializeField] private Pooler mWingPool = null;
+    [SerializeField] private Pooler collectiblePool = null;
 
     public Pooler EnemyBulletPool 
     { 
@@ -92,6 +93,10 @@ public class PoolingSingleton : MonoBehaviour
     public Pooler MWingPool
     {
         get { return mWingPool; }
+    }
+    public Pooler CollectiblePool
+    {
+        get { return collectiblePool; }
     }
 
     private void Awake()

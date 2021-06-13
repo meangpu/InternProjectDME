@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         GetTankAttributes();
+
+        playerStats.OnMovementStatsChanged += GetTankAttributes;
     }
 
     private void FixedUpdate()
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        rb.velocity = new Vector2(transform.up.x, transform.up.y) * -moveDirection * movementSpeed;
+        rb.velocity = -moveDirection * movementSpeed * new Vector2(transform.up.x, transform.up.y);
     }
 
     public void RotateTank()
@@ -52,5 +54,10 @@ public class PlayerMovement : MonoBehaviour
     {
         movementSpeed = playerStats.GetMovementSpeed();
         rotationSpeed = playerStats.GetRotationSpeed();
+    }
+
+    private void OnDestroy()
+    {
+        playerStats.OnMovementStatsChanged -= GetTankAttributes;
     }
 }

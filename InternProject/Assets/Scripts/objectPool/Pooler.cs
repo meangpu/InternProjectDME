@@ -114,7 +114,6 @@ public class Pooler : MonoBehaviour
         deathPar.GetComponent<ParticleSystem>().Play();
     }
 
-
     public void SpawnEnemyBullet(Vector3 position, Quaternion rotation, int damage, float speed, float lifetime, ObjEnemyBullet _objBullet)
     {
         GameObject bullet = SpawnObject();
@@ -208,5 +207,11 @@ public class Pooler : MonoBehaviour
         goldItem.GetComponent<AssignGold>().SetGold(ObjGold);
         SetupObject(goldItem, position, rotation);
         goldItem.GetComponent<Rigidbody2D>().AddForce(_direction * Random.Range(0.0001f, 0.0015f), ForceMode2D.Impulse);
+    }
+
+    public void SpawnCollectible(Vector3 position, Quaternion rotation)
+    {
+        GameObject collectible = SpawnObject();
+        SetupObject(collectible, position, rotation);
     }
 }

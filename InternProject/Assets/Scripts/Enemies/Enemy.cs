@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     [SerializeField] bool isBoss;
     [SerializeField] Boss1 bossScript;
     [SerializeField] Animator anim;
+    [SerializeField] private float dropPercentage = 1f;
 
 
     bool Immortal = false;
@@ -104,6 +105,17 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         {
             SpawnInCircle(coinToSpawn.Count, i, coinToSpawn[i], 0.05f);
         }
+
+        TrySpawnCollectible();
+    }
+
+    private void TrySpawnCollectible()
+    {
+        float randomNumber = Random.Range(0f, 100f);
+
+        if (randomNumber > dropPercentage) { return; }
+
+        pooler.CollectiblePool.SpawnCollectible(transform.position, transform.rotation);
     }
 
     void SpawnInCircle(int spawnCount, int _id, ObjGold coin, float randomMax)

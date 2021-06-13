@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 3812315433506309224, guid: d48127dd5f82d1b4b9b815df7a4787ed, type: 3}
-  poolSize: 80
+  poolSize: 90
   expandAble: 1
   isRectTrans: 0
 --- !u!1 &3555647442654855342
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 1139181902996810874, guid: d957cacb60442ed4599f36926a6dfef2, type: 3}
-  poolSize: 12
+  poolSize: 10
   expandAble: 1
   isRectTrans: 0
 --- !u!1 &3555647442770511710
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 5992731775287544802, guid: 92aadede1e9907c40b603b6cdfbc0e6a, type: 3}
-  poolSize: 40
+  poolSize: 50
   expandAble: 1
   isRectTrans: 1
 --- !u!1 &3555647443026301944
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 8338263324132100305, guid: fe410beffa856824c9a9cbd4e2a8260d, type: 3}
-  poolSize: 120
+  poolSize: 90
   expandAble: 1
   isRectTrans: 0
 --- !u!1 &3555647443349304315
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 7606549492098215564, guid: df25f664f8ab708448c353ece46e267f, type: 3}
-  poolSize: 60
+  poolSize: 50
   expandAble: 1
   isRectTrans: 0
 --- !u!1 &3555647443379007764
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 5298252096397123443, guid: 3810c29ddc978534b8bcbd8e5f53a3b3, type: 3}
-  poolSize: 100
+  poolSize: 80
   expandAble: 1
   isRectTrans: 0
 --- !u!1 &3555647443383015503
@@ -499,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3170245626019568103}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3555647443470687239
 MonoBehaviour:
@@ -530,6 +530,7 @@ MonoBehaviour:
   bomberPlanePool: {fileID: 9098388466120181347}
   bombDropPool: {fileID: 5583392973471714851}
   mWingPool: {fileID: 1085272197886253699}
+  collectiblePool: {fileID: 4577162362507086118}
 --- !u!1 &3555647443801220844
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 5151974249297987578, guid: 3f3ebd5c353aef4409bea38413f1c8dd, type: 3}
-  poolSize: 5
+  poolSize: 2
   expandAble: 1
   isRectTrans: 0
 --- !u!1 &3808860079536235683
@@ -762,6 +763,7 @@ Transform:
   - {fileID: 4474790978897240116}
   - {fileID: 5614427367198760717}
   - {fileID: 5555535497005484931}
+  - {fileID: 8655238519975703341}
   - {fileID: 3555647443470687236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -904,6 +906,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 1680286329026153965, guid: 4effd126cca1250479e113e1abf1b480, type: 3}
+  poolSize: 15
+  expandAble: 1
+  isRectTrans: 0
+--- !u!1 &9032799257086142973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8655238519975703341}
+  - component: {fileID: 4577162362507086118}
+  m_Layer: 0
+  m_Name: PowerupPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8655238519975703341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032799257086142973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3170245626019568103}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4577162362507086118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032799257086142973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c26d1abc72a25408b270d5405b81b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 9057921583458857730, guid: 03c6043e87e7d5b4faa3c5e1da06d4fa, type: 3}
   poolSize: 15
   expandAble: 1
   isRectTrans: 0
