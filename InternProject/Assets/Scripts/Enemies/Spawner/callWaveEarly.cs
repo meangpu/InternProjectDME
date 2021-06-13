@@ -6,23 +6,39 @@ using TMPro;
 
 public class callWaveEarly : MonoBehaviour
 {
-    [SerializeField] GameObject parentInfo;
-    [SerializeField] TMP_Text enemyName;
-    [SerializeField] TMP_Text enemyCount;
-    [SerializeField] Image enemyImage;
+    [SerializeField] GameObject infoPfb;
+    [SerializeField] Transform parentInfoTransform;
 
-    // [HideInInspector]
-    public ObjEnemy nowEnemyObj;
-    [HideInInspector]
-    public int nowEnemyCount;
+    [SerializeField] Button mainButton;
 
 
-    public void ShowData()
+    public void ShowData(EnemyProbObj[] listOfEnemy)
     {
-        parentInfo.SetActive(true);
-        enemyImage.sprite = nowEnemyObj.GetSprite()[0];
-        enemyName.text = nowEnemyObj.GetName();
-        enemyCount.text = $"*{nowEnemyCount.ToString()}";
+        mainButton.interactable = true;
+        parentInfoTransform.gameObject.SetActive(true);
+        foreach (var enemy in listOfEnemy)
+        {
+            var nowInfo = Instantiate(infoPfb, parentInfoTransform);
+            nowInfo.transform.SetParent(parentInfoTransform);
+            nowInfo.GetComponent<InfoSetter>().ShowData(enemy.enemy, enemy.count);
+            
+        }
+    }
+
+    public void ClearOldData()
+    {
+        for (int i = 0; i < parentInfoTransform.childCount; i++)
+        {
+            if (i == 0) continue;  // ignor text 
+           
+            Destroy(parentInfoTransform.GetChild(i).gameObject);
+        }
+    }
+
+    public void HideData()
+    {
+        mainButton.interactable = false;
+        parentInfoTransform.gameObject.SetActive(false);
     }
 
 }

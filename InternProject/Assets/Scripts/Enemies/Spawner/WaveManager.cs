@@ -117,6 +117,11 @@ public class WaveManager : MonoBehaviour
             }
 		}
 
+        if (countDown <= EnemyWaves[waveindex].TimeBeforeNextWave * 0.25)
+        {
+            CheckNextWave();
+        }
+
         countDown -= Time.deltaTime;
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
         textTimeBeforeNextWave.text = countDown.ToString("F0");
@@ -149,9 +154,6 @@ public class WaveManager : MonoBehaviour
         {
             foreach (var enemy in pointToSpawn.EnemyList)
             {
-                pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().nowEnemyObj = enemy.enemy;
-                pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().nowEnemyCount = enemy.count;
-                
                 for (int i = 0; i < enemy.count; i++)
                 {
                     SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
@@ -163,6 +165,24 @@ public class WaveManager : MonoBehaviour
             }
         } 
         waveindex++;
+
+    }
+
+
+    private void CheckNextWave()
+    {
+        if (waveindex+1 == EnemyWaves.Length)  // when it going to go outside index range 
+		{
+            return;
+        }
+        EnemyWave wave = EnemyWaves[waveindex+1];
+
+        foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
+        {
+            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ClearOldData();
+            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowData(pointToSpawn.EnemyList);
+        } 
+      
 
     }
 
