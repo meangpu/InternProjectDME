@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eneImage: {fileID: 5996204292388103607}
   timeToRecoverFromStun: 5
+  enemyAI: {fileID: 357646261448459992}
   circleHp: {fileID: 1203445315743443537}
   parentHp: {fileID: 4239616382442133906}
 --- !u!114 &5298252096397123450

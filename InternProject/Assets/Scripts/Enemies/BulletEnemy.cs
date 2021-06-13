@@ -12,10 +12,17 @@ public class BulletEnemy : MonoBehaviour, IProjectile
     private float lifeTime;
     private bool isActivated = false;
 
+    private PoolingSingleton pooler;
+
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => 0; set => throw new System.NotImplementedException(); }
     public float Lifetime { get => lifeTime; set => lifeTime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
+
+    private void Start()
+    {
+        pooler = PoolingSingleton.Instance;
+    }
 
     private void OnEnable() 
     {
@@ -39,13 +46,15 @@ public class BulletEnemy : MonoBehaviour, IProjectile
 
     public void DestroySelf()
     {
+        pooler.BulletExplosion.SpawnBasicObject(transform.position, transform.rotation);
+
         if (isMissile)
         {
-            PoolingSingleton.Instance.EnemyMissilePool.ReturnObject(gameObject);
+            pooler.EnemyMissilePool.ReturnObject(gameObject);
         }
         else
         {
-            PoolingSingleton.Instance.EnemyBulletPool.ReturnObject(gameObject);
+            pooler.EnemyBulletPool.ReturnObject(gameObject);
         }
     }
 

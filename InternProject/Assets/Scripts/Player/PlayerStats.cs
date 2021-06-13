@@ -160,7 +160,7 @@ public class PlayerStats : MonoBehaviour
         int level = tankLevel - 1;
 
         healthSystem.SetNewMax(tank.GetHealth()[level]);
-        energySystem.SetNewMax(tank.GetHealth()[level]);
+        energySystem.SetNewMax(tank.GetEnergy()[level]);
 
         healthRegenRate = tank.GetHealthRegenRate()[level];
         timePerHealth = 1 / healthRegenRate;

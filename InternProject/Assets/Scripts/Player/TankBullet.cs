@@ -17,6 +17,8 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
 
     private bool isActivated = false;
 
+    private PoolingSingleton pooler;
+
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => knockback; set => knockback = value; }
     public float Lifetime { get => lifetime; set => lifetime = value; }
@@ -25,6 +27,10 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
 
     public Rigidbody2D GetRB() => rb;
 
+    private void Start()
+    {
+        pooler = PoolingSingleton.Instance;
+    }
 
     private void OnEnable()
     {
@@ -48,13 +54,15 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
 
     public void DestroySelf()
     {
+        pooler.BulletExplosion.SpawnBasicObject(transform.position, transform.rotation);
+
         if (!dealsAOEDamage)
         {
-            PoolingSingleton.Instance.PlayerBulletPool.ReturnObject(gameObject);
+            pooler.PlayerBulletPool.ReturnObject(gameObject);
         }
         else
         {
-            PoolingSingleton.Instance.HomingMissilePool.ReturnObject(gameObject);
+            pooler.HomingMissilePool.ReturnObject(gameObject);
         }
         
     }
