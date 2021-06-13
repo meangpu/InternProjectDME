@@ -195,6 +195,8 @@ public class PlayerStats : MonoBehaviour
         gunUpgradeCost = turret.GetUpgradeCost()[level];
     }
 
+
+
     public void RespawnPlayer()
     {
         Transform playerTank = gameObject.transform;
@@ -333,6 +335,50 @@ public class PlayerStats : MonoBehaviour
         UpdateAmmoUI();
 
         OnGunLeveledUp?.Invoke(gunLevel, TANK_MAX_LEVEL_LIMIT);
+    }
+    
+    public void GetNextLevelTankStats(out List<(bool, string)> statsList)
+    {
+        statsList = new List<(bool, string)>(6);
+        int currentLevel = tankLevel - 1;
+
+        int[] health = tank.GetHealth();
+        int healthNow = health[currentLevel];
+
+        float[] healthRegen = tank.GetHealthRegenRate();
+
+        int[] energy = tank.GetEnergy();
+        int energyNow = energy[currentLevel];
+
+        float[] energyRegen = tank.GetEnergyRegenRate();
+
+        float[] speed = tank.GetMovementSpeed();
+
+        float[] rotSpeed = tank.GetRotationSpeed();
+
+        if (tankLevel == TANK_MAX_LEVEL_LIMIT) 
+        {
+            statsList.Add((false, healthNow.ToString()));
+            statsList.Add((false, healthRegenRate.ToString()));
+            statsList.Add((false, energyNow.ToString()));
+            statsList.Add((false, energyRegenRate.ToString()));
+            statsList.Add((false, movementSpeed.ToString()));
+            statsList.Add((false, rotationSpeed.ToString()));
+        }
+        else
+        {
+            statsList.Add(healthNow == health[tankLevel] ? (false, healthNow.ToString()) : (true, $"{healthNow} > {health[tankLevel]}"));
+
+            statsList.Add(healthRegenRate == healthRegen[tankLevel] ? (false, healthRegenRate.ToString()) : (true, $"{healthRegenRate} > {healthRegen[tankLevel]}"));
+
+            statsList.Add(energyNow == energy[tankLevel] ? (false, energyNow.ToString()) : (true, $"{energyNow} > {energy[tankLevel]}"));
+
+            statsList.Add(energyRegenRate == energyRegen[tankLevel] ? (false, energyRegenRate.ToString()) : (true, $"{energyRegenRate} > {energyRegen[tankLevel]}"));
+
+            statsList.Add(movementSpeed == speed[tankLevel] ? (false, movementSpeed.ToString()) : (true, $"{movementSpeed} > {speed[tankLevel]}"));
+
+            statsList.Add(rotationSpeed == rotSpeed[tankLevel] ? (false, rotationSpeed.ToString()) : (true, $"{rotationSpeed} > {rotSpeed[tankLevel]}"));
+        }
     }
 
     public void SetIsImmuned(bool value)
