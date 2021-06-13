@@ -26563,6 +26563,18 @@ MonoBehaviour:
   reloadBar: {fileID: 124237219}
   tankNameText: {fileID: 1831799996}
   tankLevelText: {fileID: 677860219}
+  gunNameText: {fileID: 0}
+  gunLevelText: {fileID: 0}
+  respawnBar: {fileID: 0}
+  addOnDisplay: {fileID: 0}
+  bulletDisplay: {fileID: 0}
+  upgradePanel: {fileID: 0}
+  tankImage: {fileID: 0}
+  gunImage: {fileID: 0}
+  tankUpgradeLevelText: {fileID: 0}
+  gunUpgradeLevelText: {fileID: 0}
+  tankCostText: {fileID: 0}
+  gunCostText: {fileID: 0}
 --- !u!114 &124237219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26654,7 +26666,6 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   player: {fileID: 1056445400}
   threshold: 2
-  input: {fileID: 1583525043}
 --- !u!1 &253114024
 GameObject:
   m_ObjectHideFlags: 0
@@ -54324,8 +54335,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0298a1970c83c4f9a7b253dea33245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyModeCam: {fileID: 0}
+  isBuying: 0
+  respawnTime: 15
   gameOverPanel: {fileID: 1533023315}
   winPanel: {fileID: 1606726706}
+  zoomInMax: 0
+  zoomOutMax: 0
+  camTarScript: {fileID: 0}
+  starScpt: {fileID: 0}
+  baseScpt: {fileID: 0}
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0
@@ -54352,6 +54371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587b3d282d895ff47aa3416ad86a48f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destination: 
+  sceneIndex: 0
 --- !u!1 &501368538
 GameObject:
   m_ObjectHideFlags: 0
@@ -57057,6 +57078,18 @@ MonoBehaviour:
   enemyPool: {fileID: 1260280414}
   popUpPool: {fileID: 652422169}
   goldPool: {fileID: 123124304}
+  homingMissilePool: {fileID: 0}
+  enemyDeathPar: {fileID: 0}
+  towerMissilePool: {fileID: 0}
+  enemyBasicTankPool: {fileID: 0}
+  artilleryTankPool: {fileID: 0}
+  enemyMissilePool: {fileID: 0}
+  doomsdayTankPool: {fileID: 0}
+  spyPlanePool: {fileID: 0}
+  bomberPlanePool: {fileID: 0}
+  bombDropPool: {fileID: 0}
+  mWingPool: {fileID: 0}
+  collectiblePool: {fileID: 0}
 --- !u!1 &1291522958
 GameObject:
   m_ObjectHideFlags: 0
@@ -57834,17 +57867,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1583525043 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6596479384599892429, guid: 852568b80bf722645832f953e7d1d429, type: 3}
-  m_PrefabInstance: {fileID: 4789166324514989936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e570ce27fd4e64695dcf75aafd75f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1606726706
 GameObject:
   m_ObjectHideFlags: 0
@@ -57923,6 +57945,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606726706}
   m_CullTransparentMesh: 1
+--- !u!1001 &1610711092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598553, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
+      propertyPath: m_Name
+      value: Boss1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
 --- !u!1 &1682581329
 GameObject:
   m_ObjectHideFlags: 0
@@ -59262,21 +59341,19 @@ MonoBehaviour:
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
+  textTimeBeforeNextWave: {fileID: 0}
   gameManager: {fileID: 493555991}
-  enemyPool: {fileID: 1260280414}
+  spawnPointList: []
+  showInfoForSec: 0
   timeBeforeWinPanel: 2
   useRandom: 0
-  timeBeforeNextWave: 0
   EnemyWaves:
-  - EC: 900
-    spawnRate: 0.1
+  - spawnRate: 0.1
+    TimeBeforeNextWave: 0
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
-        enemyPfb: {fileID: 2799973023831598559, guid: 10075386afab69a47afdaff58e860c7f, type: 3}
-        isBoss: 1
         count: 1
-        prob: 1
       spawnPoint: {fileID: 716646180}
 --- !u!4 &1972452177
 Transform:

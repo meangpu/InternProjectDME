@@ -90,13 +90,12 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
-        if (!isFirstWave)
+
+
+        if (isFirstWave & countDown!=0)
         {
-            if (EnemyAlive.Count <= 0)
-            {
-                // if enemy all die before next wave
-                countDown = 0;
-            }
+            CheckNextWave(0, true);
+            return;
         }
 
 	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
@@ -192,7 +191,7 @@ public class WaveManager : MonoBehaviour
     }
 
 
-    private void CheckNextWave(int aheadNum=1)
+    private void CheckNextWave(int aheadNum=1, bool firstWave=false)
     {
         if (waveindex+aheadNum == EnemyWaves.Length)  // when it going to go outside index range 
 		{
@@ -207,7 +206,16 @@ public class WaveManager : MonoBehaviour
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
             pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
-            StartCoroutine(pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
+            
+            if (firstWave)
+            {
+                pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataNotMouse();
+            }
+            else
+            {
+                StartCoroutine(pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
+            }
+            
         } 
     }
 
