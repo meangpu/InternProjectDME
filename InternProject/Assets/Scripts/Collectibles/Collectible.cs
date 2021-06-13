@@ -11,6 +11,13 @@ public class Collectible : MonoBehaviour
     private CollectibleType collectibleType;
     private float value;
 
+    private Pooler pooler;
+
+    private void Start()
+    {
+        pooler = PoolingSingleton.Instance.BulletExplosion;
+    }
+
     private void OnEnable()
     {
         RandomizedCollectible();
@@ -26,7 +33,7 @@ public class Collectible : MonoBehaviour
 
     private void DestroySelf()
     {
-
+        pooler.ReturnObject(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
