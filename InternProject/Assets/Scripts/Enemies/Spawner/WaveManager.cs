@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] TMP_Text textTimeBeforeNextWave;
 
     [Header("WaveInfo")]
+    [SerializeField] callWaveEarly[] spawnPointList;
     [SerializeField] float showInfoForSec;
     [SerializeField] float timeBeforeWinPanel;
     [SerializeField] bool useRandom;
@@ -141,7 +142,6 @@ public class WaveManager : MonoBehaviour
                 _thisWaveCount += enemy.count;
             }
         }
-
         thisWaveCount = _thisWaveCount;
         return _thisWaveCount;
     }
@@ -167,7 +167,13 @@ public class WaveManager : MonoBehaviour
             }
         } 
         waveindex++;
+    }
 
+    public void callNextWave()
+    {
+        float _tempData = countDown;
+        countDown -= _tempData;
+        Debug.Log(_tempData);
     }
 
 
@@ -177,11 +183,16 @@ public class WaveManager : MonoBehaviour
 		{
             return;
         }
+
+        foreach (var spawnPoint in spawnPointList)
+        {
+            spawnPoint.ClearOldData();
+        }
+
         EnemyWave wave = EnemyWaves[waveindex+aheadNum];
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
-            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ClearOldData();
             pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
             StartCoroutine(pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
         } 

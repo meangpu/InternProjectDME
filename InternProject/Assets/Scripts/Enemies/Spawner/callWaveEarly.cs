@@ -9,6 +9,7 @@ public class callWaveEarly : MonoBehaviour
     [SerializeField] GameObject infoPfb;
     [SerializeField] Transform parentInfoTransform;
     [SerializeField] Button mainButton;
+    [SerializeField] GameObject TextTellCallEarly;
 
 
     public void SetData(EnemyProbObj[] listOfEnemy)
@@ -25,9 +26,9 @@ public class callWaveEarly : MonoBehaviour
 
     public IEnumerator ShowDataForSec(float _wait)
     {
-        parentInfoTransform.gameObject.SetActive(true);
+        ShowDataMouse();
         yield return new WaitForSeconds(_wait);
-        parentInfoTransform.gameObject.SetActive(false);
+        HideData();
   
     }
 
@@ -42,8 +43,27 @@ public class callWaveEarly : MonoBehaviour
 
     public void HideData()
     {
-        mainButton.interactable = false;
+        if (parentInfoTransform.childCount > 1)
+        {
+            mainButton.interactable = true;
+        }
+        else
+        {
+            mainButton.interactable = false;
+        }
+        TextTellCallEarly.SetActive(false);
         parentInfoTransform.gameObject.SetActive(false);
     }
+
+    public void ShowDataMouse()
+    {
+        if (parentInfoTransform.childCount > 1)
+        {
+            mainButton.interactable = true;
+            TextTellCallEarly.SetActive(true);
+            parentInfoTransform.gameObject.SetActive(true);
+        }
+    }
+
 
 }
