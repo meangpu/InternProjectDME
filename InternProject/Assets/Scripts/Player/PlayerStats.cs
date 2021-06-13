@@ -339,7 +339,6 @@ public class PlayerStats : MonoBehaviour
     
     public void GetNextLevelTankStats(out List<(bool, string)> statsList)
     {
-        statsList = new List<(bool, string)>(6);
         int currentLevel = tankLevel - 1;
 
         int[] health = tank.GetHealth();
@@ -356,28 +355,67 @@ public class PlayerStats : MonoBehaviour
 
         float[] rotSpeed = tank.GetRotationSpeed();
 
-        if (tankLevel == TANK_MAX_LEVEL_LIMIT) 
+        if (tankLevel == TANK_MAX_LEVEL_LIMIT)
         {
-            statsList.Add((false, healthNow.ToString()));
-            statsList.Add((false, healthRegenRate.ToString()));
-            statsList.Add((false, energyNow.ToString()));
-            statsList.Add((false, energyRegenRate.ToString()));
-            statsList.Add((false, movementSpeed.ToString()));
-            statsList.Add((false, rotationSpeed.ToString()));
+            statsList = new List<(bool, string)>
+            {
+                (false, healthNow.ToString()),
+                (false, healthRegenRate.ToString()),
+                (false, energyNow.ToString()),
+                (false, energyRegenRate.ToString()),
+                (false, movementSpeed.ToString()),
+                (false, rotationSpeed.ToString())
+            };
         }
         else
         {
-            statsList.Add(healthNow == health[tankLevel] ? (false, healthNow.ToString()) : (true, $"{healthNow} > {health[tankLevel]}"));
+            statsList = new List<(bool, string)>
+            {
+                healthNow == health[tankLevel] ? (false, healthNow.ToString()) : (true, $"{healthNow} > {health[tankLevel]}"),
+                healthRegenRate == healthRegen[tankLevel] ? (false, healthRegenRate.ToString()) : (true, $"{healthRegenRate} > {healthRegen[tankLevel]}"),
+                energyNow == energy[tankLevel] ? (false, energyNow.ToString()) : (true, $"{energyNow} > {energy[tankLevel]}"),
+                energyRegenRate == energyRegen[tankLevel] ? (false, energyRegenRate.ToString()) : (true, $"{energyRegenRate} > {energyRegen[tankLevel]}"),
+                movementSpeed == speed[tankLevel] ? (false, movementSpeed.ToString()) : (true, $"{movementSpeed} > {speed[tankLevel]}"),
+                rotationSpeed == rotSpeed[tankLevel] ? (false, rotationSpeed.ToString()) : (true, $"{rotationSpeed} > {rotSpeed[tankLevel]}")
+            };
+        }
+    }
 
-            statsList.Add(healthRegenRate == healthRegen[tankLevel] ? (false, healthRegenRate.ToString()) : (true, $"{healthRegenRate} > {healthRegen[tankLevel]}"));
+    public void GetNextLevelGunStats(out List<(bool, string)> statsList)
+    {
+        int[] minDamageList = turret.GetMinDamage();
 
-            statsList.Add(energyNow == energy[tankLevel] ? (false, energyNow.ToString()) : (true, $"{energyNow} > {energy[tankLevel]}"));
+        int[] maxDamageList = turret.GetMaxDamage();
 
-            statsList.Add(energyRegenRate == energyRegen[tankLevel] ? (false, energyRegenRate.ToString()) : (true, $"{energyRegenRate} > {energyRegen[tankLevel]}"));
+        int[] ammoCountList = turret.GetAmmoCount();
 
-            statsList.Add(movementSpeed == speed[tankLevel] ? (false, movementSpeed.ToString()) : (true, $"{movementSpeed} > {speed[tankLevel]}"));
+        float[] rateOfFireList = turret.GetRateOfFire();
 
-            statsList.Add(rotationSpeed == rotSpeed[tankLevel] ? (false, rotationSpeed.ToString()) : (true, $"{rotationSpeed} > {rotSpeed[tankLevel]}"));
+        float[] reloadSpeedList = turret.GetReloadTime();
+
+        float[] bulletSpeedList = turret.GetBulletSpeed();
+
+        if (gunLevel == TANK_MAX_LEVEL_LIMIT)
+        {
+            statsList = new List<(bool, string)>
+            {
+                (false, $"{minDamage}-{maxDamage}"),
+                (false, maxAmmoCount.ToString()),
+                (false, fireRate.ToString()),
+                (false, reloadTime.ToString()),
+                (false, bulletSpeed.ToString())
+            };
+        }
+        else
+        {
+            statsList = new List<(bool, string)>
+            {
+                maxDamage == maxDamageList[gunLevel] ? (false, $"{minDamage}-{maxDamage}") : (true, $"{minDamage}-{maxDamage} > {minDamageList[gunLevel]}-{maxDamageList[gunLevel]}"),
+                maxAmmoCount == ammoCountList[gunLevel] ? (false, maxAmmoCount.ToString()) : (true, $"{maxAmmoCount} > {ammoCountList[gunLevel]}"),
+                fireRate == rateOfFireList[gunLevel] ? (false, fireRate.ToString()) : (true, $"{fireRate} > {rateOfFireList[gunLevel]}"),
+                reloadTime == reloadSpeedList[gunLevel] ? (false, reloadTime.ToString()) : (true, $"{reloadTime} > {reloadSpeedList[gunLevel]}"),
+                bulletSpeed == bulletSpeedList[gunLevel] ? (false, bulletSpeed.ToString()) : (true, $"{bulletSpeed} > {bulletSpeedList[gunLevel]}")
+            };
         }
     }
 
