@@ -69,7 +69,16 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
     private void EnemyDie()
     {
-        pooler.ParticlesHumanDeathPool.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
+        switch (enemyDisplay.EnemyType)
+        {
+            default:
+                pooler.MachineExplosion.SpawnBasicObject(transform.position, transform.rotation);
+                break;
+            case EnemyType.Human:
+                pooler.ParticlesHumanDeathPool.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
+                break;
+        }
+        
         circleHp.fillAmount = 0;
         switch (enemyDisplay.EnemyId)
         {

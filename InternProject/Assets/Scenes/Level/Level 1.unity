@@ -94866,7 +94866,7 @@ MonoBehaviour:
     TimeBeforeNextWave: 30
     EnemyAndPoint:
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: b44118657b0458d429543e2a9d705410, type: 2}
+      - enemy: {fileID: 11400000, guid: 423aeb2caf946f740acb397057b80f00, type: 2}
         count: 5
       spawnPoint: {fileID: 760318818}
   - spawnRate: 1
