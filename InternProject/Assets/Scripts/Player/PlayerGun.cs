@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerGun : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerGun : MonoBehaviour
     private bool canShoot = true; // Check if the player can shoot between shots
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
+
+    public UnityEvent OnShoot;
 
     private void OnEnable()
     {
@@ -53,6 +56,8 @@ public class PlayerGun : MonoBehaviour
 
     private void SpawnBullet(float damageMultiplier = 1f, float speedMultiplier = 1f, int ammoUsed = 1)
     {
+        OnShoot?.Invoke();
+
         PoolingSingleton.Instance.PlayerBulletPool.SpawnPlayerBullet(
             barrel.position,
             barrel.rotation,
