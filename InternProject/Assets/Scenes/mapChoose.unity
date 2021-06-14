@@ -5840,6 +5840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blur Volume
       objectReference: {fileID: 0}
+    - target: {fileID: 2171257649050200097, guid: 3ffe5039233d4c04b8eddba81d95ccea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2171257649050200127, guid: 3ffe5039233d4c04b8eddba81d95ccea, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10342,7 +10346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &941982728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27014,7 +27018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157705421549550567, guid: 714c9484fc373484a8dc744a20bf8ca0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8157705421928281972, guid: 714c9484fc373484a8dc744a20bf8ca0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -27022,7 +27026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157705421928281972, guid: 714c9484fc373484a8dc744a20bf8ca0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 508
+      value: -31
       objectReference: {fileID: 0}
     - target: {fileID: 8157705421928281974, guid: 714c9484fc373484a8dc744a20bf8ca0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
