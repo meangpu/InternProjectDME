@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletEffects : MonoBehaviour
 {
     [SerializeField] private Animator animator = null;
+    [SerializeField] private GameObject effect = null;
 
     private void OnEnable()
     {
@@ -13,6 +14,6 @@ public class BulletEffects : MonoBehaviour
 
     public void DisableEffect()
     {
-        PoolingSingleton.Instance.BulletExplosion.ReturnObject(gameObject);
+        PoolingSingleton.Instance.BulletExplosion.ReturnObject(effect);
     }
 }
