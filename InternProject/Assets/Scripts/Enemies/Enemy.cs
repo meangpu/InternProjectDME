@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     [SerializeField] private float dropPercentage = 1f;
 
 
-    bool Immortal = false;
+    [SerializeField] bool Immortal = false;
 
     private WaveManager waveManager;
     private PoolingSingleton pooler;

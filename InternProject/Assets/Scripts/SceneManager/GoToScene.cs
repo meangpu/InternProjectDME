@@ -28,4 +28,9 @@ public class GoToScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void goLevelByIndexInt(int _sceneIndex)
+    {
+        SceneManager.LoadScene(_sceneIndex);
+    }
 }
