@@ -84198,6 +84198,14 @@ PrefabInstance:
       propertyPath: cooldownSystem
       value: 
       objectReference: {fileID: 1915690393}
+    - target: {fileID: 1552413962354763507, guid: 9d573cf88ae62184ab4aae5fa7e222e6, type: 3}
+      propertyPath: m_text
+      value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552413962354763507, guid: 9d573cf88ae62184ab4aae5fa7e222e6, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 1552413962684849677, guid: 9d573cf88ae62184ab4aae5fa7e222e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
