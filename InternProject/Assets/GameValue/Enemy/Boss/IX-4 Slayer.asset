@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
+  m_Name: IX-4 Slayer
+  m_EditorClassIdentifier: 
+  enemyName: IX-4 Slayer
+  des: 
+  artWork: []
+  hp: 2000
+  moveSpeed: 0.1
+  minDamage: 100
+  maxDamage: 200
+  isPassive: 0
+  attackRange: 20
+  atkSpeed: 0.5
+  bulletSpeed: 10
+  bulletLifetime: 4
+  bulletType: {fileID: 0}
+  moneyDrop: 0
+  enemyType: 2
+  enemyId: 2
+  FireSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  DeadSound:
+    name: 
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volumn: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

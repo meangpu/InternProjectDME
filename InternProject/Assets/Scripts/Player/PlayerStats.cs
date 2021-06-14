@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -63,7 +64,9 @@ public class PlayerStats : MonoBehaviour
     public event Action OnEnergyShieldDisabled;
     public event Action OnPlayerRespawned;
     public event Action OnMovementStatsChanged;
-    
+
+    public UnityEvent OnEnergyShieldActivated;
+
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
@@ -455,6 +458,7 @@ public class PlayerStats : MonoBehaviour
 
     private void HandleToggleEnergyShield()
     {
+        OnEnergyShieldActivated?.Invoke();
         energyShieldEnabled = !energyShieldEnabled;
 
         if (energyShieldEnabled) { return; }

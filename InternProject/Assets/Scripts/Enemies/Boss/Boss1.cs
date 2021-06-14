@@ -43,14 +43,6 @@ public class Boss1 : MonoBehaviour
         Gizmos.color = Color.red;
     }
 
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        if (other.TryGetComponent(out TankBullet bullet))
-        {
-            
-        }
-    }
     private IEnumerator OnDashCooldown()
     {
         yield return new WaitForSeconds(CoolDownBetweenDash);

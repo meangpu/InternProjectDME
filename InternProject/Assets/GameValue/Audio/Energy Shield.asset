@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
+  m_Name: Energy Shield
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 4d2703b00bb00bc4ea473e53c83e67aa, type: 3}
+  - {fileID: 8300000, guid: 97cdff53599f2e242b456ccb4b33e70a, type: 3}
+  - {fileID: 8300000, guid: 8d0d836c7cd4943419f296c2881e7dd4, type: 3}
+  - {fileID: 8300000, guid: e99a63e727f8e1849a646ac1a7a3b192, type: 3}
+  - {fileID: 8300000, guid: ed8853f5181117a468296027fad823ed, type: 3}

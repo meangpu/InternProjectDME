@@ -10,28 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9f3752801e41448ae73b384648ccc3, type: 3}
-  m_Name: FirstBoss
+  m_Name: Tolusin Falcon
   m_EditorClassIdentifier: 
-  enemyName: FirstBoss
+  enemyName: Tolusin Falcon
   des: The very first boss in this game, having special ability to dash quickly to
     avoid player bullet
   artWork:
-  - {fileID: 21300000, guid: 2d270476e645c9647b104938c8946288, type: 3}
-  hp: 200
-  moveSpeed: 2
-  minDamage: 6
-  maxDamage: 12
-  EC: 20
+  - {fileID: 21300000, guid: 0ab3290dba2834b49a6a3218847ed871, type: 3}
+  hp: 1000
+  moveSpeed: 1.5
+  minDamage: 36
+  maxDamage: 72
   isPassive: 0
-  attackRange: 0
+  attackRange: 4
   atkSpeed: 0.75
-  bulletSpeed: 0
-  bulletLifetime: 0
+  bulletSpeed: 8
+  bulletLifetime: 1
   bulletType: {fileID: 11400000, guid: 7aaa4c4a6cbf78e46aaeaf81c3cd99d9, type: 2}
-  moneyDrop: 50
-  enemyType: 0
+  moneyDrop: 0
+  enemyType: 3
   enemyId: 0
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

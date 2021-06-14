@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerAbilities : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class PlayerAbilities : MonoBehaviour
 
     public event Action OnTriggerEnergyShield;
 
+    public UnityEvent OnDashActivated;
+    public UnityEvent OnAutoLoaderActivated;
+    public UnityEvent OnBombActivated;
+    public UnityEvent OnElectrochargeActivated;
+    public UnityEvent OnHomingMissileActivated;
+    public UnityEvent OnEnergyOrbActivated;
+    public UnityEvent OnIncendiaryActivated;
     // ------------------- Events -----------------------
 
     private PlayerStats playerStats;
@@ -151,6 +159,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Dash(ComboType comboType, float speed, float duration)
     {
+        OnDashActivated?.Invoke();
         OnStartedDashing?.Invoke();
         rb.velocity = (Vector2)transform.up * -speed;
         anim.SetTrigger("dash");
@@ -241,6 +250,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void ActivateEnergyOrb(ComboType comboType, int damage, float range, float duration, float comboValue)
     {
+        OnEnergyOrbActivated?.Invoke();
         int energyPerHit = comboType == ComboType.EnergyDrainOrb ? (int)comboValue : 0;
 
         orb.SetActive(true);

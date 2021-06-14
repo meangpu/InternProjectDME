@@ -14,7 +14,6 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private float moveSpeed;
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
-    [SerializeField] private int EC;
     [SerializeField] private bool isPassive;
     [SerializeField] private float attackRange;
     [Tooltip("how many attack per second")]
@@ -25,7 +24,6 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private int moneyDrop;
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private EnemyId enemyId;
-    [SerializeField] private bool isFlying;
     [SerializeField] Sound FireSound;
     [SerializeField] Sound DeadSound;
 
@@ -37,7 +35,6 @@ public class ObjEnemy : ScriptableObject
     public float GetMovementSpeed() => moveSpeed;
     public int GetMinDamage() => minDamage;
     public int GetMaxDamage() => maxDamage;
-    public int GetEC() => EC;
     public bool GetIsPassive() => isPassive;
     public float GetAttackRange() => attackRange;
     public float GetAtkSpeed() => atkSpeed;
@@ -47,7 +44,6 @@ public class ObjEnemy : ScriptableObject
     public ObjEnemyBullet GetBulletType() => bulletType;
     public EnemyType GetEnemyType() => enemyType;
     public EnemyId GetEnemyId() => enemyId;
-    public bool GetIsFlying() => isFlying;
     public Sound GetFireSound() => FireSound;
     public Sound GetDeadSound() => DeadSound;
 
