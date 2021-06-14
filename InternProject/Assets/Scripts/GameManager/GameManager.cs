@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera buyModeCam;
     public bool isBuying;
     [SerializeField] private float respawnTime = 15f;
+    [SerializeField] private GameObject pausePanel = null;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     public event Action OnCheckWhatCanBuy;
 
     private float respawnTimeRemaining = 0f;
+    private bool isPaused = false;
 
     private PlayerControls playerControls;
 
@@ -59,6 +61,8 @@ public class GameManager : MonoBehaviour
     {
         DisableZoom();
         ResumeGame();
+
+        playerControls.Menu.Pause.performed += _ => HandlePause();
     }
 
     private void Update()
@@ -112,14 +116,33 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    public void PauseGame()
+    private void HandlePause()
     {
-        Time.timeScale = 0;
+        switch (isPaused)
+        {
+            case true:
+                ResumeGame();
+                return;
+            case false:
+                PauseGame();
+                return;
+        }
     }
 
-    public void ResumeGame()
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        isPaused = true;
+        pausePanel.SetActive(true);
+        DisableAllControls();
+    }
+
+    private void ResumeGame()
     {
         Time.timeScale = 1;
+        isPaused = false;
+        pausePanel.SetActive(false);
+        EnableAllControls();
     }
 
     public IEnumerator LevelWon(float _waitTime)
@@ -192,6 +215,18 @@ public class GameManager : MonoBehaviour
     private void EnableZoom()
     {
         playerControls.BuyMenu.Zoom.Enable();
+    }
+
+    private void EnableAllControls()
+    {
+        playerControls.Tank.Enable();
+        playerControls.BuyMenu.Enable();
+    }
+
+    private void DisableAllControls()
+    {
+        playerControls.Tank.Disable();
+        playerControls.BuyMenu.Disable();
     }
 
     public Player GetPlayer() => player;

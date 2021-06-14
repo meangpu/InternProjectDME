@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
   m_Name: Incendiary Ammo
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 4f9a6e7a6fb9a2a41892cb3e62c35bbc, type: 3}
