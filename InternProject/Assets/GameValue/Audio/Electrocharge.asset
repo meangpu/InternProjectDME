@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
   m_Name: Electrocharge
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: d0ffddd67ad0f2547a56ae4e11d42e45, type: 3}
