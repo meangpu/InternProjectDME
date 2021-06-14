@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 9ac8ae9c52f34734d8fd05f2a65c29b5, type: 3}
+  - {fileID: 8300000, guid: b77b3d598872bcb4d92930f4cc10935b, type: 3}

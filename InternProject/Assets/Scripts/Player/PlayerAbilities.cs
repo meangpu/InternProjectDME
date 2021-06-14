@@ -184,6 +184,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Bomb(ComboType comboType, float range, int damage, float comboRange)
     {
+        OnBombActivated?.Invoke();
         bool isEMP = false;
 
         if (comboType != ComboType.UpgradedMissile) // Avoid conflicts with Homing Missile + Bomb combo
@@ -211,6 +212,8 @@ public class PlayerAbilities : MonoBehaviour
 
     private void LaunchHomingMissile(ComboType comboType, int damage, float range, float duration, float comboValue)
     {
+        OnHomingMissileActivated?.Invoke();
+
         range = comboType == ComboType.UpgradedMissile ? comboValue : range;
 
         PoolingSingleton.Instance.HomingMissilePool.SpawnPlayerMissile(transform.position, transform.rotation, damage, playerStats.GetBulletSpeed(), range, duration);
@@ -223,11 +226,14 @@ public class PlayerAbilities : MonoBehaviour
 
     private void FastReload(float percentage)
     {
+        OnAutoLoaderActivated?.Invoke();
         StartCoroutine(playerGun.Reload(percentage));
     }
 
     private void ActivateIncendiary(ComboType comboType, float duration, float percentage, float comboValue)
     {
+        OnIncendiaryActivated?.Invoke();
+
         percentage = comboType == ComboType.IncendiaryCharge ? comboValue : percentage;
 
         float normalizedPercentage = (100 + percentage) / 100;
@@ -237,6 +243,8 @@ public class PlayerAbilities : MonoBehaviour
 
     private void ActivateElectrocharge(float range, float duration, float percentage)
     {
+        OnElectrochargeActivated?.Invoke();
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
 
         foreach (Collider2D collider in enemies)

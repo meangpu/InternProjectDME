@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
   m_Name: Auto Loader
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: da97b4a3011f7ee44ad2ee37a13dd6a1, type: 3}
+  - {fileID: 8300000, guid: 3dd065c10d0d44c4491d3cc78f383793, type: 3}

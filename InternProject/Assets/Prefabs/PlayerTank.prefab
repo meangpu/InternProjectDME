@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958e614f787bf6428bd8ac46b7ee7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objSound: {fileID: 11400000, guid: b5c11fa0d3552a5469c17c7b982d4a2a, type: 2}
+  objSound: {fileID: 11400000, guid: 1614e390cb9cf3449a42cfe815fac707, type: 2}
   audioSource: {fileID: 4086440860057493854}
 --- !u!1 &1033317240990428327
 GameObject:
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958e614f787bf6428bd8ac46b7ee7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objSound: {fileID: 0}
+  objSound: {fileID: 11400000, guid: 2a50ac5620f85654b9c7b5aceff398bd, type: 2}
   audioSource: {fileID: 4006749453728542231}
 --- !u!1 &1561754771103767687
 GameObject:
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958e614f787bf6428bd8ac46b7ee7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objSound: {fileID: 11400000, guid: b5c11fa0d3552a5469c17c7b982d4a2a, type: 2}
+  objSound: {fileID: 11400000, guid: 28db3a39a3abe074dba0a45aadc13901, type: 2}
   audioSource: {fileID: 5195181776871501270}
 --- !u!1 &2843270615581311636
 GameObject:
@@ -509,7 +509,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.2
-  m_Pitch: 1
+  m_Pitch: 0.75
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958e614f787bf6428bd8ac46b7ee7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objSound: {fileID: 11400000, guid: b5c11fa0d3552a5469c17c7b982d4a2a, type: 2}
+  objSound: {fileID: 11400000, guid: 8836bd49607ad0745bd7900cb6242c46, type: 2}
   audioSource: {fileID: 7510751947798143467}
 --- !u!1 &3066317339761147894
 GameObject:
@@ -792,13 +792,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 2
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 150
+  Priority: 180
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958e614f787bf6428bd8ac46b7ee7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objSound: {fileID: 11400000, guid: b5c11fa0d3552a5469c17c7b982d4a2a, type: 2}
+  objSound: {fileID: 11400000, guid: 607362907f1ed3a4a8a9aeb6a649a450, type: 2}
   audioSource: {fileID: 6244667056289823314}
 --- !u!1 &3904214674013669592
 GameObject:
@@ -908,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3556456487860225736
 Transform:
   m_ObjectHideFlags: 0
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958e614f787bf6428bd8ac46b7ee7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objSound: {fileID: 11400000, guid: b5c11fa0d3552a5469c17c7b982d4a2a, type: 2}
+  objSound: {fileID: 11400000, guid: 340d70b254e28c549a3a21d68f7cc4d3, type: 2}
   audioSource: {fileID: 6408336494200814263}
 --- !u!1 &8465909232817111861
 GameObject:

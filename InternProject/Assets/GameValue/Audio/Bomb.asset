@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: f3d486b536908234bbceb4315772401b, type: 3}
+  - {fileID: 8300000, guid: 2284bfb9e02f7924ba2027cd3ceb2a0c, type: 3}
