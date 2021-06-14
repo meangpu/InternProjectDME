@@ -29,6 +29,7 @@ public class PlayerAbilities : MonoBehaviour
     public UnityEvent OnHomingMissileActivated;
     public UnityEvent OnEnergyOrbActivated;
     public UnityEvent OnIncendiaryActivated;
+    public UnityEvent OnEmptyActivated;
     // ------------------- Events -----------------------
 
     private PlayerStats playerStats;
@@ -86,6 +87,7 @@ public class PlayerAbilities : MonoBehaviour
         switch (abilityType)
         {
             case AbilityType.Empty:
+                OnEmptyActivated?.Invoke();
                 break;
             case AbilityType.AutoLoader:
                 FastReload(ability.GetPercentage());
