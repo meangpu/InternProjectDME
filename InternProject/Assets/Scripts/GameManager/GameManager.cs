@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System;
 using Cinemachine;
 
@@ -67,8 +65,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
-
         CheckZoom();
 
         if (respawnTimeRemaining == 0f) { return; }
@@ -149,16 +145,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_waitTime);
 
-        starScpt.getStar(checkStar());
+        starScpt.getStar(CheckStar());
 
         winPanel.SetActive(true);
         PauseGame();
     }
 
-    public int checkStar()
+    private int CheckStar()
     {
         float basePercent = baseScpt.getPercentHp();
-        Debug.Log(basePercent);
         if (basePercent >= 90f)
         {
             return 3;
