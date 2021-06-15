@@ -51,7 +51,7 @@ public class PlayerGun : MonoBehaviour
 
         if (!canShoot) { return; }
 
-        SpawnBullet(1.5f, 2f, 2);
+        SpawnBullet(2.3f, 2.5f, 2);
     }
 
     private void SpawnBullet(float damageMultiplier = 1f, float speedMultiplier = 1f, int ammoUsed = 1)
@@ -66,7 +66,7 @@ public class PlayerGun : MonoBehaviour
             playerStats.GetBulletLifetime(),
             playerStats.GetKnockbackValue(),
             playerStats.GetBulletType());
-        StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots(), ammoUsed));
+        StartCoroutine(StartShootCooldown(playerStats.GetCoolDownBetweenShots() * 1.5f, ammoUsed));
     }
 
     public void OnHoldShootButton() // If shoot button is held down.
