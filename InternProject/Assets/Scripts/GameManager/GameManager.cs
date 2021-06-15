@@ -17,10 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject winPanel;
 
+    [Header("CameraControl")]
     [SerializeField] float zoomInMax;
     [SerializeField] float zoomOutMax;
     [SerializeField] camTarget camTarScript;
-    float NowZoomValue = 15;
+    [SerializeField]float NowZoomValue = 15;
 
     [Header("Victory")]
     [SerializeField] starSetter starScpt;
