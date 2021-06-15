@@ -66,6 +66,7 @@ public class PlayerStats : MonoBehaviour
     public event Action OnMovementStatsChanged;
 
     public UnityEvent OnEnergyShieldActivated;
+    public UnityEvent OnGoldCollected;
 
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
@@ -276,6 +277,7 @@ public class PlayerStats : MonoBehaviour
     public void AddGold(int goldToAdd)
     {
         goldSystem.AddGold(goldToAdd);
+        OnGoldCollected?.Invoke();
     }
 
     public bool SpendGold(int goldUsed)
