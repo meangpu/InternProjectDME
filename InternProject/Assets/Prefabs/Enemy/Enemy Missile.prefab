@@ -34,6 +34,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8232353531178655584, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 207739d9763997f4ebf9910707b32c5f, type: 2}
     - target: {fileID: 8232353531280522004, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
       propertyPath: m_Name
       value: Enemy Missile
