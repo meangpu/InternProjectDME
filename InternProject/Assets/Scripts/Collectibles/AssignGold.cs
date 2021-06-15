@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AssignGold : MonoBehaviour
@@ -16,7 +14,6 @@ public class AssignGold : MonoBehaviour
         {
             SetGold(ObjGold);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
