@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CollectGold
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 07bed8d5d9857374ba6b04df9e993193, type: 3}
+  - {fileID: 8300000, guid: f98d736658e00984f89b11a226b36ebc, type: 3}
