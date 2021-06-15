@@ -26,6 +26,7 @@ public class Collectible : MonoBehaviour
         collectible = collectibles[Random.Range(0, collectibles.Length)];
         collectibleType = collectible.GetCollectibleType();
         spriteRenderer.sprite = collectible.GetSprite();
+        spriteRenderer.material = collectible.GetMaterial();
         value = collectible.GetValue();
     }
 
