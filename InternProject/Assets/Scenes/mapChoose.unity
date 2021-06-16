@@ -8504,8 +8504,8 @@ MonoBehaviour:
   thisLevelInfo:
     levelName: Level1
     levelLayout: {fileID: 21300000, guid: 3be7d8143addeef43a475f386c142b06, type: 3}
-    levelDescription: The first level of this game help you to learn about basic
-      of this game
+    levelDescription: The <color=yellow>first level</color> of this game help you
+      to learn about basic of this game
     sceneIndex: 3
   levelPanel: {fileID: 339334594}
 --- !u!1 &774082736
@@ -26237,9 +26237,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisLevelInfo:
     levelName: Level2
-    levelLayout: {fileID: 21300000, guid: 3be7d8143addeef43a475f386c142b06, type: 3}
-    levelDescription: The first level of this game help you to learn about basic
-      of this game
+    levelLayout: {fileID: 21300000, guid: 8ae35f3ef0139e2498a76d38ce625bbd, type: 3}
+    levelDescription: 'The second  level of this game.
+
+      have increase in difficulity'
     sceneIndex: 4
   levelPanel: {fileID: 339334594}
 --- !u!114 &1764637197
