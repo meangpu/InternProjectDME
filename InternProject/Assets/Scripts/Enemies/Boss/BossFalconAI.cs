@@ -18,7 +18,7 @@ public class BossFalconAI : MonoBehaviour
         playerBase = GameObject.FindGameObjectWithTag("Base").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        GetComponent<EnemyShoot>().StartShooting();
+        // GetComponent<EnemyShoot>().StartShooting();
 
         currentTarget = player;
     }
@@ -43,14 +43,14 @@ public class BossFalconAI : MonoBehaviour
     {
         if (player.gameObject.activeInHierarchy)
         {
-            if (targetPlayer) { return; }
+            if (!targetPlayer) { return; }
 
             currentTarget = player;
             targetPlayer = false;
         }
         else
         {
-            if (!targetPlayer) { return; }
+            if (targetPlayer) { return; }
 
             currentTarget = playerBase;
             targetPlayer = true;

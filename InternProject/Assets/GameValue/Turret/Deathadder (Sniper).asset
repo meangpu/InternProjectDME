@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Deathadder (Sniper)
   m_EditorClassIdentifier: 
   turretName: Deathadder Turret
-  description: A sniper turret that deals high damage and high knockback power.
+  description: A sniper turret that deals high damage and meedium knockback power.
   artworks: {fileID: 2694833132498758970, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 0f0000001400000019000000
   maxDamage: 1e0000002800000032000000
-  ammoCount: 050000000700000009000000
+  ammoCount: 080000000c00000010000000
   rateOfFire:
-  - 0.75
-  - 0.8
-  - 0.85
+  - 1
+  - 1.1
+  - 1.25
   reloadTime:
   - 3
   - 2.9
@@ -31,6 +31,6 @@ MonoBehaviour:
   - 16
   - 18
   lifetime: 1
-  knockBack: 0
+  knockBack: 0.2
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}
   upgradeCost: f000000022010000

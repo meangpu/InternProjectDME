@@ -28,6 +28,8 @@ public class EnemyShoot : MonoBehaviour
     {
         pooler = PoolingSingleton.Instance;
 
+        Setup();
+
         switch (ammoType)
         {
             default:
@@ -35,13 +37,12 @@ public class EnemyShoot : MonoBehaviour
             case AmmoType.Alternate:
                 canShoot = true;
                 return;
-        }
+        } 
     }
 
     private void OnEnable()
     {
-        waitTime = 1 / enemy.AtkSpeed;
-        timeCounter = 0f; 
+        Setup();
     }
 
     private void Update()
@@ -82,6 +83,12 @@ public class EnemyShoot : MonoBehaviour
                 return;
         }
 
+    }
+
+    private void Setup()
+    {
+        waitTime = 1 / enemy.AtkSpeed;
+        timeCounter = 0f;
     }
 
     public void StartShooting()

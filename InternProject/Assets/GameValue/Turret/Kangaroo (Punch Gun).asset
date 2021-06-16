@@ -19,11 +19,11 @@ MonoBehaviour:
   artworks: {fileID: 3548006178179732893, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 0a0000000f00000014000000
   maxDamage: 140000001e00000028000000
-  ammoCount: 030000000400000005000000
+  ammoCount: 0a0000000c0000000e000000
   rateOfFire:
-  - 1
-  - 1
-  - 1
+  - 1.1
+  - 1.1
+  - 1.1
   reloadTime:
   - 1.5
   - 1.3
@@ -33,6 +33,6 @@ MonoBehaviour:
   - 21
   - 22
   lifetime: 0.5
-  knockBack: 0
+  knockBack: 0.4
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}
   upgradeCost: e600000018010000

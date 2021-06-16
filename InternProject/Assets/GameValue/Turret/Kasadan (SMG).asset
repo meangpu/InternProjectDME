@@ -17,7 +17,7 @@ MonoBehaviour:
   artworks: {fileID: 1881840942919325139, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 040000000600000008000000
   maxDamage: 0a0000000e00000012000000
-  ammoCount: 0a0000000c0000000f000000
+  ammoCount: 0f0000001200000015000000
   rateOfFire:
   - 2.4
   - 2.5

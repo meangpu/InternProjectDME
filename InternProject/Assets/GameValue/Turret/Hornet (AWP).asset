@@ -17,11 +17,11 @@ MonoBehaviour:
   artworks: {fileID: 5381782425568947816, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 1e0000002d0000003c000000
   maxDamage: 280000003c00000050000000
-  ammoCount: 040000000500000006000000
+  ammoCount: 06000000080000000a000000
   rateOfFire:
-  - 0.4
-  - 0.5
-  - 0.6
+  - 0.8
+  - 0.9
+  - 1
   reloadTime:
   - 3.5
   - 3.3

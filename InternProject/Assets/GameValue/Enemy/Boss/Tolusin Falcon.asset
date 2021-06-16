@@ -29,7 +29,7 @@ MonoBehaviour:
   bulletType: {fileID: 11400000, guid: 7aaa4c4a6cbf78e46aaeaf81c3cd99d9, type: 2}
   moneyDrop: 0
   enemyType: 4
-  enemyId: 0
+  enemyId: 6
   FireSound:
     name: 
     clip: {fileID: 0}
