@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        PauseGame();
+        stopGame();
         gameOverPanel.SetActive(true);
     }
 
@@ -134,6 +134,14 @@ public class GameManager : MonoBehaviour
         DisableAllControls();
     }
 
+    void stopGame()
+    {
+        // no open ui option
+        Time.timeScale = 0;
+        isPaused = true;
+        DisableAllControls();
+    }
+
     private void ResumeGame()
     {
         Time.timeScale = 1;
@@ -149,7 +157,7 @@ public class GameManager : MonoBehaviour
         starScpt.getStar(CheckStar());
 
         winPanel.SetActive(true);
-        PauseGame();
+        stopGame();
     }
 
     private int CheckStar()
