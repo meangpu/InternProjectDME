@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss1 : MonoBehaviour
 {
-    
+    [SerializeField] private LayerMask playerBulletLayer;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float dashSpeed;
     [SerializeField] float CoolDownBetweenDash;
@@ -12,16 +12,21 @@ public class Boss1 : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Material secondFormMat;
     [SerializeField] float secondFormDashCdMultiplyer;
+    [SerializeField] private float bulletDetectionDistance = 2.5f;
     public bool isSecondForm;
     bool canDash = true;
 
-    public void warnBoss(GameObject _bossObj)
+    private void WarnBoss()
     {
-        var allBullet = GameObject.FindGameObjectsWithTag("PlayerBullet");
-        foreach (var bullet in allBullet)
+        Collider2D[] allBullet = Physics2D.OverlapCircleAll(transform.position, bulletDetectionDistance, playerBulletLayer);
+
+        if (allBullet.Length < 1) { return; }
+
+        Dash();
+        /*foreach (Collider2D bullet in allBullet)
         {
             TankBullet bulScript = bullet.GetComponent<TankBullet>();
-            Vector2  bulletDirection = (bulScript.GetRB().velocity).normalized;
+            Vector2 bulletDirection = (bulScript.GetRB().velocity).normalized;
             float projectionDistance = 0.4f;
 
             Vector2 BulletStartLine = (Vector2)bullet.transform.position + (Vector2)bullet.transform.up*projectionDistance;
@@ -35,7 +40,7 @@ public class Boss1 : MonoBehaviour
                 Dash(bulletDirection);
             }
 
-        }
+        }*/
     }
 
     private void OnDrawGizmos() 
@@ -54,26 +59,19 @@ public class Boss1 : MonoBehaviour
     private void FixedUpdate() 
     {
         if (!canDash) { return; }
-        // warnBoss(gameObject);
+
+        WarnBoss();
 
         // DashForward();
     }
 
-    void Dash(Vector2 direction)
+    private void Dash(/*Vector2 direction*/)
     {   
         if (!canDash) { return; }
-
-        int ranDir;
-        if (Random.value > 0.5f)
-        {
-            ranDir = 1;
-        }
-        else
-        {
-            ranDir = -1;
-        }
         
-        Quaternion rotation = Quaternion.Euler(0, 1, 90 * ranDir);  // create 90 degree rotation
+        Vector2 direction = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized;
+
+        Quaternion rotation = Quaternion.Euler(0, 1, Random.Range(0, 360));  // create 90 degree rotation
         Vector3 dodgeVector = rotation * direction;
         transform.position = transform.position + dodgeVector * dashSpeed;
         animator.SetTrigger("Dash");
@@ -83,7 +81,7 @@ public class Boss1 : MonoBehaviour
         StartCoroutine(OnDashCooldown());
     }
 
-    void DashForward()
+    private void DashForward()
     {
         if (!canDash) { return; }
 
@@ -105,7 +103,5 @@ public class Boss1 : MonoBehaviour
             spriteRenderer.material = secondFormMat;
             CoolDownBetweenDash *= secondFormDashCdMultiplyer;
         }
-
     }
-
 }

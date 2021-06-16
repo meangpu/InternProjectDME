@@ -21,9 +21,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 215171237567996436, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531178655598, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8232353531280522004, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
       propertyPath: m_Name
       value: Player Missile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232353531280522004, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8232353531280522025, guid: 04a9a688bda9a8146bfa889603a37202, type: 3}
       propertyPath: m_RootOrder

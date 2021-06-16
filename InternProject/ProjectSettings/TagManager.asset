@@ -26,8 +26,8 @@ TagManager:
   - ShootOnlyGround
   - Base
   - Collectibles
-  - 
-  - 
+  - PlayerBullets
+  - AirBoss
   - 
   - 
   - 
