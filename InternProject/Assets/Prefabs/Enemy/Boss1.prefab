@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6137129852830916416}
   - component: {fileID: 2405546640179549257}
   - component: {fileID: 6804498268768382604}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1254926555276488624}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: bulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254926556166530444}
   - component: {fileID: 1254926556166530445}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,8 @@ GameObject:
   - component: {fileID: 2453747092983409617}
   - component: {fileID: 4172184067530760979}
   - component: {fileID: 5402338018309180101}
-  m_Layer: 9
+  - component: {fileID: -734852368087831673}
+  m_Layer: 14
   m_Name: Boss1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -366,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1254926555276488624}
-  spawnPoint2: {fileID: 0}
+  spawnPoint2: {fileID: 5390273408343942335}
   enemy: {fileID: 1254926556723747618}
   ammoType: 3
 --- !u!95 &4172184067530760979
@@ -400,14 +401,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cb836f39b325848ab1988c173fe2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBulletLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   rb: {fileID: 1254926556723747621}
   dashSpeed: 3.14
-  CoolDownBetweenDash: 2
+  CoolDownBetweenDash: 5
   animator: {fileID: 4172184067530760979}
   spriteRenderer: {fileID: 854422998893339107}
   secondFormMat: {fileID: 2100000, guid: 346d6432f091e014a986dde6cc7addee, type: 2}
   secondFormDashCdMultiplyer: 0.6
+  bulletDetectionDistance: 2.5
   isSecondForm: 0
+--- !u!114 &-734852368087831673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254926556723747623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac6ba485ce9db541bdf825bb0072ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1254926556723747621}
+  enemyDisplay: {fileID: 1254926556723747618}
 --- !u!1 &1606831651755612054
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2428836787671314461}
   - component: {fileID: 7553783383345955996}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +522,7 @@ GameObject:
   - component: {fileID: 6434218984724188039}
   - component: {fileID: 2369554790376462911}
   - component: {fileID: 4210265248497576367}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +634,7 @@ GameObject:
   - component: {fileID: 5031343623413821709}
   - component: {fileID: 6040443681612690588}
   - component: {fileID: 5214664909744238085}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: HpFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934602309609092168}
   - component: {fileID: 863129440811703399}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5390273408343942335}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: bulletPos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7560282211857418983}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: HpbarCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7728463487400037078}
   - component: {fileID: 854422998893339107}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,7 +994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6810456401518162904}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: parentHp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
