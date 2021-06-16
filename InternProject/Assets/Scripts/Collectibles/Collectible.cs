@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+    enum PowerType {hp, energy, speed};
+
     [SerializeField] private SpriteRenderer spriteRenderer = null;
     [SerializeField] private ObjCollectible[] collectibles = null;
+    [SerializeField] bool LockSpawn;
+    [SerializeField] PowerType lockType;
 
     private ObjCollectible collectible;
     private CollectibleType collectibleType;
@@ -18,7 +22,41 @@ public class Collectible : MonoBehaviour
 
     private void OnEnable()
     {
-        RandomizedCollectible();
+        if (!LockSpawn)
+        {
+            RandomizedCollectible();
+        }
+        else
+        {
+            SpawnByCheckLockType();
+        }
+    }
+
+    void SpawnByCheckLockType()
+    {
+        switch (lockType)
+        {
+        case PowerType.hp:
+            spawnValueType(collectibles[0]);
+            break;
+        case PowerType.energy:
+            spawnValueType(collectibles[1]);
+            break;
+        case PowerType.speed:
+            spawnValueType(collectibles[2]);
+            break;
+        default:
+            print("error power value");
+            break;
+        }
+    }
+
+    void spawnValueType(ObjCollectible _objType)
+    {
+        collectibleType = _objType.GetCollectibleType();
+        spriteRenderer.sprite = _objType.GetSprite();
+        spriteRenderer.material = _objType.GetMaterial();
+        value = _objType.GetValue();
     }
 
     private void RandomizedCollectible()

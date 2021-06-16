@@ -38,9 +38,6 @@ public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
 
     public float getPercentHp()
     {
-        Debug.Log(hp);
-        Debug.Log(maxHp);
-        Debug.Log((float)hp/maxHp);
         return ((float)hp/maxHp)*100;
     }
 
