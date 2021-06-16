@@ -336,6 +336,7 @@ MonoBehaviour:
   bossScript: {fileID: 5402338018309180101}
   anim: {fileID: 4172184067530760979}
   dropPercentage: 1
+  Immortal: 0
 --- !u!58 &7002585039861489947
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -367,7 +368,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1254926555276488624}
   spawnPoint2: {fileID: 0}
   enemy: {fileID: 1254926556723747618}
-  ammoType: 0
+  ammoType: 3
 --- !u!95 &4172184067530760979
 Animator:
   serializedVersion: 3

@@ -14,6 +14,10 @@ public class WaveManager : MonoBehaviour
         { return instance; }
     }
 
+    [Header("Bosses Prefab")]
+    [SerializeField] private GameObject falconBoss = null;
+    [SerializeField] private GameObject tankBoss = null;
+
     [Header("UIthing")]
     public Slider minWaveSlider;
     public Slider bigWaveSlider;
@@ -119,7 +123,7 @@ public class WaveManager : MonoBehaviour
 		{
             if (waveindex < EnemyWaves.Length)
             {
-                clearAllOldData();
+                ClearAllOldData();
                 StartCoroutine(SpawnWave());
                 countDown = EnemyWaves[waveindex].TimeBeforeNextWave;
                 isFirstWave = false;
@@ -205,11 +209,11 @@ public class WaveManager : MonoBehaviour
     {
         if (waveindex+aheadNum == EnemyWaves.Length)  // when it going to go outside index range 
 		{
-            clearAllOldData();
+            ClearAllOldData();
             return;
         }
 
-        clearAllOldData();
+        ClearAllOldData();
 
         EnemyWave wave = EnemyWaves[waveindex+aheadNum];
 
@@ -229,7 +233,7 @@ public class WaveManager : MonoBehaviour
         } 
     }
 
-    private void clearAllOldData()
+    private void ClearAllOldData()
     {
         foreach (var spawnPoint in spawnPointList)
         {
@@ -272,6 +276,14 @@ public class WaveManager : MonoBehaviour
                         break;
                 }
                 break;
+
+            case EnemyType.BossFalcon:
+                SpawnBoss(falconBoss, spawnPos, enemy);
+                break;
+
+            case EnemyType.BossTank:
+                SpawnBoss(tankBoss, spawnPos, enemy);
+                break;
         }
   
         SetEnemyLeftText();
@@ -279,7 +291,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnBoss(GameObject bossPfb, Transform spawnPos, ObjEnemy enemy)
     {
-        GameObject boss = Instantiate(bossPfb, spawnPos);
+        GameObject boss = Instantiate(bossPfb, spawnPos.position, Quaternion.identity);
         boss.GetComponent<EnemyDisplay>().StartDisplay(enemy);  // set enemy to scriptable obj
         boss.transform.SetPositionAndRotation(spawnPos.position, spawnPos.rotation);
 

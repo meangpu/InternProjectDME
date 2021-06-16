@@ -53994,6 +53994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab73f7fae0072c499abd1288064595a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  falconBoss: {fileID: 1254926556723747623, guid: 7b3fb0af63ff5c8449b183a18e1665f1, type: 3}
+  tankBoss: {fileID: 1680286329026153965, guid: 71e1d40a901004f449ec645c255d7042, type: 3}
   minWaveSlider: {fileID: 1822650883}
   bigWaveSlider: {fileID: 1564200065}
   enemyLefttext: {fileID: 845682432}
@@ -54011,8 +54013,8 @@ MonoBehaviour:
     TimeBeforeNextWave: 20
     EnemyAndPoint:
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
-        count: 5
+      - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
+        count: 1
       spawnPoint: {fileID: 760318818}
   - spawnRate: 1
     TimeBeforeNextWave: 30
