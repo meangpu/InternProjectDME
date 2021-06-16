@@ -12,12 +12,13 @@ public class Boss1 : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Material secondFormMat;
     [SerializeField] float secondFormDashCdMultiplyer;
+    [SerializeField] private float bulletDetectionDistance = 2.5f;
     public bool isSecondForm;
     bool canDash = true;
 
-    public void warnBoss(GameObject _bossObj)
+    private void WarnBoss()
     {
-        var allBullet = GameObject.FindGameObjectsWithTag("PlayerBullet");
+        Collider2D[] allBullet = Physics2D.OverlapCircleAll(transform.position, bulletDetectionDistance, );
         foreach (var bullet in allBullet)
         {
             TankBullet bulScript = bullet.GetComponent<TankBullet>();
@@ -54,7 +55,7 @@ public class Boss1 : MonoBehaviour
     private void FixedUpdate() 
     {
         if (!canDash) { return; }
-        // warnBoss(gameObject);
+        WarnBoss();
 
         // DashForward();
     }
@@ -83,7 +84,7 @@ public class Boss1 : MonoBehaviour
         StartCoroutine(OnDashCooldown());
     }
 
-    void DashForward()
+    private void DashForward()
     {
         if (!canDash) { return; }
 
@@ -105,7 +106,5 @@ public class Boss1 : MonoBehaviour
             spriteRenderer.material = secondFormMat;
             CoolDownBetweenDash *= secondFormDashCdMultiplyer;
         }
-
     }
-
 }

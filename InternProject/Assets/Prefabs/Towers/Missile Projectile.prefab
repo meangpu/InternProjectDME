@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8325571684815134427}
   - component: {fileID: 783022344659734847}
   - component: {fileID: 6282106693320348903}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Missile Projectile
   m_TagString: TowerBullet
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 7664319794981795503}
   - component: {fileID: 7160647584909279958}
   - component: {fileID: 3425358858225524203}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
