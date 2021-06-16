@@ -26,7 +26,7 @@ MonoBehaviour:
   bulletLifetime: 4
   bulletType: {fileID: 0}
   moneyDrop: 0
-  enemyType: 2
+  enemyType: 5
   enemyId: 2
   FireSound:
     name: 

@@ -3,5 +3,7 @@ public enum EnemyType
     Human,
     Robot,
     Machine,
-    Plane
+    Plane,
+    BossFalcon,
+    BossTank
 }
