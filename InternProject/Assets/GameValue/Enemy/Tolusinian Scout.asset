@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Tolusinian Scout
   m_EditorClassIdentifier: 
   enemyName: Tolusinian Scout
-  des: 
+  des: 'The frontiers of the Tolusinian troop, they perform an offensive reconnaissance
+    by rushing forward into their enemies rather than observing from afar.
+
+
+    -
+    Explodes on contact
+
+    - High Speed'
   artWork:
   - {fileID: 3140040780877700772, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
   hp: 45
   moveSpeed: 2.5
   minDamage: 20
   maxDamage: 20
-  EC: 2
   isPassive: 1
   attackRange: 0
   atkSpeed: 0
@@ -30,7 +36,6 @@ MonoBehaviour:
   moneyDrop: 5
   enemyType: 0
   enemyId: 0
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Doomsday Tank
   m_EditorClassIdentifier: 
   enemyName: Doomsday Tank
-  des: 
+  des: 'The biggest threat to Kasadan, these tanks can deal a massive damage and
+    endure extreme fights to take over cities with ease.
+
+
+    - Very High health
+
+    -
+    High Damage
+
+    - Very slow'
   artWork:
   - {fileID: 4570037600429773219, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: 500
   moveSpeed: 0.3
   minDamage: 35
   maxDamage: 50
-  EC: 40
   isPassive: 0
   attackRange: 3
   atkSpeed: 0.25
@@ -30,7 +38,6 @@ MonoBehaviour:
   moneyDrop: 96
   enemyType: 2
   enemyId: 3
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

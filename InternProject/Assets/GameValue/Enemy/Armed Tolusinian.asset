@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: Armed Tolusinian
   m_EditorClassIdentifier: 
   enemyName: Armed Tolusinian
-  des: 
+  des: 'The patriots who own firearms brought their weapon into taking Kasadan into
+    their colony. However, they are not really skilled with using a gun.
+
+
+    -
+    Ranged attacks'
   artWork:
   - {fileID: -1564959205756698604, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
   hp: 30
   moveSpeed: 1
   minDamage: 2
   maxDamage: 4
-  EC: 2
   isPassive: 0
   attackRange: 3
   atkSpeed: 0.5
@@ -30,7 +34,6 @@ MonoBehaviour:
   moneyDrop: 1
   enemyType: 0
   enemyId: 0
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

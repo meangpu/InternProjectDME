@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Tolusin Tank
   m_EditorClassIdentifier: 
   enemyName: Tolusin Tank
-  des: 
+  des: 'A government-issued tank that is capable of using in wars. These tanks are
+    developed to be very dangerous on its own.
+
+
+    - High health
+
+    - Slow Speed
+
+    -
+    Ranged Attacks'
   artWork:
   - {fileID: -3326689779098419857, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: 225
   moveSpeed: 0.5
   minDamage: 12
   maxDamage: 24
-  EC: 15
   isPassive: 0
   attackRange: 4.5
   atkSpeed: 0.25
@@ -30,7 +38,6 @@ MonoBehaviour:
   moneyDrop: 32
   enemyType: 2
   enemyId: 1
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

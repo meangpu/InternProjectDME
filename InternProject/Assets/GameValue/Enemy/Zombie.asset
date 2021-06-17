@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   enemyName: Zombie
-  des: 
+  des: 'Abominations from the TLS-3 disaster in Tolusin, these inanimated being are
+    mind-controlled and will fling their bones at their enemies.
+
+
+    - High health
+
+    -
+    Ranged attacks'
   artWork:
   - {fileID: -6142324308395457208, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
   - {fileID: -29939870544612685, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
@@ -21,7 +28,6 @@ MonoBehaviour:
   moveSpeed: 0.5
   minDamage: 5
   maxDamage: 10
-  EC: 3
   isPassive: 0
   attackRange: 3
   atkSpeed: 0.5
@@ -31,7 +37,6 @@ MonoBehaviour:
   moneyDrop: 15
   enemyType: 0
   enemyId: 0
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

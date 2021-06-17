@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Bomber Plane
   m_EditorClassIdentifier: 
   enemyName: Bomber Plane
-  des: 
+  des: 'The heavy bomber planes will drop bombs on anything in its path. The bombs
+    are highly explosive and deal area of damage.
+
+
+    - High Damage
+
+    - Deals
+    Area of Damage'
   artWork:
   - {fileID: 21300000, guid: f54627291a1c56b41824b39bdc865104, type: 3}
   hp: 300
   moveSpeed: 0.75
   minDamage: 30
   maxDamage: 60
-  EC: 25
   isPassive: 0
   attackRange: 2
   atkSpeed: 0.25
@@ -30,7 +36,6 @@ MonoBehaviour:
   moneyDrop: 51
   enemyType: 3
   enemyId: 5
-  isFlying: 1
   FireSound:
     name: 
     clip: {fileID: 0}
