@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text gunCostText = null;
 
     private PlayerStats playerStats;
+    public UnityEvent OnLeveledUp;
 
     private void Awake()
     {
@@ -82,6 +83,7 @@ public class UIManager : MonoBehaviour
     private void HandleTankLevelUp(int level, int maxLevel)
     {
         tankLevelText.text = $"LEVEL {level}";
+        OnLeveledUp?.Invoke();
 
         if (level == maxLevel)
         {
@@ -98,6 +100,7 @@ public class UIManager : MonoBehaviour
     private void HandleGunLevelUp(int level, int maxLevel)
     {
         gunLevelText.text = $"LEVEL {level}";
+        OnLeveledUp?.Invoke();
 
         if (level == maxLevel)
         {
