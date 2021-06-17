@@ -104,21 +104,22 @@ public class ParentUpgradeButton : MonoBehaviour
 		ResetPositions ();
 	}
 
-	void UpdateMaterial()
+	private void UpdateMaterial(bool state)
 	{
-		if (GameManager.Instance.isBuying)
-		{
-			mainButton.GetComponent<Button>().interactable = false;
-			changeMat.material = notGlowMat;
-			if (isExpanded)
-			{
-				ToggleMenu();
-			}
-		}
-		else
-		{
-			mainButton.GetComponent<Button>().interactable = true;
-			parentPreview.SetActive(true);
+		switch (state)
+        {
+			case true:
+				mainButton.GetComponent<Button>().interactable = false;
+				changeMat.material = notGlowMat;
+				if (isExpanded)
+				{
+					ToggleMenu();
+				}
+				return;
+			case false:
+				mainButton.GetComponent<Button>().interactable = true;
+				parentPreview.SetActive(true);
+				return;
 		}
 	}
 
@@ -232,7 +233,7 @@ public class ParentUpgradeButton : MonoBehaviour
 		PlayerStats.Instance.AddGold(_getCoin);
 		Destroy(parentOfTower.GetChild(0).gameObject);
 
-		buyTower.haveSellTower();
+		buyTower.HaveSellTower();
 		towerPreviewScript.showTowerImage();
 		towerPreviewScript.resetLevel();
 		canUpgrade = true;

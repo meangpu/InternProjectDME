@@ -53,15 +53,16 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Enable();
     }
 
-    public void BuyModeHandler()
+    public void BuyModeHandler(bool state)
     {
-		if (GameManager.Instance.isBuying)
-		{
-            EnableTankControls();
-		}
-		else
-		{
-            DisableTankControls();
+        switch (state)
+        {
+            case true:
+                EnableTankControls();
+                return;
+            case false:
+                DisableTankControls();
+                return;
         }
     }
 

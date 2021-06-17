@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private Player player;
     private BaseClass playerBase;
 
-    public event Action OnBuyModeTrigger;
+    public event Action<bool> OnBuyModeTrigger;
     public event Action OnCheckWhatCanBuy;
 
     private float respawnTimeRemaining = 0f;
@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
 
     public void BuyModeSwap()
     {
-        OnBuyModeTrigger?.Invoke();
+        OnBuyModeTrigger?.Invoke(isBuying);
 
         if (isBuying)
         {
@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
             isBuying = false;
             buyModeCam.m_Priority = 0;
             UIManager.Instance.CloseBuyMenu();
-            camTarScript.playMode();
+            // camTarScript.playMode();
         }
         else
         {
@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour
             buyModeCam.m_Priority = 50;
             isBuying = true;
             UIManager.Instance.OpenBuyMenu();
-            camTarScript.buyMode();
+            // camTarScript.buyMode();
         }
     }
 

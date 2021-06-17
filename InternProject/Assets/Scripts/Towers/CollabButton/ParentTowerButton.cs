@@ -38,6 +38,8 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] GameObject upgradeParent;
 	[SerializeField] ParticleSystem buildEffect;
 
+	private GameManager gameManager;
+
 	//is menu opened or not
 	bool isExpanded = false;
 	public bool alreadyHaveTower;
@@ -48,16 +50,17 @@ public class ParentTowerButton : MonoBehaviour
 	[SerializeField] Transform previewTower;
 
 
-	void Start ()
+	private void Start ()
 	{
-		GameManager.Instance.OnBuyModeTrigger += UpdateMaterial;
-		GameManager.Instance.OnBuyModeTrigger += deletePreview;
-		deletePreview();
-		spawnChild();
-		setupChild();
+		gameManager = GameManager.Instance;
+
+		gameManager.OnBuyModeTrigger += HandleBuyModeTrigger;
+		DeletePreview();
+		SpawnChild();
+		SetupChild();
 	}
 
-	void spawnChild()
+	private void SpawnChild()
 	{
         foreach (var tower in towerToChoose)
         {
@@ -71,47 +74,52 @@ public class ParentTowerButton : MonoBehaviour
 
 	private void OnDestroy() 
 	{
-		GameManager.Instance.OnBuyModeTrigger -= UpdateMaterial;
-		GameManager.Instance.OnBuyModeTrigger -= deletePreview;
+		gameManager.OnBuyModeTrigger -= HandleBuyModeTrigger;
 	}
 
-	void deletePreview()
+	private void HandleBuyModeTrigger(bool state)
+    {
+		UpdateMaterial(state);
+		DeletePreview();
+    }
+
+	private void DeletePreview()
 	{
 		previewTower.gameObject.SetActive(false);
 		previewTower.GetChild(0).gameObject.SetActive(false);
 	}
 
-	IEnumerator deletePreviewCD(float _waitTime)
+	private IEnumerator DeletePreviewCD(float _waitTime)
 	{
 		yield return new WaitForSeconds(_waitTime);
-		deletePreview();
+		DeletePreview();
 	}
 
 
-	public void haveBuildTower()
+	public void HaveBuildTower()
 	{
 		buildEffect.Play();
 		alreadyHaveTower = true;
 		mainButton.gameObject.SetActive(false);
-		UpdateMaterial();
+		UpdateMaterial(gameManager.isBuying);
 		upgradeParent.SetActive(true);
 		upgradeParent.GetComponent<ParentUpgradeButton>().DisableObjectInstant();
 		previewTower.gameObject.SetActive(true);
 		previewTower.GetChild(0).gameObject.SetActive(false);
 	}
 
-	public void haveSellTower()
+	public void HaveSellTower()
 	{
 		alreadyHaveTower = false;
 		mainButton.gameObject.SetActive(true);
 		upgradeParent.SetActive(false);
-		UpdateMaterial();
+		UpdateMaterial(gameManager.isBuying);
 		changeMat.material = glowMat;		
 		mainButton.interactable = true;
 	}
 	
 
-	void setupChild()
+	private void SetupChild()
 	{
 		//add all the items to the menuItems array
 		itemsCount = transform.childCount - 1;
@@ -128,10 +136,10 @@ public class ParentTowerButton : MonoBehaviour
 		mainButtonPosition = mainButton.transform.position;
 
 		//set all menu items position to mainButtonPosition
-		ResetPositions ();
+		ResetPositions();
 	}
 
-	void EnableObject()
+	private void EnableObject()
 	{
 		int childEnableCount = transform.childCount;
 		for (int i = 0; i < childEnableCount; i++) {
@@ -140,7 +148,7 @@ public class ParentTowerButton : MonoBehaviour
 	}
 
 
-	IEnumerator DisableObject()
+	private IEnumerator DisableObject()
 	{
 		yield return new WaitForSeconds(disableChildTimer);
 		int childCount = transform.childCount;
@@ -150,14 +158,14 @@ public class ParentTowerButton : MonoBehaviour
 	}
 
 
-	void ResetPositions ()
+	private void ResetPositions()
 	{
 		for (int i = 0; i < itemsCount; i++) {
 			menuItems[i].trans.position = mainButtonPosition;
 		}
 	}
 
-	public void ToggleMenu ()
+	private void ToggleMenu ()
 	{
 		isExpanded = !isExpanded;
 		GameManager.Instance.CheckWhatCanBuy();
@@ -180,27 +188,21 @@ public class ParentTowerButton : MonoBehaviour
 			RotateMainButton(0, 180);
 			StartCoroutine(DisableObject());
 		}
-		deletePreview();
-		// StartCoroutine(deletePreviewCD(0.5f));
-		// StartCoroutine(deletePreviewCD(0.8f));
-		// StartCoroutine(deletePreviewCD(1.2f));
-		// StartCoroutine(deletePreviewCD(1.5f));
-
+		DeletePreview();
 	}
 
-
-	public void closeToggle()
+	public void CloseToggle()
 	{
 		isExpanded = false;
 		for (int i = 0; i < itemsCount; i++) {
 			menuItems [i].trans.DOMove (mainButtonPosition, collapseDuration).SetEase (collapseEase);
 		}
-		deletePreview();
+		DeletePreview();
 		RotateMainButton(0, 180);
 		StartCoroutine(DisableObject());
 	}
 
-	void RotateMainButton(float angle, float startAngel)
+	private void RotateMainButton(float angle, float startAngel)
 	{
 		mainButton.transform
 		.DORotate (Vector3.forward * angle, rotationDuration)
@@ -208,23 +210,27 @@ public class ParentTowerButton : MonoBehaviour
 		.SetEase (rotationEase);
 	}
 
-	public void UpdateMaterial()
+	private void UpdateMaterial(bool state)
 	{
 		if (!alreadyHaveTower)
 		{
-			if (GameManager.Instance.isBuying)
-			{
-				mainButton.interactable = false;
-				changeMat.material = notGlowMat;
-				if (isExpanded)
-				{
-					ToggleMenu();
-				}
-			}
-			else
-			{
-				changeMat.material = glowMat;		
-				mainButton.interactable = true;
+			switch (state)
+            {
+				case true:
+					mainButton.interactable = false;
+					changeMat.material = notGlowMat;
+
+					if (isExpanded)
+					{
+						ToggleMenu();
+					}
+
+					return;
+				case false:
+					changeMat.material = glowMat;
+					mainButton.interactable = true;
+					return;
+
 			}
 		}
 		else
@@ -237,5 +243,4 @@ public class ParentTowerButton : MonoBehaviour
 			}
 		}
 	}
-
 }

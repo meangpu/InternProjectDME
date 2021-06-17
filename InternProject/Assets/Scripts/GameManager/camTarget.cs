@@ -10,7 +10,6 @@ public class camTarget : MonoBehaviour
     private PlayerControls playerControls;
     Vector2 mousePos;
 
-
     private void Start() 
     {
         playerControls = GameManager.Instance.GetPlayerControls();
@@ -18,17 +17,17 @@ public class camTarget : MonoBehaviour
 
     void Update()
     {
-        mousePos = playerControls.BuyMenu.MousePosition.ReadValue<Vector2>();
+        mousePos = playerControls.Tank.LookAt.ReadValue<Vector2>();
         Vector2 cursorPosOnScreen = cam.ScreenToWorldPoint(mousePos);
         Vector2 targetpos = ((Vector2)player.position + cursorPosOnScreen) /2f;
 
         targetpos.x = Mathf.Clamp(targetpos.x, -threshold + player.position.x, threshold + player.position.x);
         targetpos.y = Mathf.Clamp(targetpos.y, -threshold + player.position.y, threshold + player.position.y);
 
-        this.transform.position = targetpos;
+        transform.position = targetpos;
     }
 
-    public void playMode()
+    /*public void playMode()
     {
         threshold = 2;
     }
@@ -36,6 +35,5 @@ public class camTarget : MonoBehaviour
     public void buyMode()
     {
         threshold = 8;
-    }
-
+    }*/
 }

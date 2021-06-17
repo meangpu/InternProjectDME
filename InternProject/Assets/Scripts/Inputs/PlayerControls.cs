@@ -405,6 +405,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""f16847f2-b4f2-41cd-b52b-d8a9b464c0e5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -440,6 +448,61 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""66def94c-2f68-42f4-954e-ce6b544fd350"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""868c1c7f-7334-442b-9e4d-48bee7409653"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f47f4773-ae4f-4081-8cba-a15b12fd14a3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e559ef5b-aa42-4721-b80d-ca689b3a12e9"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""80c0e300-fe85-4fb4-8a04-a63d3af53ed1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -479,6 +542,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_BuyMenu_BuyMode = m_BuyMenu.FindAction("BuyMode", throwIfNotFound: true);
         m_BuyMenu_Zoom = m_BuyMenu.FindAction("Zoom", throwIfNotFound: true);
         m_BuyMenu_MousePosition = m_BuyMenu.FindAction("MousePosition", throwIfNotFound: true);
+        m_BuyMenu_Camera = m_BuyMenu.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -743,6 +807,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_BuyMenu_BuyMode;
     private readonly InputAction m_BuyMenu_Zoom;
     private readonly InputAction m_BuyMenu_MousePosition;
+    private readonly InputAction m_BuyMenu_Camera;
     public struct BuyMenuActions
     {
         private @PlayerControls m_Wrapper;
@@ -750,6 +815,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @BuyMode => m_Wrapper.m_BuyMenu_BuyMode;
         public InputAction @Zoom => m_Wrapper.m_BuyMenu_Zoom;
         public InputAction @MousePosition => m_Wrapper.m_BuyMenu_MousePosition;
+        public InputAction @Camera => m_Wrapper.m_BuyMenu_Camera;
         public InputActionMap Get() { return m_Wrapper.m_BuyMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -768,6 +834,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MousePosition.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnMousePosition;
+                @Camera.started -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnCamera;
+                @Camera.performed -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnCamera;
+                @Camera.canceled -= m_Wrapper.m_BuyMenuActionsCallbackInterface.OnCamera;
             }
             m_Wrapper.m_BuyMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -781,6 +850,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @Camera.started += instance.OnCamera;
+                @Camera.performed += instance.OnCamera;
+                @Camera.canceled += instance.OnCamera;
             }
         }
     }
@@ -825,5 +897,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnBuyMode(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

@@ -87,7 +87,7 @@ public class ChildTowerButton : MonoBehaviour
 			
 			buildTower.transform.parent = towerBuyTransform;
 			GameManager.Instance.CheckWhatCanBuy();
-			parentTowerButton.haveBuildTower();
+			parentTowerButton.HaveBuildTower();
 
 			previewTranform.GetChild(0).GetComponent<TowerPreview>().SetTowerTypeToMainTower();
 			previewInfoPanel.setPreview(towerObject);
