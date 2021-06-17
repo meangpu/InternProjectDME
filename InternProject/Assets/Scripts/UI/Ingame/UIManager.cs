@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
         UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
         InitializeTankAttribute();
     }
-    
+
     public void UpdateRespawnBar(float percentage)
     {
         respawnBar.fillAmount = percentage;
