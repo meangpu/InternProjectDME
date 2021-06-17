@@ -85,31 +85,27 @@ public class GameManager : MonoBehaviour
     {
         float direction = playerControls.BuyMenu.Zoom.ReadValue<float>();
         if (direction > 0)
-        {
-            
+        {    
             if (buyModeCam.m_Lens.OrthographicSize > zoomInMax)
             {
-                NowZoomValue =  buyModeCam.m_Lens.OrthographicSize - 2f;
-                
+                NowZoomValue = buyModeCam.m_Lens.OrthographicSize - 2f;
             }
         }
         else if (direction < 0)
-        {
-            
-
+        {      
             if (buyModeCam.m_Lens.OrthographicSize < zoomOutMax)
             {
-                NowZoomValue =  buyModeCam.m_Lens.OrthographicSize + 2f;
-            }
-            
+                NowZoomValue = buyModeCam.m_Lens.OrthographicSize + 2f;
+            }  
         }
 
+        NowZoomValue = Mathf.Clamp(NowZoomValue, zoomInMax, zoomOutMax);
         buyModeCam.m_Lens.OrthographicSize = Mathf.Lerp(buyModeCam.m_Lens.OrthographicSize, NowZoomValue, Time.deltaTime *15f);
     }
 
     public void GameOver()
     {
-        stopGame();
+        StopGame();
         gameOverPanel.SetActive(true);
     }
 
@@ -134,7 +130,7 @@ public class GameManager : MonoBehaviour
         DisableAllControls();
     }
 
-    void stopGame()
+    void StopGame()
     {
         // no open ui option
         Time.timeScale = 0;
@@ -157,7 +153,7 @@ public class GameManager : MonoBehaviour
         starScpt.getStar(CheckStar());
 
         winPanel.SetActive(true);
-        stopGame();
+        StopGame();
     }
 
     private int CheckStar()

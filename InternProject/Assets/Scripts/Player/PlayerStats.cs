@@ -110,6 +110,7 @@ public class PlayerStats : MonoBehaviour
         UpdateGunStats();
         UpdateTankStats();
 
+        currentAmmoCount = maxAmmoCount;
         bulletLifetime = turret.GetLifetime();
         bulletKnockback = turret.GetKnockBack();
 
@@ -189,7 +190,6 @@ public class PlayerStats : MonoBehaviour
         cooldownBetweenShots = 1 / fireRate;
 
         maxAmmoCount = turret.GetAmmoCount()[level];
-        currentAmmoCount = maxAmmoCount;
 
         reloadTime = turret.GetReloadTime()[level];
 

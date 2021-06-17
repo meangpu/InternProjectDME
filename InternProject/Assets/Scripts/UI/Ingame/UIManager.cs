@@ -76,14 +76,19 @@ public class UIManager : MonoBehaviour
         tankImage.sprite = playerStats.GetTankSprite();
         gunImage.sprite = playerStats.GetGunSprite();
 
-        HandleTankLevelUp(playerStats.GetTankLevel(), playerStats.GetMaxLevel());
-        HandleGunLevelUp(playerStats.GetGunLevel(), playerStats.GetMaxLevel());
+        SetTankLevelUI(playerStats.GetTankLevel(), playerStats.GetMaxLevel());
+        SetGunLevelUI(playerStats.GetGunLevel(), playerStats.GetMaxLevel());
     }
 
     private void HandleTankLevelUp(int level, int maxLevel)
     {
-        tankLevelText.text = $"LEVEL {level}";
+        SetTankLevelUI(level, maxLevel);
         OnLeveledUp?.Invoke();
+    }
+
+    private void SetTankLevelUI(int level, int maxLevel)
+    {
+        tankLevelText.text = $"LEVEL {level}";
 
         if (level == maxLevel)
         {
@@ -99,8 +104,13 @@ public class UIManager : MonoBehaviour
 
     private void HandleGunLevelUp(int level, int maxLevel)
     {
-        gunLevelText.text = $"LEVEL {level}";
+        SetGunLevelUI(level, maxLevel);
         OnLeveledUp?.Invoke();
+    }
+
+    private void SetGunLevelUI(int level, int maxLevel)
+    {
+        gunLevelText.text = $"LEVEL {level}";
 
         if (level == maxLevel)
         {
