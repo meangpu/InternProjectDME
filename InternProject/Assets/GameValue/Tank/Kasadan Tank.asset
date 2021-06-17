@@ -35,3 +35,5 @@ MonoBehaviour:
   - 2.3
   - 2.5
   upgradeCost: fa0000002c010000
+  isUnlocked: 1
+  buyStarValue: 0
