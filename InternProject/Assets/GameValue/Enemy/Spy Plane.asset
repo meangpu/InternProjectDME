@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Spy Plane
   m_EditorClassIdentifier: 
   enemyName: Spy Plane
-  des: 
+  des: 'Normal military planes which are used for spying on the enemies. For some
+    reason, the pilot has the urge to do a kamikaze dive into their enemies.
+
+
+    -
+    Medium speed
+
+    - High damage to base
+
+    - Flying'
   artWork:
   - {fileID: 21300000, guid: 92e846cbe9d205543bb880fe87e5ac4f, type: 3}
   hp: 250
   moveSpeed: 1.5
   minDamage: 150
   maxDamage: 150
-  EC: 10
   isPassive: 1
   attackRange: 0
   atkSpeed: 0
@@ -30,7 +38,6 @@ MonoBehaviour:
   moneyDrop: 22
   enemyType: 3
   enemyId: 4
-  isFlying: 1
   FireSound:
     name: 
     clip: {fileID: 0}

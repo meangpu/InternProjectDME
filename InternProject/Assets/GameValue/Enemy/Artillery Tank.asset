@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Artillery Tank
   m_EditorClassIdentifier: 
   enemyName: Artillery Tank
-  des: 
+  des: 'A tank made for long range engagements. These tanks shoot homing missiles
+    at their enemies. However, the missiles are susceptible from being shot down.
+
+
+    -
+    Shoots homing missiles
+
+    - Long-ranged attacks'
   artWork:
   - {fileID: -9111724871386910612, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: 170
   moveSpeed: 0.3
-  minDamage: 12
-  maxDamage: 25
-  EC: 25
+  minDamage: 20
+  maxDamage: 35
   isPassive: 0
   attackRange: 10
   atkSpeed: 0.1
@@ -30,7 +36,6 @@ MonoBehaviour:
   moneyDrop: 53
   enemyType: 2
   enemyId: 2
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Astronaut
   m_EditorClassIdentifier: 
   enemyName: Tolusinian Astronaut
-  des: Those who failed the tests of going into the space have decided to invade
+  des: 'Those who failed the tests of going into the space have decided to invade
     Kasadan wearing astronaut suits as they provide more protection.
+
+
+    - Explodes
+    on contact
+
+    - Medium health'
   artWork:
   - {fileID: 21300000, guid: e7eb6c3021cb6ba4a931413ccb8dad32, type: 3}
   - {fileID: 21300000, guid: a2729e33130e3cf4a8ae70c6a6947ef0, type: 3}
@@ -23,7 +29,6 @@ MonoBehaviour:
   moveSpeed: 0.7
   minDamage: 40
   maxDamage: 40
-  EC: 4
   isPassive: 1
   attackRange: 0
   atkSpeed: 0
@@ -33,7 +38,6 @@ MonoBehaviour:
   moneyDrop: 10
   enemyType: 0
   enemyId: 0
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}

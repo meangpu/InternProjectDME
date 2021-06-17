@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Tolusinian Soldier
   m_EditorClassIdentifier: 
   enemyName: Tolusinian Soldier
-  des: 
+  des: 'Well-trained by the governments, these soldiers are capable of performing
+    operations with precision shooting skills.
+
+
+    - High rate of fire
+
+    - Ranged
+    attacks'
   artWork:
   - {fileID: 2182869426217312190, guid: f378082bf0851b9419e9fce3e7fb7688, type: 3}
   hp: 45
   moveSpeed: 1
   minDamage: 4
   maxDamage: 6
-  EC: 5
   isPassive: 0
   attackRange: 5
   atkSpeed: 1.5
@@ -30,7 +36,6 @@ MonoBehaviour:
   moneyDrop: 12
   enemyType: 0
   enemyId: 0
-  isFlying: 0
   FireSound:
     name: 
     clip: {fileID: 0}
