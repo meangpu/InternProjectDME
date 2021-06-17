@@ -1554,11 +1554,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e10af699945884bbd3791a066a8b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCamera: {fileID: 78492506}
+  buyCamera: {fileID: 2069175010}
   speed: 20
-  screenBorderThickness: 200
-  screenXLimits: {x: -300, y: 300}
-  screenYLimits: {x: -300, y: 300}
+  screenBorderThickness: 10
+  screenXLimits: {x: -25, y: 25}
+  screenYLimits: {x: -19, y: 23}
 --- !u!1 &85676584
 GameObject:
   m_ObjectHideFlags: 0

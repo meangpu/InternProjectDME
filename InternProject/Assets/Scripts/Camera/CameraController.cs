@@ -72,8 +72,8 @@ public class CameraController : MonoBehaviour
             pos += speed * Time.deltaTime * new Vector2(previousInput.x, previousInput.y);
         }
 
-        /*pos.x = Mathf.Clamp(pos.x, screenXLimits.x, screenXLimits.y);
-        pos.y = Mathf.Clamp(pos.y, screenYLimits.x, screenYLimits.y);*/
+        pos.x = Mathf.Clamp(pos.x, screenXLimits.x + screenBorderThickness, screenXLimits.y - screenBorderThickness);
+        pos.y = Mathf.Clamp(pos.y, screenYLimits.x + screenBorderThickness, screenYLimits.y - screenBorderThickness);
 
         buyCamera.position = pos;
     }
