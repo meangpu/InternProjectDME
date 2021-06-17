@@ -67,6 +67,7 @@ public class PlayerStats : MonoBehaviour
 
     public UnityEvent OnEnergyShieldActivated;
     public UnityEvent OnGoldCollected;
+    public UnityEvent OnLeveledUp;
 
     // Vars for abilities that tweaked stuff
     private PlayerAbilities playerAbilities;
@@ -356,6 +357,7 @@ public class PlayerStats : MonoBehaviour
 
         OnMovementStatsChanged?.Invoke();
         OnTankLeveledUp?.Invoke(tankLevel, TANK_MAX_LEVEL_LIMIT);
+        OnLeveledUp?.Invoke();
     }
 
     public void GunLevelUp()
@@ -368,7 +370,8 @@ public class PlayerStats : MonoBehaviour
         UpdateGunStats();
         UpdateAmmoUI();
 
-        OnGunLeveledUp?.Invoke(gunLevel, TANK_MAX_LEVEL_LIMIT);
+        OnGunLeveledUp?.Invoke(gunLevel, TANK_MAX_LEVEL_LIMIT); 
+        OnLeveledUp?.Invoke();
     }
     
     public void GetNextLevelTankStats(out List<(bool, string)> statsList)
