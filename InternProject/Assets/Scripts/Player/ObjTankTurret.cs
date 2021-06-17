@@ -21,6 +21,11 @@ public class ObjTankTurret : ScriptableObject
     [SerializeField] ObjPlayerBullet bulletType;
     [SerializeField] private int[] upgradeCost;
 
+    [Header("buy gun")]
+    [SerializeField] bool isUnlocked;
+    [SerializeField] int buyStarValue;
+
+
     public string GetName() => turretName;
     public string GetDescription() => description;
     public Sprite GetSprite() => artworks;
@@ -34,4 +39,14 @@ public class ObjTankTurret : ScriptableObject
     public float GetLifetime() => lifetime;
     public ObjPlayerBullet GetBulletType() => bulletType;
     public int[] GetUpgradeCost() => upgradeCost;
+
+    public bool GetIsUnlock() => isUnlocked;
+    public int GetBuyStarPrice() => buyStarValue;
+
+    public void unlockThisGun()
+    {
+        isUnlocked = true;
+    }
+
+
 }

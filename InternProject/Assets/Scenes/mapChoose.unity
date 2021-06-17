@@ -1822,7 +1822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160148214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1501380370}
+        m_TargetAssemblyTypeName: starManager, Assembly-CSharp
+        m_MethodName: buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &160148214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6758,7 +6770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 40.0737, y: 40.039993}
+  m_AnchoredPosition: {x: 40.0737, y: 40.039978}
   m_SizeDelta: {x: 173.32, y: 59.23}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &555565100
@@ -24554,6 +24566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textStarValue: {fileID: 1332352295}
   starData: {fileID: 11400000, guid: db12c54198f746b47922bb8886f54b32, type: 2}
+  confirmPanel: {fileID: 1247361718}
+  confirmBuyText: {fileID: 1587932753}
 --- !u!4 &1501380371
 Transform:
   m_ObjectHideFlags: 0
@@ -26344,7 +26358,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1700455373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1501380370}
+        m_TargetAssemblyTypeName: starManager, Assembly-CSharp
+        m_MethodName: cancelBuy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1700455373
 MonoBehaviour:
   m_ObjectHideFlags: 0

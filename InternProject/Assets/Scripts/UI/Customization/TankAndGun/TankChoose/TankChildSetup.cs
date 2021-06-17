@@ -15,6 +15,7 @@ public class TankChildSetup : MonoBehaviour
     [SerializeField] Button lockButton;
     [SerializeField] GameObject glowCanbuy;
     [SerializeField] TMP_Text unlockPriceText;
+    [SerializeField] ParticleSystem unlockPar;
 
     [SerializeField] Toggle selfToggle;
 
@@ -36,7 +37,9 @@ public class TankChildSetup : MonoBehaviour
         }
         else
         {
+            // if tank is not unlock disable toggle component
             selfToggle.interactable = false;  // player cannot select this tank
+
             unlockPriceText.text = dataTank.GetBuyStarPrice().ToString();
             if (starManager.Instance.getNowStar() >= dataTank.GetBuyStarPrice())
             {
@@ -44,8 +47,6 @@ public class TankChildSetup : MonoBehaviour
                 lockButton.interactable = true;
                 glowCanbuy.SetActive(true);
             }
-            // if tank is not unlock disable toggle component
-            
         }
 
 
@@ -53,6 +54,13 @@ public class TankChildSetup : MonoBehaviour
         {
             selfToggle.isOn = true;
         }
+    }
+
+    public void unlockThisTank()
+    {
+        LockPanel.SetActive(false);
+        selfToggle.interactable = true;
+        unlockPar.Play();
     }
 
     public void showTankName()
@@ -68,6 +76,12 @@ public class TankChildSetup : MonoBehaviour
     public void showOnExit()
     {
         chooseTankScript.showNowTankData();
+    }
+
+
+    public void showAskBuy()
+    {
+        starManager.Instance.showAskTankPanel(selfTankData.GetBuyStarPrice(), selfTankData, this);
     }
 
 }

@@ -32,6 +32,12 @@ public class ObjPlayerTank : ScriptableObject
     public float[] GetMovementSpeed() => moveSpeed;
     public float[] GetRotationSpeed() => rotationSpeed;
     public int[] GetUpgradeCost() => upgradeCost;
+    
     public bool GetIsUnlock() => isUnlocked;
     public int GetBuyStarPrice() => buyStarValue;
+
+    public void unlockThisTank()
+    {
+        isUnlocked = true;
+    }
 }
