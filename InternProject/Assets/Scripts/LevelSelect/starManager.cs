@@ -33,7 +33,6 @@ public class starManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
     }
 
