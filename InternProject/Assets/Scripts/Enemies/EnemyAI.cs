@@ -58,17 +58,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    /*public void Setup(bool isPassive, float attackRange, EnemyType enemyType)
-    {
-        this.isPassive = isPassive;
-        this.attackRange = attackRange;
-        this.enemyType = enemyType;
-
-        currentTarget = playerBase;
-
-        state = isPassive ? EnemyState.Passive : EnemyState.TargetBase;
-    }*/
-
     private void OnEnable()
     {
         isPassive = enemyDisplay.IsPassive;
@@ -101,9 +90,7 @@ public class EnemyAI : MonoBehaviour
                     currentTarget = player;
                     return;
                 case EnemyType.Machine:
-                    LookAtTarget(player);
-                    enemyShoot.StartShooting();
-                    return;
+                case EnemyType.BossTank:
                 case EnemyType.Plane:
                     enemyShoot.StartShooting();
                     return;
@@ -120,7 +107,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (!isPassive)
         {
-            float stopRange = enemyType == EnemyType.Machine ? attackRange : attackRange / 2;
+            float stopRange = enemyType == EnemyType.Machine || enemyType == EnemyType.BossTank ? attackRange : attackRange / 2;
 
             if (Physics2D.OverlapCircle(transform.position, stopRange, playerLayerMask) != null)
             {
@@ -133,6 +120,7 @@ public class EnemyAI : MonoBehaviour
                     default:
                         return;
                     case EnemyType.Machine:
+                    case EnemyType.BossTank:
                         LookAtTarget(currentTarget);
                         return; 
                 }
@@ -169,7 +157,7 @@ public class EnemyAI : MonoBehaviour
         state = EnemyState.TargetBase;
     }
 
-    private void RotateTowardsTarget(Vector3 targetPosition) //currentTarget.position
+    private void RotateTowardsTarget(Vector3 targetPosition)
     {
         Vector3 lookDirection = targetPosition - transform.position;
 
@@ -196,6 +184,7 @@ public class EnemyAI : MonoBehaviour
             default:
                 return;
             case EnemyType.Machine:
+            case EnemyType.BossTank:
                 LookAtTarget(player);
                 return;
         }

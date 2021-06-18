@@ -27514,11 +27514,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.96
+      value: -14.97
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.17
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54525,7 +54525,7 @@ MonoBehaviour:
     TimeBeforeNextWave: 20
     EnemyAndPoint:
     - EnemyList:
-      - enemy: {fileID: 11400000, guid: 9a622e11afd783e4f9bdc91a2944bf0c, type: 2}
+      - enemy: {fileID: 11400000, guid: aaefa2594f68aae4ab45da385f84d2e7, type: 2}
         count: 1
       spawnPoint: {fileID: 760318818}
   - spawnRate: 1

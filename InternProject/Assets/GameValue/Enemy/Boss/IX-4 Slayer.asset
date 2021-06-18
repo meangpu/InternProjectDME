@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: IX-4 Slayer
   des: 
-  artWork: []
+  artWork:
+  - {fileID: -7033111994682208990, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: 2000
   moveSpeed: 0.1
   minDamage: 100
