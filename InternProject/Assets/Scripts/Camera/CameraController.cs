@@ -15,6 +15,12 @@ public class CameraController : MonoBehaviour
     private Vector2 previousInput;
     private PlayerControls playerControls;
     private bool isInBuyMode = false;
+    private Camera cam;
+
+    private void Awake()
+    {
+        cam = Camera.main;
+    }
 
     private void Start()
     {
@@ -40,6 +46,8 @@ public class CameraController : MonoBehaviour
     private void UpdateCameraPosition()
     {
         Vector2 pos = buyCamera.position;
+
+        Vector2 margin = cam.ScreenToWorldPoint((Vector2.up * Screen.height / 2) + (Vector2.right * Screen.width / 2)) - cam.ScreenToWorldPoint(Vector2.zero);
 
         if (previousInput == Vector2.zero)
         {
@@ -72,8 +80,16 @@ public class CameraController : MonoBehaviour
             pos += speed * Time.deltaTime * new Vector2(previousInput.x, previousInput.y);
         }
 
-        pos.x = Mathf.Clamp(pos.x, screenXLimits.x + screenBorderThickness, screenXLimits.y - screenBorderThickness);
-        pos.y = Mathf.Clamp(pos.y, screenYLimits.x + screenBorderThickness, screenYLimits.y - screenBorderThickness);
+        float marginX = margin.x;
+        float marginY = margin.y;
+
+        float camMaxX = screenXLimits.y - marginX;
+        float camMaxY = screenYLimits.y - marginY;
+        float camMinX = screenXLimits.x + marginX;
+        float camMinY = screenYLimits.x + marginY;
+
+        pos.x = Mathf.Clamp(pos.x, camMinX, camMaxX);
+        pos.y = Mathf.Clamp(pos.y, camMinY, camMaxY);
 
         buyCamera.position = pos;
     }

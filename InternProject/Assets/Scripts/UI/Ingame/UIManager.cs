@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text gunNameText = null;
     [SerializeField] private TMP_Text gunLevelText = null;
     [SerializeField] private Image respawnBar = null;
+    [SerializeField] private GameObject deathPanel = null;
+
     [Header("BuyModeDisable")]
     [SerializeField] GameObject addOnDisplay;
     [SerializeField] GameObject bulletDisplay;
@@ -145,6 +147,16 @@ public class UIManager : MonoBehaviour
         addOnDisplay.SetActive(true);
         bulletDisplay.SetActive(true);
         upgradePanel.SetActive(false);
+    }
+
+    public void HandleDeathUI()
+    {
+        deathPanel.SetActive(true);
+    }
+
+    public void HideDeathPanel()
+    {
+        deathPanel.SetActive(false);
     }
 
     private void OnDestroy()

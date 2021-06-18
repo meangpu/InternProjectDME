@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerDisplay : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer playerImage;
-    [SerializeField] private SpriteRenderer turretImage;
+    [SerializeField] private SpriteRenderer playerImage = null;
+    [SerializeField] private SpriteRenderer turretImage = null;
     [SerializeField] private Player playerScpt;
     private ObjPlayerTank tank; 
     private ObjTankTurret turret; 

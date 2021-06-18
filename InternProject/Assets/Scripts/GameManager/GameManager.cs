@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera buyModeCam;
     public bool isBuying;
     [SerializeField] private float respawnTime = 15f;
+    [SerializeField] private float deathUITime = 3f;
     [SerializeField] private GameObject pausePanel = null;
 
     [Header("GameOver")]
@@ -30,12 +31,15 @@ public class GameManager : MonoBehaviour
     // GameObject references
     private Player player;
     private BaseClass playerBase;
+    private UIManager uiManager;
 
     public event Action<bool> OnBuyModeTrigger;
     public event Action OnCheckWhatCanBuy;
 
     private float respawnTimeRemaining = 0f;
+    private float deathUITimeRemaining = 0f;
     private bool isPaused = false;
+    private bool isDeathUIActive = false;
 
     private PlayerControls playerControls;
 
@@ -58,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        uiManager = UIManager.Instance;
+
         DisableZoom();
         ResumeGame();
 
@@ -70,15 +76,28 @@ public class GameManager : MonoBehaviour
 
         if (respawnTimeRemaining == 0f) { return; }
 
-        respawnTimeRemaining = Mathf.Max(respawnTimeRemaining - Time.deltaTime, 0f);
-        UIManager.Instance.UpdateRespawnBar(respawnTimeRemaining / respawnTime);
-        
+        float deltaTime = Time.deltaTime;
+
+        respawnTimeRemaining = Mathf.Max(respawnTimeRemaining - deltaTime, 0f);
+        deathUITimeRemaining = Mathf.Max(deathUITimeRemaining - deltaTime, 0f);
+        uiManager.UpdateRespawnBar(respawnTimeRemaining / respawnTime);
+
+        HandleDeathUI();
+
         if (respawnTimeRemaining == 0f)
         {
             player.gameObject.SetActive(true);
-            UIManager.Instance.ResetRespawnBar();
+            uiManager.ResetRespawnBar();
             PlayerStats.Instance.RespawnPlayer();
         }
+    }
+
+    private void HandleDeathUI()
+    {
+        if (deathUITimeRemaining != 0f || !isDeathUIActive) { return; }
+
+        uiManager.HideDeathPanel();
+        isDeathUIActive = false;
     }
 
     public void CheckZoom()
@@ -130,7 +149,7 @@ public class GameManager : MonoBehaviour
         DisableAllControls();
     }
 
-    void StopGame()
+    private void StopGame()
     {
         // no open ui option
         Time.timeScale = 0;
@@ -187,23 +206,29 @@ public class GameManager : MonoBehaviour
             DisableZoom();
             isBuying = false;
             buyModeCam.m_Priority = 0;
-            UIManager.Instance.CloseBuyMenu();
-            // camTarScript.playMode();
+            uiManager.CloseBuyMenu();
         }
         else
         {
             EnableZoom();
             buyModeCam.m_Priority = 50;
             isBuying = true;
-            UIManager.Instance.OpenBuyMenu();
-            // camTarScript.buyMode();
+            uiManager.OpenBuyMenu();
         }
     }
 
     public void HandlePlayerDeath()
     {
         respawnTimeRemaining = respawnTime;
-        BuyModeSwap();
+        deathUITimeRemaining = deathUITime;
+
+        if (!isBuying) 
+        { 
+            BuyModeSwap(); 
+        }
+        
+        uiManager.HandleDeathUI();
+        isDeathUIActive = true;
         player.gameObject.SetActive(false);
     }
 
