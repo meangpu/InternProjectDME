@@ -22,13 +22,13 @@ MonoBehaviour:
   maxDamage: 200
   isPassive: 0
   attackRange: 20
-  atkSpeed: 0.5
+  atkSpeed: 0.2
   bulletSpeed: 10
   bulletLifetime: 4
-  bulletType: {fileID: 0}
+  bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
   moneyDrop: 0
   enemyType: 5
-  enemyId: 2
+  enemyId: 0
   FireSound:
     name: 
     clip: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3723436341830045314}
   - component: {fileID: 5996204292388103607}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3460679475454693043}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: HpbarCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463540064744863628}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: parentHp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5298252095771945956}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: bulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: -5061090753679612593}
   - component: {fileID: 8854143676388831109}
   - component: {fileID: 1455225754332492751}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5298252096645341656}
   - component: {fileID: 5298252096645341657}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 992549135086230292}
   - component: {fileID: 8759359252378177565}
   - component: {fileID: 469260737273015000}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 119267512554508243}
   - component: {fileID: 8651151822477057643}
   - component: {fileID: 7097836667806920187}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 2107585009748604249}
   - component: {fileID: 810294708118483144}
   - component: {fileID: 1203445315743443537}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: HpFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

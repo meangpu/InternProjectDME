@@ -60,6 +60,11 @@ public class EnemyAI : MonoBehaviour
 
     private void OnEnable()
     {
+        Setup();
+    }
+
+    public void Setup()
+    {
         isPassive = enemyDisplay.IsPassive;
         attackRange = enemyDisplay.AttackRange;
         enemyType = enemyDisplay.EnemyType;
@@ -105,7 +110,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
-        if (!isPassive)
+        if (!isPassive && state != EnemyState.TargetPlayer)
         {
             float stopRange = enemyType == EnemyType.Machine || enemyType == EnemyType.BossTank ? attackRange : attackRange / 2;
 
