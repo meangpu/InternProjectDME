@@ -60,7 +60,7 @@ public class EnemyDisplay : MonoBehaviour
         minDamage = enemy.GetMinDamage();
         maxDamage = enemy.GetMaxDamage();
         circleHp.fillAmount = 1;
-        parentHp.gameObject.SetActive(false);
+        parentHp.SetActive(false);
         isPassive = enemy.GetIsPassive();
         bulletType = enemy.GetBulletType();
         atkSpeed = enemy.GetAtkSpeed();
@@ -70,8 +70,6 @@ public class EnemyDisplay : MonoBehaviour
         goldDrop = enemy.GetMoneyDrop();
         enemyType = enemy.GetEnemyType();
         enemyId = enemy.GetEnemyId();
-
-        // enemyAI.Setup(isPassive, attackRange, enemyType);
     }
 
     public void Slow(float percentage, float duration)
