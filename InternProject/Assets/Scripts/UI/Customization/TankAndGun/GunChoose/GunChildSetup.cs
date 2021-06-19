@@ -50,6 +50,11 @@ public class GunChildSetup : MonoBehaviour
                 lockButton.interactable = true;
                 glowCanbuy.SetActive(true);
             }
+            else
+            {
+                lockButton.interactable = false;
+                glowCanbuy.SetActive(false);
+            }
         }
 
 

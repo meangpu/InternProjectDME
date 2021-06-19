@@ -19,10 +19,10 @@ public class ListOfAddons : MonoBehaviour
 
     }
 
-    [ContextMenu("sssss")]
-    public void resetAddon()
+
+    public void resetAfterBuy()
     {
-        Debug.Log("=========================================================================");
+        // inorder to update unlock icon in case that it cannot buy anymore
         int i = 0;
         foreach (Transform child in transform)
         {

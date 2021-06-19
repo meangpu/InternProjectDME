@@ -16,7 +16,17 @@ public class ListOfGun : MonoBehaviour
             newTurretButton.GetComponent<GunChildSetup>().ShowData(gun); 
             
         }
+    }
 
+    public void resetAfterBuy()
+    {
+        // inorder to update unlock icon in case that it cannot buy anymore
+        int i = 0;
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<GunChildSetup>().ShowData(TurretList[i]);
+            i++;
+        }
     }
 
 }

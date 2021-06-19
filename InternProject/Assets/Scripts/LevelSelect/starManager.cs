@@ -12,6 +12,11 @@ public class starManager : MonoBehaviour
     [SerializeField] GameObject confirmPanel;
     [SerializeField] TMP_Text confirmBuyText;
 
+    [Header("parent list script")]
+    [SerializeField] ListOfTank lostTankScpt;
+    [SerializeField] ListOfGun listGunScpt;
+    [SerializeField] ListOfAddons listAddOnScpt;
+
     ObjPlayerTank goingToBuyTank;
     TankChildSetup goingToBuyTankScpt;
 
@@ -46,7 +51,6 @@ public class starManager : MonoBehaviour
 
     public int getNowStar()
     {
-        Debug.Log("NOWSTARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"+starData.GetStar());
         return starData.GetStar();
     }
 
@@ -93,6 +97,10 @@ public class starManager : MonoBehaviour
         {
             Debug.Log("How tf is this error happen");
         }
+        lostTankScpt.resetAfterBuy();
+        listGunScpt.resetAfterBuy();
+        listAddOnScpt.resetAfterBuy();
+
     }
 
 
