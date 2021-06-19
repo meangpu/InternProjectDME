@@ -46,6 +46,7 @@ public class starManager : MonoBehaviour
 
     public int getNowStar()
     {
+        Debug.Log("NOWSTARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"+starData.GetStar());
         return starData.GetStar();
     }
 

@@ -35,6 +35,11 @@ public class ObjStarData : ScriptableObject
         }
         return false;
     }
-
+    
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 
 }

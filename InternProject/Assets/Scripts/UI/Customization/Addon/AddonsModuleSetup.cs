@@ -38,9 +38,17 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
             unlockPriceText.text = addonObject.GetBuyStarPrice().ToString();
             if (starManager.Instance.getNowStar() >= addonObject.GetBuyStarPrice())
             {
+                Debug.Log(addonObject.GetName());
+                Debug.Log(starManager.Instance.getNowStar());
+                Debug.Log(addonObject.GetBuyStarPrice());
                 // player cannot click to open buy panel if they don't have enough star
                 lockButton.interactable = true;
                 glowCanbuy.SetActive(true);
+            }
+            else
+            {
+                lockButton.interactable = false;
+                glowCanbuy.SetActive(false);
             }
         }
     }

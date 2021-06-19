@@ -7,6 +7,8 @@ public class ListOfAddons : MonoBehaviour
     [SerializeField] private ObjAbility[] addonsList;
     [SerializeField] private GameObject addonModulePrefab;
 
+
+
     private void Start()
     {
         foreach (ObjAbility addon in addonsList)
@@ -15,5 +17,17 @@ public class ListOfAddons : MonoBehaviour
             newAddonDisplay.GetComponent<AddonsModuleSetup>().DisplayData(addon);
         }
 
+    }
+
+    [ContextMenu("sssss")]
+    public void resetAddon()
+    {
+        Debug.Log("=========================================================================");
+        int i = 0;
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<AddonsModuleSetup>().DisplayData(addonsList[i]);
+            i++;
+        }
     }
 }
