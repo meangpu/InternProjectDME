@@ -8,6 +8,13 @@ public class PlayerTankCustomization : ScriptableObject
     [SerializeField] private ObjPlayerTank tank;
     [SerializeField] private ObjTankTurret turret;
 
+
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
+
     public void SetTurret(ObjTankTurret turret)
     {
         this.turret = turret;

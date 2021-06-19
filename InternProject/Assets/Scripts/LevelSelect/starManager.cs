@@ -18,6 +18,9 @@ public class starManager : MonoBehaviour
     ObjTankTurret goingToBuyGun;
     GunChildSetup goingToBuyGunScpt;
 
+    ObjAbility goingToBuyAddon;
+    AddonsModuleSetup goingToBuyAddonScpt;
+
 
     public static starManager Instance { get { return _instance; } }
     private static starManager _instance; 
@@ -62,6 +65,14 @@ public class starManager : MonoBehaviour
         confirmBuyText.text = $"Use <size=80><color=yellow>{_price}</color></size> stars\n<size=25> to unlock this gun?</size>";
     }
 
+    public void showAskAddonPanel(int _price, ObjAbility _addonObj, AddonsModuleSetup _childScpt)
+    {
+        goingToBuyAddon = _addonObj;
+        goingToBuyAddonScpt = _childScpt;
+        confirmPanel.SetActive(true);
+        confirmBuyText.text = $"Use <size=80><color=yellow>{_price}</color></size> stars\n<size=25> to unlock this addon?</size>";
+    }
+
 
     public void buy()
     {
@@ -72,6 +83,10 @@ public class starManager : MonoBehaviour
         else if (goingToBuyGun != null)
         {
             buyGun();
+        }
+        else if (goingToBuyAddon != null)
+        {
+            buyAddon();
         }
         else
         {
@@ -88,6 +103,8 @@ public class starManager : MonoBehaviour
         goingToBuyTankScpt = null;
         goingToBuyGun = null;
         goingToBuyGunScpt = null;
+        goingToBuyAddon = null;
+        goingToBuyAddonScpt = null;
     }
 
     public void buyTank()
@@ -112,6 +129,17 @@ public class starManager : MonoBehaviour
         updateAfterBuy();
     }
 
+    public void buyAddon()
+    {
+        if (starData.GetStar() >= goingToBuyAddon.GetBuyStarPrice())
+        {
+            goingToBuyAddon.unlockThisAddon();  // in obj
+            starData.subtractValue(goingToBuyAddon.GetBuyStarPrice());
+        }
+        goingToBuyAddonScpt.unlockThisAddon();  // in child script
+        updateAfterBuy();
+    }
+
 
 
     public void cancelBuy()
@@ -122,6 +150,8 @@ public class starManager : MonoBehaviour
         goingToBuyTankScpt = null;
         goingToBuyGun = null;
         goingToBuyGunScpt = null;
+        goingToBuyAddon = null;
+        goingToBuyAddonScpt = null;
     }
 
 

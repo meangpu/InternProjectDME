@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -26,3 +26,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13f6bc3f54445854c8a23caab55edc36, type: 2}
   - {fileID: 11400000, guid: 38dc99719c21df6469e6d92424d003bb, type: 2}
   comboValue: 0
+  isUnlocked: 0
+  buyStarValue: 3

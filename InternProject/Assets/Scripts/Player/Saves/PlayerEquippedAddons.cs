@@ -12,6 +12,13 @@ public class PlayerEquippedAddons : ScriptableObject
 
     public event Action<int, bool> OnUpdateAddon;
 
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
+    
+
     public enum AddonSlot
     {
         SlotQ,

@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20,4 +20,9 @@ MonoBehaviour:
   cooldownTime: 0
   damage: 0
   range: 0
+  abilityDuration: 0
+  percentage: 0
   comboList: []
+  comboValue: 0
+  isUnlocked: 1
+  buyStarValue: 0

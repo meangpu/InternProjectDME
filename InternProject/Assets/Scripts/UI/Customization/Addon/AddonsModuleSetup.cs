@@ -27,6 +27,22 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         addonObject = addon;
         image.sprite = addonObject.GetIcon();
+
+        if (addonObject.GetIsUnlock())
+        {
+            // if tank is unlocked disable tank panel
+            LockPanel.SetActive(false);
+        }
+        else
+        {
+            unlockPriceText.text = addonObject.GetBuyStarPrice().ToString();
+            if (starManager.Instance.getNowStar() >= addonObject.GetBuyStarPrice())
+            {
+                // player cannot click to open buy panel if they don't have enough star
+                lockButton.interactable = true;
+                glowCanbuy.SetActive(true);
+            }
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -43,4 +59,17 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         uiManager.SelectAddonToAssign(addonObject);
     }
+
+    public void showAskBuy()
+    {
+        starManager.Instance.showAskAddonPanel(addonObject.GetBuyStarPrice(), addonObject, this);
+    }
+
+    public void unlockThisAddon()
+    {
+        LockPanel.SetActive(false);
+        unlockPar.Play();
+    }
+
+
 }
