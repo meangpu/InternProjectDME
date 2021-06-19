@@ -1637,7 +1637,6 @@ GameObject:
   - component: {fileID: 1977601060305487393}
   - component: {fileID: 1977601060305487398}
   - component: {fileID: 1977601060305487399}
-  - component: {fileID: 1977601060305487396}
   m_Layer: 5
   m_Name: BackBtn
   m_TagString: Untagged
@@ -1771,20 +1770,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &1977601060305487396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977601060305487418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 587b3d282d895ff47aa3416ad86a48f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: 
-  sceneIndex: 0
 --- !u!1 &1977601060321948518
 GameObject:
   m_ObjectHideFlags: 0

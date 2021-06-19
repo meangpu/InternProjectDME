@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -157,12 +158,18 @@ public class GameManager : MonoBehaviour
         DisableAllControls();
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         isPaused = false;
         pausePanel.SetActive(false);
         EnableAllControls();
+    }
+
+    public void restartLevel()
+    {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
     }
 
     public IEnumerator LevelWon(float _waitTime)
