@@ -21,7 +21,7 @@ public class setArrowToQuestPosition : MonoBehaviour
         Vector3 fromPos = mainCam.transform.position;
         fromPos.z = 0f;
         Vector3 dir = (toPos-fromPos).normalized;
-        float angle = Vector3.Angle(dir, transform.forward);
+        float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) % 360;
         pointerTransform.localEulerAngles = new Vector3(0, 0, angle);
 
         
