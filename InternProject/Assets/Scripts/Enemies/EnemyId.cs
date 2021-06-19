@@ -6,5 +6,6 @@ public enum EnemyId
     DoomsdayTank,
     SpyPlane,
     BomberPlane,
-    MWing
+    MWing,
+    Boss
 }
