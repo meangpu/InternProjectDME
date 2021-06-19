@@ -138,7 +138,6 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-
         countDown -= Time.deltaTime;
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
         textTimeBeforeNextWave.text = countDown.ToString("F0");
