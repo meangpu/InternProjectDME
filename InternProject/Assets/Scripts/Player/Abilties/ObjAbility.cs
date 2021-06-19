@@ -18,6 +18,10 @@ public class ObjAbility : ScriptableObject
     [SerializeField] private List<ObjAbility> comboList;
     [SerializeField] private float comboValue;
 
+    [Header("buy addon")]
+    [SerializeField] bool isUnlocked;
+    [SerializeField] int buyStarValue;
+
     public string GetName() => addonName;
     public string GetDescription() => description;
     public AbilityType GetAbilityType() => abilityType;
@@ -30,4 +34,21 @@ public class ObjAbility : ScriptableObject
     public float GetPercentage() => percentage;
     public List<ObjAbility> GetComboList() => comboList;
     public float GetComboValue() => comboValue;
+
+    public bool GetIsUnlock() => isUnlocked;
+    public int GetBuyStarPrice() => buyStarValue;
+
+
+    public void unlockThisAddon()
+    {
+        isUnlocked = true;
+    }
+
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
+
+
 }

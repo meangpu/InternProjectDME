@@ -2,11 +2,19 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private Image image;
-    
+
+    [Header("selfValue")]
+    [SerializeField] GameObject LockPanel;
+    [SerializeField] Button lockButton;
+    [SerializeField] GameObject glowCanbuy;
+    [SerializeField] TMP_Text unlockPriceText;
+    [SerializeField] ParticleSystem unlockPar;
+
     private AddonsUIManager uiManager;
     private ObjAbility addonObject;
 
