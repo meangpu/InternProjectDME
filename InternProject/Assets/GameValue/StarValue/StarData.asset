@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b792f18f12a336646a37d2089b5b267f, type: 3}
   m_Name: StarData
   m_EditorClassIdentifier: 
-  starValue: 99
+  starValue: 899

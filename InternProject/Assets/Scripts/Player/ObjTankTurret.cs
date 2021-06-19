@@ -48,5 +48,9 @@ public class ObjTankTurret : ScriptableObject
         isUnlocked = true;
     }
 
-
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }

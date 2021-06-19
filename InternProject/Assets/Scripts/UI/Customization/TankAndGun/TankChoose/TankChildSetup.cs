@@ -28,8 +28,6 @@ public class TankChildSetup : MonoBehaviour
     {
         myImageComponent.sprite = dataTank.GetSprite();
         selfTankData = dataTank;
-        
-        Debug.Log(selfTankData);
         chooseTankScript = transform.parent.GetComponent<ChooseTank>();
 
         if (dataTank.GetIsUnlock())

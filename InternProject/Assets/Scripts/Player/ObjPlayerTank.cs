@@ -38,6 +38,12 @@ public class ObjPlayerTank : ScriptableObject
 
     public void unlockThisTank()
     {
-        isUnlocked = true;
+        this.isUnlocked = true;
+    }
+
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
 }
