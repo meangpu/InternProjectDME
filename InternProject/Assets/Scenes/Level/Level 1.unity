@@ -51439,7 +51439,7 @@ GameObject:
   - component: {fileID: 1533023317}
   - component: {fileID: 1533023319}
   m_Layer: 5
-  m_Name: GameOvePanel
+  m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
