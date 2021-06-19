@@ -2207,7 +2207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &133473468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48918,7 +48918,7 @@ MonoBehaviour:
   m_text: you will be respawned shortly
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9927e890635ec254992e646eeb71ae1f, type: 2}
-  m_sharedMaterial: {fileID: -2645595074469519321, guid: 9927e890635ec254992e646eeb71ae1f, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a644e88e50c54e447bf6528f119eaf6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -50035,10 +50035,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1576655756 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
-  m_PrefabInstance: {fileID: 760318817}
 --- !u!1 &1564243447
 GameObject:
   m_ObjectHideFlags: 0
@@ -68691,6 +68687,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1576655756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+  m_PrefabInstance: {fileID: 760318817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1606726706
 GameObject:
   m_ObjectHideFlags: 0
@@ -73208,7 +73215,7 @@ MonoBehaviour:
   m_text: You are dead
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9927e890635ec254992e646eeb71ae1f, type: 2}
-  m_sharedMaterial: {fileID: -2645595074469519321, guid: 9927e890635ec254992e646eeb71ae1f, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a644e88e50c54e447bf6528f119eaf6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
