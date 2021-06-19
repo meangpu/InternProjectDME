@@ -25917,6 +25917,8 @@ MonoBehaviour:
   respawnTime: 20
   deathUITime: 3
   pausePanel: {fileID: 1049175157}
+  settingPanel: {fileID: 8157705422501723958}
+  pauseAllButton: {fileID: 159205483}
   gameOverPanel: {fileID: 1533023315}
   winPanel: {fileID: 1606726706}
   zoomInMax: 8

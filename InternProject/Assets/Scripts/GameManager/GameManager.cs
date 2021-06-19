@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float respawnTime = 15f;
     [SerializeField] private float deathUITime = 3f;
     [SerializeField] private GameObject pausePanel = null;
+    [SerializeField] GameObject settingPanel;
+    [SerializeField] GameObject pauseAllButton;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
@@ -145,6 +147,7 @@ public class GameManager : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0;
+        pauseAllButton.SetActive(true);
         isPaused = true;
         pausePanel.SetActive(true);
         DisableAllControls();
@@ -163,6 +166,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         pausePanel.SetActive(false);
+        settingPanel.SetActive(false);
         EnableAllControls();
     }
 

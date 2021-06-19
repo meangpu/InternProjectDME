@@ -38,6 +38,8 @@ public class WaveManager : MonoBehaviour
     private PoolingSingleton pooler;
     int thisWaveCount;
 
+    bool isStopCount;
+
     bool isFirstWave = true;
 
     private void Awake()
@@ -62,8 +64,6 @@ public class WaveManager : MonoBehaviour
         countDown = 2;
 
         pooler = PoolingSingleton.Instance;
-
-        
     }
 
     public void Set_MinSlider(int _value)
@@ -95,8 +95,6 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
-
-
         if (isFirstWave & countDown!=0)
         {
             CheckNextWave(0, true);
@@ -133,6 +131,13 @@ public class WaveManager : MonoBehaviour
             }
 		}
 
+        if (isStopCount)
+        {
+            countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+            textTimeBeforeNextWave.text = countDown.ToString("F0");
+            return;
+        }
+
 
         countDown -= Time.deltaTime;
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
@@ -157,6 +162,7 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
+        isStopCount = true;
         EnemyWave wave = EnemyWaves[waveindex];
         Set_MaxSlider(EnemyWaves.Length - (waveindex+1));
         SetUp_MinSlider(CountAllEnemyInWave());
@@ -167,6 +173,10 @@ public class WaveManager : MonoBehaviour
             {
                 for (int i = 0; i < enemy.count; i++)
                 {
+                    if (i == enemy.count -1)  // last enemy
+                    {
+                        isStopCount = false;
+                    }
                     SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
                     yield return new WaitForSeconds(wave.spawnRate);
                     
@@ -183,7 +193,7 @@ public class WaveManager : MonoBehaviour
         waveindex++;
     }
 
-    public void callNextWave()
+    public void callNextWave(Button buttonScpt)
     {
         if (thisWaveCount > 0)
         {
@@ -199,6 +209,8 @@ public class WaveManager : MonoBehaviour
         {
             return;
         }
+
+        buttonScpt.interactable = false;
 
         PlayerStats.Instance.AddGold(goldGain);
         DamagePopup.Create(playerTrans.position, goldGain, DamagePopup.DamageType.Gold);
@@ -219,15 +231,15 @@ public class WaveManager : MonoBehaviour
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
-            pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
+            pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
             
             if (firstWave)
             {
-                pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataNotMouse();
+                pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().ShowDataNotMouse();
             }
             else
             {
-                StartCoroutine(pointToSpawn.spawnPoint.GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
+                StartCoroutine(pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().ShowDataForSec(showInfoForSec));
             }
             
         } 

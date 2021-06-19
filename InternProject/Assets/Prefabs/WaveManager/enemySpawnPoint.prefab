@@ -400,7 +400,7 @@ RectTransform:
   m_Children:
   - {fileID: 6127173309918978962}
   - {fileID: 5168100561113051537}
-  m_Father: {fileID: 5596684687550121560}
+  m_Father: {fileID: 6504896171512192437}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -469,6 +469,54 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &4257155664277688337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6504896171512192437}
+  - component: {fileID: 6702103525983364114}
+  m_Layer: 0
+  m_Name: ButtonScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6504896171512192437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257155664277688337}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2915498347345096656}
+  m_Father: {fileID: 5596684687550121560}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6702103525983364114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257155664277688337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c79d7d1566022b4e8d3842d239880e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoPfb: {fileID: 8740166892008008221, guid: c177cd30d5ab55344a7b6a42ef83107c, type: 3}
+  parentInfoTransform: {fileID: 5168100561113051537}
+  mainButton: {fileID: 6856518777995801602}
+  TextTellCallEarly: {fileID: 3478771721695510314}
 --- !u!1 &5596684687550121567
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +545,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2915498347345096656}
+  - {fileID: 6504896171512192437}
   - {fileID: 6467732934656249460}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -847,7 +895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6467732934656249460
 Transform:
   m_ObjectHideFlags: 0
