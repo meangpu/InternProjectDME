@@ -49,14 +49,4 @@ public class setArrowToQuestPosition : MonoBehaviour
     }
 
 
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void Show(Vector3 targetPos)
-    {
-        gameObject.SetActive(true);
-    }
-
 }
