@@ -103,6 +103,11 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
             case EnemyId.SpyPlane:
                 pooler.EnemySpyPlanePool.ReturnObject(gameObject);
                 break;
+            case EnemyId.Boss:
+                Destroy(gameObject);
+
+                // Remove all enemy in the list from wavemanager
+                break;
         }
         
         WaveManager.EnemyAlive.Remove(this);
