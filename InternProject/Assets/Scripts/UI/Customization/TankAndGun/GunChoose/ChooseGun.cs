@@ -32,13 +32,13 @@ public class ChooseGun : MonoBehaviour
     [Space]
     public NowTankGun nowTankGun;
     
-    public void updateGunData(ObjTankTurret dataGun)
+    public void UpdateGunData(ObjTankTurret dataGun)
     {
-        firstDisplayGunData(dataGun);
+        FirstDisplayGunData(dataGun);
         nowTankGun.saveGunData(dataGun);
     }
 
-    public void firstDisplayGunData(ObjTankTurret dataGun)
+    public void FirstDisplayGunData(ObjTankTurret dataGun)
     {
         TankGun.sprite = dataGun.GetSprite();
         gunName.text = dataGun.GetName();
@@ -65,7 +65,7 @@ public class ChooseGun : MonoBehaviour
         reload.value = dataGun.GetReloadTime()[1];
     }
 
-    public void showNowGunData()
+    public void ShowNowGunData()
     {
         nowTankGun.updateImageTankGun();
     }

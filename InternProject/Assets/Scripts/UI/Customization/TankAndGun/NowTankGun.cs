@@ -19,7 +19,7 @@ public class NowTankGun : MonoBehaviour
 
     public void updateImageTankGun()
     {
-        gunScpt.firstDisplayGunData(nowTankGun.GetTurret());
+        gunScpt.FirstDisplayGunData(nowTankGun.GetTurret());
         tankScpt.firstDisplayTankData(nowTankGun.GetTank());
     }
 

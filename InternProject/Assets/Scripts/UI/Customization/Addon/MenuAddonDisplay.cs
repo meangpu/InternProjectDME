@@ -22,6 +22,13 @@ public class MenuAddonDisplay : MonoBehaviour
     public void UpdateAddonsDisplay()
     {
         List<ObjAbility> addonsList = playerEquippedAddons.GetEquippedAddons();
+
+        if (addonsList.Count != 2)
+        {
+            playerEquippedAddons.SetEmpty();
+            addonsList = playerEquippedAddons.GetEquippedAddons();
+        } 
+
         imageQ.sprite = addonsList[0].GetIcon();
         imageE.sprite = addonsList[1].GetIcon();
     }

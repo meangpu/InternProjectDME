@@ -5,18 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Equipped Addons", menuName = "Saves/Create Player Equipped Addons")]
 public class PlayerEquippedAddons : ScriptableObject
 {
-    [SerializeField] private List<ObjAbility> equippedAddons;
+    [SerializeField] private List<ObjAbility> equippedAddons = new List<ObjAbility>(2);
     [SerializeField] private ObjAbility emptyAbility;
 
     private ComboType comboType = ComboType.None;
 
     public event Action<int, bool> OnUpdateAddon;
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         ////// prevent data reset across scene
         hideFlags = HideFlags.DontUnloadUnusedAsset;
-    }
+    }*/
     
     public enum AddonSlot
     {
@@ -139,6 +139,12 @@ public class PlayerEquippedAddons : ScriptableObject
         }
 
         return false;
+    }
+
+    public void SetEmpty()
+    {
+        SetAbility(emptyAbility, AddonSlot.SlotQ);
+        SetAbility(emptyAbility, AddonSlot.SlotE);
     }
 
     public ComboType GetComboType() => comboType;

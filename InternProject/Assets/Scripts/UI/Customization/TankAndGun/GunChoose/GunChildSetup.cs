@@ -74,17 +74,17 @@ public class GunChildSetup : MonoBehaviour
 
     public void ShowGunName()
     {
-        chooseGunScript.updateGunData(selfTurret);
+        chooseGunScript.UpdateGunData(selfTurret);
     }
 
     public void DisplayGun()
     {
-        chooseGunScript.firstDisplayGunData(selfTurret);
+        chooseGunScript.FirstDisplayGunData(selfTurret);
     }
 
     public void showOnExit()
     {
-        chooseGunScript.showNowGunData();
+        chooseGunScript.ShowNowGunData();
     }
 
 
