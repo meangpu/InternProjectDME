@@ -18,7 +18,6 @@ public class PlayerEquippedAddons : ScriptableObject
         hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
     
-
     public enum AddonSlot
     {
         SlotQ,
@@ -59,7 +58,7 @@ public class PlayerEquippedAddons : ScriptableObject
         OnUpdateAddon?.Invoke(slotIndexB, false);
     }
 
-    private bool CheckForCombo(int slotIndex, int otherSlotIndex)
+    public bool CheckForCombo(int slotIndex, int otherSlotIndex)
     {   
         ObjAbility thisSlot = equippedAddons[slotIndex];
         ObjAbility otherSlot = equippedAddons[otherSlotIndex];

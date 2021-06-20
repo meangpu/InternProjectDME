@@ -10,6 +10,7 @@ public class EquippedAddonsDisplay : MonoBehaviour
     [SerializeField] private AddonsUIManager uiManager;
     [SerializeField] private SelectedAddon[] selectedAddons;
     [SerializeField] private GameObject equippingScreen;
+    [SerializeField] private GameObject comboDisplay = null;
 
     private List<ObjAbility> addonsList;
 
@@ -24,6 +25,8 @@ public class EquippedAddonsDisplay : MonoBehaviour
 
         selectedAddons[0].AssignAbilityObject(addonsList[0]);
         selectedAddons[1].AssignAbilityObject(addonsList[1]);
+
+        HandleComboDisplay(equippedAddons.CheckForCombo(0, 1));
     }
 
     public AddonsUIManager GetUIManager() => uiManager;
@@ -47,9 +50,20 @@ public class EquippedAddonsDisplay : MonoBehaviour
         selectedAddons[slotIndex].GetImage().sprite = addonsList[slotIndex].GetIcon();
         selectedAddons[slotIndex].AssignAbilityObject(addonsList[slotIndex]);
 
-        if (!isCombo) { return; }
+        HandleComboDisplay(isCombo);
+    }
 
-        Debug.Log("COMBO");
+    private void HandleComboDisplay(bool isCombo)
+    {
+        switch (isCombo)
+        {
+            case true:
+                comboDisplay.SetActive(true);
+                return;
+            case false:
+                comboDisplay.SetActive(false);
+                return;
+        }
     }
 
     private void OnDestroy()
