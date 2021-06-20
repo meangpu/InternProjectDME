@@ -26,9 +26,17 @@ public class UpgradeGunStats : MonoBehaviour
 
         for (int i = 0; i < statsText.Length; i++)
         {
-            statsText[i].text = statsDisplay[i].Item2;
+            switch (statsDisplay[i].Item1)
+            {
+                case true:
+                    string[] stats = statsDisplay[i].Item2.Split('>');
+                    statsText[i].SetText($"{stats[0].AddColor(noUpgradeColor)}>{stats[1].AddColor(upgradableColor)}");
+                    break;
 
-            statsText[i].color = statsDisplay[i].Item1 ? upgradableColor : noUpgradeColor;
+                case false:
+                    statsText[i].SetText($"{statsDisplay[i].Item2.AddColor(noUpgradeColor)}");
+                    break;
+            }
         }
     }
 
