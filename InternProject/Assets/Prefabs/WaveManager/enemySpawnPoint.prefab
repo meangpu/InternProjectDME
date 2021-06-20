@@ -526,7 +526,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5596684687550121560}
-  - component: {fileID: 5761198998337448039}
   - component: {fileID: 6077414700775693082}
   m_Layer: 0
   m_Name: enemySpawnPoint
@@ -551,20 +550,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5761198998337448039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596684687550121567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b112774586050f4985c962b4c72f125, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowImage: {fileID: 8041937840126625849}
-  playerTarget: {fileID: 0}
 --- !u!212 &6077414700775693082
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -738,9 +723,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4257155664277688337}
         m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
-        m_MethodName: callNextWave
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -767,9 +752,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 4257155664277688337}
           m_TargetAssemblyTypeName: callWaveEarly, Assembly-CSharp
-          m_MethodName: ShowDataMouse
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -783,9 +768,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 4257155664277688337}
           m_TargetAssemblyTypeName: callWaveEarly, Assembly-CSharp
-          m_MethodName: HideData
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
