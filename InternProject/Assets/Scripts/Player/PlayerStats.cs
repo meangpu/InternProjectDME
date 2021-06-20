@@ -13,7 +13,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private Transform respawnPoint = null;
 
     // Player Stats
-    private readonly int startingGold = 2000;
     private int tankLevel = 1;
     private int gunLevel = 1;
 
@@ -102,7 +101,7 @@ public class PlayerStats : MonoBehaviour
         healthSystem = new HealthOrManaSystem(tank.GetHealth()[level]);
         energySystem = new HealthOrManaSystem(tank.GetEnergy()[level]);
 
-        goldSystem = new GoldSystem(startingGold);
+        goldSystem = new GoldSystem(GameManager.Instance.GetStartingGold());
 
         tankName = tank.GetName();
         gunName = turret.GetName();

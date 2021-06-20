@@ -25134,11 +25134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894897481918443344, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5796533
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 8894897481918443344, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.399467
+      value: 9.47
       objectReference: {fileID: 0}
     - target: {fileID: 8894897481918443344, guid: b4e245e6b2a948f448a50c305c598b02, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25935,6 +25935,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1049175157}
   settingPanel: {fileID: 8157705422501723958}
   pauseAllButton: {fileID: 159205483}
+  startingGold: {fileID: 11400000, guid: 926edb58ab39d1749b22496bc4b6668a, type: 2}
   gameOverPanel: {fileID: 1533023315}
   winPanel: {fileID: 1606726706}
   zoomInMax: 8
@@ -48780,7 +48781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2792474500436230540, guid: 165b776e115499a4489f33456adc3973, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.12
+      value: -5.27
       objectReference: {fileID: 0}
     - target: {fileID: 2792474500436230540, guid: 165b776e115499a4489f33456adc3973, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48837,11 +48838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5084766386457998053, guid: f55e259f20ffd2549b87a5f9057a98d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.014146
+      value: -3.6
       objectReference: {fileID: 0}
     - target: {fileID: 5084766386457998053, guid: f55e259f20ffd2549b87a5f9057a98d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09594406
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 5084766386457998053, guid: f55e259f20ffd2549b87a5f9057a98d6, type: 3}
       propertyPath: m_LocalPosition.z
