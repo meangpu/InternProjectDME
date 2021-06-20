@@ -27,10 +27,9 @@ public class spawnArrow : MonoBehaviour
 
             if (ray.collider != null)
             {
-                Debug.Log(ray.collider);
                 // Debug.Log(ray.collider);
                 arrowImage.transform.position = ray.point;
-                if (ray.collider.tag == "CamConfine")
+                if (ray.collider.CompareTag("CamConfine"))
                 {
                     Debug.Log("AAAAAAAAAAAAAAAAA");
                     arrowImage.transform.position = ray.point;

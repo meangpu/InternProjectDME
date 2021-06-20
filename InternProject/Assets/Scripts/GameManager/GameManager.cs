@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel = null;
     [SerializeField] GameObject settingPanel;
     [SerializeField] GameObject pauseAllButton;
+    [SerializeField] private ObjStartingGold startingGold = null;
 
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
@@ -170,7 +171,7 @@ public class GameManager : MonoBehaviour
         EnableAllControls();
     }
 
-    public void restartLevel()
+    public void RestartLevel()
     {
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
@@ -268,4 +269,5 @@ public class GameManager : MonoBehaviour
     public Player GetPlayer() => player;
     public BaseClass GetPlayerBase() => playerBase;
     public PlayerControls GetPlayerControls() => playerControls;
+    public int GetStartingGold() => startingGold.GetStartingGold();
 }

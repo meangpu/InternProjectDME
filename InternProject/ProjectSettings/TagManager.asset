@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - TowerBullet
   - PointGraphNode
+  - CamConfine
   layers:
   - Default
   - TransparentFX
