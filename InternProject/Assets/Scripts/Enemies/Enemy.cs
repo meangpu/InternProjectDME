@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, ITargetable, IEnemy
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     private WaveManager waveManager;
     private PoolingSingleton pooler;
 
+    public UnityEvent OnHit;
+
     private void Start()
     {
         waveManager = WaveManager.Instance;
@@ -30,7 +33,12 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
     public void TakeDamage(int damage)
     {
-        if (Immortal) { return; }
+        if (Immortal) 
+        {
+            DamagePopup.Create(transform.position, 0, DamagePopup.DamageType.Enemy);
+            return; 
+        }
+
         if (!parentHp.activeSelf)
         {
             parentHp.SetActive(true);
@@ -60,11 +68,12 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
                   
         }
         UpdateHpCircle(enemyDisplay.Health, enemyDisplay.MaxHealth);
+        OnHit?.Invoke();
     }
 
-    public void UndoImmortal()
+    public void SetImmortalState(bool state)
     {
-        Immortal = false;
+        Immortal = state;
     }
 
     private void EnemyDie()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossSlayer : MonoBehaviour
 {
+    [SerializeField] private Enemy enemy = null;
     [SerializeField] private EnemyAI enemyAI = null;
     [SerializeField] private EnemyDisplay enemyDisplay = null;
     [SerializeField] private float shieldActivationTime = 3f;
@@ -48,6 +49,7 @@ public class BossSlayer : MonoBehaviour
         if (!isShieldActivated) { return; }
 
         PutShieldOnCooldown();
+        enemy.SetImmortalState(false);
     }
 
     private void PutShieldOnCooldown()
@@ -56,10 +58,15 @@ public class BossSlayer : MonoBehaviour
         shieldCooldownTime = shieldCooldown;
     }
 
-    private void ActivateShield()
+    public void ActivateShield()
     {
+        if (isShieldActivated) { return; }
+
+        if (shieldCooldownTime > 0f) { return; }
+
         isShieldActivated = true;
         shieldTime = shieldActivationTime;
+        enemy.SetImmortalState(true);
     }
 
     private void ShootMissiles()
@@ -68,7 +75,7 @@ public class BossSlayer : MonoBehaviour
 
         foreach (Transform spawnpoint in missileSpawnPoints)
         {
-            pooler.EnemyArtilleryTankPool.SpawnEnemyMissile(spawnpoint.position, spawnpoint.rotation, RandomMissileDamage(), enemyDisplay.BulletSpeed, enemyDisplay.BulletLifetime);
+            pooler.EnemyMissilePool.SpawnEnemyMissile(spawnpoint.position, spawnpoint.rotation, RandomMissileDamage(), Random.Range(4, 8), enemyDisplay.BulletLifetime);
         }
 
         missileCooldownTime = missileCooldown;
