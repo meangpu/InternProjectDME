@@ -75,7 +75,7 @@ public class BossSlayer : MonoBehaviour
 
         foreach (Transform spawnpoint in missileSpawnPoints)
         {
-            pooler.EnemyMissilePool.SpawnEnemyMissile(spawnpoint.position, spawnpoint.rotation, RandomMissileDamage(), Random.Range(4, 8), enemyDisplay.BulletLifetime);
+            pooler.EnemyMissilePool.SpawnEnemyMissile(spawnpoint.position, spawnpoint.rotation, RandomMissileDamage(), Random.Range(4f, 8f), enemyDisplay.BulletLifetime);
         }
 
         missileCooldownTime = missileCooldown;
