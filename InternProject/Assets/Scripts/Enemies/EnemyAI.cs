@@ -110,7 +110,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
-        if (!isPassive && state == EnemyState.TargetPlayer) // FIX
+        if (!isPassive) // FIX
         {
             float stopRange = enemyType == EnemyType.Machine || enemyType == EnemyType.BossTank ? attackRange : attackRange / 2;
 
@@ -132,7 +132,10 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
-                enemyShoot.StopShooting(); //FIX
+                if (state != EnemyState.TargetPlayer)
+                {
+                    enemyShoot.StopShooting();
+                }
             }
         }
    
