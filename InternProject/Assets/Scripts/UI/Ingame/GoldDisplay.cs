@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class GoldDisplay : MonoBehaviour
 {
@@ -11,11 +10,15 @@ public class GoldDisplay : MonoBehaviour
     private PlayerStats playerStats;
     private GoldSystem goldSystem;
 
+    private UIManager uiManager;
+
     private void Start()
     {
         playerStats = PlayerStats.Instance;
 
         goldSystem = playerStats.GetGoldSystem();
+
+        uiManager = UIManager.Instance;
 
         UpdateUI(goldSystem.GetGold());
 
@@ -25,7 +28,7 @@ public class GoldDisplay : MonoBehaviour
 
     private void HandleNotEnoughGold()
     {
-        Debug.Log("NOT ENOUGH ObjGold");
+        uiManager.TriggerNotEnoughGold();
     }
 
     private void HandleGoldUpdated(int ObjGold)
