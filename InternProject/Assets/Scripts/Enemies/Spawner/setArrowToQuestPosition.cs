@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class setArrowToQuestPosition : MonoBehaviour
 {
+    [SerializeField] Transform spawnerTransform;
     Vector3 targetPosition;
+    
     [SerializeField] float borderSize = 100f;
     [SerializeField] RectTransform pointerTransform;
     [SerializeField] Camera UICam;
@@ -12,7 +14,7 @@ public class setArrowToQuestPosition : MonoBehaviour
    
     private void Awake() 
     {
-        targetPosition = new Vector3(200, 45);
+        targetPosition = spawnerTransform.position;
     }
 
     private void Update() 
@@ -24,8 +26,6 @@ public class setArrowToQuestPosition : MonoBehaviour
         float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) % 360;
         pointerTransform.localEulerAngles = new Vector3(0, 0, angle);
 
-        
-
         Vector3 targetPosScreenPoint = mainCam.WorldToScreenPoint(targetPosition);
         bool isOffScreen = targetPosScreenPoint.x <=borderSize || targetPosScreenPoint.x >=Screen.width - borderSize || targetPosScreenPoint.y <= borderSize || targetPosScreenPoint.y >= Screen.height - borderSize; 
 
@@ -34,6 +34,7 @@ public class setArrowToQuestPosition : MonoBehaviour
             Vector3 capTarScreenPos = targetPosScreenPoint;
             capTarScreenPos.x = Mathf.Clamp(capTarScreenPos.x, borderSize, Screen.width - borderSize);
             capTarScreenPos.y = Mathf.Clamp(capTarScreenPos.y, borderSize, Screen.height - borderSize);
+
             Vector3 pointerWorldPos = UICam.ScreenToWorldPoint(capTarScreenPos);
             pointerTransform.position = pointerWorldPos;
             pointerTransform.localPosition = new Vector3(pointerTransform.localPosition.x, pointerTransform.localPosition.y, 0f);
