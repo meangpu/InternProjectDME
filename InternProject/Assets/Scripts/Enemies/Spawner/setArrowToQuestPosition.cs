@@ -95,12 +95,12 @@ public class setArrowToQuestPosition : MonoBehaviour
         switch (state)
         {
             case true:
+                // disable in play mode
                 transform.GetChild(0).gameObject.SetActive(false);
                 return;
             case false:
                 transform.GetChild(0).gameObject.SetActive(true);
                 return;
-
         }
     }
 
