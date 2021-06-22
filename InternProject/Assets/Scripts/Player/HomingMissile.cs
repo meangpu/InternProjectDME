@@ -36,6 +36,11 @@ public class HomingMissile : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        target = null;
+    }
+
     public void Setup(TargetType targetType, float rotationSpeed = 200f)
     {
         this.targetType = targetType;

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossSlayer : MonoBehaviour
 {
@@ -20,6 +19,9 @@ public class BossSlayer : MonoBehaviour
     private bool isShieldActivated = false;
 
     private PoolingSingleton pooler;
+
+    public UnityEvent OnEnergyShieldActivated;
+    public UnityEvent OnEnergyShieldDeactivated;
 
     private void Start()
     {
@@ -50,6 +52,8 @@ public class BossSlayer : MonoBehaviour
 
         PutShieldOnCooldown();
         enemy.SetImmortalState(false);
+
+        OnEnergyShieldDeactivated?.Invoke();
     }
 
     private void PutShieldOnCooldown()
@@ -67,6 +71,8 @@ public class BossSlayer : MonoBehaviour
         isShieldActivated = true;
         shieldTime = shieldActivationTime;
         enemy.SetImmortalState(true);
+
+        OnEnergyShieldActivated?.Invoke();
     }
 
     private void ShootMissiles()
