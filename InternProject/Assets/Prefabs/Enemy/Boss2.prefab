@@ -83,7 +83,7 @@ MonoBehaviour:
   - {fileID: 1680286330732427642}
   - {fileID: 6768354919720901646}
   - {fileID: 4879564956025609517}
-  missileDamage: {x: 25, y: 50}
+  missileDamage: {x: 20, y: 35}
 --- !u!1 &5446436042802600311
 GameObject:
   m_ObjectHideFlags: 0

@@ -299,6 +299,11 @@ public class PlayerStats : MonoBehaviour
 
     public void AddSpeedBoost(float amount, float duration)
     {
+        if (speedBoostEnabled)
+        {
+            movementSpeed = baseMovementSpeed;
+        }
+
         movementSpeed += amount;
         speedBoostDuration = duration;
         speedBoostEnabled = true;
@@ -309,7 +314,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (!speedBoostEnabled) { return; }
 
-        speedBoostDuration -= Mathf.Max(speedBoostDuration - deltaTime, 0f);
+        speedBoostDuration = Mathf.Max(speedBoostDuration - deltaTime, 0f);
         TryRemoveSpeedBoost();
     }
 
@@ -319,6 +324,7 @@ public class PlayerStats : MonoBehaviour
 
         movementSpeed = baseMovementSpeed;
         speedBoostEnabled = false;
+        OnMovementStatsChanged?.Invoke();
     }
 
     public void AddDamageBoost(float percentage, float duration)

@@ -17,7 +17,7 @@ public class Collectible : MonoBehaviour
 
     private void Start()
     {
-        pooler = PoolingSingleton.Instance.BulletExplosion;
+        pooler = PoolingSingleton.Instance.CollectiblePool;
     }
 
     private void OnEnable()
@@ -37,21 +37,18 @@ public class Collectible : MonoBehaviour
         switch (lockType)
         {
         case PowerType.hp:
-            spawnValueType(collectibles[0]);
+            SpawnValueType(collectibles[0]);
             break;
         case PowerType.energy:
-            spawnValueType(collectibles[1]);
+            SpawnValueType(collectibles[1]);
             break;
         case PowerType.speed:
-            spawnValueType(collectibles[2]);
-            break;
-        default:
-            print("error power value");
+            SpawnValueType(collectibles[2]);
             break;
         }
     }
 
-    void spawnValueType(ObjCollectible _objType)
+    void SpawnValueType(ObjCollectible _objType)
     {
         collectibleType = _objType.GetCollectibleType();
         spriteRenderer.sprite = _objType.GetSprite();

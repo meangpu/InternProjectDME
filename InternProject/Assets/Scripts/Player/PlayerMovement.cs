@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movementSpeed = playerStats.GetMovementSpeed();
         rotationSpeed = playerStats.GetRotationSpeed();
+        Debug.Log(movementSpeed);
     }
 
     private void OnDestroy()
