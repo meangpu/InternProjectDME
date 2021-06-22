@@ -21,7 +21,7 @@ MonoBehaviour:
   minDamage: 100
   maxDamage: 200
   isPassive: 0
-  attackRange: 20
+  attackRange: 3
   atkSpeed: 0.2
   bulletSpeed: 10
   bulletLifetime: 4
