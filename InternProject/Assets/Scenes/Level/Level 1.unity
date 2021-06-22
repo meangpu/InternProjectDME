@@ -73062,7 +73062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1009816887206694359, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3061819531511047170, guid: 852568b80bf722645832f953e7d1d429, type: 3}
       propertyPath: healthUi
