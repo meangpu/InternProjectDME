@@ -12,7 +12,14 @@ public class PlayerGun : MonoBehaviour
     private bool holdOnShoot = false;  // Check if the player is holding down shoot button to continuously shoot.
     private bool isReloading = false; // Check if the player is reloading to prevent ghost reloads.
 
+    private UIManager uiManager;
+
     public UnityEvent OnShoot;
+
+    private void Start()
+    {
+        uiManager = UIManager.Instance;
+    }
 
     private void OnEnable()
     {
@@ -48,7 +55,7 @@ public class PlayerGun : MonoBehaviour
                 StartCoroutine(Reload(-4.5f));
                 return;
             case 1:
-                Debug.Log("FLASH RED");
+                uiManager.TriggerNotEnoughAmmo();
                 return;
         }
 
@@ -96,7 +103,7 @@ public class PlayerGun : MonoBehaviour
      
         isReloading = true;
         float reloadTime = playerStats.GetReloadTime() * ((100 - percentageShortened) / 100);
-        UIManager.Instance.Reload(reloadTime);
+        uiManager.Reload(reloadTime);
         playerStats.EmptyCurrentAmmoCount();
         yield return new WaitForSeconds(reloadTime);
         playerStats.ReloadAmmoCount();

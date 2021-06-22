@@ -31,6 +31,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text tankCostText = null;
     [SerializeField] private TMP_Text gunCostText = null;
 
+    [Header("Animators")]
+    [SerializeField] private Animator ammoAnimator = null;
+    [SerializeField] private Animator energyAnimator = null;
+    [SerializeField] private Animator goldAnimator = null;
+
     private PlayerStats playerStats;
     public UnityEvent OnLeveledUp;
 
@@ -157,6 +162,11 @@ public class UIManager : MonoBehaviour
     public void HideDeathPanel()
     {
         deathPanel.SetActive(false);
+    }
+
+    public void TriggerNotEnoughAmmo()
+    {
+        ammoAnimator.SetTrigger("Flash");
     }
 
     private void OnDestroy()

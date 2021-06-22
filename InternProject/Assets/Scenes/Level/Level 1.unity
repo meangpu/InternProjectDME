@@ -2132,6 +2132,9 @@ MonoBehaviour:
   gunUpgradeLevelText: {fileID: 118098700}
   tankCostText: {fileID: 1541884464}
   gunCostText: {fileID: 888551035}
+  ammoAnimator: {fileID: 809939280}
+  energyAnimator: {fileID: 0}
+  goldAnimator: {fileID: 889307002}
   OnLeveledUp:
     m_PersistentCalls:
       m_Calls:
@@ -28677,6 +28680,7 @@ GameObject:
   - component: {fileID: 809939277}
   - component: {fileID: 809939279}
   - component: {fileID: 809939278}
+  - component: {fileID: 809939280}
   m_Layer: 5
   m_Name: Ammo UI
   m_TagString: Untagged
@@ -28800,6 +28804,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809939276}
   m_CullTransparentMesh: 1
+--- !u!95 &809939280
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809939276}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a163d0b45c4ad245aa1cf3f69bdbc6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &820903744
 GameObject:
   m_ObjectHideFlags: 0
@@ -29768,6 +29791,7 @@ GameObject:
   - component: {fileID: 889306999}
   - component: {fileID: 889307001}
   - component: {fileID: 889307000}
+  - component: {fileID: 889307002}
   m_Layer: 5
   m_Name: Gold
   m_TagString: Untagged
@@ -29891,6 +29915,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889306998}
   m_CullTransparentMesh: 1
+--- !u!95 &889307002
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889306998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a163d0b45c4ad245aa1cf3f69bdbc6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &896886612
 GameObject:
   m_ObjectHideFlags: 0
