@@ -10,25 +10,42 @@ public class GameSaveManager : MonoBehaviour
     [SerializeField] private ScriptableObject objectToSave;
     [SerializeField] private string filename;
 
+    private string SavePath { get
+        {
+#if UNITY_EDITOR
+            return Application.persistentDataPath + "/editor_save";
+#else
+            return Application.persistentDataPath + "/game_save";
+#endif
+        }
+    }
+
     public bool IsSaveFile()
     {
-        return Directory.Exists(Application.persistentDataPath + "/game_save");
+        return Directory.Exists(SavePath);
     }
+
+
+    /*private void Start()
+    {
+        filename = "EDITOR";
+    }  */
+
 
     public void SaveGame()
     {
         if (!IsSaveFile())
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/game_save");
+            Directory.CreateDirectory(SavePath);
         }
 
-        if (!Directory.Exists(Application.persistentDataPath + "/game_save/player_stats"))
+        if (!Directory.Exists($"{SavePath}/player_stats"))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/player_stats");
+            Directory.CreateDirectory($"{SavePath}/player_stats");
         }
 
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + $"/game_save/player_stats/{filename}.txt");
+        FileStream file = File.Create($"{SavePath}/player_stats/{filename}.txt");
         var json = JsonUtility.ToJson(objectToSave);
         bf.Serialize(file, json);
         file.Close();
@@ -36,16 +53,16 @@ public class GameSaveManager : MonoBehaviour
 
     public void LoadGame()
     {
-        if (!Directory.Exists(Application.persistentDataPath + "/game_save/player_stats"))
+        if (!Directory.Exists($"{SavePath}/player_stats"))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/player_stats");
+            Directory.CreateDirectory($"{SavePath}/player_stats");
         }
 
         BinaryFormatter bf = new BinaryFormatter();
 
-        if (File.Exists(Application.persistentDataPath + $"/game_save/player_stats/{filename}.txt"))
+        if (File.Exists($"{SavePath}/player_stats/{filename}.txt"))
         {
-            FileStream file = File.Open(Application.persistentDataPath + $"/game_save/player_stats/{filename}.txt", FileMode.Open);
+            FileStream file = File.Open($"{SavePath}/player_stats/{filename}.txt", FileMode.Open);
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), objectToSave);
             file.Close();
         }
