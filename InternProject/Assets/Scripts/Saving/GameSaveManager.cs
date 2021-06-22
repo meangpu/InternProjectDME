@@ -25,13 +25,6 @@ public class GameSaveManager : MonoBehaviour
         return Directory.Exists(SavePath);
     }
 
-
-    /*private void Start()
-    {
-        filename = "EDITOR";
-    }  */
-
-
     public void SaveGame()
     {
         if (!IsSaveFile())
