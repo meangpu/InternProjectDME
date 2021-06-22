@@ -17,6 +17,7 @@ public class setArrowToQuestPosition : MonoBehaviour
         targetPosition = spawnerTransform.position;
     }
 
+
     private void Update() 
     {
         Vector3 toPos = targetPosition;
