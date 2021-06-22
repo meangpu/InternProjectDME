@@ -7,10 +7,12 @@ public class PlayerInputManager : MonoBehaviour
     private PlayerGun gun;
     private PlayerControls playerControls;
     private PlayerAbilities playerAbilities;
+    private GameManager gameManager;
 
     private void Awake()
     {
-        playerControls = GameManager.Instance.GetPlayerControls();
+        gameManager = GameManager.Instance;
+        playerControls = gameManager.GetPlayerControls();
 
         gun = GetComponentInChildren<PlayerGun>();
         playerAbilities = GetComponent<PlayerAbilities>();
@@ -24,31 +26,33 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => playerAbilities.Skill1Activate();
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
-        playerControls.BuyMenu.BuyMode.performed += _ => GameManager.Instance.BuyModeSwap();
+        playerControls.BuyMenu.BuyMode.performed += _ => gameManager.BuyModeSwap();
 
-        GameManager.Instance.OnBuyModeTrigger += BuyModeHandler;
+        gameManager.OnBuyModeTrigger += BuyModeHandler;
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        DisableTankControls();
+        playerControls.BuyMenu.BuyMode.Disable();
     }
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        EnableTankControls();
+        playerControls.BuyMenu.BuyMode.Enable();
     }
 
     public float GetMoveValue() => playerControls.Tank.Move.ReadValue<float>();
     public float GetRotationValue() => playerControls.Tank.Rotate.ReadValue<float>();
     public Vector2 GetMousePosition() => playerControls.Tank.LookAt.ReadValue<Vector2>();
 
-    public void DisableTankControls()
+    private void DisableTankControls()
     {
         playerControls.Tank.Disable();
     }
 
-    public void EnableTankControls()
+    private void EnableTankControls()
     {
         playerControls.Tank.Enable();
     }
@@ -68,6 +72,6 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnBuyModeTrigger -= BuyModeHandler;
+        gameManager.OnBuyModeTrigger -= BuyModeHandler;
     }
 }

@@ -9,7 +9,6 @@ public class PlayerStats : MonoBehaviour
     private static PlayerStats instance;
     public static PlayerStats Instance { get { return instance; } }
 
-    [SerializeField] private PlayerInputManager inputManager = null;
     [SerializeField] private Transform respawnPoint = null;
 
     // Player Stats
@@ -208,7 +207,6 @@ public class PlayerStats : MonoBehaviour
     {
         Transform playerTank = gameObject.transform;
         playerTank.SetPositionAndRotation(respawnPoint.position, respawnPoint.rotation);
-        inputManager.DisableTankControls();
 
         healthSystem.Heal(100, HealthOrManaSystem.HealingType.Percentage);
         energySystem.SetAmount(20);
