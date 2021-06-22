@@ -40,13 +40,16 @@ public class PlayerGun : MonoBehaviour
 
     public void ShootSpecial()
     {
-        if (playerStats.GetCurrentAmmoCount() < 2)
+        switch (playerStats.GetCurrentAmmoCount())
         {
-            if (playerStats.GetCurrentAmmoCount() == 0)
-            {
+            default:
+                break;
+            case 0:
                 StartCoroutine(Reload(-4.5f));
-            }
-            return;
+                return;
+            case 1:
+                Debug.Log("FLASH RED");
+                return;
         }
 
         if (!canShoot) { return; }
