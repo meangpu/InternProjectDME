@@ -8,7 +8,6 @@ public class FixRotation : MonoBehaviour
     void Awake()
     {
         transform.parent.rotation =  Quaternion.identity;
-        Debug.Log(rotation);
         rotation = transform.rotation;
     }
     void LateUpdate()

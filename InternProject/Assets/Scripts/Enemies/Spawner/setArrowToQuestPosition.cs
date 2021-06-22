@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class setArrowToQuestPosition : MonoBehaviour
 {
@@ -8,9 +9,22 @@ public class setArrowToQuestPosition : MonoBehaviour
     Vector3 targetPosition;
     
     [SerializeField] float borderSize = 100f;
+    [Header("transform")]
     [SerializeField] RectTransform pointerTransform;
+    [SerializeField] RectTransform enemyInfo;
+    [SerializeField] RectTransform clickCallWave;
+
+    [Header("Cam")]
     [SerializeField] Camera UICam;
     [SerializeField] Camera mainCam;
+
+    [Header("Image")]
+    [SerializeField] Sprite arrowSprite;
+    [SerializeField] Sprite circleSprite;
+
+    [SerializeField] Image imageSelf;
+
+
    
     private void Awake() 
     {
@@ -32,20 +46,37 @@ public class setArrowToQuestPosition : MonoBehaviour
 
         if (isOffScreen)
         {
+            imageSelf.sprite = arrowSprite;
             Vector3 capTarScreenPos = targetPosScreenPoint;
             capTarScreenPos.x = Mathf.Clamp(capTarScreenPos.x, borderSize, Screen.width - borderSize);
             capTarScreenPos.y = Mathf.Clamp(capTarScreenPos.y, borderSize, Screen.height - borderSize);
 
             Vector3 pointerWorldPos = UICam.ScreenToWorldPoint(capTarScreenPos);
-            pointerTransform.position = pointerWorldPos;
-            pointerTransform.localPosition = new Vector3(pointerTransform.localPosition.x, pointerTransform.localPosition.y, 0f);
+
+            setAllPos(pointerWorldPos);
         }
         else
         {
-            Vector3 pointerWorldPos = UICam.ScreenToWorldPoint(targetPosScreenPoint);
-            pointerTransform.position = pointerWorldPos;
-            pointerTransform.localPosition = new Vector3(pointerTransform.localPosition.x, pointerTransform.localPosition.y, 0f);
+            imageSelf.sprite = circleSprite;
+            pointerTransform.localEulerAngles = new Vector3(0, 0, 0);
+            Vector3 pointerWorldPos = mainCam.ScreenToWorldPoint(targetPosScreenPoint);
+            setAllPos(pointerWorldPos);
         }
+    }
+
+    void setAllPos(Vector3 _pos)
+    {
+        pointerTransform.position = _pos;
+        pointerTransform.localPosition = new Vector3(pointerTransform.localPosition.x, pointerTransform.localPosition.y, 0f);
+
+        enemyInfo.position = _pos;
+        enemyInfo.localPosition = new Vector3(enemyInfo.localPosition.x+190f, enemyInfo.localPosition.y+163.55f, 0f);
+
+        clickCallWave.position = _pos;
+        clickCallWave.localPosition = new Vector3(clickCallWave.localPosition.x-220f, clickCallWave.localPosition.y-5f, 0f);
+
+
+
     }
 
 }

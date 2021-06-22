@@ -170,6 +170,8 @@ public class WaveManager : MonoBehaviour
         {
             foreach (var enemy in pointToSpawn.EnemyList)
             {
+                pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                
                 for (int i = 0; i < enemy.count; i++)
                 {
                     if (i == enemy.count -1)  // last enemy
@@ -204,12 +206,14 @@ public class WaveManager : MonoBehaviour
 
         countDown -= _tempData;
         textTimeBeforeNextWave.text = countDown.ToString("F0");
+        buttonScpt.transform.parent.gameObject.SetActive(false);
+        buttonScpt.interactable = false;
+
         if (isFirstWave)
         {
             return;
+            // not add gold if first wave
         }
-
-        buttonScpt.interactable = false;
 
         PlayerStats.Instance.AddGold(goldGain);
         DamagePopup.Create(playerTrans.position, goldGain, DamagePopup.DamageType.Gold);
@@ -231,6 +235,8 @@ public class WaveManager : MonoBehaviour
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
             pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
+
+            pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);
             
             if (firstWave)
             {
