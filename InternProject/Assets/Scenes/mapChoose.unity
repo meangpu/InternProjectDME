@@ -19486,7 +19486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 330.96375, y: -85.30998}
+  m_AnchoredPosition: {x: 330.96378, y: -85.30998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053047787
@@ -27874,6 +27874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1774271145}
   - component: {fileID: 1774271146}
+  - component: {fileID: 1774271144}
   m_Layer: 0
   m_Name: SaveData
   m_TagString: Untagged
@@ -27881,6 +27882,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1774271144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774271143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb1cd85520cbf74097e222e9d8fef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSave: {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
+  filename: tank_customization
 --- !u!4 &1774271145
 Transform:
   m_ObjectHideFlags: 0
@@ -27907,9 +27922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb1cd85520cbf74097e222e9d8fef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToSave:
-  - {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
-  - {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
+  objectToSave: {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
   filename: player_save
 --- !u!1 &1777347135
 GameObject:

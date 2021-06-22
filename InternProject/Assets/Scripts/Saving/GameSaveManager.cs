@@ -7,8 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class GameSaveManager : MonoBehaviour
 {
     [Header("Scriptable Objects")]
-    [SerializeField] private List<ScriptableObject> objectsToSave;
-    // [SerializeField] private ScriptableObject objectToSave;
+    [SerializeField] private ScriptableObject objectToSave;
     [SerializeField] private string filename;
 
     public bool IsSaveFile()
@@ -28,14 +27,11 @@ public class GameSaveManager : MonoBehaviour
             Directory.CreateDirectory(Application.persistentDataPath + "/game_save/player_stats");
         }
 
-        for (int i = 0; i < objectsToSave.Count; i++)
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create(Application.persistentDataPath + $"/game_save/player_stats/{filename}_{i}.txt");
-            var json = JsonUtility.ToJson(objectsToSave[i]);
-            bf.Serialize(file, json);
-            file.Close();
-        }  
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + $"/game_save/player_stats/{filename}.txt");
+        var json = JsonUtility.ToJson(objectToSave);
+        bf.Serialize(file, json);
+        file.Close();
     }
 
     public void LoadGame()
@@ -47,14 +43,11 @@ public class GameSaveManager : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
 
-        for (int i = 0; i < objectsToSave.Count; i++)
+        if (File.Exists(Application.persistentDataPath + $"/game_save/player_stats/{filename}.txt"))
         {
-            if (File.Exists(Application.persistentDataPath + $"/game_save/player_stats/{filename}_{i}.txt"))
-            {
-                FileStream file = File.Open(Application.persistentDataPath + $"/game_save/player_stats/{filename}_{i}.txt", FileMode.Open);
-                JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), objectsToSave[i]);
-                file.Close();
-            }
+            FileStream file = File.Open(Application.persistentDataPath + $"/game_save/player_stats/{filename}.txt", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), objectToSave);
+            file.Close();
         }
     }
 }
