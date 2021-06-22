@@ -12,6 +12,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] private ObjAbility energyShieldAddon = null;
     [SerializeField] private PlayerGun playerGun = null;
     [SerializeField] private GameObject orb = null;
+    [SerializeField] private GameObject energyShield = null;
 
     [SerializeField] private Animator anim;
 
@@ -127,6 +128,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void PutEnergyShieldOnCooldown()
     {
+        energyShield.SetActive(false);
         cooldownSystem.PutOnCooldown(energyShieldAddon);
     }
 
@@ -223,6 +225,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void ActivateEnergyShield()
     {
+        energyShield.SetActive(true);
         OnTriggerEnergyShield?.Invoke();
     }
 

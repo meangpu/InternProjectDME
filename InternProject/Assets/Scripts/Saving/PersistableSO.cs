@@ -14,7 +14,7 @@ public class PersistableSO : MonoBehaviour
     {
         for (int i = 0; i < objectsToPersist.Count; i++)
         {
-            string filename = Application.persistentDataPath + string.Format("/{0}_{1}.pso", persisterName, i);
+            string filename = Application.persistentDataPath + string.Format("/{0}_{1}.txt", persisterName, i);
 
             if (File.Exists(filename))
             {
@@ -31,7 +31,7 @@ public class PersistableSO : MonoBehaviour
         for (int i = 0; i < objectsToPersist.Count; i++)
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}_{1}.pso", persisterName, i));
+            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}_{1}.txt", persisterName, i));
             var json = JsonUtility.ToJson(objectsToPersist[i]);
             bf.Serialize(file, json);
             file.Close();
