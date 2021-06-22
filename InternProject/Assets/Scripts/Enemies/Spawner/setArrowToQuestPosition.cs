@@ -24,12 +24,25 @@ public class setArrowToQuestPosition : MonoBehaviour
 
     [SerializeField] Image imageSelf;
 
+    private GameManager gameManager;
+
 
    
     private void Awake() 
     {
         targetPosition = spawnerTransform.position;
     }
+
+    private void Start() 
+    {
+        gameManager = GameManager.Instance;
+		gameManager.OnBuyModeTrigger += HandleBuyModeTrigger;
+    }
+
+	private void OnDestroy() 
+	{
+		gameManager.OnBuyModeTrigger -= HandleBuyModeTrigger;
+	}
 
 
     private void Update() 
@@ -73,10 +86,22 @@ public class setArrowToQuestPosition : MonoBehaviour
         enemyInfo.localPosition = new Vector3(enemyInfo.localPosition.x+190f, enemyInfo.localPosition.y+163.55f, 0f);
 
         clickCallWave.position = _pos;
-        clickCallWave.localPosition = new Vector3(clickCallWave.localPosition.x-220f, clickCallWave.localPosition.y-5f, 0f);
+        clickCallWave.localPosition = new Vector3(clickCallWave.localPosition.x-250f, clickCallWave.localPosition.y-5f, 0f);
+    }
 
 
+    void HandleBuyModeTrigger(bool state)
+    {
+        switch (state)
+        {
+            case true:
+                transform.GetChild(0).gameObject.SetActive(false);
+                return;
+            case false:
+                transform.GetChild(0).gameObject.SetActive(true);
+                return;
 
+        }
     }
 
 }
