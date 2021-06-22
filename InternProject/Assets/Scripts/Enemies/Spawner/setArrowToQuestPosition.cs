@@ -32,10 +32,8 @@ public class setArrowToQuestPosition : MonoBehaviour
         if (isOffScreen)
         {
             Vector3 capTarScreenPos = targetPosScreenPoint;
-            if (capTarScreenPos.x <= borderSize) capTarScreenPos.x = borderSize;
-            if (capTarScreenPos.x >= Screen.width - borderSize) capTarScreenPos.x = Screen.width - borderSize;
-            if (capTarScreenPos.y <= borderSize) capTarScreenPos.y = borderSize;
-            if (capTarScreenPos.y >= Screen.height - borderSize) capTarScreenPos.y = Screen.height - borderSize;
+            capTarScreenPos.x = Mathf.Clamp(capTarScreenPos.x, borderSize, Screen.width - borderSize);
+            capTarScreenPos.y = Mathf.Clamp(capTarScreenPos.y, borderSize, Screen.height - borderSize);
             Vector3 pointerWorldPos = UICam.ScreenToWorldPoint(capTarScreenPos);
             pointerTransform.position = pointerWorldPos;
             pointerTransform.localPosition = new Vector3(pointerTransform.localPosition.x, pointerTransform.localPosition.y, 0f);
@@ -47,6 +45,5 @@ public class setArrowToQuestPosition : MonoBehaviour
             pointerTransform.localPosition = new Vector3(pointerTransform.localPosition.x, pointerTransform.localPosition.y, 0f);
         }
     }
-
 
 }
