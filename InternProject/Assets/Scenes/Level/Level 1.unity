@@ -2133,7 +2133,7 @@ MonoBehaviour:
   tankCostText: {fileID: 1541884464}
   gunCostText: {fileID: 888551035}
   ammoAnimator: {fileID: 809939280}
-  energyAnimator: {fileID: 0}
+  energyAnimator: {fileID: 1239691412}
   goldAnimator: {fileID: 889307002}
   OnLeveledUp:
     m_PersistentCalls:
@@ -48212,6 +48212,7 @@ GameObject:
   - component: {fileID: 1239691409}
   - component: {fileID: 1239691411}
   - component: {fileID: 1239691410}
+  - component: {fileID: 1239691412}
   m_Layer: 5
   m_Name: Energy
   m_TagString: Untagged
@@ -48335,6 +48336,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239691408}
   m_CullTransparentMesh: 1
+--- !u!95 &1239691412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239691408}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a163d0b45c4ad245aa1cf3f69bdbc6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1247562022
 GameObject:
   m_ObjectHideFlags: 0
