@@ -174,6 +174,11 @@ public class UIManager : MonoBehaviour
         goldAnimator.SetTrigger("Flash");
     }
 
+    public void TriggerNotEnoughEnergy()
+    {
+        energyAnimator.SetTrigger("Flash");
+    }
+
     private void OnDestroy()
     {
         playerStats.OnAmmoUpdated -= UpdateAmmoUI;

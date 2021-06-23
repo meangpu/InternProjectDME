@@ -74,6 +74,16 @@ public class GameManager : MonoBehaviour
         playerControls.Menu.Pause.performed += _ => HandlePause();
     }
 
+    private void OnDisable()
+    {
+        playerControls.Menu.Disable();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Menu.Enable();
+    }
+
     private void Update()
     {
         CheckZoom();
