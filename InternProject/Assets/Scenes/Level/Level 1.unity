@@ -31427,11 +31427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: hp
-      value: 5000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: maxHp
-      value: 5000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8879223242420276883, guid: 162a4845a71f96c4a84e21a950c068e6, type: 3}
       propertyPath: textHp

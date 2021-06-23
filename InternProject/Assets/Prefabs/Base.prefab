@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231a569825febfc47b3201a5dbee5d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
-  hp: 200
+  maxHp: 1000
+  hp: 1000
   sliderHealth: {fileID: 0}
   textHp: {fileID: 0}
   gameManager: {fileID: 0}
