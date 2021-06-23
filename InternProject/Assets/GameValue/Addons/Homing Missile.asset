@@ -15,7 +15,7 @@ MonoBehaviour:
   addonName: Homing Missile Module
   description: Locks on a random enemy and deals damage to enemies near the impact
   abilityType: 4
-  icon: {fileID: 21300000, guid: 285ee192eb1dbd548bfc8d26439c0e59, type: 3}
+  icon: {fileID: 21300000, guid: c88762dcd87d51345b7939f2f440c021, type: 3}
   energyCost: 30
   cooldownTime: 20
   damage: 15

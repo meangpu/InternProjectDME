@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStars: 0
   levelDescription: 
-  levelPreview: {fileID: 0}
+  levelPreview: {fileID: 21300000, guid: 8ae35f3ef0139e2498a76d38ce625bbd, type: 3}
   startingGold: 125
