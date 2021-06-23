@@ -75,6 +75,8 @@ public class PlayerStats : MonoBehaviour
     private bool speedBoostEnabled = false;
     private float speedBoostDuration = 0;
 
+    private UIManager uiManager;
+
     private void Awake()
     {
         if (instance == null)
@@ -94,6 +96,8 @@ public class PlayerStats : MonoBehaviour
         Player player = GetComponent<Player>();
         turret = player.GetTurret();
         tank = player.GetTank();
+
+        uiManager = UIManager.Instance;
 
         int level = tankLevel - 1;
 
@@ -262,6 +266,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (energySystem.GetAmount() < energy)
         {
+            uiManager.TriggerNotEnoughEnergy();
             return false;
         }
         else
