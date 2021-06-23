@@ -26440,7 +26440,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1049175157}
   settingPanel: {fileID: 8157705422501723958}
   pauseAllButton: {fileID: 159205483}
-  startingGold: {fileID: 11400000, guid: 926edb58ab39d1749b22496bc4b6668a, type: 2}
+  levelData: {fileID: 11400000, guid: 1cb39c67412a74445943f101ae438cb9, type: 2}
   gameOverPanel: {fileID: 1533023315}
   winPanel: {fileID: 1606726706}
   zoomInMax: 8
@@ -30719,7 +30719,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023558983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30740,8 +30740,8 @@ Transform:
   - {fileID: 141058761}
   - {fileID: 21961206}
   - {fileID: 503036879}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1038302742}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038302741
 GameObject:
@@ -30771,6 +30771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 776410677}
+  - {fileID: 1023558984}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
