@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class GameSaveManager : MonoBehaviour
 {
     [Header("Scriptable Objects")]
-    [SerializeField] private ScriptableObject objectToSave;
+    [SerializeField] private List<ScriptableObject> objectsToSave;
     [SerializeField] private string filename;
 
     private string SavePath { get
@@ -37,11 +37,14 @@ public class GameSaveManager : MonoBehaviour
             Directory.CreateDirectory($"{SavePath}/player_stats");
         }
 
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create($"{SavePath}/player_stats/{filename}.txt");
-        var json = JsonUtility.ToJson(objectToSave);
-        bf.Serialize(file, json);
-        file.Close();
+        for (int i = 0; i < objectsToSave.Count; i++)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create($"{SavePath}/player_stats/{filename}_{i}.txt");
+            var json = JsonUtility.ToJson(objectsToSave[i]);
+            bf.Serialize(file, json);
+            file.Close();
+        }
     }
 
     public void LoadGame()
@@ -53,11 +56,14 @@ public class GameSaveManager : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
 
-        if (File.Exists($"{SavePath}/player_stats/{filename}.txt"))
+        for (int i = 0; i < objectsToSave.Count; i++)
         {
-            FileStream file = File.Open($"{SavePath}/player_stats/{filename}.txt", FileMode.Open);
-            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), objectToSave);
-            file.Close();
+            if (File.Exists($"{SavePath}/player_stats/{filename}_{i}.txt"))
+            {
+                FileStream file = File.Open($"{SavePath}/player_stats/{filename}_{i}.txt", FileMode.Open);
+                JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), objectsToSave[i]);
+                file.Close();
+            }
         }
     }
 }
