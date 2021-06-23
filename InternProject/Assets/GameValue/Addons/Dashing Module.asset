@@ -15,7 +15,7 @@ MonoBehaviour:
   addonName: Dashing Module
   description: Dash forward quickly in a short range
   abilityType: 1
-  icon: {fileID: 8082763461715426152, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
+  icon: {fileID: 21300000, guid: 5b0adf13e9079784d932ef44989bbdc0, type: 3}
   energyCost: 20
   cooldownTime: 5
   damage: 0
@@ -25,5 +25,5 @@ MonoBehaviour:
   comboList:
   - {fileID: 11400000, guid: 7610d30400dbc7f4e993c502e7dc6934, type: 2}
   comboValue: 0
-  isUnlocked: 0
+  isUnlocked: 1
   buyStarValue: 5
