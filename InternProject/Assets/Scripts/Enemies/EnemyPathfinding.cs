@@ -7,6 +7,7 @@ public class EnemyPathfinding : MonoBehaviour
 {
     [SerializeField] private Seeker seeker = null; //
     [SerializeField] private float pathScanInterval = 0.5f;
+    [SerializeField] private GameObject target;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -61,6 +62,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     public Vector3 GetCurrentWaypoint()
     {
+        target.transform.position = path.vectorPath[currentWaypoint];
         return path.vectorPath[currentWaypoint];
     }
 }
