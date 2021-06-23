@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance { get { return instance; } }
 
     [SerializeField] private Transform respawnPoint = null;
+    [SerializeField] ParticleSystem speedBoostPar;
 
     // Player Stats
     private int tankLevel = 1;
@@ -304,6 +305,7 @@ public class PlayerStats : MonoBehaviour
 
         movementSpeed += amount;
         speedBoostDuration = duration;
+        speedBoostPar.Play();
         speedBoostEnabled = true;
         OnMovementStatsChanged?.Invoke();
     }
@@ -322,6 +324,7 @@ public class PlayerStats : MonoBehaviour
 
         movementSpeed = baseMovementSpeed;
         speedBoostEnabled = false;
+        speedBoostPar.Stop();
         OnMovementStatsChanged?.Invoke();
     }
 
