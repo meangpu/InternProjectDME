@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     private PlayerStats playerStats;
     public UnityEvent OnLeveledUp;
+    public UnityEvent OnNotEnoughTriggered;
 
     private void Awake()
     {
@@ -167,16 +168,19 @@ public class UIManager : MonoBehaviour
     public void TriggerNotEnoughAmmo()
     {
         ammoAnimator.SetTrigger("Flash");
+        OnNotEnoughTriggered?.Invoke();
     }
 
     public void TriggerNotEnoughGold()
     {
         goldAnimator.SetTrigger("Flash");
+        OnNotEnoughTriggered?.Invoke();
     }
 
     public void TriggerNotEnoughEnergy()
     {
         energyAnimator.SetTrigger("Flash");
+        OnNotEnoughTriggered?.Invoke();
     }
 
     private void OnDestroy()
