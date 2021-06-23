@@ -15,4 +15,4 @@ MonoBehaviour:
   currentStars: 0
   levelDescription: 
   levelPreview: {fileID: 0}
-  startingGold: 0
+  startingGold: 100

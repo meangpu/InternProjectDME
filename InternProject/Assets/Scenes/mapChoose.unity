@@ -3209,7 +3209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -322.00003, y: 53.78}
+  m_AnchoredPosition: {x: -322, y: 53.78}
   m_SizeDelta: {x: -814.17, y: -407.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281820177
@@ -10966,7 +10966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4482422, y: -276.34012}
+  m_AnchoredPosition: {x: -1.4482422, y: -276.3401}
   m_SizeDelta: {x: -1408.2, y: -823.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882953297
@@ -11279,7 +11279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 268.30872, y: -385.4656}
+  m_AnchoredPosition: {x: 268.30872, y: -385.46558}
   m_SizeDelta: {x: 460.5, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &932221718
@@ -19510,7 +19510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 330.96378, y: -85.30998}
+  m_AnchoredPosition: {x: 330.96375, y: -85.30998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053047787
@@ -22667,7 +22667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -332.00003, y: 0}
+  m_AnchoredPosition: {x: -332, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1332352293
@@ -27931,7 +27931,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb1cd85520cbf74097e222e9d8fef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSave: {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
+  objectsToSave:
+  - {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
+  - {fileID: 11400000, guid: 7c22f227373aba64a8fe9ac5273737ab, type: 2}
+  - {fileID: 11400000, guid: 29a280fc878907945820b498bd36a1c0, type: 2}
   filename: player_save
 --- !u!1 &1777347135
 GameObject:
