@@ -110,7 +110,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
-        if (!isPassive) // FIX
+        if (!isPassive)
         {
             float stopRange = enemyType == EnemyType.Machine || enemyType == EnemyType.BossTank ? attackRange : attackRange / 2;
 
