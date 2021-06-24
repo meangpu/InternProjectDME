@@ -16,15 +16,15 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 220d1b0602c744a4dbb06ea15a6f02c4, type: 3}
   towerBaseSprite: {fileID: 21300000, guid: aa573c7986e991449b63faece3a19b52, type: 3}
   projectileSprite: {fileID: -7835889539401369330, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
-  minDamage: 030000000700000010000000
-  maxDamage: 050000000f0000001e000000
+  minDamage: 03000000060000000d000000
+  maxDamage: 050000000d00000018000000
   attackRange:
   - 6
   - 7
   - 8
   rateOfFire: 1.7
   projectileLifetime: 0.8
-  projectileSpeed: 11
+  projectileSpeed: 12
   areaOfDamage: 0
   upgradeCost: 5a00000082000000b4000000
   laserType: 0

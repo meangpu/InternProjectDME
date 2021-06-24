@@ -19,9 +19,9 @@ MonoBehaviour:
   minDamage: 010000000300000007000000
   maxDamage: 020000000500000009000000
   attackRange:
-  - 3.75
   - 4
   - 4.25
+  - 4.5
   rateOfFire: 4
   projectileLifetime: 0.1
   projectileSpeed: 0
