@@ -24,8 +24,6 @@ public class ObjEnemy : ScriptableObject
     [SerializeField] private int moneyDrop;
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private EnemyId enemyId;
-    [SerializeField] Sound FireSound;
-    [SerializeField] Sound DeadSound;
 
     
     public string GetName() => enemyName;
@@ -44,7 +42,6 @@ public class ObjEnemy : ScriptableObject
     public ObjEnemyBullet GetBulletType() => bulletType;
     public EnemyType GetEnemyType() => enemyType;
     public EnemyId GetEnemyId() => enemyId;
-    public Sound GetFireSound() => FireSound;
-    public Sound GetDeadSound() => DeadSound;
+
 
 }

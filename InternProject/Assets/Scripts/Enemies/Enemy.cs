@@ -120,7 +120,6 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         }
         
         WaveManager.EnemyAlive.Remove(this);
-        waveManager.SetEnemyLeftText();
 
         List<ObjGold> coinToSpawn = CoinSpawnCalculator(enemyDisplay.DropGold);
 
