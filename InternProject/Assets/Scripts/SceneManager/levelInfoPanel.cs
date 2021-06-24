@@ -12,14 +12,14 @@ public class levelInfoPanel : MonoBehaviour
     [SerializeField] TMP_Text levelDescription;
     [SerializeField] GoToScene changeSceneScpt;
 
-    public void setLevel(LevelInfo _info)
+    public void setLevel(ObjLevel _info)
     {
-        levelName.text = _info.levelName;
-        levelImage.sprite = _info.levelLayout;
-        levelDescription.text = _info.levelDescription;
+        levelName.text = _info.GetLevelName();
+        levelImage.sprite = _info.GetLevelPreview();
+        levelDescription.text = _info.GetLevelDescription();
         
-        changeSceneScpt.destination = _info.levelName;
-        changeSceneScpt.sceneIndex = _info.sceneIndex;
+        changeSceneScpt.destination = _info.GetLevelName();
+        changeSceneScpt.sceneIndex = _info.GetSceneIndex();
     }
 
 
