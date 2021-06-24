@@ -17,24 +17,24 @@ MonoBehaviour:
 
 '
   artworks: {fileID: 3548006178179732893, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
-  minDamage: 0a0000000f00000014000000
-  maxDamage: 140000001e00000028000000
-  ammoCount: 0a0000000c0000000e000000
+  minDamage: 080000000c00000012000000
+  maxDamage: 0f000000140000001c000000
+  ammoCount: 06000000080000000a000000
   rateOfFire:
-  - 1.1
-  - 1.1
-  - 1.1
+  - 1.2
+  - 1.4
+  - 1.6
   reloadTime:
-  - 1.5
-  - 1.3
-  - 1
+  - 1.8
+  - 1.6
+  - 1.4
   bulletSpeed:
-  - 20
-  - 21
-  - 22
+  - 15
+  - 16
+  - 17
   lifetime: 0.5
   knockBack: 0.4
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}
   upgradeCost: e600000018010000
-  isUnlocked: 0
+  isUnlocked: 1
   buyStarValue: 2

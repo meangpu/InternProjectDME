@@ -19,13 +19,13 @@ MonoBehaviour:
   maxDamage: 090000000c0000000e000000
   ammoCount: 0f0000001200000015000000
   rateOfFire:
-  - 2.4
-  - 2.55
-  - 2.7
+  - 2.5
+  - 2.75
+  - 3
   reloadTime:
-  - 2.3
   - 2.1
   - 2
+  - 1.9
   bulletSpeed:
   - 8
   - 11

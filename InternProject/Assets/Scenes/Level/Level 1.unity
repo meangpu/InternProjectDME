@@ -19588,10 +19588,10 @@ MonoBehaviour:
   version: 1
   uniqueID: 6714892042140628081
   points:
-  - {x: 0.5, y: 0, z: -6}
+  - {x: 0.5, y: 0, z: -6.5}
   - {x: 1.5, y: 0, z: 11.5}
   - {x: 0.5, y: 0, z: 11.5}
-  - {x: 1.5, y: 0, z: -6}
+  - {x: 1.5, y: 0, z: -6.5}
   convex: 1
   minBoundsHeight: 1
   penaltyDelta: 0
@@ -21325,10 +21325,10 @@ MonoBehaviour:
   version: 1
   uniqueID: 7239984074205788546
   points:
-  - {x: -3, y: 0, z: -3}
-  - {x: -14, y: 0, z: -3.5}
-  - {x: -14, y: 0, z: -3}
-  - {x: -3, y: 0, z: -3.5}
+  - {x: -2, y: 0, z: -3}
+  - {x: -14.5, y: 0, z: -3.5}
+  - {x: -14.5, y: 0, z: -3}
+  - {x: -2, y: 0, z: -3.5}
   convex: 1
   minBoundsHeight: 1
   penaltyDelta: 0
@@ -21526,8 +21526,8 @@ MonoBehaviour:
   uniqueID: 1569506562505397303
   points:
   - {x: 25, y: 0, z: 3}
-  - {x: 9, y: 0, z: 2.5}
-  - {x: 9, y: 0, z: 3}
+  - {x: 8, y: 0, z: 2.5}
+  - {x: 8, y: 0, z: 3}
   - {x: 25, y: 0, z: 2.5}
   convex: 1
   minBoundsHeight: 1
@@ -44929,10 +44929,10 @@ MonoBehaviour:
   version: 1
   uniqueID: 1963206170347423066
   points:
-  - {x: 6, y: 0, z: -6.5}
-  - {x: 2, y: 0, z: -7}
-  - {x: 2, y: 0, z: -6.5}
-  - {x: 6, y: 0, z: -7}
+  - {x: 6.5, y: 0, z: -6.5}
+  - {x: 1, y: 0, z: -7}
+  - {x: 1, y: 0, z: -6.5}
+  - {x: 6.5, y: 0, z: -7}
   convex: 1
   minBoundsHeight: 1
   penaltyDelta: 0
@@ -45565,10 +45565,10 @@ MonoBehaviour:
   version: 1
   uniqueID: 6066443232392783339
   points:
-  - {x: -2.5, y: 0, z: -1}
+  - {x: -2.5, y: 0, z: -1.5}
   - {x: -1.5, y: 0, z: 11.500002}
   - {x: -2.5, y: 0, z: 11.500002}
-  - {x: -1.5, y: 0, z: -1}
+  - {x: -1.5, y: 0, z: -1.5}
   convex: 1
   minBoundsHeight: 1
   penaltyDelta: 0
@@ -69698,9 +69698,9 @@ MonoBehaviour:
   uniqueID: 3966845251335929480
   points:
   - {x: 7, y: 0, z: 4}
-  - {x: 6.5, y: 0, z: -6}
+  - {x: 6.5, y: 0, z: -7}
   - {x: 6.5, y: 0, z: 4}
-  - {x: 7, y: 0, z: -6}
+  - {x: 7, y: 0, z: -7}
   convex: 1
   minBoundsHeight: 1
   penaltyDelta: 0
@@ -70228,10 +70228,10 @@ MonoBehaviour:
   version: 1
   uniqueID: 447862874839811918
   points:
-  - {x: -3, y: 0, z: -1.5}
+  - {x: -2, y: 0, z: -1.5}
   - {x: -16, y: 0, z: -2}
   - {x: -16, y: 0, z: -1.5}
-  - {x: -3, y: 0, z: -2}
+  - {x: -2, y: 0, z: -2}
   convex: 1
   minBoundsHeight: 1
   penaltyDelta: 0
@@ -70659,9 +70659,9 @@ MonoBehaviour:
   version: 1
   uniqueID: 4820519269241256591
   points:
-  - {x: -15, y: 0, z: -4}
+  - {x: -15, y: 0, z: -3}
   - {x: -15, y: 0, z: -19}
-  - {x: -14.5, y: 0, z: -4}
+  - {x: -14.5, y: 0, z: -3}
   - {x: -14.5, y: 0, z: -19}
   convex: 1
   minBoundsHeight: 1
@@ -71007,9 +71007,9 @@ MonoBehaviour:
   version: 1
   uniqueID: 26661908577541308
   points:
-  - {x: 8.5, y: 0, z: 2}
+  - {x: 8.5, y: 0, z: 2.5}
   - {x: 8, y: 0, z: -8.5}
-  - {x: 8, y: 0, z: 2}
+  - {x: 8, y: 0, z: 2.5}
   - {x: 8.5, y: 0, z: -8.5}
   convex: 1
   minBoundsHeight: 1
@@ -92883,9 +92883,9 @@ MonoBehaviour:
   version: 1
   uniqueID: 57491092302189861
   points:
-  - {x: -1.5, y: 0, z: -4}
+  - {x: -1.5, y: 0, z: -3.5}
   - {x: -2.5, y: 0, z: -8}
-  - {x: -2.5, y: 0, z: -4}
+  - {x: -2.5, y: 0, z: -3.5}
   - {x: -1.5, y: 0, z: -8}
   convex: 1
   minBoundsHeight: 1
@@ -93307,14 +93307,12 @@ MonoBehaviour:
   timeBeforeWinPanel: 5
   playerTrans: {fileID: 1056445400}
   EnemyWaves:
-  - spawnRate: 1
-    TimeBeforeNextWave: 20
+  - spawnRate: 1.5
+    TimeBeforeNextWave: 30
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
-        count: 5
-      - enemy: {fileID: 11400000, guid: f133aeffb3c11124aa0d5cfd16ae54ea, type: 2}
-        count: 2
+        count: 8
       spawnPoint: {fileID: 760318818}
   - spawnRate: 1
     TimeBeforeNextWave: 30
