@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfa7321e75feb941b93b1106d10c415, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  currentStars: 0
+  levelDescription: this is level will teach you how to play this game
+  levelPreview: {fileID: 21300000, guid: d4728f74e2fb8164a92d4df999b58a84, type: 3}
+  startingGold: 5000

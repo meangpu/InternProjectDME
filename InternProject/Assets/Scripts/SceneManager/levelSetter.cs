@@ -16,6 +16,7 @@ public class LevelInfo
 
 public class levelSetter : MonoBehaviour
 {
+    [SerializeField] ObjLevel levelObj;
     [SerializeField] LevelInfo thisLevelInfo;
     [SerializeField] levelInfoPanel levelPanel;
 
