@@ -34,7 +34,7 @@ MonoBehaviour:
   bulletSpeed: 5
   bulletLifetime: 0.6
   bulletType: {fileID: 11400000, guid: e767140ea01531e439a2bae59bee7446, type: 2}
-  moneyDrop: 15
+  moneyDrop: 22
   enemyType: 0
   enemyId: 0
   FireSound:

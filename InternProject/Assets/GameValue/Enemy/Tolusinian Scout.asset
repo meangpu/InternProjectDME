@@ -33,7 +33,7 @@ MonoBehaviour:
   bulletSpeed: 0
   bulletLifetime: 0
   bulletType: {fileID: 0}
-  moneyDrop: 5
+  moneyDrop: 12
   enemyType: 0
   enemyId: 0
   FireSound:

@@ -32,7 +32,7 @@ MonoBehaviour:
   bulletSpeed: 0
   bulletLifetime: 0
   bulletType: {fileID: 11400000, guid: c720ea2b92e53f34eb2e82d74bc0ff18, type: 2}
-  moneyDrop: 15
+  moneyDrop: 24
   enemyType: 1
   enemyId: 0
   FireSound:
