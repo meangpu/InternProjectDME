@@ -27,13 +27,13 @@ MonoBehaviour:
   - 1.7
   - 2
   moveSpeed:
-  - 2
-  - 2.2
   - 2.4
-  rotationSpeed:
+  - 2.5
   - 2.6
-  - 2.8
-  - 3
+  rotationSpeed:
+  - 3.6
+  - 3.8
+  - 4
   upgradeCost: fa0000002c010000
   isUnlocked: 1
   buyStarValue: 0

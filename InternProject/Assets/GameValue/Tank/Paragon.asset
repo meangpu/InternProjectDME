@@ -28,13 +28,13 @@ MonoBehaviour:
   - 1.9
   - 2.2
   moveSpeed:
-  - 1.7
-  - 1.8
-  - 1.9
+  - 2.1
+  - 2.2
+  - 2.3
   rotationSpeed:
-  - 1.9
-  - 2
-  - 2
+  - 2.9
+  - 3
+  - 3
   upgradeCost: 1801000045010000
   isUnlocked: 0
   buyStarValue: 6
