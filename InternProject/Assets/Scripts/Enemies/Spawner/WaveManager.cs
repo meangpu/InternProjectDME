@@ -19,9 +19,10 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject tankBoss = null;
 
     [Header("UIthing")]
-    public Slider minWaveSlider;
-    public Slider bigWaveSlider;
     [SerializeField] TMP_Text textTimeBeforeNextWave;
+    [SerializeField] TMP_Text waveRemaintext;
+    [SerializeField] GameObject waveInfoObj;
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] GameObject firstWaveText;
 
@@ -30,6 +31,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float showInfoForSec;
     [SerializeField] float timeBeforeWinPanel;
     [SerializeField] Transform playerTrans;
+
     private float countDown;
     public static List<Enemy> EnemyAlive = new List<Enemy>();
     public EnemyWave[] EnemyWaves;
@@ -57,34 +59,11 @@ public class WaveManager : MonoBehaviour
     {
         // need to clear enemy data to prevent game not start on second time
         EnemyAlive.Clear();
-        SetUp_MaxSlider(EnemyWaves.Length);
 
         // first Time Count down
         countDown = 2;
 
         pooler = PoolingSingleton.Instance;
-    }
-
-    public void Set_MinSlider(int _value)
-    {
-        minWaveSlider.value = _value;
-    }
-
-    public void SetUp_MinSlider(int _value)
-    {
-        minWaveSlider.maxValue = _value;
-        minWaveSlider.value = _value;
-    }
-
-    public void Set_MaxSlider(int _value)
-    {
-        bigWaveSlider.value = _value;
-    }
-
-    public void SetUp_MaxSlider(int _value)
-    {
-        bigWaveSlider.maxValue = _value;
-        bigWaveSlider.value = _value;
     }
 
 
@@ -154,12 +133,16 @@ public class WaveManager : MonoBehaviour
         return _thisWaveCount;
     }
 
+    void updateWavetext()
+    {
+        waveRemaintext.text = $"wave {waveindex+1}/{EnemyWaves.Length}";
+        waveInfoObj.SetActive(true);
+    }
+
     private IEnumerator SpawnWave()
     {
         isStopCount = true;
         EnemyWave wave = EnemyWaves[waveindex];
-        Set_MaxSlider(EnemyWaves.Length - (waveindex+1));
-        SetUp_MinSlider(CountAllEnemyInWave());
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -177,7 +160,6 @@ public class WaveManager : MonoBehaviour
                     yield return new WaitForSeconds(wave.spawnRate);
                     
                     thisWaveCount--;
-                    Set_MinSlider(thisWaveCount);
 
                     if (thisWaveCount <= 0)
                     {
@@ -187,15 +169,17 @@ public class WaveManager : MonoBehaviour
             }
         } 
         waveindex++;
+        updateWavetext();
     }
 
     public void callNextWave(Button buttonScpt)
     {
+
+        updateWavetext();
         if (thisWaveCount > 0)
         {
             return;
         }
-
         int _tempData = (int)countDown;
         int goldGain = _tempData*2;  // get gold = 2*time remain
 
@@ -217,7 +201,7 @@ public class WaveManager : MonoBehaviour
 
     private void CheckNextWave(int aheadNum=1, bool firstWave=false)
     {
-        if (waveindex+aheadNum == EnemyWaves.Length)  // when it going to go outside index range 
+        if (waveindex+aheadNum >= EnemyWaves.Length)  // when it going to go outside index range 
 		{
             ClearAllOldData();
             return;
