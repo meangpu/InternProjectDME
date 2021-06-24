@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   currentStars: 0
-  levelDescription: 
+  levelDescription: 'The second  level of this game.
+
+    have increase in difficulity'
   levelPreview: {fileID: 21300000, guid: 8ae35f3ef0139e2498a76d38ce625bbd, type: 3}
   startingGold: 125
+  sceneIndex: 4

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   currentStars: 0
-  levelDescription: 
+  levelDescription: The <color=yellow>first level</color> of this game help you to
+    learn about basic of this game
   levelPreview: {fileID: 21300000, guid: 3be7d8143addeef43a475f386c142b06, type: 3}
   startingGold: 100
+  sceneIndex: 3
