@@ -81,6 +81,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Vacuum"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9243879-e76e-4c68-9d1f-3cfa1e3fd03a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -213,6 +221,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Skill2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4db1b25c-f78f-4a4a-936e-4805fc7df461"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vacuum"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -525,6 +544,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tank_SpecialShoot = m_Tank.FindAction("SpecialShoot", throwIfNotFound: true);
         m_Tank_Skill1 = m_Tank.FindAction("Skill1", throwIfNotFound: true);
         m_Tank_Skill2 = m_Tank.FindAction("Skill2", throwIfNotFound: true);
+        m_Tank_Vacuum = m_Tank.FindAction("Vacuum", throwIfNotFound: true);
         // Addons
         m_Addons = asset.FindActionMap("Addons", throwIfNotFound: true);
         m_Addons_AssignQ = m_Addons.FindAction("AssignQ", throwIfNotFound: true);
@@ -600,6 +620,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Tank_SpecialShoot;
     private readonly InputAction m_Tank_Skill1;
     private readonly InputAction m_Tank_Skill2;
+    private readonly InputAction m_Tank_Vacuum;
     public struct TankActions
     {
         private @PlayerControls m_Wrapper;
@@ -612,6 +633,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @SpecialShoot => m_Wrapper.m_Tank_SpecialShoot;
         public InputAction @Skill1 => m_Wrapper.m_Tank_Skill1;
         public InputAction @Skill2 => m_Wrapper.m_Tank_Skill2;
+        public InputAction @Vacuum => m_Wrapper.m_Tank_Vacuum;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -645,6 +667,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill2.started -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
                 @Skill2.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
                 @Skill2.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnSkill2;
+                @Vacuum.started -= m_Wrapper.m_TankActionsCallbackInterface.OnVacuum;
+                @Vacuum.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnVacuum;
+                @Vacuum.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnVacuum;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
@@ -673,6 +698,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill2.started += instance.OnSkill2;
                 @Skill2.performed += instance.OnSkill2;
                 @Skill2.canceled += instance.OnSkill2;
+                @Vacuum.started += instance.OnVacuum;
+                @Vacuum.performed += instance.OnVacuum;
+                @Vacuum.canceled += instance.OnVacuum;
             }
         }
     }
@@ -876,6 +904,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSpecialShoot(InputAction.CallbackContext context);
         void OnSkill1(InputAction.CallbackContext context);
         void OnSkill2(InputAction.CallbackContext context);
+        void OnVacuum(InputAction.CallbackContext context);
     }
     public interface IAddonsActions
     {

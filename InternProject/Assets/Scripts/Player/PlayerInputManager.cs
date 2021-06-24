@@ -26,6 +26,7 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Tank.Reload.performed += _ => StartCoroutine(gun.Reload());
         playerControls.Tank.Skill1.performed += _ => playerAbilities.Skill1Activate();
         playerControls.Tank.Skill2.performed += _ => playerAbilities.Skill2Activate();
+        playerControls.Tank.Vacuum.performed += _ => Debug.Log("SUCK");
         playerControls.BuyMenu.BuyMode.performed += _ => gameManager.BuyModeSwap();
 
         gameManager.OnBuyModeTrigger += BuyModeHandler;

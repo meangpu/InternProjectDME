@@ -220,7 +220,7 @@ public class PlayerAbilities : MonoBehaviour
 
         range = comboType == ComboType.UpgradedMissile ? comboValue : range;
 
-        PoolingSingleton.Instance.HomingMissilePool.SpawnPlayerMissile(transform.position, transform.rotation, damage, playerStats.GetBulletSpeed(), range, duration);
+        PoolingSingleton.Instance.HomingMissilePool.SpawnPlayerMissile(transform.position, transform.rotation * Quaternion.AngleAxis(180, Vector3.forward), damage, playerStats.GetBulletSpeed(), range, duration);
     }
 
     private void ActivateEnergyShield()
