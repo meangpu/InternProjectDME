@@ -21,7 +21,6 @@ public class WaveManager : MonoBehaviour
     [Header("UIthing")]
     public Slider minWaveSlider;
     public Slider bigWaveSlider;
-    public TMP_Text enemyLefttext;
     [SerializeField] TMP_Text textTimeBeforeNextWave;
     [SerializeField] private GameManager gameManager;
     [SerializeField] GameObject firstWaveText;
@@ -88,10 +87,6 @@ public class WaveManager : MonoBehaviour
         bigWaveSlider.value = _value;
     }
 
-    public void SetEnemyLeftText()
-    {
-        enemyLefttext.text = EnemyAlive.Count.ToString();
-    }
 
     private void Update() 
     {
@@ -303,7 +298,6 @@ public class WaveManager : MonoBehaviour
                 break;
         }
   
-        SetEnemyLeftText();
     }
 
     private void SpawnBoss(GameObject bossPfb, Transform spawnPos, ObjEnemy enemy)
@@ -314,7 +308,6 @@ public class WaveManager : MonoBehaviour
 
         boss.GetComponent<EnemyShoot>().StartShooting();
         EnemyAlive.Add(boss.GetComponent<Enemy>());
-        SetEnemyLeftText();
     }
 
     public List<Enemy> EnemyList => EnemyAlive;
