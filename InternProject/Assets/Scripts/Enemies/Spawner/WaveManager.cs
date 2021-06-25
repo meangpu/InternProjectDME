@@ -148,6 +148,7 @@ public class WaveManager : MonoBehaviour
         isStopCount = true;
         EnemyWave wave = EnemyWaves[waveindex];
         CountAllEnemyInWave();
+        updateWavetext();
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -175,7 +176,7 @@ public class WaveManager : MonoBehaviour
             }
         } 
         waveindex++;
-        updateWavetext();
+        // updateWavetext();  // this is wrong 
     }
 
     public void callNextWave(Button buttonScpt)
