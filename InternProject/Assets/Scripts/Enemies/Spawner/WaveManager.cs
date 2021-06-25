@@ -69,6 +69,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
+        Debug.Log(EnemyAlive.Count);
         if (isFirstWave & countDown!=0)
         {
             CheckNextWave(0, true);
