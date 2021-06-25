@@ -6,6 +6,7 @@ public class TimerSystem : MonoBehaviour
 {
     private readonly List<AbilityData> abilitiesTimer = new List<AbilityData>();
 
+    public event Action<AbilityType> OnTimerStarted;
     public event Action<AbilityType> OnTimerFinished;
 
     private void Update()
@@ -16,13 +17,14 @@ public class TimerSystem : MonoBehaviour
     public void PutOnTimer(AbilityType ability, float duration)
     {
         abilitiesTimer.Add(new AbilityData(ability, duration));
+        OnTimerStarted?.Invoke(ability);
     }
 
     public bool IsActivated(AbilityType abilityType)
     {
-        foreach (AbilityData cooldown in abilitiesTimer)
+        foreach (AbilityData timer in abilitiesTimer)
         {
-            if (cooldown.AbilityType == abilityType) { return true; }
+            if (timer.AbilityType == abilityType) { return true; }
         }
 
         return false;
@@ -30,11 +32,23 @@ public class TimerSystem : MonoBehaviour
 
     public float GetRemainingDuration(AbilityType abilityType)
     {
-        foreach (AbilityData cooldown in abilitiesTimer)
+        foreach (AbilityData timer in abilitiesTimer)
         {
-            if (cooldown.AbilityType != abilityType) { continue; }
+            if (timer.AbilityType != abilityType) { continue; }
 
-            return cooldown.RemainingTime;
+            return timer.RemainingTime;
+        }
+
+        return 0f;
+    }
+
+    public float GetRemainingPercentage(AbilityType abilityType)
+    {
+        foreach (AbilityData timer in abilitiesTimer)
+        {
+            if (timer.AbilityType != abilityType) { continue; }
+
+            return timer.RemainingTime / timer.MaxDuration;
         }
 
         return 0f;
@@ -61,11 +75,14 @@ public class AbilityData
     {
         AbilityType = abilityType;
         RemainingTime = duration;
+        MaxDuration = duration;
     }
 
     public AbilityType AbilityType { get; }
 
     public float RemainingTime { get; private set; }
+
+    public float MaxDuration { get; private set; }
 
     public bool DecrementCooldown(float deltaTime)
     {

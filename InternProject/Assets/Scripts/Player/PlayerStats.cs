@@ -72,8 +72,6 @@ public class PlayerStats : MonoBehaviour
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
     private bool isImmuned = false;
-    private bool incendiaryAmmoEnabled = false;
-    private float damageBoostDuration = 0;
     private bool speedBoostEnabled = false;
     private float speedBoostDuration = 0;
 
@@ -129,7 +127,6 @@ public class PlayerStats : MonoBehaviour
         float deltaTime = Time.deltaTime;
 
         RegenerateHealth(deltaTime);
-        // HandleDamageBoost(deltaTime);
         HandleSpeedBoost(deltaTime);
 
         if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
@@ -305,14 +302,6 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    /*private void HandleDamageBoost(float deltaTime)
-    {
-        if (!timerSystem.IsActivated(AbilityType.IncendiaryAmmo)) { return; }
-
-        // damageBoostDuration = Mathf.Max(damageBoostDuration - deltaTime, 0f);
-        TryRemoveDamageBoost();
-    }*/
-
     public void AddSpeedBoost(float amount, float duration)
     {
         if (speedBoostEnabled)
@@ -350,16 +339,12 @@ public class PlayerStats : MonoBehaviour
         minDamage = (int)(minDamage * percentage);
         maxDamage = (int)(maxDamage * percentage);
         timerSystem.PutOnTimer(AbilityType.IncendiaryAmmo, duration);
-        //damageBoostDuration = duration;
-        //incendiaryAmmoEnabled = true;
     }
 
     private void RemoveDamageBoost()
     {
         minDamage = baseMinDamage;
         maxDamage = baseMaxDamage;
-        Debug.Log("DISABLE DAMAGE");
-        // incendiaryAmmoEnabled = false;
     }
 
     public void TankLevelUp()
