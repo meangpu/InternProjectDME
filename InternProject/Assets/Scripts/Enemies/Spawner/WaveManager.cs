@@ -143,6 +143,7 @@ public class WaveManager : MonoBehaviour
     {
         isStopCount = true;
         EnemyWave wave = EnemyWaves[waveindex];
+        CountAllEnemyInWave();
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -163,6 +164,7 @@ public class WaveManager : MonoBehaviour
 
                     if (thisWaveCount <= 0)
                     {
+                        Debug.Log(thisWaveCount);
                         CheckNextWave();
                     }
                 }
@@ -215,7 +217,8 @@ public class WaveManager : MonoBehaviour
         {
             pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
 
-            pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);  // = canvas
+
             
             if (firstWave)
             {

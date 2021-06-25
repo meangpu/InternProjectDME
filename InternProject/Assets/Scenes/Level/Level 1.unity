@@ -93217,7 +93217,7 @@ MonoBehaviour:
   spawnPointList:
   - {fileID: 760318819}
   - {fileID: 1364812170}
-  showInfoForSec: 2.5
+  showInfoForSec: 2
   timeBeforeWinPanel: 5
   playerTrans: {fileID: 1056445400}
   EnemyWaves:
