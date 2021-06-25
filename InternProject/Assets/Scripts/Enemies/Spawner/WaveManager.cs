@@ -135,6 +135,10 @@ public class WaveManager : MonoBehaviour
 
     void updateWavetext()
     {
+        if (waveindex+1 > EnemyWaves.Length)
+        {
+            return;
+        }
         waveRemaintext.text = $"wave {waveindex+1}/{EnemyWaves.Length}";
         waveInfoObj.SetActive(true);
     }
@@ -161,10 +165,10 @@ public class WaveManager : MonoBehaviour
                     yield return new WaitForSeconds(wave.spawnRate);
                     
                     thisWaveCount--;
-
+                    Debug.Log(thisWaveCount);
                     if (thisWaveCount <= 0)
                     {
-                        Debug.Log(thisWaveCount);
+                        
                         CheckNextWave();
                     }
                 }

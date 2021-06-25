@@ -26,7 +26,6 @@ public class callWaveEarly : MonoBehaviour
 
     public IEnumerator ShowDataForSec(float _wait)
     {
-        // Debug.Log("ASSASASAS");
         ShowDataNotMouse();
         yield return new WaitForSeconds(_wait);
         HideData();
