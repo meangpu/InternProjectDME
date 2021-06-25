@@ -69,7 +69,6 @@ public class WaveManager : MonoBehaviour
 
     private void Update() 
     {
-        Debug.Log(EnemyAlive.Count);
         if (isFirstWave & countDown!=0)
         {
             CheckNextWave(0, true);
@@ -222,7 +221,10 @@ public class WaveManager : MonoBehaviour
         {
             pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().SetData(pointToSpawn.EnemyList);
 
-            pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);  // = canvas
+            if (gameManager.isBuying)
+            {
+                pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);  // = canvas
+            }          
 
             
             if (firstWave)
