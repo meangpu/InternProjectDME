@@ -15,7 +15,7 @@ MonoBehaviour:
   addonName: Auto-Loader Module
   description: Reloading with this module will grant 50% reload speed boost
   abilityType: 8
-  icon: {fileID: 21300000, guid: 40877f892a0a0424e953b3db409b0f70, type: 3}
+  icon: {fileID: 21300000, guid: f8cce55b889b4014680b94fca7725f85, type: 3}
   energyCost: 15
   cooldownTime: 5
   damage: 0
