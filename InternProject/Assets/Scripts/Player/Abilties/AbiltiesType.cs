@@ -9,4 +9,6 @@ public enum AbilityType
     Bomb,
     IncendiaryAmmo,
     AutoLoader,
+    SpeedBoost,
+    Magnet
 }

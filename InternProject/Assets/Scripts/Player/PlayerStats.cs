@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     private static PlayerStats instance;
     public static PlayerStats Instance { get { return instance; } }
 
+    [SerializeField] private TimerSystem timerSystem = null;
     [SerializeField] private Transform respawnPoint = null;
     [SerializeField] ParticleSystem speedBoostPar;
 
@@ -120,6 +121,7 @@ public class PlayerStats : MonoBehaviour
         objBullet = turret.GetBulletType();
 
         playerAbilities.OnTriggerEnergyShield += HandleToggleEnergyShield;
+        timerSystem.OnTimerFinished += HandleTimerFinished;
     }
 
     private void Update()
@@ -127,7 +129,7 @@ public class PlayerStats : MonoBehaviour
         float deltaTime = Time.deltaTime;
 
         RegenerateHealth(deltaTime);
-        HandleDamageBoost(deltaTime);
+        // HandleDamageBoost(deltaTime);
         HandleSpeedBoost(deltaTime);
 
         if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
@@ -293,13 +295,23 @@ public class PlayerStats : MonoBehaviour
         return UnityEngine.Random.Range(minDamage, maxDamage + 1);
     }
 
-    private void HandleDamageBoost(float deltaTime)
+    private void HandleTimerFinished(AbilityType abilityType)
     {
-        if (!incendiaryAmmoEnabled) { return; }
-
-        damageBoostDuration = Mathf.Max(damageBoostDuration - deltaTime, 0f);
-        TryRemoveDamageBoost();
+        switch (abilityType)
+        {
+            case AbilityType.IncendiaryAmmo:
+                RemoveDamageBoost();
+                return;
+        }
     }
+
+    /*private void HandleDamageBoost(float deltaTime)
+    {
+        if (!timerSystem.IsActivated(AbilityType.IncendiaryAmmo)) { return; }
+
+        // damageBoostDuration = Mathf.Max(damageBoostDuration - deltaTime, 0f);
+        TryRemoveDamageBoost();
+    }*/
 
     public void AddSpeedBoost(float amount, float duration)
     {
@@ -337,17 +349,17 @@ public class PlayerStats : MonoBehaviour
     {
         minDamage = (int)(minDamage * percentage);
         maxDamage = (int)(maxDamage * percentage);
-        damageBoostDuration = duration;
-        incendiaryAmmoEnabled = true;
+        timerSystem.PutOnTimer(AbilityType.IncendiaryAmmo, duration);
+        //damageBoostDuration = duration;
+        //incendiaryAmmoEnabled = true;
     }
 
-    private void TryRemoveDamageBoost()
+    private void RemoveDamageBoost()
     {
-        if (damageBoostDuration != 0f || !incendiaryAmmoEnabled) { return; }
-
         minDamage = baseMinDamage;
         maxDamage = baseMaxDamage;
-        incendiaryAmmoEnabled = false;
+        Debug.Log("DISABLE DAMAGE");
+        // incendiaryAmmoEnabled = false;
     }
 
     public void TankLevelUp()
@@ -481,6 +493,7 @@ public class PlayerStats : MonoBehaviour
     private void OnDestroy()
     {
         playerAbilities.OnTriggerEnergyShield -= HandleToggleEnergyShield;
+        timerSystem.OnTimerFinished -= HandleTimerFinished;
     }
 
     #region Stats Retrieving
