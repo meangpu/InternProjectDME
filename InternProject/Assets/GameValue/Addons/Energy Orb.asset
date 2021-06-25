@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Deploys an orb that orbits around the player that deals damage to
     any enemies it touches
   abilityType: 3
-  icon: {fileID: -8247936436179275923, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
+  icon: {fileID: 21300000, guid: 1fcb6a21457b7d54fb95935fa2033e52, type: 3}
   energyCost: 30
   cooldownTime: 20
   damage: 6
