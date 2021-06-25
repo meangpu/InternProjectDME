@@ -15,7 +15,7 @@ MonoBehaviour:
   addonName: Energy Shield Module
   description: Turns energy into energy armor that absorbs damage instead of health
   abilityType: 2
-  icon: {fileID: 6015116524536153082, guid: 22d37d6d51dd0484d809ae559a5f9109, type: 3}
+  icon: {fileID: 21300000, guid: cd77e790ff87f58449b53676518f8a9a, type: 3}
   energyCost: 0
   cooldownTime: 10
   damage: 0
