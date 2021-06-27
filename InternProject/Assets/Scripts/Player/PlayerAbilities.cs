@@ -131,6 +131,7 @@ public class PlayerAbilities : MonoBehaviour
             default:
                 cooldownSystem.PutOnCooldown(ability);
                 break;
+            case AbilityType.Empty:
             case AbilityType.EnergyShield:
                 break;
         }
