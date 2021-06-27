@@ -254,7 +254,7 @@ public class PlayerAbilities : MonoBehaviour
 
         float normalizedPercentage = (100 + percentage) / 100;
 
-        playerStats.AddDamageBoost(normalizedPercentage, duration);
+        playerStats.AddDamageBoost(normalizedPercentage);
         timerSystem.PutOnTimer(AbilityType.IncendiaryAmmo, duration);
     }
 

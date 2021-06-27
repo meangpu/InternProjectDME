@@ -21,9 +21,9 @@ MonoBehaviour:
   damage: 0
   range: 0
   abilityDuration: 10
-  percentage: 20
+  percentage: 40
   comboList:
   - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
-  comboValue: 30
+  comboValue: 60
   isUnlocked: 1
   buyStarValue: 1

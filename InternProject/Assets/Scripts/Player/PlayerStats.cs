@@ -334,10 +334,12 @@ public class PlayerStats : MonoBehaviour
         OnMovementStatsChanged?.Invoke();
     }
 
-    public void AddDamageBoost(float percentage, float duration)
+    public void AddDamageBoost(float percentage)
     {
-        minDamage = (int)(minDamage * percentage);
-        maxDamage = (int)(maxDamage * percentage); 
+        Debug.Log($"{minDamage} {maxDamage}");
+        minDamage = Mathf.CeilToInt(minDamage * percentage);
+        maxDamage = Mathf.CeilToInt(maxDamage * percentage);
+        Debug.Log($"{minDamage} {maxDamage}");
     }
 
     private void RemoveDamageBoost()
