@@ -337,8 +337,7 @@ public class PlayerStats : MonoBehaviour
     public void AddDamageBoost(float percentage, float duration)
     {
         minDamage = (int)(minDamage * percentage);
-        maxDamage = (int)(maxDamage * percentage);
-        timerSystem.PutOnTimer(AbilityType.IncendiaryAmmo, duration);
+        maxDamage = (int)(maxDamage * percentage); 
     }
 
     private void RemoveDamageBoost()

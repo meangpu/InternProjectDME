@@ -7,6 +7,7 @@ public class PlayerEquippedAddons : ScriptableObject
 {
     [SerializeField] private List<ObjAbility> equippedAddons = new List<ObjAbility>(2);
     [SerializeField] private ObjAbility emptyAbility;
+    [SerializeField] private ObjAbility magnetAbility;
 
     private ComboType comboType = ComboType.None;
 

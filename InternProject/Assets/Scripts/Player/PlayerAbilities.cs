@@ -9,6 +9,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private PlayerEquippedAddons playerEquippedAddons = null;
     [SerializeField] private CooldownSystem cooldownSystem = null;
+    [SerializeField] private TimerSystem timerSystem = null;
     [SerializeField] private ObjAbility energyShieldAddon = null;
     [SerializeField] private PlayerGun playerGun = null;
     [SerializeField] private GameObject orb = null;
@@ -60,7 +61,13 @@ public class PlayerAbilities : MonoBehaviour
             {
                 addon = addonE,
                 activateAbilityAction = () => ActivateAbility(addonE)
-            }
+            },
+
+            /*new HotkeyAbility
+            {
+                addon = ActivateMagnet(),
+                activateAbilityAction = () => ActivateAbility(magnetthing)
+            }*/
         };
     }
 
@@ -113,6 +120,9 @@ public class PlayerAbilities : MonoBehaviour
                 break;
             case AbilityType.IncendiaryAmmo:
                 ActivateIncendiary(comboType, ability.GetDuration(), ability.GetPercentage(), ability.GetComboValue());
+                break;
+            case AbilityType.Magnet:
+                ActivateMagnet();
                 break;
         }
 
@@ -244,6 +254,7 @@ public class PlayerAbilities : MonoBehaviour
         float normalizedPercentage = (100 + percentage) / 100;
 
         playerStats.AddDamageBoost(normalizedPercentage, duration);
+        timerSystem.PutOnTimer(AbilityType.IncendiaryAmmo, duration);
     }
 
     private void ActivateElectrocharge(float range, float duration, float percentage)
@@ -268,6 +279,12 @@ public class PlayerAbilities : MonoBehaviour
 
         orb.SetActive(true);
         orb.GetComponent<EnergyOrb>().Setup(damage, range, duration, energyPerHit);
+        timerSystem.PutOnTimer(AbilityType.EnergyOrb, duration);
+    }
+
+    private void ActivateMagnet()
+    {
+
     }
     #endregion
 }
