@@ -15,7 +15,7 @@ MonoBehaviour:
   addonName: Magnet
   description: 
   abilityType: 10
-  icon: {fileID: 21300000, guid: ea04e9c19199f314eba9b3cef5cc4089, type: 3}
+  icon: {fileID: 21300000, guid: d0a7d50f6b7514f43b9f9d47674fac5e, type: 3}
   energyCost: 20
   cooldownTime: 30
   damage: 0
