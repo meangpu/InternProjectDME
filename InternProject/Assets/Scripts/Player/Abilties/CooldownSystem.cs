@@ -49,6 +49,16 @@ public class CooldownSystem : MonoBehaviour
             }
         }
     }
+
+    public void ClearAllCooldowns()
+    {
+        if (cooldowns.Count == 0) { return; }
+
+        for (int i = cooldowns.Count - 1; i >= 0; i--)
+        {
+            cooldowns.RemoveAt(i);
+        }
+    }
 }
 
 public class CooldownData

@@ -2352,6 +2352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23a5bfd7a3e36d46aef208b641dd52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownSystem: {fileID: 8065626108458084517}
   timerSystem: {fileID: 1823504226253012603}
   respawnPoint: {fileID: 0}
   speedBoostPar: {fileID: 4253335196248959345}

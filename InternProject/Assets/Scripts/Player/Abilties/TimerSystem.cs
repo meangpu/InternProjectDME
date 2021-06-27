@@ -67,6 +67,17 @@ public class TimerSystem : MonoBehaviour
             }
         }
     }
+
+    public void ClearAllTimer()
+    {
+        if (abilitiesTimer.Count == 0) { return; }
+
+        for (int i = abilitiesTimer.Count - 1; i >= 0; i--)
+        {
+            OnTimerFinished?.Invoke(abilitiesTimer[i].AbilityType);
+            abilitiesTimer.RemoveAt(i);
+        }
+    }
 }
 
 public class AbilityData
@@ -80,7 +91,7 @@ public class AbilityData
 
     public AbilityType AbilityType { get; }
 
-    public float RemainingTime { get; private set; }
+    public float RemainingTime { get; set; }
 
     public float MaxDuration { get; private set; }
 

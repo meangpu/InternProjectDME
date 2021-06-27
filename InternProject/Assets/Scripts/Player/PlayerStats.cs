@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     private static PlayerStats instance;
     public static PlayerStats Instance { get { return instance; } }
 
+    [SerializeField] private CooldownSystem cooldownSystem = null;
     [SerializeField] private TimerSystem timerSystem = null;
     [SerializeField] private Transform respawnPoint = null;
     [SerializeField] ParticleSystem speedBoostPar;
@@ -72,8 +73,6 @@ public class PlayerStats : MonoBehaviour
     private PlayerAbilities playerAbilities;
     private bool energyShieldEnabled = false;
     private bool isImmuned = false;
-    private bool speedBoostEnabled = false;
-    private float speedBoostDuration = 0;
 
     private UIManager uiManager;
 
@@ -127,7 +126,6 @@ public class PlayerStats : MonoBehaviour
         float deltaTime = Time.deltaTime;
 
         RegenerateHealth(deltaTime);
-        HandleSpeedBoost(deltaTime);
 
         if (energyShieldEnabled) { return; } // Using Energy shield does not regenerate energy
 
@@ -259,6 +257,7 @@ public class PlayerStats : MonoBehaviour
 
         if (healthSystem.GetAmount() > 0) { return; }
 
+        timerSystem.ClearAllTimer();
         GameManager.Instance.HandlePlayerDeath();
     }
 
@@ -296,50 +295,38 @@ public class PlayerStats : MonoBehaviour
     {
         switch (abilityType)
         {
+            default:
+                return;
+
             case AbilityType.IncendiaryAmmo:
                 RemoveDamageBoost();
+                return;
+
+            case AbilityType.SpeedBoost:
+                RemoveSpeedBoost();
                 return;
         }
     }
 
     public void AddSpeedBoost(float amount, float duration)
     {
-        if (speedBoostEnabled)
-        {
-            movementSpeed = baseMovementSpeed;
-        }
-
-        movementSpeed += amount;
-        speedBoostDuration = duration;
+        movementSpeed = baseMovementSpeed + amount;
         speedBoostPar.Play();
-        speedBoostEnabled = true;
+        timerSystem.PutOnTimer(AbilityType.SpeedBoost, duration);
         OnMovementStatsChanged?.Invoke();
     }
 
-    private void HandleSpeedBoost(float deltaTime)
+    private void RemoveSpeedBoost()
     {
-        if (!speedBoostEnabled) { return; }
-
-        speedBoostDuration = Mathf.Max(speedBoostDuration - deltaTime, 0f);
-        TryRemoveSpeedBoost();
-    }
-
-    private void TryRemoveSpeedBoost()
-    {
-        if (speedBoostDuration != 0f || !speedBoostEnabled) { return; }
-
         movementSpeed = baseMovementSpeed;
-        speedBoostEnabled = false;
         speedBoostPar.Stop();
         OnMovementStatsChanged?.Invoke();
     }
 
     public void AddDamageBoost(float percentage)
     {
-        Debug.Log($"{minDamage} {maxDamage}");
         minDamage = Mathf.CeilToInt(minDamage * percentage);
         maxDamage = Mathf.CeilToInt(maxDamage * percentage);
-        Debug.Log($"{minDamage} {maxDamage}");
     }
 
     private void RemoveDamageBoost()

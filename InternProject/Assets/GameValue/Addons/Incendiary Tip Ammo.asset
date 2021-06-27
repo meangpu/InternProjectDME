@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Incendiary Tip Ammo
   m_EditorClassIdentifier: 
   addonName: Incendiary Tip Ammo
-  description: Charge the ammo to deal 20% more damage within the next 10 seconds
+  description: Charge the ammo to deal 40% more damage within the next 10 seconds
   abilityType: 7
   icon: {fileID: 21300000, guid: 74671dff68c17f443b403a9a4bbe69db, type: 3}
   energyCost: 30
