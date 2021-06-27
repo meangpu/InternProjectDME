@@ -9,12 +9,16 @@ public class AddonsDisplayIngame : MonoBehaviour
     [SerializeField] private PlayerEquippedAddons equippedAddons = null;
     [SerializeField] private Image addonQ = null;
     [SerializeField] private Image addonE = null;
+    [SerializeField] private Image addonMagnet = null;
     [SerializeField] private TMP_Text energyCostQText = null;
     [SerializeField] private TMP_Text energyCostEText = null;
+    [SerializeField] private TMP_Text energyCostMagnetText = null;
     [SerializeField] private Image rechargeBarQ = null;
     [SerializeField] private Image rechargeBarE = null;
+    [SerializeField] private Image rechargeBarMagnet = null;
     [SerializeField] private TMP_Text cooldownDurationQText = null;
     [SerializeField] private TMP_Text cooldownDurationEText = null;
+    [SerializeField] private TMP_Text cooldownDurationMagnetText = null;
     [SerializeField] private CooldownSystem cooldownSystem = null;
 
     private List<ObjAbility> addonsList;
