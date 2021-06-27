@@ -143,4 +143,5 @@ public class PlayerEquippedAddons : ScriptableObject
     }
 
     public ComboType GetComboType() => comboType;
+    public ObjAbility GetMagnet() => magnetAbility;
 }

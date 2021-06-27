@@ -48,6 +48,7 @@ public class PlayerAbilities : MonoBehaviour
         List<ObjAbility> addonsList = playerEquippedAddons.GetEquippedAddons();
         ObjAbility addonQ = addonsList[0];
         ObjAbility addonE = addonsList[1];
+        ObjAbility magnet = playerEquippedAddons.GetMagnet();
 
         hotkeyAbilityList = new List<HotkeyAbility>
         {
@@ -63,11 +64,11 @@ public class PlayerAbilities : MonoBehaviour
                 activateAbilityAction = () => ActivateAbility(addonE)
             },
 
-            /*new HotkeyAbility
+            new HotkeyAbility
             {
-                addon = ActivateMagnet(),
-                activateAbilityAction = () => ActivateAbility(magnetthing)
-            }*/
+                addon = magnet,
+                activateAbilityAction = () => ActivateAbility(magnet)
+            }
         };
     }
 
@@ -122,7 +123,7 @@ public class PlayerAbilities : MonoBehaviour
                 ActivateIncendiary(comboType, ability.GetDuration(), ability.GetPercentage(), ability.GetComboValue());
                 break;
             case AbilityType.Magnet:
-                ActivateMagnet();
+                ActivateMagnet(ability.GetDuration());
                 break;
         }
 
@@ -167,6 +168,11 @@ public class PlayerAbilities : MonoBehaviour
     public void Skill2Activate()
     {
         hotkeyAbilityList[1].activateAbilityAction();
+    }
+
+    public void MagnetActivate()
+    {
+        hotkeyAbilityList[2].activateAbilityAction();
     }
     #endregion
 
@@ -283,9 +289,9 @@ public class PlayerAbilities : MonoBehaviour
         timerSystem.PutOnTimer(AbilityType.EnergyOrb, duration);
     }
 
-    private void ActivateMagnet()
+    private void ActivateMagnet(float duration)
     {
-
+        timerSystem.PutOnTimer(AbilityType.Magnet, duration);
     }
     #endregion
 }

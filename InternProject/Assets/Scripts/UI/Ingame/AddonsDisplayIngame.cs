@@ -25,12 +25,15 @@ public class AddonsDisplayIngame : MonoBehaviour
 
     private ObjAbility objQ;
     private ObjAbility objE;
+    private ObjAbility objMagnet;
 
     private float remainingCooldownQ = 0;
     private float remainingCooldownE = 0;
+    private float remainingCooldownMagnet = 0;
 
     private float remainingPercentageQ = 0;
     private float remainingPercentageE = 0;
+    private float remainingPercentageMagnet = 0;
 
     private void Awake()
     {
@@ -38,15 +41,18 @@ public class AddonsDisplayIngame : MonoBehaviour
 
         objQ = addonsList[0];
         objE = addonsList[1];
+        objMagnet = equippedAddons.GetMagnet();
     }
 
     private void Start()
     {
         addonQ.sprite = objQ.GetIcon();
         addonE.sprite = objE.GetIcon();
+        addonMagnet.sprite = objMagnet.GetIcon();
 
         energyCostQText.text = objQ.GetEnergyCost().ToString();
         energyCostEText.text = objE.GetEnergyCost().ToString();
+        energyCostMagnetText.text = objMagnet.GetEnergyCost().ToString();
 
         ResetCooldownUI();
     }
@@ -85,17 +91,36 @@ public class AddonsDisplayIngame : MonoBehaviour
             rechargeBarE.fillAmount = remainingPercentageE;
             cooldownDurationEText.text = ((int)remainingCooldownE).ToString();
 
-            if (cooldownDurationEText.gameObject.activeSelf) { return; }
+            if (cooldownDurationEText.gameObject.activeSelf) { goto CheckMagnet; }
 
             cooldownDurationEText.gameObject.SetActive(true);
             rechargeBarE.enabled = true;
         }
         else
         {
-            if (!cooldownDurationEText.gameObject.activeSelf) { return; }
+            if (!cooldownDurationEText.gameObject.activeSelf) { goto CheckMagnet; }
 
             cooldownDurationEText.gameObject.SetActive(false);
             rechargeBarE.enabled = false;
+        }
+
+        CheckMagnet:
+        if (cooldownSystem.IsOnCooldown(objMagnet.GetAbilityType()))
+        {
+            rechargeBarMagnet.fillAmount = remainingPercentageMagnet;
+            cooldownDurationMagnetText.text = ((int)remainingCooldownMagnet).ToString();
+
+            if (cooldownDurationMagnetText.gameObject.activeSelf) { return; }
+
+            cooldownDurationMagnetText.gameObject.SetActive(true);
+            rechargeBarMagnet.enabled = true;
+        }
+        else
+        {
+            if (!cooldownDurationMagnetText.gameObject.activeSelf) { return; }
+
+            cooldownDurationMagnetText.gameObject.SetActive(false);
+            rechargeBarMagnet.enabled = false;
         }
     }
 
@@ -103,23 +128,28 @@ public class AddonsDisplayIngame : MonoBehaviour
     {
         remainingCooldownQ = cooldownSystem.GetRemainingDuration(objQ.GetAbilityType());
         remainingCooldownE = cooldownSystem.GetRemainingDuration(objE.GetAbilityType());
+        remainingCooldownMagnet = cooldownSystem.GetRemainingDuration(objMagnet.GetAbilityType());
     }
 
     private void CalculatePercentage()
     {
         remainingPercentageQ = remainingCooldownQ / objQ.GetCooldown();
         remainingPercentageE = remainingCooldownE / objE.GetCooldown();
+        remainingPercentageMagnet = remainingCooldownMagnet / objMagnet.GetCooldown();
     }
 
     private void ResetCooldownUI()
     {
         rechargeBarQ.fillAmount = remainingPercentageQ;
         rechargeBarE.fillAmount = remainingPercentageE;
+        rechargeBarMagnet.fillAmount = remainingPercentageMagnet;
 
         cooldownDurationQText.gameObject.SetActive(false);
         cooldownDurationEText.gameObject.SetActive(false);
+        cooldownDurationMagnetText.gameObject.SetActive(false);
 
         rechargeBarQ.enabled = false;
         rechargeBarE.enabled = false;
+        rechargeBarMagnet.enabled = false;
     }
 }
