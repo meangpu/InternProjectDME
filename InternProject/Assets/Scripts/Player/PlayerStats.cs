@@ -9,7 +9,6 @@ public class PlayerStats : MonoBehaviour
     private static PlayerStats instance;
     public static PlayerStats Instance { get { return instance; } }
 
-    [SerializeField] private CooldownSystem cooldownSystem = null;
     [SerializeField] private TimerSystem timerSystem = null;
     [SerializeField] private Transform respawnPoint = null;
     [SerializeField] ParticleSystem speedBoostPar;
@@ -341,6 +340,8 @@ public class PlayerStats : MonoBehaviour
 
         if (!SpendGold(tankUpgradeCost)) { return; }
 
+        float addedSpeed = movementSpeed - baseMovementSpeed;
+
         tankLevel++;
         UpdateTankStats();
 
@@ -349,6 +350,8 @@ public class PlayerStats : MonoBehaviour
             healthSystem.Heal(10, HealthOrManaSystem.HealingType.Percentage);
             energySystem.Heal(10, HealthOrManaSystem.HealingType.Percentage);
         }
+
+        movementSpeed = baseMovementSpeed + addedSpeed;
 
         OnMovementStatsChanged?.Invoke();
         OnTankLeveledUp?.Invoke(tankLevel, TANK_MAX_LEVEL_LIMIT);
@@ -360,9 +363,15 @@ public class PlayerStats : MonoBehaviour
 
         if (!SpendGold(gunUpgradeCost)) { return; }
 
+        int addedMinDamage = minDamage - baseMinDamage;
+        int addedMaxDamage = maxDamage - baseMaxDamage;
+
         gunLevel++;
         UpdateGunStats();
         UpdateAmmoUI();
+
+        minDamage = baseMinDamage + addedMinDamage;
+        maxDamage = baseMaxDamage + addedMaxDamage;
 
         OnGunLeveledUp?.Invoke(gunLevel, TANK_MAX_LEVEL_LIMIT); 
     }
