@@ -82491,6 +82491,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1195691699806972500, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 99.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720688977799487763, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720688977799487763, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720688977799487763, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720688977799487763, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3720688977799487764, guid: d6e6571e8df5e66448103931177138d1, type: 3}
       propertyPath: m_Icon
       value: 
@@ -82518,6 +82538,14 @@ PrefabInstance:
     - target: {fileID: 3720688977878154106, guid: d6e6571e8df5e66448103931177138d1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720688978051585387, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720688978051585387, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3720688978059992953, guid: d6e6571e8df5e66448103931177138d1, type: 3}
       propertyPath: m_RootOrder
