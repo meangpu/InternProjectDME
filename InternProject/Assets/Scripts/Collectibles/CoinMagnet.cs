@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CoinMagnet : MonoBehaviour
 {
+    [SerializeField] private GameObject coin = null;
     [SerializeField] private float magnetSpeed = 5f;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -10,6 +11,6 @@ public class CoinMagnet : MonoBehaviour
 
         if (!timerSystem.IsActivated(AbilityType.Magnet)) { return; }
 
-        transform.position = Vector3.MoveTowards(transform.position, collision.gameObject.transform.position, magnetSpeed * Time.deltaTime);
+        coin.transform.position = Vector3.MoveTowards(coin.transform.position, collision.gameObject.transform.position, magnetSpeed * Time.deltaTime);
     }
 }
