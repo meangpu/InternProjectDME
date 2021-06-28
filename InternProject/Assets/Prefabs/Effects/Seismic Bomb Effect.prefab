@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7606135374943397075}
-  effect: {fileID: 0}
+  effect: {fileID: 7606135375739826159}
 --- !u!1 &7606135375739826159
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,9 @@ public class AssignGold : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer = null;
     [SerializeField] ParticleSystemRenderer parEffect;
 
-    private int value;
+    private int coinValue;
+
+    public int Value { get => coinValue; set => coinValue = value; }
 
     private void Awake()
     {
@@ -16,21 +18,12 @@ public class AssignGold : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out PlayerStats playerStats))
-        {
-            playerStats.AddGold(value);
-            PoolingSingleton.Instance.GoldPool.ReturnObject(gameObject);
-        }
-    }
-
     public void SetGold(ObjGold _newGold)
     {
         ObjGold = _newGold;
         spriteRenderer.sprite = ObjGold.GetSprite();
         spriteRenderer.material = ObjGold.GetMaterial();
         parEffect.material = ObjGold.GetParMaterial();
-        value = ObjGold.GetValue();
+        coinValue = ObjGold.GetValue();
     }
 }

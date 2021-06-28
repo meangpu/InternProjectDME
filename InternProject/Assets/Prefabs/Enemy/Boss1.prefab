@@ -236,7 +236,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 3
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -286,6 +286,9 @@ MonoBehaviour:
   anim: {fileID: 4172184067530760979}
   dropPercentage: 1
   Immortal: 0
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &7002585039861489947
 CircleCollider2D:
   m_ObjectHideFlags: 0
