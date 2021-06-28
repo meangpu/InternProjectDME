@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfa7321e75feb941b93b1106d10c415, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
+  levelName: level1
   currentStars: 0
   levelDescription: The <color=yellow>first level</color> of this game help you to
     learn about basic of this game

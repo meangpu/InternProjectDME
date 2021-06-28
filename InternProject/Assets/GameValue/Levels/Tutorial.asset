@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfa7321e75feb941b93b1106d10c415, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
+  levelName: Tutorial
   currentStars: 0
   levelDescription: this is level will teach you how to play this game
   levelPreview: {fileID: 21300000, guid: d4728f74e2fb8164a92d4df999b58a84, type: 3}
