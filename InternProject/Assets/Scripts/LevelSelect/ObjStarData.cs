@@ -7,7 +7,6 @@ public class ObjStarData : ScriptableObject
 {
     [SerializeField] int starValue;
 
-
     public int GetStar() => starValue;
 
     public void addValue(int _value)
