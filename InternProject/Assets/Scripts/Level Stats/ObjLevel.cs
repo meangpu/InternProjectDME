@@ -11,6 +11,7 @@ public class ObjLevel : ScriptableObject
     [SerializeField] private Sprite levelPreview = null;
     [SerializeField] private int startingGold = 0;
     [SerializeField] private int sceneIndex;
+    [SerializeField] bool isUnlocked;
 
     public const int MAX_STARS = 3;
 
@@ -22,9 +23,18 @@ public class ObjLevel : ScriptableObject
         // Add to star save
         currentStars = value;
     }
+
+    public void UnlockThisLevel()
+    {
+        isUnlocked = true;
+    }
+
+
+
     public string GetLevelDescription() => levelDescription;
     public Sprite GetLevelPreview() => levelPreview;
     public int GetStartingGold() => startingGold;
     public int GetSceneIndex() => sceneIndex;
     public string GetLevelName() => levelName;
+    public bool GetIsUnlock() => isUnlocked;
 }
