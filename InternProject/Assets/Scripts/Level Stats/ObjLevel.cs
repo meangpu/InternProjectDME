@@ -20,11 +20,21 @@ public class ObjLevel : ScriptableObject
     public int SetCurrentStars(int value)
     {
         int diff = value - currentStars;
+
+        if (currentStars <= value)
+        {
+            currentStars = value;
+        }
         Debug.Log($"value = {value} /currentStars {currentStars} / diff = {diff}");
 
-        // Add to star save
-        currentStars = value;
-        return diff;
+        if (diff >= 0)
+        {
+            return diff;
+        }
+        else 
+        {
+            return 0;
+        }
     }
 
     public void UnlockThisLevel()
