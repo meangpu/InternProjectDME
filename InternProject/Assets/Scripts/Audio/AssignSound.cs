@@ -10,4 +10,9 @@ public class AssignSound : MonoBehaviour
         audioSource.clip = objSound.GetRandomClip();
         audioSource.Play();
     }
+
+    public void SetSound(ObjSound sound)
+    {
+        objSound = sound;
+    }
 }
