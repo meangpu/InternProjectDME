@@ -18,7 +18,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5537c93ba4756a24684750bb4b8b702b, type: 3}
   energyCost: 45
   cooldownTime: 35
-  damage: 40
+  minDamage: 35
+  maxDamage: 50
   range: 3.5
   abilityDuration: 0
   percentage: 0

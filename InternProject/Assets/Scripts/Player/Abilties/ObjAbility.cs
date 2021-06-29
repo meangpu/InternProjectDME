@@ -11,7 +11,8 @@ public class ObjAbility : ScriptableObject
     [SerializeField] private Sprite icon;
     [SerializeField] private int energyCost;
     [SerializeField] private float cooldownTime;
-    [SerializeField] private int damage;
+    [SerializeField] private int minDamage;
+    [SerializeField] private int maxDamage;
     [SerializeField] private float range;
     [SerializeField] private float abilityDuration;
     [SerializeField] private float percentage;
@@ -27,7 +28,8 @@ public class ObjAbility : ScriptableObject
     public AbilityType GetAbilityType() => abilityType;
     public Sprite GetIcon() => icon;
     public float GetCooldown() => cooldownTime;
-    public int GetDamage() => damage;
+    public int GetMinDamage() => minDamage;
+    public int GetMaxDamage() => maxDamage;
     public int GetEnergyCost() => energyCost;
     public float GetRange() => range;
     public float GetDuration() => abilityDuration;

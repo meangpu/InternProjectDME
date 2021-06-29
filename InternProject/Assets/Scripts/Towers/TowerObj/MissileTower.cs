@@ -15,7 +15,8 @@ public class MissileTower : MonoBehaviour, ITower
         PoolingSingleton.Instance.TowerMissilePool.SpawnTowerMissile(
             projectileSpawnPoint.position, 
             projectileSpawnPoint.rotation, 
-            towerStats.DealDamage(), 
+            towerStats.GetMinDamage(),
+            towerStats.GetMaxDamage(),
             towerStats.GetBulletSpeed(), 
             towerStats.GetAreaOfDamage(), 
             towerStats.GetBulletLifetime());

@@ -134,12 +134,13 @@ public class Pooler : MonoBehaviour
         SetupObject(bullet, position, rotation);
     }
 
-    public void SpawnPlayerMissile(Vector3 position, Quaternion rotation, int damage, float speed, float range, float lifetime)
+    public void SpawnPlayerMissile(Vector3 position, Quaternion rotation, int minDamage, int maxDamage, float speed, float range, float lifetime)
     {
         GameObject missile = SpawnObject();
         missile.GetComponent<HomingMissile>().Setup(HomingMissile.TargetType.Enemy);
         IAreaOfDamage missileStats = missile.GetComponent<IAreaOfDamage>();
-        missileStats.Damage = damage;
+        missileStats.MinDamage = minDamage;
+        missileStats.MaxDamage = maxDamage;
         missileStats.BulletSpeed = speed;
         missileStats.AreaOfDamage = range;
         missileStats.Lifetime = lifetime;
@@ -157,11 +158,12 @@ public class Pooler : MonoBehaviour
         SetupObject(missile, position, rotation);
     }
 
-    public void SpawnEnemyBomb(Vector3 position, Quaternion rotation, int damage, float range, float lifetime)
+    public void SpawnEnemyBomb(Vector3 position, Quaternion rotation, int minDamage, int maxDamage, float range, float lifetime)
     {
         GameObject bomb = SpawnObject();
         IAreaOfDamage bombStats = bomb.GetComponent<IAreaOfDamage>();
-        bombStats.Damage = damage;
+        bombStats.MinDamage = minDamage;
+        bombStats.MaxDamage = maxDamage;
         bombStats.AreaOfDamage = range;
         bombStats.Lifetime = lifetime;
         SetupObject(bomb, position, rotation);
@@ -177,11 +179,12 @@ public class Pooler : MonoBehaviour
         SetupObject(bullet, position, rotation);
     }
 
-    public void SpawnTowerMissile(Vector3 position, Quaternion rotation, int damage, float speed, float range, float lifetime)
+    public void SpawnTowerMissile(Vector3 position, Quaternion rotation, int minDamage, int maxDamage, float speed, float range, float lifetime)
     {
         GameObject missile = SpawnObject();
         IAreaOfDamage missileStats = missile.GetComponent<IAreaOfDamage>();
-        missileStats.Damage = damage;
+        missileStats.MinDamage = minDamage;
+        missileStats.MaxDamage = maxDamage;
         missileStats.BulletSpeed = speed;
         missileStats.AreaOfDamage = range;
         missileStats.Lifetime = lifetime;

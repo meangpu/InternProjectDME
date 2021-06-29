@@ -9,6 +9,8 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
     [SerializeField] private bool dealsAOEDamage = false;
 
     private int damage;
+    private int minDamage;
+    private int maxDamage;
     private float knockback;
     private float lifetime;
     private float bulletSpeed;
@@ -20,6 +22,8 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
     private PoolingSingleton pooler;
 
     public int Damage { get => damage; set => damage = value; }
+    public int MinDamage { get => minDamage; set => minDamage = value; }
+    public int MaxDamage { get => maxDamage; set => maxDamage = value; }
     public float KnockBack { get => knockback; set => knockback = value; }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
@@ -72,6 +76,11 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
         rb.velocity = (Vector2)transform.up * bulletSpeed;
     }
 
+    private int GetRandomDamage()
+    {
+        return UnityEngine.Random.Range(minDamage, maxDamage + 1);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isActivated) { return; }
@@ -88,7 +97,7 @@ public class TankBullet : MonoBehaviour, IProjectile, IAreaOfDamage
                 {
                     if (collider.TryGetComponent(out IEnemy enemyInRange))
                     {
-                        enemyInRange.TakeDamage(damage);
+                        enemyInRange.TakeDamage(GetRandomDamage());
                     }
                 }
             }

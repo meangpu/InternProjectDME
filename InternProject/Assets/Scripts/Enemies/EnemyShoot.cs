@@ -66,7 +66,7 @@ public class EnemyShoot : MonoBehaviour
                 return;
 
             case AmmoType.Bomb:
-                pooler.EnemyBombPool.SpawnEnemyBomb(spawnPoint.position, spawnPoint.rotation, enemy.Damage, enemy.AttackRange, enemy.BulletLifetime);
+                pooler.EnemyBombPool.SpawnEnemyBomb(spawnPoint.position, spawnPoint.rotation, enemy.MinDamage, enemy.MaxDamage, enemy.AttackRange, enemy.BulletLifetime);
                 return;
 
             case AmmoType.Alternate:

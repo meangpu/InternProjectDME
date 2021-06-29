@@ -6,11 +6,13 @@ public class BombDrop : MonoBehaviour, IAreaOfDamage
 {
     [SerializeField] private LayerMask damageables;
 
-    private int damage;
+    private int minDamage;
+    private int maxDamage;
     private float lifetime;
     private float areaOfDamage;
 
-    public int Damage { get => damage; set => damage = value; }
+    public int MinDamage { get => minDamage; set => minDamage = value; }
+    public int MaxDamage { get => minDamage; set => minDamage = value; }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float AreaOfDamage { get => areaOfDamage; set => areaOfDamage = value; }
     public float BulletSpeed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
@@ -30,6 +32,11 @@ public class BombDrop : MonoBehaviour, IAreaOfDamage
         PoolingSingleton.Instance.EnemyBombPool.ReturnObject(gameObject);
     }
 
+    private int GetRandomDamage()
+    {
+        return Random.Range(minDamage, maxDamage + 1);
+    }
+
     private void DealDamage()
     {
         Collider2D[] damageable = Physics2D.OverlapCircleAll(transform.position, areaOfDamage, damageables);
@@ -38,7 +45,7 @@ public class BombDrop : MonoBehaviour, IAreaOfDamage
         {
             if (!collider.TryGetComponent(out IOwnedByPlayer ownedByPlayer)) { continue; }
 
-            ownedByPlayer.TakeDamage(damage);
+            ownedByPlayer.TakeDamage(GetRandomDamage());
         }
     }
 }

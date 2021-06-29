@@ -112,20 +112,22 @@ public class EnemyDisplay : MonoBehaviour
         }
     }
 
-    public SpriteRenderer Image { get { return eneImage; } }
+    public SpriteRenderer Image => eneImage;
     public float Speed { get { return enemySpeed; } set { enemySpeed = value; } }
     public int Health { get { return hp; } set { hp = value; } }
-    public int MaxHealth { get { return maxhp; } }
-    public Image CircleHP { get { return circleHp; } }
-    public GameObject ParentHP { get { return parentHp; } }
-    public int Damage { get { return Random.Range(minDamage, maxDamage + 1); } }
-    public bool IsPassive { get { return isPassive; } }
-    public ObjEnemyBullet BulletType { get { return bulletType; } }
-    public float AtkSpeed { get { return atkSpeed; } }
-    public float AttackRange { get { return attackRange; } }
-    public float BulletSpeed { get { return bulletSpeed; } }
-    public float BulletLifetime { get { return bulletLifetime; } }
-    public int DropGold { get { return goldDrop; } }
-    public EnemyType EnemyType { get { return enemyType; } }
-    public EnemyId EnemyId { get { return enemyId; } }
+    public int MaxHealth => maxhp;
+    public Image CircleHP => circleHp;
+    public GameObject ParentHP => parentHp;
+    public int MinDamage => minDamage;
+    public int MaxDamage => maxDamage;
+    public int Damage => Random.Range(minDamage, maxDamage + 1);
+    public bool IsPassive => isPassive;
+    public ObjEnemyBullet BulletType => bulletType;
+    public float AtkSpeed => atkSpeed;
+    public float AttackRange => attackRange;
+    public float BulletSpeed => bulletSpeed;
+    public float BulletLifetime => bulletLifetime;
+    public int DropGold => goldDrop;
+    public EnemyType EnemyType => enemyType;
+    public EnemyId EnemyId => enemyId;
 }

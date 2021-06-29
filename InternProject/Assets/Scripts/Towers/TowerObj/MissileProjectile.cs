@@ -8,15 +8,18 @@ public class MissileProjectile : MonoBehaviour, IAreaOfDamage
 
     private float bulletSpeed;
     private float lifetime;
-    private int damage;
+    private int minDamage;
+    private int maxDamage;
     private float range;
     private bool isActivated = false;
 
     private PoolingSingleton pooler;
-    public int Damage { get => damage; set => damage = value; }
+    public int MinDamage { get => minDamage; set => minDamage = value; }
+    public int MaxDamage { get => maxDamage; set => maxDamage = value; }
     public float Lifetime { get => lifetime; set => lifetime = value; }
     public float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
     public float AreaOfDamage { get => range; set => range = value; }
+
 
     private void Start()
     {
@@ -47,6 +50,11 @@ public class MissileProjectile : MonoBehaviour, IAreaOfDamage
         rb.velocity = (Vector2)transform.up * bulletSpeed;
     }
 
+    private int GetRandomDamage()
+    {
+        return Random.Range(minDamage, maxDamage + 1);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isActivated) { return; }
@@ -59,7 +67,7 @@ public class MissileProjectile : MonoBehaviour, IAreaOfDamage
             {
                 if (collider.TryGetComponent(out IEnemy enemy))
                 {
-                    enemy.TakeDamage(damage);
+                    enemy.TakeDamage(GetRandomDamage());
                 }
             }
             

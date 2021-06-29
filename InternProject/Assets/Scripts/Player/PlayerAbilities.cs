@@ -102,7 +102,7 @@ public class PlayerAbilities : MonoBehaviour
                 FastReload(ability.GetPercentage());
                 break;
             case AbilityType.Bomb:
-                Bomb(comboType, ability.GetRange(), ability.GetDamage(), ability.GetComboValue());
+                Bomb(comboType, ability.GetRange(), ability.GetMinDamage(), ability.GetComboValue());
                 break;
             case AbilityType.Dash:
                 Dash(comboType, ability.GetRange(), ability.GetDuration());
@@ -111,13 +111,13 @@ public class PlayerAbilities : MonoBehaviour
                 ActivateElectrocharge(ability.GetRange(), ability.GetDuration(), ability.GetPercentage());
                 break;
             case AbilityType.EnergyOrb:
-                ActivateEnergyOrb(comboType, ability.GetDamage(), ability.GetRange(), ability.GetDuration(), ability.GetComboValue());
+                ActivateEnergyOrb(comboType, ability.GetMinDamage(), ability.GetRange(), ability.GetDuration(), ability.GetComboValue());
                 break;
             case AbilityType.EnergyShield:
                 ActivateEnergyShield();
                 break;
             case AbilityType.HomingMissile:
-                LaunchHomingMissile(comboType, ability.GetDamage(), ability.GetRange(), ability.GetDuration(), ability.GetComboValue());
+                LaunchHomingMissile(comboType, ability.GetMinDamage(), ability.GetMaxDamage(), ability.GetRange(), ability.GetDuration(), ability.GetComboValue());
                 break;
             case AbilityType.IncendiaryAmmo:
                 ActivateIncendiary(comboType, ability.GetDuration(), ability.GetPercentage(), ability.GetComboValue());
@@ -231,13 +231,13 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void LaunchHomingMissile(ComboType comboType, int damage, float range, float duration, float comboValue)
+    private void LaunchHomingMissile(ComboType comboType, int minDamage, int maxDamage, float range, float duration, float comboValue)
     {
         OnHomingMissileActivated?.Invoke();
 
         range = comboType == ComboType.UpgradedMissile ? comboValue : range;
 
-        PoolingSingleton.Instance.HomingMissilePool.SpawnPlayerMissile(transform.position, transform.rotation * Quaternion.AngleAxis(180, Vector3.forward), damage, playerStats.GetBulletSpeed(), range, duration);
+        PoolingSingleton.Instance.HomingMissilePool.SpawnPlayerMissile(transform.position, transform.rotation * Quaternion.AngleAxis(180, Vector3.forward), minDamage, maxDamage, playerStats.GetBulletSpeed(), range, duration);
     }
 
     private void ActivateEnergyShield()
