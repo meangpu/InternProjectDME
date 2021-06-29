@@ -162,7 +162,7 @@ public class WaveManager : MonoBehaviour
                     {
                         isStopCount = false;
                     }
-                    SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint);
+                    SpawnEnemy(enemy.enemy, pointToSpawn.spawnPoint.GetChild(2));
                     yield return new WaitForSeconds(wave.spawnRate);
                     
                     thisWaveCount--;
