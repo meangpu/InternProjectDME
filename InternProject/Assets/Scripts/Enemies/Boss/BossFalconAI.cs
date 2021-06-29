@@ -6,10 +6,13 @@ public class BossFalconAI : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private EnemyDisplay enemyDisplay = null;
+    [SerializeField] private float aiRepathTime = 0.5f;
 
     private Transform playerBase;
     private Transform player;
     private Transform currentTarget;
+
+    private float aiTimer = 0f;
 
     private bool targetPlayer = true;
 
@@ -18,19 +21,22 @@ public class BossFalconAI : MonoBehaviour
         playerBase = GameObject.FindGameObjectWithTag("Base").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        // GetComponent<EnemyShoot>().StartShooting();
-
         currentTarget = player;
     }
 
     private void Update()
     {
         TryTargetPlayer();
+        aiTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
         Move();
+
+        if (aiTimer < aiRepathTime) { return; }
+
+        aiTimer = 0f;
         LookAtTarget();
     }
 
