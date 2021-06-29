@@ -363,6 +363,7 @@ MonoBehaviour:
   secondFormMat: {fileID: 2100000, guid: 346d6432f091e014a986dde6cc7addee, type: 2}
   secondFormDashCdMultiplyer: 0.6
   bulletDetectionDistance: 2.5
+  enemyScpt: {fileID: 1254926556723747630}
   isSecondForm: 0
 --- !u!114 &-734852368087831673
 MonoBehaviour:

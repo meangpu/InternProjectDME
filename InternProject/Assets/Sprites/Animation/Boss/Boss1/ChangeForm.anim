@@ -312,9 +312,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.7
-    functionName: UndoImmortal
+    functionName: undoImmortal
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 1254926556723747623, guid: 7b3fb0af63ff5c8449b183a18e1665f1, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

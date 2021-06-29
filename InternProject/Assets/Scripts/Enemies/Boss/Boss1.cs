@@ -13,6 +13,7 @@ public class Boss1 : MonoBehaviour
     [SerializeField] Material secondFormMat;
     [SerializeField] float secondFormDashCdMultiplyer;
     [SerializeField] private float bulletDetectionDistance = 2.5f;
+    [SerializeField] Enemy enemyScpt;
     public bool isSecondForm;
     bool canDash = true;
 
@@ -69,5 +70,10 @@ public class Boss1 : MonoBehaviour
             spriteRenderer.material = secondFormMat;
             CoolDownBetweenDash *= secondFormDashCdMultiplyer;
         }
+    }
+
+    public void undoImmortal()
+    {
+        enemyScpt.SetImmortalState(false);
     }
 }
