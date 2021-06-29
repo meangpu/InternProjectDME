@@ -11,14 +11,23 @@ public class starSetter : MonoBehaviour
 
     public void getStar(int _star)
     {
-        if (_star == 1)
+        if (_star == 0)
+        {
+            star1.disThisStar();
+            star2.disThisStar();
+            star3.disThisStar();
+        }
+        else if (_star == 1)
         {
             star1.getThisStar();
+            star2.disThisStar();
+            star3.disThisStar();
         }
         else if(_star == 2)
         {
             star1.getThisStar();
             star2.getThisStar();
+            star3.disThisStar();
         }
         else if(_star == 3)
         {

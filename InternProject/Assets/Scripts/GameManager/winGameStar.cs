@@ -11,4 +11,9 @@ public class winGameStar : MonoBehaviour
     {
         fillChild.SetActive(true);
     }
+
+    public void disThisStar()
+    {
+        fillChild.SetActive(false);
+    }
 }

@@ -11,6 +11,7 @@ public class levelInfoPanel : MonoBehaviour
     [SerializeField] Image levelImage;
     [SerializeField] TMP_Text levelDescription;
     [SerializeField] GoToScene changeSceneScpt;
+    [SerializeField] starSetter starSetScpt;
 
 
     public void setLevel(ObjLevel _info)
@@ -18,6 +19,8 @@ public class levelInfoPanel : MonoBehaviour
         levelName.text = _info.GetLevelName();
         levelImage.sprite = _info.GetLevelPreview();
         levelDescription.text = _info.GetLevelDescription();
+        
+        starSetScpt.getStar(_info.GetCurrentStars());
         
         changeSceneScpt.destination = _info.GetLevelName();
         changeSceneScpt.sceneIndex = _info.GetSceneIndex();
