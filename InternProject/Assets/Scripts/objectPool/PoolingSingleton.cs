@@ -27,6 +27,7 @@ public class PoolingSingleton : MonoBehaviour
     [SerializeField] private Pooler collectiblePool = null;
     [SerializeField] private Pooler bulletExplosionPool = null;
     [SerializeField] private Pooler machineExplosionPool = null;
+    [SerializeField] private Pooler audioSourcePool = null;
 
     public Pooler EnemyBulletPool 
     { 
@@ -107,6 +108,10 @@ public class PoolingSingleton : MonoBehaviour
     public Pooler MachineExplosion
     {
         get { return machineExplosionPool; }
+    }
+    public Pooler AudioSourcePool
+    {
+        get { return audioSourcePool; }
     }
 
     private void Awake()

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AssignSound : MonoBehaviour
@@ -14,5 +15,14 @@ public class AssignSound : MonoBehaviour
     public void SetSound(ObjSound sound)
     {
         objSound = sound;
+    }
+
+    public IEnumerator PlaySoundAndDisable()
+    {
+        AudioClip clip = objSound.GetRandomClip();
+        audioSource.clip = clip;
+        audioSource.Play();
+        yield return new WaitForSeconds(clip.length);
+        PoolingSingleton.Instance.AudioSourcePool.ReturnObject(gameObject);
     }
 }
