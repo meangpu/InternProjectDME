@@ -166,10 +166,8 @@ public class WaveManager : MonoBehaviour
                     yield return new WaitForSeconds(wave.spawnRate);
                     
                     thisWaveCount--;
-                    Debug.Log(thisWaveCount);
                     if (thisWaveCount <= 0)
                     {
-                        
                         CheckNextWave();
                     }
                 }
