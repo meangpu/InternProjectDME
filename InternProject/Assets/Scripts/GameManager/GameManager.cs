@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] starSetter starScpt;
     [SerializeField] BaseClass baseScpt;
 
+    [SerializeField] ObjStarData starDataObj;
+
     // GameObject references
     private Player player;
     private BaseClass playerBase;
@@ -192,6 +194,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
 
         starScpt.getStar(CheckStar());
+
+        starDataObj.addValue(levelData.SetCurrentStars(CheckStar()));
+        
+        levelData.SetCurrentStars(CheckStar());
+        Debug.Log(levelData.SetCurrentStars(CheckStar()));
 
         winPanel.SetActive(true);
         StopGame();

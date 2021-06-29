@@ -16,12 +16,15 @@ public class ObjLevel : ScriptableObject
     public const int MAX_STARS = 3;
 
     public int GetCurrentStars() => currentStars;
-    public void SetCurrentStars(int value)
+
+    public int SetCurrentStars(int value)
     {
         int diff = value - currentStars;
+        Debug.Log($"value = {value} /currentStars {currentStars} / diff = {diff}");
 
         // Add to star save
         currentStars = value;
+        return diff;
     }
 
     public void UnlockThisLevel()

@@ -41794,6 +41794,7 @@ MonoBehaviour:
   NowZoomValue: 13
   starScpt: {fileID: 416771568}
   baseScpt: {fileID: 1142245620}
+  starDataObj: {fileID: 11400000, guid: db12c54198f746b47922bb8886f54b32, type: 2}
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0
