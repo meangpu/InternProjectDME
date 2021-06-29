@@ -12,4 +12,19 @@ public class PlayerUnlockedItems : ScriptableObject
     public List<ObjPlayerTank> GetUnlockedTanksList() => unlockedTanks;
     public List<ObjTankTurret> GetUnlockedTurretsList() => unlockedTurrets;
     public List<ObjAbility> GetUnlockedAbilitiessList() => unlockedAbilities;
+
+    public void AddUnlockedTank(ObjPlayerTank tank)
+    {
+        unlockedTanks.Add(tank);
+    }
+
+    public void AddUnlockedGun(ObjTankTurret turret)
+    {
+        unlockedTurrets.Add(turret);
+    }
+
+    public void AddUnlockedAbilities(ObjAbility ability)
+    {
+        unlockedAbilities.Add(ability);
+    }
 }
