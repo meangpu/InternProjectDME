@@ -8,6 +8,11 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
 {
     [SerializeField] private Image image;
 
+    [Header("Sounds")]
+    [SerializeField] private ObjSound hoverSound = null;
+    [SerializeField] private ObjSound onExitSound = null;
+    [SerializeField] private AssignSound assignSound = null;
+
     [Header("selfValue")]
     [SerializeField] GameObject LockPanel;
     [SerializeField] Button lockButton;
@@ -52,11 +57,15 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        assignSound.SetSound(hoverSound);
+        assignSound.PlaySound();
         uiManager.UpdateDescription(addonObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        assignSound.SetSound(onExitSound);
+        assignSound.PlaySound();
         uiManager.HideDescription();
     }
 

@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +10,10 @@ public class AddonsSelectionInputManager : MonoBehaviour
     private PlayerControls playerControls;
 
     private ObjAbility abilityToBeAssigned;
+
+    public event Action OnChoose;
+    public event Action OnConfirm;
+    public event Action OnCancel;
 
     private void Awake()
     {
@@ -23,21 +27,28 @@ public class AddonsSelectionInputManager : MonoBehaviour
         playerControls.Addons.Cancel.started += _ => HidePanel();
     }
 
-    private void HidePanel()
+    private void HidePanel(bool playSound = true)
     {
-        gameObject.SetActive(false);
+        if (playSound)
+        {
+            OnCancel?.Invoke();
+        }
+
         ClearAbilityToBeAssigned();
+        gameObject.SetActive(false);
     }
 
     public void AssignAbility(PlayerEquippedAddons.AddonSlot slot)
     {
+        OnConfirm?.Invoke();
         playerAddonsObject.SetAbility(abilityToBeAssigned, slot);
-        HidePanel();
+        HidePanel(false);
     }
 
     public void PrepareForAbilityAssignment(ObjAbility ability)
     {
         abilityToBeAssigned = ability;
+        OnChoose?.Invoke();
     }
 
     private void ClearAbilityToBeAssigned()

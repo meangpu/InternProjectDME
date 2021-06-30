@@ -12,9 +12,20 @@ public class AddonsUIManager : MonoBehaviour
     [SerializeField] private TMP_Text energyCostText;
     [SerializeField] private AddonsSelectionInputManager inputManager;
 
+    [Header("Sounds")]
+    [SerializeField] private AssignSound assignSound = null;
+    [SerializeField] private ObjSound onClickSound = null;
+    [SerializeField] private ObjSound onCancelSound = null;
+    [SerializeField] private ObjSound onConfirmSound = null;
+    [SerializeField] private ObjSound onRemoveSound = null;
+
     private void Start()
     {
         HideDescription();
+
+        inputManager.OnConfirm += HandleConfirm;
+        inputManager.OnChoose += HandleOnChoose;
+        inputManager.OnCancel += HandleOnCancel;
     }
 
     public void UpdateDescription(ObjAbility addon)
@@ -41,5 +52,33 @@ public class AddonsUIManager : MonoBehaviour
         inputManager.gameObject.SetActive(true);
         HideDescription();
         inputManager.PrepareForAbilityAssignment(ability);
+    }
+
+    private void PlaySound(ObjSound sound)
+    {
+        assignSound.SetSound(sound);
+        assignSound.PlaySound();
+    }
+
+    private void HandleConfirm()
+    {
+        PlaySound(onConfirmSound);
+    }
+
+    private void HandleOnChoose()
+    {
+        PlaySound(onClickSound);
+    }
+
+    private void HandleOnCancel()
+    {
+        PlaySound(onCancelSound);
+    }
+
+    private void OnDestroy()
+    {
+        inputManager.OnConfirm -= HandleConfirm;
+        inputManager.OnChoose -= HandleOnChoose;
+        inputManager.OnCancel -= HandleOnCancel;
     }
 }
