@@ -102,6 +102,7 @@ public class Pooler : MonoBehaviour
         
         SetupObject(enemy, position, rotation);
         WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
+        Debug.Log($"SPAWNED {WaveManager.EnemyAlive.Count}");
     }
 
     public void SpawnEnemyDeathPar(Vector3 position, Quaternion rotation)
