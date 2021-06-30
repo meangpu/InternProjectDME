@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LaserTower : MonoBehaviour, ITower
 {
+    [SerializeField] private AssignSound assignSound = null;
+
     [SerializeField] private TowerStats towerStats = null;
     [SerializeField] private LineRenderer lineRenderer = null;
     [SerializeField] private TowerAI towerAI = null;
@@ -13,7 +15,7 @@ public class LaserTower : MonoBehaviour, ITower
     [SerializeField] private GameObject endVFX = null;
 
     private Enemy target;
-    private List<ParticleSystem> particles = new List<ParticleSystem>();
+    private readonly List<ParticleSystem> particles = new List<ParticleSystem>();
 
     private void Awake()
     {   
@@ -44,6 +46,7 @@ public class LaserTower : MonoBehaviour, ITower
         if (lineRenderer.enabled) { return; }
 
         lineRenderer.enabled = true;
+        assignSound.PlaySound();
 
         for (int i = 0; i < particles.Count; i++)
         {
@@ -54,8 +57,7 @@ public class LaserTower : MonoBehaviour, ITower
     private void UpdateLaser()
     {
         lineRenderer.SetPosition(0, (Vector2)laserSpawnPoint.position);
-        startVFX.transform.position = (Vector2)laserSpawnPoint.position;
-        startVFX.transform.rotation = laserSpawnPoint.rotation;
+        startVFX.transform.SetPositionAndRotation((Vector2)laserSpawnPoint.position, laserSpawnPoint.rotation);
 
         lineRenderer.SetPosition(1, (Vector2)target.GetTransform().position);
         endVFX.transform.position = lineRenderer.GetPosition(1);
@@ -67,6 +69,7 @@ public class LaserTower : MonoBehaviour, ITower
         if (!lineRenderer.enabled) { return; }
 
         lineRenderer.enabled = false;
+        assignSound.StopSound();
 
         for (int i = 0; i < particles.Count; i++)
         {

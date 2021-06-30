@@ -25,4 +25,9 @@ public class AssignSound : MonoBehaviour
         yield return new WaitForSeconds(clip.length);
         PoolingSingleton.Instance.AudioSourcePool.ReturnObject(gameObject);
     }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
+    }
 }
