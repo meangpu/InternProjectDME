@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] BaseClass baseScpt;
 
     [SerializeField] ObjStarData starDataObj;
+    [SerializeField] private SaveStars saveStars = null;
 
     // GameObject references
     private Player player;
@@ -200,9 +201,24 @@ public class GameManager : MonoBehaviour
         starDataObj.addValue(levelData.GetStarsDiff(stars));
         
         levelData.SetCurrentStars(stars);
+        saveStars.SaveGame(levelData);
+        UnlockLevels(levelData);
 
         winPanel.SetActive(true);
         StopGame();
+    }
+
+    private void UnlockLevels(ObjLevel level)
+    {
+        ObjLevel[] unlockedLevelList = level.GetUnlockedLevels();
+
+        if (unlockedLevelList.Length < 1) { return; }
+
+        foreach (ObjLevel unlockedLevel in unlockedLevelList)
+        {
+            unlockedLevel.Stats.UnlockThisLevel();
+            saveStars.SaveGame(unlockedLevel);
+        }
     }
 
     private int CheckStar()
