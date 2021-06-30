@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   levelName: Tutorial
-  currentStars: 0
+  levelId: 0
   levelDescription: this is level will teach you how to play this game
   levelPreview: {fileID: 21300000, guid: d4728f74e2fb8164a92d4df999b58a84, type: 3}
   startingGold: 5000
   sceneIndex: 2
-  isUnlocked: 1
+  stats: {fileID: 11400000, guid: 3839a9f2ee6de6a4cafd92c8a4536267, type: 2}

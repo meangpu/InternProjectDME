@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: debug
   m_EditorClassIdentifier: 
   levelName: Debug
-  currentStars: 0
+  levelId: 999
   levelDescription: The <color=yellow>first level</color> of this game help you to
     learn about basic of this game
   levelPreview: {fileID: 21300000, guid: 3be7d8143addeef43a475f386c142b06, type: 3}
-  startingGold: 99
+  startingGold: 2000
   sceneIndex: 5
-  isUnlocked: 1
+  stats: {fileID: 11400000, guid: de7ea96b800c37e40be21e1aa656212f, type: 2}

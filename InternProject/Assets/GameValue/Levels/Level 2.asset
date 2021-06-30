@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   levelName: Level 2
+  levelId: 2
   levelDescription: 'The second  level of this game.
 
     have increase in difficulity'

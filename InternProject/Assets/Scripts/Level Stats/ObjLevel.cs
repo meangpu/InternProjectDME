@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObjLevel : ScriptableObject
 {
     [SerializeField] private string levelName;
+    [SerializeField] private int levelId;
     [TextArea(4, 6)][SerializeField] private string levelDescription = null;
     [SerializeField] private Sprite levelPreview = null;
     [SerializeField] private int startingGold = 0;
@@ -27,4 +28,6 @@ public class ObjLevel : ScriptableObject
     public int GetSceneIndex() => sceneIndex;
     public string GetLevelName() => levelName;
     public bool GetIsUnlock() => stats.IsUnlocked();
+    public ObjLevelStats Stats => stats;
+    public int ID => levelId;
 }

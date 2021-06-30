@@ -948,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSave:
+  - {fileID: 11400000, guid: 3839a9f2ee6de6a4cafd92c8a4536267, type: 2}
   - {fileID: 11400000, guid: a6b63abbc31a3ee40af3b554072026eb, type: 2}
   - {fileID: 11400000, guid: 07d0102279e678d48b0fee3ca9a362b7, type: 2}
   - {fileID: 11400000, guid: 564085b38c3a4874ea67ada06e70c65a, type: 2}
