@@ -6,7 +6,7 @@ public class DebugSpeedUp : MonoBehaviour
 {
     public void SpeedUp()
     {
-        Time.timeScale = 20.0f;
+        Time.timeScale = 2.0f;
     }
 
     public void SpeedDefault()

@@ -36,6 +36,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Animator energyAnimator = null;
     [SerializeField] private Animator goldAnimator = null;
 
+    [Header("WaveInfo")]
+    [SerializeField] TMP_Text waveIncomingTxt;
+
     private PlayerStats playerStats;
     public UnityEvent OnLeveledUp;
     public UnityEvent OnNotEnoughTriggered;
@@ -64,6 +67,15 @@ public class UIManager : MonoBehaviour
 
         UpdateAmmoUI(playerStats.GetCurrentAmmoCount(), playerStats.GetMaxAmmoCount());
         InitializeTankAttribute();
+    }
+
+
+    public IEnumerator showTextNextWaveIncoming(int waveNumber, float displayTime)
+    {
+        waveIncomingTxt.gameObject.SetActive(true);
+        waveIncomingTxt.text = $"wave <color=#FF1C1C><size=80>{waveNumber+1}</size></color> Incoming..!!!";
+        yield return new WaitForSeconds(displayTime);
+        waveIncomingTxt.gameObject.SetActive(false);
     }
 
     public void UpdateRespawnBar(float percentage)

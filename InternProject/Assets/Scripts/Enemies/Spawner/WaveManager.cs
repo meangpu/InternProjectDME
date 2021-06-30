@@ -31,6 +31,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float showInfoForSec;
     [SerializeField] float timeBeforeWinPanel;
     [SerializeField] Transform playerTrans;
+    
 
     private float countDown;
     public static List<Enemy> EnemyAlive = new List<Enemy>();
@@ -143,12 +144,14 @@ public class WaveManager : MonoBehaviour
         waveInfoObj.SetActive(true);
     }
 
+
     private IEnumerator SpawnWave()
     {
         isStopCount = true;
         EnemyWave wave = EnemyWaves[waveindex];
         CountAllEnemyInWave();
         updateWavetext();
+        StartCoroutine(UIManager.Instance.showTextNextWaveIncoming(waveindex, 3f));
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -174,6 +177,7 @@ public class WaveManager : MonoBehaviour
             }
         } 
         waveindex++;
+        
         // updateWavetext();  // this is wrong 
     }
 
@@ -192,6 +196,7 @@ public class WaveManager : MonoBehaviour
         textTimeBeforeNextWave.text = countDown.ToString("F0");
         buttonScpt.transform.parent.gameObject.SetActive(false);
         buttonScpt.interactable = false;
+        // StartCoroutine(UIManager.Instance.showTextNextWaveIncoming(waveindex, 3f));
 
         if (isFirstWave)
         {
@@ -201,6 +206,7 @@ public class WaveManager : MonoBehaviour
 
         PlayerStats.Instance.AddGold(goldGain);
         DamagePopup.Create(playerTrans.position, goldGain, DamagePopup.DamageType.Gold);
+        
     }
 
 

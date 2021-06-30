@@ -82421,6 +82421,10 @@ PrefabInstance:
       propertyPath: OnNotEnoughTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlaySound
       objectReference: {fileID: 0}
+    - target: {fileID: 1555282504044564631, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3720688978059992953, guid: d6e6571e8df5e66448103931177138d1, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -82525,6 +82529,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 493555991}
+    - target: {fileID: 9153490332956181338, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6e6571e8df5e66448103931177138d1, type: 3}
 --- !u!1001 &4789166324514989936
