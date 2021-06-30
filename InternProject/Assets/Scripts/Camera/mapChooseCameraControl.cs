@@ -28,7 +28,6 @@ public class mapChooseCameraControl : MonoBehaviour
         playerControls.BuyMenu.Camera.performed += SetPreviousInput;
         playerControls.BuyMenu.Camera.canceled += SetPreviousInput;
         EnableCameraController();
-        Debug.Log("SDS");
 
     }
 
