@@ -36,7 +36,7 @@ public class BaseClass : MonoBehaviour, ITargetable, IOwnedByPlayer
         SetMaxHealth();
     }
 
-    public float getPercentHp()
+    public float GetPercentHp()
     {
         return ((float)hp/maxHp)*100;
     }

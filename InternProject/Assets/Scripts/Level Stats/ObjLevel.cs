@@ -6,48 +6,25 @@ using UnityEngine;
 public class ObjLevel : ScriptableObject
 {
     [SerializeField] private string levelName;
-    [SerializeField] private int currentStars = 0;
     [TextArea(4, 6)][SerializeField] private string levelDescription = null;
     [SerializeField] private Sprite levelPreview = null;
     [SerializeField] private int startingGold = 0;
     [SerializeField] private int sceneIndex;
-    [SerializeField] bool isUnlocked;
+    [SerializeField] private ObjLevelStats stats;
 
-    public const int MAX_STARS = 3;
+    public int GetCurrentStars() => stats.GetCurrentStars();
 
-    public int GetCurrentStars() => currentStars;
+    public int GetStarsDiff(int stars) => Mathf.Max(stars - stats.GetCurrentStars(), 0);
 
-    public int SetCurrentStars(int value)
+    public void SetCurrentStars(int value)
     {
-        int diff = value - currentStars;
-
-        if (currentStars <= value)
-        {
-            currentStars = value;
-        }
-        Debug.Log($"value = {value} /currentStars {currentStars} / diff = {diff}");
-
-        if (diff >= 0)
-        {
-            return diff;
-        }
-        else 
-        {
-            return 0;
-        }
+        stats.SetCurrentStars(value);
     }
-
-    public void UnlockThisLevel()
-    {
-        isUnlocked = true;
-    }
-
-
 
     public string GetLevelDescription() => levelDescription;
     public Sprite GetLevelPreview() => levelPreview;
     public int GetStartingGold() => startingGold;
     public int GetSceneIndex() => sceneIndex;
     public string GetLevelName() => levelName;
-    public bool GetIsUnlock() => isUnlocked;
+    public bool GetIsUnlock() => stats.IsUnlocked();
 }
