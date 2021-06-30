@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Equipped Addons
   m_EditorClassIdentifier: 
   equippedAddons:
-  - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
-  - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
+  - {fileID: 11400000, guid: 7610d30400dbc7f4e993c502e7dc6934, type: 2}
+  - {fileID: 11400000, guid: 13f6bc3f54445854c8a23caab55edc36, type: 2}
   emptyAbility: {fileID: 11400000, guid: be90349f2a1ecc3479bbbf18c97ac968, type: 2}
   magnetAbility: {fileID: 11400000, guid: cda8f3443a360f04b9ddee5d624a61d6, type: 2}
