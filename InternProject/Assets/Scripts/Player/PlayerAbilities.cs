@@ -102,7 +102,7 @@ public class PlayerAbilities : MonoBehaviour
                 FastReload(ability.GetPercentage());
                 break;
             case AbilityType.Bomb:
-                Bomb(comboType, ability.GetRange(), ability.GetMinDamage(), ability.GetComboValue());
+                Bomb(comboType, ability.GetRange(), ability.GetMinDamage(), ability.GetMaxDamage(), ability.GetComboValue());
                 break;
             case AbilityType.Dash:
                 Dash(comboType, ability.GetRange(), ability.GetDuration());
@@ -203,7 +203,7 @@ public class PlayerAbilities : MonoBehaviour
         playerStats.SetIsImmuned(false);
     }
 
-    private void Bomb(ComboType comboType, float range, int damage, float comboRange)
+    private void Bomb(ComboType comboType, float range, int minDamage, int maxDamage, float comboRange)
     {
         OnBombActivated?.Invoke();
         bool isEMP = false;
@@ -222,7 +222,7 @@ public class PlayerAbilities : MonoBehaviour
         {
             if (collider.TryGetComponent(out IEnemy enemy))
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(UnityEngine.Random.Range(minDamage, maxDamage + 1));
 
                 if (!isEMP) { continue; }
 
