@@ -11,6 +11,7 @@ public class ObjLevel : ScriptableObject
     [SerializeField] private Sprite levelPreview = null;
     [SerializeField] private int startingGold = 0;
     [SerializeField] private int sceneIndex;
+    [SerializeField] private ObjLevel[] unlockedLevels = null;
     [SerializeField] private ObjLevelStats stats;
 
     public int GetCurrentStars() => stats.GetCurrentStars();
@@ -30,4 +31,5 @@ public class ObjLevel : ScriptableObject
     public bool GetIsUnlock() => stats.IsUnlocked();
     public ObjLevelStats Stats => stats;
     public int ID => levelId;
+    public ObjLevel[] GetUnlockedLevels() => unlockedLevels;
 }

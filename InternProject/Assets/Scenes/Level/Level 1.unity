@@ -41725,6 +41725,7 @@ MonoBehaviour:
   starScpt: {fileID: 416771568}
   baseScpt: {fileID: 1142245620}
   starDataObj: {fileID: 11400000, guid: db12c54198f746b47922bb8886f54b32, type: 2}
+  saveStars: {fileID: 493555994}
 --- !u!4 &493555992
 Transform:
   m_ObjectHideFlags: 0
@@ -41765,6 +41766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c25e921ef6aa44dacfa9ce6a6d5c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starData: {fileID: 11400000, guid: db12c54198f746b47922bb8886f54b32, type: 2}
 --- !u!1 &499250144
 GameObject:
   m_ObjectHideFlags: 0
