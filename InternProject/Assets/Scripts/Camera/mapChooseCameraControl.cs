@@ -14,7 +14,6 @@ public class mapChooseCameraControl : MonoBehaviour
 
     private Vector2 previousInput;
     private PlayerControls playerControls;
-    private bool isInBuyMode = false;
     private Camera cam;
 
     private void Awake()
@@ -26,18 +25,16 @@ public class mapChooseCameraControl : MonoBehaviour
     {
         playerControls = new PlayerControls();
 
-
         playerControls.BuyMenu.Camera.performed += SetPreviousInput;
         playerControls.BuyMenu.Camera.canceled += SetPreviousInput;
+        EnableCameraController();
+        Debug.Log("SDS");
 
-        DisableCameraController();
     }
 
     private void Update()
     {
         if (!Application.isFocused) { return; }
-
-        if (!isInBuyMode) { return; }
 
         UpdateCameraPosition();
     }
@@ -93,11 +90,6 @@ public class mapChooseCameraControl : MonoBehaviour
         buyCamera.position = pos;
     }
 
-    public void DisableCameraController()
-    {
-        playerControls.BuyMenu.Camera.Disable();
-    }
-
     public void EnableCameraController()
     {
         playerControls.BuyMenu.Camera.Enable();
@@ -108,23 +100,5 @@ public class mapChooseCameraControl : MonoBehaviour
         previousInput = ctx.ReadValue<Vector2>();
     }
 
-    private void HandleBuyModeTrigger(bool state)
-    {
-        switch (state)
-        {
-            case true:
-                DisableCameraController();
-                isInBuyMode = false;
-                return;
-            case false:
-                EnableCameraController();
-                isInBuyMode = true;
-                return;
-        }
-    }
 
-    private void OnDestroy()
-    {
-        GameManager.Instance.OnBuyModeTrigger -= HandleBuyModeTrigger;
-    }
 }

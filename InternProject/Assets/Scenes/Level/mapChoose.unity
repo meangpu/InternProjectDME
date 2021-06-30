@@ -24423,9 +24423,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyCamera: {fileID: 248309149}
   speed: 20
-  screenBorderThickness: 20
-  screenXLimits: {x: 45, y: -9}
-  screenYLimits: {x: 5, y: -5}
+  screenBorderThickness: 25
+  screenXLimits: {x: -9, y: 44}
+  screenYLimits: {x: -5, y: 5}
 --- !u!114 &1306102507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24546,10 +24546,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 45, y: 5}
+    - - {x: 44, y: 5}
       - {x: -9, y: 5}
       - {x: -9, y: -5}
-      - {x: 45, y: -5}
+      - {x: 44, y: -5}
 --- !u!1 &1318521226
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
 
     [SerializeField] bool Immortal = false;
+    [SerializeField] bool MenuImmortal = false;
 
     private PoolingSingleton pooler;
 
@@ -33,6 +34,10 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     {
         if (Immortal) 
         {
+            if (MenuImmortal)
+            {
+                return; 
+            }
             DamagePopup.Create(transform.position, 0, DamagePopup.DamageType.Enemy);
             return; 
         }
