@@ -78,12 +78,14 @@ public class WaveManager : MonoBehaviour
 
 	    if (waveindex == EnemyWaves.Length)  // when it going to go outside index range 
 		{
+
             if (EnemyAlive.Count > 0)
             {
                 countDown = 0;
                 textTimeBeforeNextWave.text = countDown.ToString("F0");
 
                 CheckNextWave(0);
+
                 return;
             }
             
@@ -106,6 +108,7 @@ public class WaveManager : MonoBehaviour
                 return;
             }
 		}
+
 
         if (isStopCount)
         {
@@ -161,8 +164,7 @@ public class WaveManager : MonoBehaviour
 
         if (waveindex+1 == EnemyWaves.Length)
         {
-            Debug.Log(waveindex+1);
-            Debug.Log(EnemyWaves.Length);
+            textTimeBeforeNextWave.gameObject.SetActive(false);
             textTimeBeforeNextWave.text = "0";
         }
 
@@ -211,7 +213,7 @@ public class WaveManager : MonoBehaviour
 
         if (waveindex+1 == EnemyWaves.Length)
         {
-            textTimeBeforeNextWave.text = "0";
+            textTimeBeforeNextWave.gameObject.SetActive(false);
         }
         else
         {
