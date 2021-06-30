@@ -42116,7 +42116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &709461653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82231,7 +82231,7 @@ MonoBehaviour:
         count: 2
       spawnPoint: {fileID: 1364812169}
   - spawnRate: 1
-    TimeBeforeNextWave: 50
+    TimeBeforeNextWave: 20
     EnemyAndPoint:
     - EnemyList:
       - enemy: {fileID: 11400000, guid: 5e13a35d98b5c1f41a3716b5d5b721b9, type: 2}
@@ -82493,6 +82493,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 493555991}
+    - target: {fileID: 3720688978433668523, guid: d6e6571e8df5e66448103931177138d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3720688978549762195, guid: d6e6571e8df5e66448103931177138d1, type: 3}
       propertyPath: timerSystem
       value: 

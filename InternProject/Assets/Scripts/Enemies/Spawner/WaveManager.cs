@@ -92,6 +92,7 @@ public class WaveManager : MonoBehaviour
             StartCoroutine(gameManager.LevelWon(timeBeforeWinPanel));
 		}
 
+
 		if (countDown <= 0f)
 		{
             if (waveindex < EnemyWaves.Length)
@@ -115,8 +116,13 @@ public class WaveManager : MonoBehaviour
 
         countDown -= Time.deltaTime;
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
-        textTimeBeforeNextWave.text = countDown.ToString("F0");
+
+        if (waveindex+1 == EnemyWaves.Length)
+        {
+            return;
+        }
         
+        textTimeBeforeNextWave.text = countDown.ToString("F0"); 
     }
 
     private int CountAllEnemyInWave()
@@ -152,6 +158,14 @@ public class WaveManager : MonoBehaviour
         CountAllEnemyInWave();
         updateWavetext();
         StartCoroutine(UIManager.Instance.showTextNextWaveIncoming(waveindex, 3f));
+
+        if (waveindex+1 == EnemyWaves.Length)
+        {
+            Debug.Log(waveindex+1);
+            Debug.Log(EnemyWaves.Length);
+            textTimeBeforeNextWave.text = "0";
+        }
+
 
         foreach (var pointToSpawn in wave.EnemyAndPoint)  // loop through all spawn point
         {
@@ -193,7 +207,17 @@ public class WaveManager : MonoBehaviour
         int goldGain = _tempData*2;  // get gold = 2*time remain
 
         countDown -= _tempData;
-        textTimeBeforeNextWave.text = countDown.ToString("F0");
+
+
+        if (waveindex+1 == EnemyWaves.Length)
+        {
+            textTimeBeforeNextWave.text = "0";
+        }
+        else
+        {
+            textTimeBeforeNextWave.text = countDown.ToString("F0");
+        }
+        
         buttonScpt.transform.parent.gameObject.SetActive(false);
         buttonScpt.interactable = false;
         // StartCoroutine(UIManager.Instance.showTextNextWaveIncoming(waveindex, 3f));
@@ -230,8 +254,6 @@ public class WaveManager : MonoBehaviour
             {
                 pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);  // = canvas
             }          
-
-            
             if (firstWave)
             {
                 pointToSpawn.spawnPoint.GetChild(0).GetComponent<callWaveEarly>().ShowDataNotMouse();
