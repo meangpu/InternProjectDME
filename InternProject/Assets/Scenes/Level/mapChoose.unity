@@ -9966,6 +9966,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 125f501948202ec459134244233c1a91, type: 2}
   - {fileID: 11400000, guid: b322e6aca1367354bb5936e95c8a5c60, type: 2}
   - {fileID: 11400000, guid: 112533ba55947934ea6907d9fe48cd3f, type: 2}
+  - {fileID: 11400000, guid: 9b408ee66938f074597099ea8dffaf0c, type: 2}
   TurretPrefabs: {fileID: 4733284808967477883, guid: 2b1df64ebd8c4d7419ae29df64817b9a, type: 3}
 --- !u!114 &766859823
 MonoBehaviour:
