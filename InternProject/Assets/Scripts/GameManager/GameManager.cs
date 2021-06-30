@@ -193,12 +193,13 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_waitTime);
 
-        starScpt.getStar(CheckStar());
+        int stars = CheckStar();
 
-        starDataObj.addValue(levelData.SetCurrentStars(CheckStar()));
+        starScpt.getStar(stars);
+
+        starDataObj.addValue(levelData.GetStarsDiff(stars));
         
-        levelData.SetCurrentStars(CheckStar());
-        Debug.Log(levelData.SetCurrentStars(CheckStar()));
+        levelData.SetCurrentStars(stars);
 
         winPanel.SetActive(true);
         StopGame();
@@ -206,7 +207,8 @@ public class GameManager : MonoBehaviour
 
     private int CheckStar()
     {
-        float basePercent = baseScpt.getPercentHp();
+        float basePercent = baseScpt.GetPercentHp();
+
         if (basePercent >= 90f)
         {
             return 3;
