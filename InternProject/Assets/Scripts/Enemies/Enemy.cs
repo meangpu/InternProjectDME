@@ -20,14 +20,12 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
     [SerializeField] bool Immortal = false;
 
-    private WaveManager waveManager;
     private PoolingSingleton pooler;
 
     public UnityEvent OnHit;
 
     private void Start()
     {
-        waveManager = WaveManager.Instance;
         pooler = PoolingSingleton.Instance;
     }
 
@@ -120,6 +118,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         }
         
         WaveManager.EnemyAlive.Remove(this);
+        Debug.Log($"DEAD {WaveManager.EnemyAlive.Count}");
 
         List<ObjGold> coinToSpawn = CoinSpawnCalculator(enemyDisplay.DropGold);
 
