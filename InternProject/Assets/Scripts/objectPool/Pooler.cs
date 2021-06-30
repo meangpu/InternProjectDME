@@ -61,7 +61,6 @@ public class Pooler : MonoBehaviour
 
     public void ReturnObject(GameObject obj)
     {
-        // Debug.Assert(usedList.Contains(obj)); //check if there is obj in usedlist
         obj.SetActive(false);
         usedList.Remove(obj);
         freeList.Add(obj);
@@ -101,8 +100,8 @@ public class Pooler : MonoBehaviour
         enemy.GetComponent<EnemyDisplay>().StartDisplay(objEnemy);
         
         SetupObject(enemy, position, rotation);
-        WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
-        Debug.Log($"SPAWNED {WaveManager.EnemyAlive.Count}");
+        /*WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
+        Debug.Log($"SPAWNED {WaveManager.EnemyAlive.Count}");*/
     }
 
     public void SpawnEnemyDeathPar(Vector3 position, Quaternion rotation)

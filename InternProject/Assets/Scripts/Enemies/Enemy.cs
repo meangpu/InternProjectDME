@@ -117,8 +117,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
                 break;
         }
         
-        WaveManager.EnemyAlive.Remove(this);
-        Debug.Log($"DEAD {WaveManager.EnemyAlive.Count}");
+        
 
         List<ObjGold> coinToSpawn = CoinSpawnCalculator(enemyDisplay.DropGold);
 
@@ -128,6 +127,18 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         }
 
         TrySpawnCollectible();
+    }
+
+    private void OnEnable()
+    {
+        WaveManager.EnemyAlive.Add(this);
+        Debug.Log($"SPAWNED {WaveManager.EnemyAlive.Count}");
+    }
+
+    private void OnDisable()
+    {
+        WaveManager.EnemyAlive.Remove(this);
+        Debug.Log($"DEAD {WaveManager.EnemyAlive.Count}");
     }
 
     private void TrySpawnCollectible()
