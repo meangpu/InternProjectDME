@@ -68,7 +68,7 @@ MonoBehaviour:
   m_text: wave <color=#FF7600><size=80>5</size></color> incoming....
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
-  m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e0275fecd362a0a489536640bc1e2f90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
