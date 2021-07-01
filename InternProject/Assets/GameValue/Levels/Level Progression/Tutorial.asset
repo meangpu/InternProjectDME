@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a6ca665325e5f4587235420c2bc4a9, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
-  currentStars: 3
+  currentStars: 0
   levelUnlocked: 1
