@@ -62410,6 +62410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 2800000, guid: b1c15ccd23da7c644b541528c1fdbae5, type: 3}
+  arrowCursor: {fileID: 2800000, guid: a8b867e55c91a4946b416a8a976c2bcd, type: 3}
   isLockInGamePreview: 0
 --- !u!1 &1413129613
 GameObject:
