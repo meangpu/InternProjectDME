@@ -42,13 +42,14 @@ public class ChooseGun : MonoBehaviour
 
     public void displayGunVideo(ObjTankTurret dataGun)
     {
-        playerVid.transform.parent.gameObject.SetActive(true);
         playerVid.clip = dataGun.GetVideoPreview();
+        playerVid.transform.parent.gameObject.SetActive(true);
     }
 
     public void closeGunVideo()
     {
         playerVid.transform.parent.gameObject.SetActive(false);
+        playerVid.clip = null;
     }
 
     public void FirstDisplayGunData(ObjTankTurret dataGun)
