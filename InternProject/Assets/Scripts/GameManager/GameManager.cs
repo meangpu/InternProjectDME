@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        CheckFocus();
         CheckZoom();
 
         if (respawnTimeRemaining == 0f) { return; }
@@ -107,6 +108,15 @@ public class GameManager : MonoBehaviour
             uiManager.ResetRespawnBar();
             PlayerStats.Instance.RespawnPlayer();
         }
+    }
+
+    private void CheckFocus()
+    {
+        if (isPaused) { return; }
+
+        if (Application.isFocused) { return; }
+
+        PauseGame();
     }
 
     private void HandleDeathUI()

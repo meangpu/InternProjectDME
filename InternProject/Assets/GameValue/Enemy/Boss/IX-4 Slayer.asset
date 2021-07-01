@@ -13,7 +13,20 @@ MonoBehaviour:
   m_Name: IX-4 Slayer
   m_EditorClassIdentifier: 
   enemyName: IX-4 Slayer
-  des: 
+  des: 'The motherlode of Tolusin''s military forces. This tank is a force to be
+    reckoned with as it has the capabilities to cause extremely high destruction
+    in any city it goes to.
+
+
+    - Lethal Damage at close range
+
+    - Extremely
+    High Health
+
+    - Shoots homing missiles
+
+    - Activates energy shield upon
+    taking damage'
   artWork:
   - {fileID: -7033111994682208990, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   hp: 2000
@@ -29,19 +42,3 @@ MonoBehaviour:
   moneyDrop: 0
   enemyType: 5
   enemyId: 0
-  FireSound:
-    name: 
-    clip: {fileID: 0}
-    mixer: {fileID: 0}
-    volumn: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  DeadSound:
-    name: 
-    clip: {fileID: 0}
-    mixer: {fileID: 0}
-    volumn: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
