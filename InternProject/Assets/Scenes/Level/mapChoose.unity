@@ -12626,8 +12626,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEquippedAddons: {fileID: 11400000, guid: cd8ef3b902a1f4a43b60632984e02243, type: 2}
+  addonPanel: {fileID: 882953297}
   imageQ: {fileID: 272738381}
   imageE: {fileID: 1739870362}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0.3882353}
+  highlightedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0.3882353}
 --- !u!114 &896610756 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8343433402400604110, guid: 885e41caea11b0741a11aa7eb0fcf262, type: 3}
