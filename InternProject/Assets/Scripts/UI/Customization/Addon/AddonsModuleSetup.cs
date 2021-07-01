@@ -57,15 +57,13 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        assignSound.SetSound(hoverSound);
-        assignSound.PlaySound();
+        assignSound.SetAndPlaySound(hoverSound);
         uiManager.UpdateDescription(addonObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        assignSound.SetSound(onExitSound);
-        assignSound.PlaySound();
+        assignSound.SetAndPlaySound(onExitSound);
         uiManager.HideDescription();
     }
 
