@@ -13,8 +13,16 @@ MonoBehaviour:
   m_Name: Tolusin Falcon
   m_EditorClassIdentifier: 
   enemyName: Tolusin Falcon
-  des: The very first boss in this game, having special ability to dash quickly to
-    avoid player bullet
+  des: 'The agile ship of Tolusin''s army. This falcon has an advanced dashing module
+    installed which can make the ship dash in any direction in a short range.
+
+
+    -
+    Can dash in any direction
+
+    - High Health
+
+    - Flying over paths'
   artWork:
   - {fileID: 21300000, guid: 0ab3290dba2834b49a6a3218847ed871, type: 3}
   hp: 1000
@@ -30,19 +38,3 @@ MonoBehaviour:
   moneyDrop: 0
   enemyType: 4
   enemyId: 6
-  FireSound:
-    name: 
-    clip: {fileID: 0}
-    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
-    volumn: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  DeadSound:
-    name: 
-    clip: {fileID: 0}
-    mixer: {fileID: -2103305330125803332, guid: 040182b7c1e831147a45903be1a561c2, type: 2}
-    volumn: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}

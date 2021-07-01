@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     private bool isDeathUIActive = false;
 
     private PlayerControls playerControls;
+    private InGameCursorController cursorController;
 
     private void Awake()
     {
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerBase = GameObject.FindGameObjectWithTag("Base").GetComponent<BaseClass>();
+        cursorController = GameObject.Find("Cursor").GetComponent<InGameCursorController>();
 
         playerControls = new PlayerControls();
     }
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uiManager = UIManager.Instance;
+        cursorController.ChangeCursorToCrosshair();
 
         DisableZoom();
         ResumeGame();
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        CheckFocus();
         CheckZoom();
 
         if (respawnTimeRemaining == 0f) { return; }
@@ -107,6 +111,15 @@ public class GameManager : MonoBehaviour
             uiManager.ResetRespawnBar();
             PlayerStats.Instance.RespawnPlayer();
         }
+    }
+
+    private void CheckFocus()
+    {
+        if (isPaused) { return; }
+
+        if (Application.isFocused) { return; }
+
+        PauseGame();
     }
 
     private void HandleDeathUI()
@@ -160,6 +173,7 @@ public class GameManager : MonoBehaviour
 
     private void PauseGame()
     {
+        cursorController.ChangeCursorToArrow();
         Time.timeScale = 0;
         pauseAllButton.SetActive(true);
         isPaused = true;
@@ -177,6 +191,15 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        switch (isBuying)
+        {
+            case true:
+                break;
+            case false:
+                cursorController.ChangeCursorToCrosshair();
+                break;
+        }
+
         Time.timeScale = 1;
         isPaused = false;
         pausePanel.SetActive(false);
@@ -250,6 +273,7 @@ public class GameManager : MonoBehaviour
 
         if (isBuying)
         {
+            cursorController.ChangeCursorToCrosshair();
             DisableZoom();
             isBuying = false;
             buyModeCam.m_Priority = 0;
@@ -257,6 +281,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            cursorController.ChangeCursorToArrow();
             EnableZoom();
             buyModeCam.m_Priority = 50;
             isBuying = true;

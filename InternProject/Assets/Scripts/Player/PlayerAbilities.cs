@@ -32,6 +32,7 @@ public class PlayerAbilities : MonoBehaviour
     public UnityEvent OnEnergyOrbActivated;
     public UnityEvent OnIncendiaryActivated;
     public UnityEvent OnEmptyActivated;
+    public UnityEvent OnMagnetActivated;
     // ------------------- Events -----------------------
 
     private PlayerStats playerStats;
@@ -292,6 +293,7 @@ public class PlayerAbilities : MonoBehaviour
     private void ActivateMagnet(float duration)
     {
         timerSystem.PutOnTimer(AbilityType.Magnet, duration);
+        OnMagnetActivated?.Invoke();
     }
     #endregion
 }
