@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 [CreateAssetMenu(fileName = "New Turret", menuName = "ObjPlayerTank/Create New Turret")]
 public class ObjTankTurret : ScriptableObject
@@ -23,6 +24,7 @@ public class ObjTankTurret : ScriptableObject
 
     [Header("buy gun")]
     [SerializeField] int buyStarValue;
+    [SerializeField] private VideoClip videoPreview;
 
 
     public string GetName() => turretName;
@@ -38,6 +40,7 @@ public class ObjTankTurret : ScriptableObject
     public float GetLifetime() => lifetime;
     public ObjPlayerBullet GetBulletType() => bulletType;
     public int[] GetUpgradeCost() => upgradeCost;
+    public VideoClip GetVideoPreview() => videoPreview;
 
     public int GetBuyStarPrice() => buyStarValue;
 

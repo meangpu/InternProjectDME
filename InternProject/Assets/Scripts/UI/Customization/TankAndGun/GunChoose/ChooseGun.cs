@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using TMPro;
 
 public class ChooseGun : MonoBehaviour
 {
+    public VideoPlayer playerVid;
     public Image TankGun;
     public TMP_Text gunName;
     public TMP_Text gunDes;
@@ -36,6 +38,17 @@ public class ChooseGun : MonoBehaviour
     {
         FirstDisplayGunData(dataGun);
         nowTankGun.saveGunData(dataGun);
+    }
+
+    public void displayGunVideo(ObjTankTurret dataGun)
+    {
+        playerVid.transform.parent.gameObject.SetActive(true);
+        playerVid.clip = dataGun.GetVideoPreview();
+    }
+
+    public void closeGunVideo()
+    {
+        playerVid.transform.parent.gameObject.SetActive(false);
     }
 
     public void FirstDisplayGunData(ObjTankTurret dataGun)

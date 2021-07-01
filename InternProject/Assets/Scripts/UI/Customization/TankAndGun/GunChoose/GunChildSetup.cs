@@ -23,8 +23,8 @@ public class GunChildSetup : MonoBehaviour
     private void Start() 
     {
         selfToggle.group = gameObject.transform.parent.GetComponent<ToggleGroup>();
+        chooseGunScript.closeGunVideo();
     }
-
 
     public void ShowData(ObjTankTurret gunData)
     {
@@ -56,7 +56,6 @@ public class GunChildSetup : MonoBehaviour
             }
         }
 
-
         if (selfTurret == chooseGunScript.nowTankGun.nowTankGun.GetTurret())
         {
             selfToggle.isOn = true;
@@ -70,7 +69,6 @@ public class GunChildSetup : MonoBehaviour
         unlockPar.Play();
     }
 
-
     public void ShowGunName()
     {
         chooseGunScript.UpdateGunData(selfTurret);
@@ -79,11 +77,13 @@ public class GunChildSetup : MonoBehaviour
     public void DisplayGun()
     {
         chooseGunScript.FirstDisplayGunData(selfTurret);
+        chooseGunScript.displayGunVideo(selfTurret);
     }
 
     public void showOnExit()
     {
         chooseGunScript.ShowNowGunData();
+        chooseGunScript.closeGunVideo();
     }
 
 
