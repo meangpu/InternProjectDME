@@ -9,6 +9,7 @@ public class camTarget : MonoBehaviour
     [SerializeField] float threshold;
     private PlayerControls playerControls;
     Vector2 mousePos;
+    [SerializeField] bool lockPos = false;
 
     private void Start() 
     {
@@ -17,6 +18,10 @@ public class camTarget : MonoBehaviour
 
     void Update()
     {
+        if(lockPos)
+        {
+            return;
+        }
         mousePos = playerControls.Tank.LookAt.ReadValue<Vector2>();
         Vector2 cursorPosOnScreen = cam.ScreenToWorldPoint(mousePos);
         Vector2 targetpos = ((Vector2)player.position + cursorPosOnScreen) /2f;
