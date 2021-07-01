@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds; 
+    public string startMusicName;
 
     private void Awake() 
     {
@@ -32,7 +33,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start() 
     {
-        Play("fish");   
+        if (startMusicName != null)
+        {
+            Play(startMusicName);
+            return;
+        }
+        Play("mainTheme");   
     }
 
 }
