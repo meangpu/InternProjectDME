@@ -693,7 +693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose Gun
+  m_text: Turret
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
   m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
@@ -1866,7 +1866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -164, y: 209.6}
+  m_AnchoredPosition: {x: -164.00003, y: 209.6}
   m_SizeDelta: {x: -1048.66, y: -589.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152118192
@@ -2762,7 +2762,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose Tank
+  m_text: TANK BODY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
   m_sharedMaterial: {fileID: -2352722599409363352, guid: 6a3a3dcae51b5004082c949b97737d25, type: 2}
@@ -3316,7 +3316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -322.00012, y: 53.78}
+  m_AnchoredPosition: {x: -322.00015, y: 53.78}
   m_SizeDelta: {x: -814.17, y: -407.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281820177
@@ -12568,7 +12568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4482422, y: -276.3401}
+  m_AnchoredPosition: {x: -1.4482422, y: -276.34012}
   m_SizeDelta: {x: -1408.2, y: -823.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882953297
@@ -24887,7 +24887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -332.00012, y: 0}
+  m_AnchoredPosition: {x: -332.00015, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1332352293
@@ -26181,6 +26181,7 @@ GameObject:
   - component: {fileID: 1404692860}
   - component: {fileID: 1404692862}
   - component: {fileID: 1404692861}
+  - component: {fileID: 1404692863}
   m_Layer: 5
   m_Name: PreviewVideo
   m_TagString: Untagged
@@ -26245,6 +26246,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404692859}
   m_CullTransparentMesh: 1
+--- !u!328 &1404692863
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404692859}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1 &1425982574
 GameObject:
   m_ObjectHideFlags: 0
