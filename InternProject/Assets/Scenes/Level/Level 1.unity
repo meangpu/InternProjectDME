@@ -41826,6 +41826,7 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  startMusicName: 
 --- !u!1 &503036878
 GameObject:
   m_ObjectHideFlags: 0
@@ -42477,7 +42478,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: borderSize
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3452916083049087959, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_AnchorMax.y
@@ -62023,7 +62024,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: borderSize
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3452916083049087959, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_AnchorMax.y
