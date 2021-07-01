@@ -7,6 +7,12 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private Image image;
     [SerializeField] private PlayerEquippedAddons.AddonSlot slot;
 
+    [Header("Sounds")]
+    [SerializeField] private AssignSound assignSound = null;
+    [SerializeField] private ObjSound hoverSound = null;
+    [SerializeField] private ObjSound onExitSound = null;
+    [SerializeField] private ObjSound removeSound = null;
+
     private PlayerEquippedAddons equippedAddons;
     private EquippedAddonsDisplay equippedAddonsDisplay;
     private AddonsUIManager uiManager;
@@ -30,6 +36,7 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (equippedAddonsDisplay.IsEquippingAddon()) { return; }
 
+        PlaySound(hoverSound);
         uiManager.UpdateDescription(addonObject);
     }
 
@@ -37,6 +44,7 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (equippedAddonsDisplay.IsEquippingAddon()) { return; }
 
+        PlaySound(onExitSound);
         uiManager.HideDescription();
     }
 
@@ -44,6 +52,13 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (equippedAddonsDisplay.IsEquippingAddon()) { return; }
 
+        PlaySound(removeSound);
         equippedAddons.ClearAbility(slot);
+    }
+
+    private void PlaySound(ObjSound sound)
+    {
+        assignSound.SetSound(sound);
+        assignSound.PlaySound();
     }
 }
