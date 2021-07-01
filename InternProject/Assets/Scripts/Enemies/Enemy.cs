@@ -17,9 +17,11 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     [SerializeField] Animator anim;
     [SerializeField] private float dropPercentage = 1f;
 
-
     [SerializeField] bool Immortal = false;
     [SerializeField] bool MenuImmortal = false;
+
+    [SerializeField] private ObjSound humanDeath = null;
+    [SerializeField] private ObjSound machineDeath = null;
 
     private PoolingSingleton pooler;
 
@@ -85,9 +87,11 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
         {
             default:
                 pooler.MachineExplosion.SpawnBasicObject(transform.position, transform.rotation);
+                pooler.AudioSourcePool.SpawnAudioSource(transform.position, Quaternion.identity, machineDeath);
                 break;
             case EnemyType.Human:
-                pooler.ParticlesHumanDeathPool.SpawnEnemyDeathPar(gameObject.transform.position, Quaternion.identity);
+                pooler.ParticlesHumanDeathPool.SpawnEnemyDeathPar(transform.position, Quaternion.identity);
+                pooler.AudioSourcePool.SpawnAudioSource(transform.position, Quaternion.identity, humanDeath);
                 break;
         }
         

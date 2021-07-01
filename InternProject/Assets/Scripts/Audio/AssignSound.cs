@@ -12,7 +12,7 @@ public class AssignSound : MonoBehaviour
         audioSource.Play();
     }
 
-    private void SetSound(ObjSound sound)
+    public void SetSound(ObjSound sound)
     {
         objSound = sound;
     }

@@ -286,6 +286,9 @@ MonoBehaviour:
   anim: {fileID: 4172184067530760979}
   dropPercentage: 1
   Immortal: 0
+  MenuImmortal: 0
+  humanDeath: {fileID: 11400000, guid: 3fcd95ae49c545b4ca166b054926e167, type: 2}
+  machineDeath: {fileID: 11400000, guid: 21dc508b7983ab748b98a628fe708288, type: 2}
   OnHit:
     m_PersistentCalls:
       m_Calls: []

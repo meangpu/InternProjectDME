@@ -579,8 +579,8 @@ MonoBehaviour:
   mWingPool: {fileID: 1085272197886253699}
   collectiblePool: {fileID: 4577162362507086118}
   bulletExplosionPool: {fileID: 7161306017715722830}
-  machineExplosionPool: {fileID: 2278646327751585332}
-  audioSourcePool: {fileID: 0}
+  machineExplosionPool: {fileID: 6434200861813819568}
+  audioSourcePool: {fileID: 2278646327751585332}
 --- !u!1 &3555647443801220844
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,8 +100,6 @@ public class Pooler : MonoBehaviour
         enemy.GetComponent<EnemyDisplay>().StartDisplay(objEnemy);
         
         SetupObject(enemy, position, rotation);
-        /*WaveManager.EnemyAlive.Add(enemy.GetComponent<Enemy>());
-        Debug.Log($"SPAWNED {WaveManager.EnemyAlive.Count}");*/
     }
 
     public void SpawnEnemyDeathPar(Vector3 position, Quaternion rotation)
@@ -201,6 +199,15 @@ public class Pooler : MonoBehaviour
         SetupObject(popup, position, rotation);
     }
 
+    public void SpawnAudioSource(Vector3 position, Quaternion rotation, ObjSound sound)
+    {
+        GameObject audioSource = SpawnObject();
+        SetupObject(audioSource, position, rotation);
+
+        AssignSound assignSound = audioSource.GetComponent<AssignSound>();
+        assignSound.SetSound(sound);
+        StartCoroutine(assignSound.PlaySoundAndDisable());
+    }
 
     public void SpawnGold(Vector3 position, Quaternion rotation, ObjGold ObjGold, Vector3 _direction)
     {
