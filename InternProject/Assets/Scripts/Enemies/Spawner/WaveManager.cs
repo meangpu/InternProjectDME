@@ -199,7 +199,10 @@ public class WaveManager : MonoBehaviour
 
     public void callNextWave(Button buttonScpt)
     {
-
+        if (!gameManager.isBuying)
+        {
+            return;
+        }
         updateWavetext();
         if (thisWaveCount > 0)
         {
@@ -232,7 +235,6 @@ public class WaveManager : MonoBehaviour
 
         PlayerStats.Instance.AddGold(goldGain);
         DamagePopup.Create(playerTrans.position, goldGain, DamagePopup.DamageType.Gold);
-        
     }
 
 
@@ -254,7 +256,17 @@ public class WaveManager : MonoBehaviour
 
             if (gameManager.isBuying)
             {
-                pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);  // = canvas
+                
+                if (pointToSpawn.spawnPoint.GetChild(0).GetChild(0).GetChild(1).childCount > 1)  // = canvas /parent info
+                {
+                    pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(true);  // = canvas
+                }
+                else
+                {
+                    pointToSpawn.spawnPoint.GetChild(0).GetChild(0).gameObject.SetActive(false);  // = canvas
+                }
+                
+
             }          
             if (firstWave)
             {

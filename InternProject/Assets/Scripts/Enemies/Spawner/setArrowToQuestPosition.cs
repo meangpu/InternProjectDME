@@ -96,6 +96,9 @@ public class setArrowToQuestPosition : MonoBehaviour
         {
             case true:
                 // disable in play mode
+                transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+
+                
                 transform.GetChild(0).gameObject.SetActive(false);
                 return;
             case false:
