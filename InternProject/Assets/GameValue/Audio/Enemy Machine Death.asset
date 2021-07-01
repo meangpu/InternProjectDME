@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ba2ab801c5213489d7b0322c807b94, type: 3}
+  m_Name: Enemy Machine Death
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: bfc9806edc815c54bbef4d6644932ca8, type: 3}
+  - {fileID: 8300000, guid: 4fdf9762e5f4d7c46853a0b45e4bf76d, type: 3}
