@@ -36,7 +36,7 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (equippedAddonsDisplay.IsEquippingAddon()) { return; }
 
-        PlaySound(hoverSound);
+        assignSound.SetAndPlaySound(hoverSound);
         uiManager.UpdateDescription(addonObject);
     }
 
@@ -44,7 +44,7 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (equippedAddonsDisplay.IsEquippingAddon()) { return; }
 
-        PlaySound(onExitSound);
+        assignSound.SetAndPlaySound(onExitSound);
         uiManager.HideDescription();
     }
 
@@ -52,13 +52,7 @@ public class SelectedAddon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (equippedAddonsDisplay.IsEquippingAddon()) { return; }
 
-        PlaySound(removeSound);
+        assignSound.SetAndPlaySound(removeSound);
         equippedAddons.ClearAbility(slot);
-    }
-
-    private void PlaySound(ObjSound sound)
-    {
-        assignSound.SetSound(sound);
-        assignSound.PlaySound();
     }
 }

@@ -137,13 +137,11 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     private void OnEnable()
     {
         WaveManager.EnemyAlive.Add(this);
-        Debug.Log($"SPAWNED {WaveManager.EnemyAlive.Count}");
     }
 
     private void OnDisable()
     {
         WaveManager.EnemyAlive.Remove(this);
-        Debug.Log($"DEAD {WaveManager.EnemyAlive.Count}");
     }
 
     private void TrySpawnCollectible()

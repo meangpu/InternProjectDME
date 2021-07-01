@@ -12,7 +12,7 @@ public class AssignSound : MonoBehaviour
         audioSource.Play();
     }
 
-    public void SetSound(ObjSound sound)
+    private void SetSound(ObjSound sound)
     {
         objSound = sound;
     }
@@ -29,5 +29,11 @@ public class AssignSound : MonoBehaviour
     public void StopSound()
     {
         audioSource.Stop();
+    }
+
+    public void SetAndPlaySound(ObjSound sound)
+    {
+        SetSound(sound);
+        PlaySound();
     }
 }

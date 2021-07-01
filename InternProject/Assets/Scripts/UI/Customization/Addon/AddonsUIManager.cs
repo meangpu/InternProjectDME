@@ -17,7 +17,6 @@ public class AddonsUIManager : MonoBehaviour
     [SerializeField] private ObjSound onClickSound = null;
     [SerializeField] private ObjSound onCancelSound = null;
     [SerializeField] private ObjSound onConfirmSound = null;
-    [SerializeField] private ObjSound onRemoveSound = null;
 
     private void Start()
     {
@@ -54,25 +53,19 @@ public class AddonsUIManager : MonoBehaviour
         inputManager.PrepareForAbilityAssignment(ability);
     }
 
-    private void PlaySound(ObjSound sound)
-    {
-        assignSound.SetSound(sound);
-        assignSound.PlaySound();
-    }
-
     private void HandleConfirm()
     {
-        PlaySound(onConfirmSound);
+        assignSound.SetAndPlaySound(onConfirmSound);
     }
 
     private void HandleOnChoose()
     {
-        PlaySound(onClickSound);
+        assignSound.SetAndPlaySound(onClickSound);
     }
 
     private void HandleOnCancel()
     {
-        PlaySound(onCancelSound);
+        assignSound.SetAndPlaySound(onCancelSound);
     }
 
     private void OnDestroy()
