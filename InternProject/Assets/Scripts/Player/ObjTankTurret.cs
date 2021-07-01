@@ -22,7 +22,6 @@ public class ObjTankTurret : ScriptableObject
     [SerializeField] private int[] upgradeCost;
 
     [Header("buy gun")]
-    [SerializeField] bool isUnlocked;
     [SerializeField] int buyStarValue;
 
 
@@ -40,13 +39,7 @@ public class ObjTankTurret : ScriptableObject
     public ObjPlayerBullet GetBulletType() => bulletType;
     public int[] GetUpgradeCost() => upgradeCost;
 
-    public bool GetIsUnlock() => isUnlocked;
     public int GetBuyStarPrice() => buyStarValue;
-
-    public void unlockThisGun()
-    {
-        isUnlocked = true;
-    }
 
     private void OnEnable()
     {

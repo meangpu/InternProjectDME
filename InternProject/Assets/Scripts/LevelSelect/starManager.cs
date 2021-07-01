@@ -6,6 +6,7 @@ using TMPro;
 
 public class starManager : MonoBehaviour
 {
+    public PlayerUnlockedItems allUnlockItem;
     [SerializeField] TMP_Text textStarValue;
     [SerializeField] ObjStarData starData;
     [Header("confirmBuyPanel")]
@@ -120,8 +121,10 @@ public class starManager : MonoBehaviour
     {
         if (starData.GetStar() >= goingToBuyTank.GetBuyStarPrice())
         {
-            goingToBuyTank.unlockThisTank();  // in obj
             starData.subtractValue(goingToBuyTank.GetBuyStarPrice());
+
+            allUnlockItem.AddUnlockedTank(goingToBuyTank);
+
         }
         goingToBuyTankScpt.unlockThisTank();  // in child script
         updateAfterBuy();
@@ -131,8 +134,9 @@ public class starManager : MonoBehaviour
     {
         if (starData.GetStar() >= goingToBuyGun.GetBuyStarPrice())
         {
-            goingToBuyGun.unlockThisGun();  // in obj
             starData.subtractValue(goingToBuyGun.GetBuyStarPrice());
+
+            allUnlockItem.AddUnlockedGun(goingToBuyGun);
         }
         goingToBuyGunScpt.unlockThisGun();  // in child script
         updateAfterBuy();
@@ -142,8 +146,9 @@ public class starManager : MonoBehaviour
     {
         if (starData.GetStar() >= goingToBuyAddon.GetBuyStarPrice())
         {
-            goingToBuyAddon.unlockThisAddon();  // in obj
             starData.subtractValue(goingToBuyAddon.GetBuyStarPrice());
+
+            allUnlockItem.AddUnlockedAbilities(goingToBuyAddon);
         }
         goingToBuyAddonScpt.unlockThisAddon();  // in child script
         updateAfterBuy();

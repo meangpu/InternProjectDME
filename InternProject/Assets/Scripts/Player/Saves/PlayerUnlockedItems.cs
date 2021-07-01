@@ -26,4 +26,11 @@ public class PlayerUnlockedItems : ScriptableObject
     {
         unlockedAbilities.Add(ability);
     }
+
+
+    private void OnEnable()
+    {
+        ////// prevent data reset across scene
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }

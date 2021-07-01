@@ -14,9 +14,7 @@ public class ListOfTank : MonoBehaviour
         {
             GameObject newTankButton = Instantiate(TankImgPrefab, gameObject.transform);
             newTankButton.GetComponent<TankChildSetup>().showData(ObjPlayerTank); 
-            
         }
-
     }
 
 

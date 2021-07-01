@@ -29,10 +29,10 @@ public class TankChildSetup : MonoBehaviour
         myImageComponent.sprite = dataTank.GetSprite();
         selfTankData = dataTank;
         chooseTankScript = transform.parent.GetComponent<ChooseTank>();
-
-        if (dataTank.GetIsUnlock())
+        
+        if (starManager.Instance.allUnlockItem.GetUnlockedTanksList().Contains(dataTank))
         {
-            // if tank is unlocked disable tank panel
+            Debug.Log(dataTank.GetName());
             LockPanel.SetActive(false);
         }
         else
@@ -53,7 +53,6 @@ public class TankChildSetup : MonoBehaviour
                 glowCanbuy.SetActive(false);
             }
         }
-
 
         if (selfTankData == chooseTankScript.nowTankGun.nowTankGun.GetTank())
         {
@@ -82,7 +81,6 @@ public class TankChildSetup : MonoBehaviour
     {
         chooseTankScript.showNowTankData();
     }
-
 
     public void showAskBuy()
     {

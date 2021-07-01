@@ -33,9 +33,9 @@ public class AddonsModuleSetup : MonoBehaviour, IPointerEnterHandler, IPointerEx
         addonObject = addon;
         image.sprite = addonObject.GetIcon();
 
-        if (addonObject.GetIsUnlock())
+        if (starManager.Instance.allUnlockItem.GetUnlockedAbilitiessList().Contains(addon))
         {
-            // if tank is unlocked disable tank panel
+            Debug.Log(addon.GetName());
             LockPanel.SetActive(false);
         }
         else

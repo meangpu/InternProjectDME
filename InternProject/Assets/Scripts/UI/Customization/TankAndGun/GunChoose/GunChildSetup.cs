@@ -32,10 +32,9 @@ public class GunChildSetup : MonoBehaviour
         selfTurret = gunData;
         chooseGunScript = transform.parent.GetComponent<ChooseGun>();
 
-
-        if (selfTurret.GetIsUnlock())
+        if (starManager.Instance.allUnlockItem.GetUnlockedTurretsList().Contains(gunData))
         {
-            // if tank is unlocked disable tank panel
+            Debug.Log(gunData.GetName());
             LockPanel.SetActive(false);
         }
         else

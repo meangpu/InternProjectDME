@@ -18,7 +18,6 @@ public class ObjPlayerTank : ScriptableObject
     [SerializeField] private int[] upgradeCost;
 
     [Header("buy tank")]
-    [SerializeField] bool isUnlocked;
     [SerializeField] int buyStarValue;
 
 
@@ -33,13 +32,7 @@ public class ObjPlayerTank : ScriptableObject
     public float[] GetRotationSpeed() => rotationSpeed;
     public int[] GetUpgradeCost() => upgradeCost;
     
-    public bool GetIsUnlock() => isUnlocked;
     public int GetBuyStarPrice() => buyStarValue;
-
-    public void unlockThisTank()
-    {
-        this.isUnlocked = true;
-    }
 
     private void OnEnable()
     {

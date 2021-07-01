@@ -42462,14 +42462,14 @@ PrefabInstance:
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: UICam
       value: 
-      objectReference: {fileID: 324776682}
+      objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: borderSize
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3452916083049087959, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_AnchorMax.y
@@ -42564,8 +42564,12 @@ PrefabInstance:
       value: HideData
       objectReference: {fileID: 0}
     - target: {fileID: 6467732934656249460, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467732934656249460, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.39
+      value: 4.57
       objectReference: {fileID: 0}
     - target: {fileID: 6856518777995801602, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -62011,7 +62015,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: borderSize
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3452916083049087959, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_AnchorMax.y
@@ -62031,7 +62035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4289239992317599171, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.72
+      value: 9.42
       objectReference: {fileID: 0}
     - target: {fileID: 4289239992317599171, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.y
@@ -62055,7 +62059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.14
+      value: 18.34
       objectReference: {fileID: 0}
     - target: {fileID: 5596684687550121560, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_LocalPosition.y

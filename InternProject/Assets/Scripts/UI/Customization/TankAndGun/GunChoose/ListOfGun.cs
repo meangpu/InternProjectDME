@@ -14,8 +14,8 @@ public class ListOfGun : MonoBehaviour
         {
             GameObject newTurretButton = Instantiate(TurretPrefabs, gameObject.transform);
             newTurretButton.GetComponent<GunChildSetup>().ShowData(gun); 
-            
         }
+
     }
 
     public void resetAfterBuy()

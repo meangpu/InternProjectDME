@@ -15,7 +15,6 @@ public class setArrowToQuestPosition : MonoBehaviour
     [SerializeField] RectTransform clickCallWave;
 
     [Header("Cam")]
-    [SerializeField] Camera UICam;
     [SerializeField] Camera mainCam;
 
     [Header("Image")]
@@ -64,7 +63,7 @@ public class setArrowToQuestPosition : MonoBehaviour
             capTarScreenPos.x = Mathf.Clamp(capTarScreenPos.x, borderSize, Screen.width - borderSize);
             capTarScreenPos.y = Mathf.Clamp(capTarScreenPos.y, borderSize, Screen.height - borderSize);
 
-            Vector3 pointerWorldPos = UICam.ScreenToWorldPoint(capTarScreenPos);
+            Vector3 pointerWorldPos = mainCam.ScreenToWorldPoint(capTarScreenPos);
 
             setAllPos(pointerWorldPos);
         }

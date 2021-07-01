@@ -20,7 +20,6 @@ public class ObjAbility : ScriptableObject
     [SerializeField] private float comboValue;
 
     [Header("buy addon")]
-    [SerializeField] bool isUnlocked;
     [SerializeField] int buyStarValue;
 
     public string GetName() => addonName;
@@ -37,14 +36,8 @@ public class ObjAbility : ScriptableObject
     public List<ObjAbility> GetComboList() => comboList;
     public float GetComboValue() => comboValue;
 
-    public bool GetIsUnlock() => isUnlocked;
     public int GetBuyStarPrice() => buyStarValue;
 
-
-    public void unlockThisAddon()
-    {
-        isUnlocked = true;
-    }
 
     private void OnEnable()
     {
