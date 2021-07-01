@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: perviewData
   m_EditorClassIdentifier: 
   tank: {fileID: 11400000, guid: 6dc2a7d4006354249a1989dfd8e3fe01, type: 2}
-  turret: {fileID: 11400000, guid: a56200d8dc24c6f47a70dd45e16b4d7a, type: 2}
+  turret: {fileID: 11400000, guid: 125f501948202ec459134244233c1a91, type: 2}
