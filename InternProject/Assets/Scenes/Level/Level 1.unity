@@ -20031,6 +20031,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   player: {fileID: 1056445400}
   threshold: 2
+  lockPos: 0
 --- !u!114 &190512332 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3720688979386733243, guid: d6e6571e8df5e66448103931177138d1, type: 3}
@@ -42469,7 +42470,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: borderSize
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3452916083049087959, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_AnchorMax.y
@@ -62015,7 +62016,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 154505382379456039, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: borderSize
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3452916083049087959, guid: 50c4be460548d884eb58abbfa8788d51, type: 3}
       propertyPath: m_AnchorMax.y
