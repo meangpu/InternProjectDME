@@ -38,7 +38,6 @@ public class AudioManager : MonoBehaviour
             Play(startMusicName);
             return;
         }
-        Play("mainTheme");   
     }
 
 }
