@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
   m_Name: Deathadder (Sniper)
   m_EditorClassIdentifier: 
-  turretName: Deathadder Turret
+  turretName: Deathadder
   description: A sniper turret that deals high damage and medium knockback power.
   artworks: {fileID: 2694833132498758970, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
   minDamage: 0f0000001400000019000000
@@ -34,5 +34,4 @@ MonoBehaviour:
   knockBack: 0.2
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}
   upgradeCost: f000000022010000
-  isUnlocked: 0
   buyStarValue: 2

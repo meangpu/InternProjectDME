@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f6b489719bf4e48beaad6c6662ea2d, type: 3}
   m_Name: Rabbit (Machine Gun)
   m_EditorClassIdentifier: 
-  turretName: Rabbit Turret
+  turretName: Rabbit
   description: This turret deals very little damage but has high rate of fire and
     ammo count.
   artworks: {fileID: -7723941866064803920, guid: cfa2ffd94a4e63f4aa9cc4bb975c2225, type: 3}
@@ -35,5 +35,4 @@ MonoBehaviour:
   knockBack: 0
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}
   upgradeCost: dc0000000e010000
-  isUnlocked: 0
   buyStarValue: 2
