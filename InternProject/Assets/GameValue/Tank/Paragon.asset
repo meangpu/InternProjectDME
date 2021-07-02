@@ -36,5 +36,4 @@ MonoBehaviour:
   - 3
   - 3
   upgradeCost: 1801000045010000
-  isUnlocked: 0
-  buyStarValue: 6
+  buyStarValue: 2

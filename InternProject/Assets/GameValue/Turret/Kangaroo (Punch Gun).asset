@@ -36,5 +36,5 @@ MonoBehaviour:
   knockBack: 0.4
   bulletType: {fileID: 11400000, guid: 146a03d0da350c54e84f4da5759c3d20, type: 2}
   upgradeCost: e600000018010000
-  buyStarValue: 2
+  buyStarValue: 3
   videoPreview: {fileID: 32900000, guid: 66b051c902687f645b4c664d2dfe4f05, type: 3}
