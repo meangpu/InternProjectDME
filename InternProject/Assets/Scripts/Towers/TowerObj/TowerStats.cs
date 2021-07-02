@@ -53,7 +53,7 @@ public class TowerStats : MonoBehaviour
         bulletSpeed = tower.GetProjectileSpeed();
         bulletLifetime = tower.GetProjectileLifeTime();
         bulletSprite = tower.GetProjectileSprite();
-        price = tower.GetUpgradeCost()[towerLevel];
+        price = tower.GetUpgradeCost()[towerLevel+1];
         areaOfDamage = tower.GetAreaOfDamage();
         isLaserType = tower.GetIsLaserType();
         RefreshTowerVisualRange();
