@@ -25,5 +25,4 @@ MonoBehaviour:
   percentage: 50
   comboList: []
   comboValue: 0
-  isUnlocked: 0
-  buyStarValue: 0
+  buyStarValue: 1

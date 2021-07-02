@@ -27,5 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da9508ff017c45e4a84251c60ee5f243, type: 2}
   - {fileID: 11400000, guid: 23fc5d59e16ee1d4e9948fd55fdb5cde, type: 2}
   comboValue: 4
-  isUnlocked: 1
-  buyStarValue: 1
+  buyStarValue: 3
