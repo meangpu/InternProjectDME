@@ -8,6 +8,7 @@ public class Collectible : MonoBehaviour
     [SerializeField] private ObjCollectible[] collectibles = null;
     [SerializeField] bool LockSpawn;
     [SerializeField] PowerType lockType;
+    [SerializeField] private ObjSound sound = null;
 
     private ObjCollectible collectible;
     private CollectibleType collectibleType;
@@ -87,6 +88,7 @@ public class Collectible : MonoBehaviour
                 break;
         }
 
+        PoolingSingleton.Instance.AudioSourcePool.SpawnAudioSource(transform.position, transform.rotation, sound);
         DestroySelf();
     }
 }

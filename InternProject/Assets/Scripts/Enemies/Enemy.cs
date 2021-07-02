@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
 
     [SerializeField] bool Immortal = false;
     [SerializeField] bool MenuImmortal = false;
+    [SerializeField] private bool isDummy = false;
 
     [SerializeField] private ObjSound humanDeath = null;
     [SerializeField] private ObjSound machineDeath = null;
@@ -221,7 +222,9 @@ public class Enemy : MonoBehaviour, ITargetable, IEnemy
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
+        if (isDummy) { return; }
+
         if (!enemyDisplay.IsPassive) { return; }
 
         if (collision.gameObject.TryGetComponent(out IOwnedByPlayer player))

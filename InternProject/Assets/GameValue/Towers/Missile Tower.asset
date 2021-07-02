@@ -26,5 +26,5 @@ MonoBehaviour:
   projectileLifetime: 0.8
   projectileSpeed: 10
   areaOfDamage: 1.4
-  upgradeCost: 78000000b400000004010000
+  upgradeCost: a0000000f00000002c010000
   laserType: 0

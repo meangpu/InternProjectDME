@@ -32,7 +32,6 @@ public class TankChildSetup : MonoBehaviour
         
         if (starManager.Instance.allUnlockItem.GetUnlockedTanksList().Contains(dataTank))
         {
-            Debug.Log(dataTank.GetName());
             LockPanel.SetActive(false);
         }
         else

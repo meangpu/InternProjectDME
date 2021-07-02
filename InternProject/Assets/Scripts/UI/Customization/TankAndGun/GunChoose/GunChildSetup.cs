@@ -34,7 +34,6 @@ public class GunChildSetup : MonoBehaviour
 
         if (starManager.Instance.allUnlockItem.GetUnlockedTurretsList().Contains(gunData))
         {
-            Debug.Log(gunData.GetName());
             LockPanel.SetActive(false);
         }
         else
