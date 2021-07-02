@@ -955,6 +955,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 546cb2289b522234eaad39c0dc621530, type: 2}
   - {fileID: 11400000, guid: d3c9b23f16193024e8cdbf79742884a2, type: 2}
   - {fileID: 11400000, guid: 8fb0dd4a2063ace4aa9dd1cc2660e4a9, type: 2}
+  - {fileID: 11400000, guid: 42f6833541e80e347abecae312a95df2, type: 2}
+  - {fileID: 11400000, guid: 8fb0dd4a2063ace4aa9dd1cc2660e4a9, type: 2}
   folderName: level_progression
   filename: leveldata
 --- !u!4 &78789852
