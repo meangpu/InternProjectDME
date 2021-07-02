@@ -226,6 +226,7 @@ public class GameManager : MonoBehaviour
         levelData.SetCurrentStars(stars);
         saveStars.SaveGame(levelData);
         UnlockLevels(levelData);
+        saveStars.SaveTotalStars();
 
         winPanel.SetActive(true);
         StopGame();
