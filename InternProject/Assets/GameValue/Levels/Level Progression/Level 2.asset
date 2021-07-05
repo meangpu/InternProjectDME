@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   currentStars: 0
-  levelUnlocked: 1
+  levelUnlocked: 0
