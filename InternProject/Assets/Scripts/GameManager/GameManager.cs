@@ -191,9 +191,12 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        EnableAllControls();
+
         switch (isBuying)
         {
             case true:
+                playerControls.Tank.Disable();
                 break;
             case false:
                 cursorController.ChangeCursorToCrosshair();
@@ -204,7 +207,6 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         pausePanel.SetActive(false);
         settingPanel.SetActive(false);
-        EnableAllControls();
     }
 
     public void RestartLevel()
